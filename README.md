@@ -14,13 +14,9 @@ git clone git@github.com:weso/lp-drupal.git portal
 ```
 vagrant ssh
 ```
-3.- Navigate to repo folder <br/>
 
-```
-cd /vagrant/portal
-```
 4.- Run installation script <br/>
 
 ```
-. drupal-setup.sh
+. /vagrant/portal/scripts/drupal-setup.sh
 ```
