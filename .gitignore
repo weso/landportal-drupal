@@ -6,6 +6,7 @@ cache/
 files/
 sites/*/files
 sites/*/private
+*~
 
 # Ignore default text files
 .htaccess
