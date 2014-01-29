@@ -4,19 +4,22 @@ landportal-drupal
 ###LandPortal Drupal codebase
 
 ### Setup Instructions
-1.- Clone this repo in lp-setup environment as "portal" <br/>
-
+1.- Clone this repo in lp-setup environment as "portal_tmp"</br>
 ```
-git clone git@github.com:weso/lp-drupal.git portal
-```
-2.- Access vagrant environment by ssh <br/>
-
-```
-vagrant ssh
+git clone --no-checkout https://github.com/weso/lp-drupal.git portal_tmp
 ```
 
-4.- Run installation script <br/>
-
+2.- Move the '.git' file to the current Drupal installation</br>
 ```
-. /vagrant/portal/scripts/drupal-setup.sh
+mv portal_tmp/.git portal/
+```
+
+3.- Delete the "portal_tmp" directory</br>
+```
+rmdir portal_tmp/
+```
+
+4.- Get the custom features into the current Drupal installation</br>
+```
+git reset --hard HEAD
 ```
