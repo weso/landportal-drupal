@@ -4,22 +4,20 @@ landportal-drupal
 ###LandPortal Drupal codebase
 
 ### Setup Instructions
-1.- Clone this repo in lp-setup environment as "portal_tmp"</br>
-```
-git clone --no-checkout https://github.com/weso/lp-drupal.git portal_tmp
-```
+1.- Clone this repo in lp-setup environment as "portal_tmp"
 
-2.- Move the '.git' file to the current Drupal installation</br>
-```
-mv portal_tmp/.git portal/
-```
+    git clone --no-checkout https://github.com/weso/lp-drupal.git portal_tmp
 
-3.- Delete the "portal_tmp" directory</br>
-```
-rmdir portal_tmp/
-```
+2.- Move the ".git" file to the current Drupal installation
 
-4.- Get the custom features into the current Drupal installation</br>
-```
-git reset --hard HEAD
-```
+    mv portal_tmp/.git portal/
+
+3.- Delete the "portal_tmp" directory 
+
+    rmdir portal_tmp/
+
+4.- Get the custom features into the current Drupal installation
+
+    cd portal
+    git reset --hard HEAD
+
