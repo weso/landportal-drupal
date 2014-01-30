@@ -4,9 +4,9 @@ landportal-drupal
 ###LandPortal Drupal codebase
 
 ### Setup Instructions
-1.- Clone this repo in lp-setup environment as "portal_tmp"</br>
+1.- Clone this repo in landportal-setup environment as "portal_tmp"</br>
 ```
-git clone --no-checkout https://github.com/weso/lp-drupal.git portal_tmp
+git clone --no-checkout https://github.com/weso/landportal-drupal.git portal_tmp
 ```
 
 2.- Move the '.git' file to the current Drupal installation</br>
