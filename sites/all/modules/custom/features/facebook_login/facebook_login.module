@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Facebook login feature.
+ */
+
+include_once 'facebook_login.features.inc';
