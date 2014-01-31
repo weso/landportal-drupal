@@ -35,3 +35,7 @@ xmlrpc.php
 /profiles
 /scripts
 /themes
+
+# Ignore installed modules (except custom features)
+sites/all/modules/*
+!sites/all/modules/custom
