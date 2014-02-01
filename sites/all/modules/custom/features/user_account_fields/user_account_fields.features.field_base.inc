@@ -10,13 +10,13 @@
 function user_account_fields_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_first_name'
-  $field_bases['field_first_name'] = array(
+  // Exported field_base: 'field_firstname'
+  $field_bases['field_firstname'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_first_name',
+    'field_name' => 'field_firstname',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -39,13 +39,13 @@ function user_account_fields_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_last_name'
-  $field_bases['field_last_name'] = array(
+  // Exported field_base: 'field_lastname'
+  $field_bases['field_lastname'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_last_name',
+    'field_name' => 'field_lastname',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
