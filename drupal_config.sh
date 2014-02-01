@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
-# Enable the features module
-drush en features -y
+# Enable the following modules
+drush en -y features
+drush en -y logintoboggan
 
-# Download the Oauth module
-drush dl oauth -y
+# Download the following modules
+drush dl -y oauth
 
 # Enable the custom features
 drush en user_account_fields -y
