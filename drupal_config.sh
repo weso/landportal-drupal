@@ -2,6 +2,7 @@
 # Enable the following modules
 drush en -y features
 drush en -y logintoboggan
+drush en -y libraries
 
 # Dowload the following modules
 drush dl -y oauth
