@@ -1,0 +1,4 @@
+name = Custom Theme
+description = Mustache test theme
+core = 7.x
+engine = phptemplate
