@@ -3,6 +3,8 @@
 drush en -y features
 drush en -y logintoboggan
 drush en -y libraries
+drush en -y services
+drush en -y xmlrpc_server
 
 # Dowload the following modules
 drush dl -y oauth
