@@ -1,0 +1,41 @@
+<?php
+
+function ckan_services_services_resources() {
+ $session_resource = array(
+    'session' => array(
+      'operations' => array(
+        'retrieve' => array(
+          'callback' => 'ckan_services_session_get',
+          'args' => array(
+            array(
+              'name' => 'sid',
+              'optional' => FALSE,
+              'source' => array('data' => 'sid'),
+              'type' => 'string',
+              'description' => 'Session ID',
+            ),
+          ),
+          'access callback' => 'ckan_services_session_access',
+        ),
+      ),
+    ),
+  );
+  return $session_resource;
+}
+
+function ckan_services_session_get($sid = null) {
+  global $user;
+  if (!$sid) {
+    $sid = $user->sid;
+  }
+
+  return db_select('sessions', 's')
+    ->fields('s', array('uid'))
+    ->condition('sid', $sid)
+    ->execute()
+    ->fetchField();
+}
+
+function ckan_services_session_access() {
+	return TRUE;
+}
