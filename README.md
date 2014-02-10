@@ -30,7 +30,8 @@ landportal-drupal
 
 2. Run the configuration script
 
-        /var/www/portal/drupal_config.sh
+        cd /var/www/portal
+        ./drupal_config.sh
 
 
 
