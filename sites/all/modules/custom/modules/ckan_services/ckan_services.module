@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Implements hook_services_resources().
+ */
 function ckan_services_services_resources() {
  $session_resource = array(
     'session' => array(
@@ -15,7 +18,7 @@ function ckan_services_services_resources() {
               'description' => 'Session ID',
             ),
           ),
-          'access callback' => 'ckan_services_session_access',
+          'access callback' => 'ckan_services_access',
         ),
       ),
     ),
@@ -23,6 +26,11 @@ function ckan_services_services_resources() {
   return $session_resource;
 }
 
+/**
+ * Gets an User ID from a Session ID
+ *
+ * @param $sid Session ID
+ */
 function ckan_services_session_get($sid = null) {
   global $user;
   if (!$sid) {
@@ -36,6 +44,9 @@ function ckan_services_session_get($sid = null) {
     ->fetchField();
 }
 
-function ckan_services_session_access() {
+/**
+ * Allows anonymous users
+ */
+function ckan_services_access() {
 	return TRUE;
 }

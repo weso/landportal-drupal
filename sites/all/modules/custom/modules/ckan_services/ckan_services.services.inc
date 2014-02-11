@@ -7,7 +7,7 @@
 /**
  * Implements hook_default_services_endpoint().
  */
-function dgu_services_default_services_endpoint() {
+function ckan_services_default_services_endpoint() {
   $export = array();
   
   $endpoint = new stdClass();
@@ -26,7 +26,7 @@ function dgu_services_default_services_endpoint() {
         ),
       ),
     ),
-    'user' => array(
+    'druser' => array(
       'operations' => array(
         'retrieve' => array(
           'enabled' => '1',
