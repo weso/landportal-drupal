@@ -1,3 +1,0 @@
-name = Ckan Services
-description = XMLRPC services to log in with Ckan
-core = 7.x
