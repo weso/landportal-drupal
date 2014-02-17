@@ -14,5 +14,7 @@ drush en -y user_account_fields
 drush en -y facebook_login
 
 # Enable the custom modules
-drush en -y ckan_services
+drush en -y ckan_integration_endpoint
+drush en -y druser_resource
+drush en -y session_resource
 

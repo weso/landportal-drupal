@@ -1,0 +1,5 @@
+name = Session Resource
+description = Session Resource for CKAN integration
+package = CKAN Integration
+dependencies[] = services
+core = 7.x
