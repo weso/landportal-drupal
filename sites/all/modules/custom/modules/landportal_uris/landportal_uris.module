@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * Implements hook_menu()
+ *
+ * Note that the menu hooks are cached in the Drupal database.
+ */
+function landportal_uris_menu() {
+	$items['countries/%'] = array(
+		'title' => 'countries page',
+		'page callback' => '_countries_callback',
+		'access_callback' => TRUE,
+		'page_arguments' => array(1),
+	);
+	return items;
+}
+
+function _countries_callback($country = NULL) {
+	if (is_null($country)) {
+		return 'Countries';
+	} else {
+		return $country;
+	}
+}

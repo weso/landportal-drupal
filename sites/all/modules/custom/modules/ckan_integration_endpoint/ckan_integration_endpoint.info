@@ -2,4 +2,5 @@ name = CKAN Integration Endpoint
 description = Provides an XMLRPC endpoint to integrate CKAN login
 package = CKAN Integration
 dependencies[] = services
+dependencies[] = xmlrpc_server
 core = 7.x
