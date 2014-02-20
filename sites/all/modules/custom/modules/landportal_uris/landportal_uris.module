@@ -1,24 +1,42 @@
 <?php
-
 /**
- * Implements hook_menu()
+ * Implements hook_menu().
  *
  * Note that the menu hooks are cached in the Drupal database.
  */
 function landportal_uris_menu() {
-	$items['countries/%'] = array(
-		'title' => 'countries page',
-		'page callback' => '_countries_callback',
-		'access_callback' => TRUE,
-		'page_arguments' => array(1),
+	$items['countries'] = array(
+		'title' => 'LISTA DE PAISES',
+		'page callback' => '_countries_page',
+		'access callback' => TRUE,
 	);
-	return items;
+	$items['countries/%'] = array(
+		'title' => 'Ver un pais',
+		'page callback' => '_view_country',
+		'page arguments' => array(1),
+		'access callback' => TRUE,
+	);
+
+	return $items;
 }
 
-function _countries_callback($country = NULL) {
-	if (is_null($country)) {
-		return 'Countries';
-	} else {
-		return $country;
-	}
+function _countries_page() {
+	$m_template = 'paises';
+	$m_data = array("planet" => "World!");
+  	return theme('custom', array('mustache_data' => $m_data, 'mustache_template' => $m_template));
+}
+
+function _view_country($country) {
+	$m_template = 'pais';
+	$m_data = array("planet" => $country);
+  	return theme('custom', array('mustache_data' => $m_data, 'mustache_template' => $m_template));
+}
+
+function landportal_uris_theme() {
+	return array(
+		'custom' => array(
+			'variables' => array('mustache_data' => NULL, 'mustache_template' => NULL),
+			'template' => 'custom',
+		),
+	);
 }
