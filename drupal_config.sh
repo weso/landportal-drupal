@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 # Enable the following contrib modules
-drush en -y features
+#drush dl -y features
+#drush en -y features
+drush dl -y logintoboggan
 drush en -y logintoboggan
+drush dl -y libraries
 drush en -y libraries
-drush en -y services
-drush en -y xmlrpc_server
+#drush dl -y services
+#drush en -y services
+#drush dl -y xmlrpc_server
+#drush en -y xmlrpc_server
 
 # Dowload the following contrib modules
 drush dl -y oauth
