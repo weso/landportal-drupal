@@ -19,13 +19,11 @@ install:
 
 before_script:
   - "mysql -e 'create database drupal;'"
-  - pear channel-discover pear.drush.org
-  - pear install drush/drush
-  - phpenv rehash
-  - drush make vih_dk.build ../vih.dk
-  - cd ../vih.dk
   - sudo chmod -R 777 sites/all/modules
-  - drush si vih_dk --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=VIH@2012 --site-mail=admin@example.com --site-name="vih.dk" --yes
+  - drush -y site-install standard --db-url=mysql://root:@localhost/drupal --site-name="landportal" --account-name=admin --account-pass=admin
   - drush cc all --yes
+  - drush en -y unit_testing
+  - drush runserver 127.0.0.1:8080 &
+  - until netstat -an 2>/dev/null | grep '8080.*LISTEN'; do true; done
 
 script: drush test-run 'Example Tests' --uri=http://127.0.0.1:8080
