@@ -16,6 +16,9 @@ install:
   - phpenv rehash
 
 before-script:
+  - cd ..
+  - pwd
+
   # create new site, stubbing sendmail path with true to prevent delivery errors and manually resolving drush path
   - mysql -e 'create database drupal'
   - php -d sendmail_path=`which true` `pear config-get php_dir`/drush/drush.php --yes core-quick-drupal --profile=testing --no-server --db-url=mysql://root:@127.0.0.1/landportal_drupal --enable=simpletest drupal
