@@ -1,0 +1,8 @@
+name = Unit Testing Module
+description = Module preview to test Travis-CI configuration
+package = Testing
+php = 5.3
+core = 7.x
+
+files[] = test/example_unit_test.test
+files[] = test/example_web_test.test

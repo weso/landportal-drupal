@@ -1,0 +1,18 @@
+<?php
+
+class ExampleWebTestCase extends DrupalWebTestCase {
+	public static function getInfo() {
+		return array(
+			'name' => 'Example Web Test Case',
+			'group' => 'Example Tests',
+		);
+	}
+
+	public function testAssertTrue() {
+		$this->assert(true);
+	}
+
+	public function testDrupalGet() {
+		$this->drupalGet('node');
+	}
+}

@@ -1,0 +1,31 @@
+language: php
+
+php:
+  - 5.3
+
+before-install:
+  - sudo apt-get update > /dev/null
+
+install:
+  # Install required php packages
+  - sudo apt-get install -y --force-yes php5-cgi php5-mysql
+
+  # Install drush
+  - pear channel-discover pear.drush.org
+  - pear install drush/drush
+  - phpenv rehash
+
+before-script:
+  # create new site, stubbing sendmail path with true to prevent delivery errors and manually resolving drush path
+  - mysql -e 'create database drupal'
+  - php -d sendmail_path=`which true` `pear config-get php_dir`/drush/drush.php --yes core-quick-drupal --profile=testing --no-server --db-url=mysql://root:@127.0.0.1/landportal_drupal --enable=simpletest drupal
+
+  # reference and enable travis_ci_drupal_module_example in build site
+  - cd travis_ci_drupal_module_example_test/drupal
+  - drush en -y unit_testing
+
+  # start a web server on port 8080, run in the background; wait for initialization
+  - drush runserver 127.0.0.1:8080 &
+  - until netstat -an 2>/dev/null | grep '8080.*LISTEN'; do true; done
+
+script: drush test-run 'Travis-CI Drupal Module Example' --uri=http://127.0.0.1:8080
