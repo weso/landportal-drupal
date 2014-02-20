@@ -1,3 +1,5 @@
+language: php
+
 php:
   - 5.3
 
@@ -5,6 +7,15 @@ mysql:
   database: drupal
   username: root
   encoding: utf8
+
+install:
+  # Install required php packages
+  - sudo apt-get install -y --force-yes php5-cgi php5-mysql
+
+  # Install drush
+  - pear channel-discover pear.drush.org
+  - pear install drush/drush
+  - phpenv rehash
 
 before_script:
   - "mysql -e 'create database drupal;'"
@@ -17,4 +28,4 @@ before_script:
   - drush si vih_dk --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=VIH@2012 --site-mail=admin@example.com --site-name="vih.dk" --yes
   - drush cc all --yes
 
-script: drush test-run 'Travis-CI Drupal Module Example' --uri=http://127.0.0.1:8080
+script: drush test-run 'Example Tests' --uri=http://127.0.0.1:8080
