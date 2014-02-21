@@ -1,0 +1,16 @@
+{
+	"routes": [
+		{
+			"path": "countries",
+		 	"name": "countries",
+		 	"title": "Country list",
+		 	"params": []
+		},
+		{
+			"path": "countries/%",
+		 	"name": "country",
+		 	"title": "Country",
+		 	"params": [1]
+		}
+	]
+}

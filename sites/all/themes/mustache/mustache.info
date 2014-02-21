@@ -1,0 +1,4 @@
+name = Mustache
+description = A theme made with Mustache
+core = 7.x
+engine = phptemplate
