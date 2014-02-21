@@ -5,38 +5,77 @@
  * Note that the menu hooks are cached in the Drupal database.
  */
 function landportal_uris_menu() {
-	$items['countries'] = array(
+	/*
+	$items2['countries'] = array(
 		'title' => 'LISTA DE PAISES',
 		'page callback' => '_countries_page',
 		'access callback' => TRUE,
 	);
-	$items['countries/%'] = array(
+	$items2['countries/%'] = array(
 		'title' => 'Ver un pais',
 		'page callback' => '_view_country',
 		'page arguments' => array(1),
 		'access callback' => TRUE,
-	);
+	);*/
 
+	$routes = file_get_contents(drupal_get_path('module', 'landportal_uris').'/routes.json');
+	$routes = json_decode($routes, true);
+
+	$items = array();
+	foreach ($routes['routes'] as $route) {
+		$item = array();
+		$item['title'] = $route['title'];
+		$num_params = count($route['params']);
+		$item['page callback'] = '_route_callback_' . $num_params;
+		$params = array(
+			$route['name']
+		);
+		foreach ($route['params'] as $param) {
+			array_push($params, $param);
+		}
+		$item['page arguments'] = $params;
+		$item['access callback'] = TRUE;
+
+		$items[$route['path']] = $item;
+	}
 	return $items;
 }
 
+function _route_callback_0($name) {
+	$m_template = $name;
+	$m_data = $params;
+	return theme('mustache', array('mustache_template' => $m_template, 'mustache_data' => $m_data));
+}
+
+function _route_callback_1($name, $param1) {
+	$m_template = $name;
+	include drupal_get_path('module', 'landportal_uris') . '/model/' . $name . '.php';
+	$r = new ReflectionClass(ucfirst($name)); // Mayuscula la primera
+	$model = $r->newInstanceArgs();
+
+	//$m_data = array('param1' => $param1);
+	$m_data = $model->get($param1);
+	return theme('mustache', array('mustache_template' => $m_template, 'mustache_data' => $m_data));
+}
+
+/*
 function _countries_page() {
-	$m_template = 'paises';
-	$m_data = array("planet" => "World!");
-  	return theme('custom', array('mustache_data' => $m_data, 'mustache_template' => $m_template));
+	return theme('paises');
 }
 
 function _view_country($country) {
-	$m_template = 'pais';
-	$m_data = array("planet" => $country);
-  	return theme('custom', array('mustache_data' => $m_data, 'mustache_template' => $m_template));
+	$m_data = array();
+	$m_data['pais'] = $country;
+	return theme('pais', array('mustache_data' => $m_data));
 }
 
+*/
 function landportal_uris_theme() {
 	return array(
-		'custom' => array(
+		'mustache' => array(
 			'variables' => array('mustache_data' => NULL, 'mustache_template' => NULL),
-			'template' => 'custom',
+			'template' => 'page',
+			'path' => drupal_get_path('theme', 'mustache'),
 		),
 	);
 }
