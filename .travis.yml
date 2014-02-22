@@ -30,8 +30,7 @@ before_script:
   - php -d sendmail_path=`which true` `pear config-get php_dir`/drush/drush.php --yes core-quick-drupal --profile=testing --no-server --db-url=mysql://root:@127.0.0.1/landportal_drupal_test --enable=simpletest landportal_drupal_test
 
   # reference and enable unit_testing in build site
-  - rm -rf landportal_drupal_test/drupal/sites
-  - ln -s weso/landportal/drupal/sites landportal_drupal_test/drupal/sites
+  - ln -s weso/landportal/drupal/sites/all/custom/modules landportal_drupal_test/drupal/sites/all/custom/modules
   - cd landportal_drupal_test/drupal
   - drush --yes pm-enable unit_testing
 
