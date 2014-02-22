@@ -4,7 +4,7 @@ php:
   - 5.3
 
 mysql:
-  database: landportal-drupal-test
+  database: landportal_drupal_test
   username: root
   encoding: utf8
 
@@ -23,14 +23,15 @@ install:
 before_script:
   # navigate out of module directory to prevent blown stack by recursive module lookup
   - cd ../..
+  - pwd
 
   # create new site, stubbing sendmail path with true to prevent delivery errors and manually resolving drush path
-  - mysql -e 'create database landportal-drupal-test'
-  - php -d sendmail_path=`which true` `pear config-get php_dir`/drush/drush.php --yes core-quick-drupal --profile=testing --no-server --db-url=mysql://root:@127.0.0.1/landportal-drupal-test --enable=simpletest landportal-drupal-test
+  - mysql -e 'create database landportal_drupal_test'
+  - php -d sendmail_path=`which true` `pear config-get php_dir`/drush/drush.php --yes core-quick-drupal --profile=testing --no-server --db-url=mysql://root:@127.0.0.1/landportal_drupal_test --enable=simpletest landportal_drupal_test
 
   # reference and enable unit_testing in build site
-  - ln -s $(readlink -e $(cd -))/sites landportal-drupal-test/drupal/sites
-  - cd landportal-drupal-test/drupal
+  - ln -s $(readlink -e $(cd -))/sites landportal_drupal_test/drupal/sites
+  - cd landportal_drupal_test/drupal
   - drush --yes pm-enable unit_testing
 
   # start a web server on port 8080, run in the background; wait for initialization
