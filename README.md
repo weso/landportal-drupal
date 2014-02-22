@@ -2,6 +2,7 @@ landportal-drupal
 =================
 
 ## LandPortal Drupal codebase
+[![Build Status](https://travis-ci.org/weso/landportal-drupal.png)](https://travis-ci.org/weso/landportal-drupal)
 
 ### Setup Instructions
 
