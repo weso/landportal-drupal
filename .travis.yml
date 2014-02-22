@@ -21,9 +21,8 @@ install:
   - phpenv rehash
 
 before_script:
-  # navigate out of module directory to prevent blown stack by recursive module lookup
+  # navigate to the /home/travis/build directory
   - cd ../..
-  - pwd
 
   # create new site, stubbing sendmail path with true to prevent delivery errors and manually resolving drush path
   - mysql -e 'create database landportal_drupal_test'
