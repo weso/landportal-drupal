@@ -4,25 +4,36 @@ php:
   - 5.3
 
 mysql:
-  database: drupal
+  database: landportal-drupal-test
   username: root
   encoding: utf8
 
+before_install:
+  - sudo apt-get update > /dev/null
+
 install:
-  # Install required php packages
+  # install php packages required for running a web server from drush on php 5.3
   - sudo apt-get install -y --force-yes php5-cgi php5-mysql
 
-  # Install drush
+  # install drush
   - pear channel-discover pear.drush.org
-  - pear install drush/drush
+  - pear install drush/drush-5.8.0
   - phpenv rehash
 
 before_script:
-  - "mysql -e 'create database drupal;'"
-  - sudo chmod -R 777 sites/all/modules
-  - drush -y site-install standard --db-url=mysql://root:@localhost/drupal --site-name="landportal" --account-name=admin --account-pass=admin
-  - drush cc all --yes
-  - drush en -y unit_testing
+  # navigate out of module directory to prevent blown stack by recursive module lookup
+  - cd ../..
+
+  # create new site, stubbing sendmail path with true to prevent delivery errors and manually resolving drush path
+  - mysql -e 'create database landportal-drupal-test'
+  - php -d sendmail_path=`which true` `pear config-get php_dir`/drush/drush.php --yes core-quick-drupal --profile=testing --no-server --db-url=mysql://root:@127.0.0.1/landportal-drupal-test --enable=simpletest landportal-drupal-test
+
+  # reference and enable unit_testing in build site
+  - ln -s $(readlink -e $(cd -))/sites landportal-drupal-test/drupal/sites
+  - cd landportal-drupal-test/drupal
+  - drush --yes pm-enable unit_testing
+
+  # start a web server on port 8080, run in the background; wait for initialization
   - drush runserver 127.0.0.1:8080 &
   - until netstat -an 2>/dev/null | grep '8080.*LISTEN'; do true; done
 
