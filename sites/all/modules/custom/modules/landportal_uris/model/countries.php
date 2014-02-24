@@ -2,7 +2,7 @@
 
 class Countries {
 	
-	public function get($params) {
+	public function get() {
 		return array();
 	}
 }
