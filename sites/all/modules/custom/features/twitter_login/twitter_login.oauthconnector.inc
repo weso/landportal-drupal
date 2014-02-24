@@ -32,14 +32,14 @@ function twitter_login_default_oauthconnector_provider() {
         'method post' => 0,
         'field' => 'id',
         'querypath' => FALSE,
-        'sync_with_field' => '',
+        'sync_with_field' => 'name',
       ),
       'name' => array(
         'resource' => 'https://api.twitter.com/1.1/account/verify_credentials.json',
         'method post' => 0,
         'field' => 'name',
         'querypath' => FALSE,
-        'sync_with_field' => 'name',
+        'sync_with_field' => 'field_firstname',
       ),
       'avatar' => array(
         'resource' => 'https://api.twitter.com/1.1/account/verify_credentials.json',
