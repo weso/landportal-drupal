@@ -1,9 +1,7 @@
-name = Facebook login
-description = Login to LandPortal using a Facebook account
+name = Facebook Login
+description = Log into Landportal using your Facebook account
 core = 7.x
-package = oauth
-version = 7.x-1.0
-project = facebook_login
+package = Landportal Oauth
 dependencies[] = connector
 dependencies[] = ctools
 dependencies[] = features
