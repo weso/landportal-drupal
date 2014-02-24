@@ -1,0 +1,12 @@
+name = Twitter Login
+description = Log into Landportal using your Twitter account
+core = 7.x
+package = Landportal Oauth
+dependencies[] = connector
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = oauthconnector
+features[ctools][] = oauthconnector:oauthconnector:1
+features[features_api][] = api:2
+features[oauthconnector_provider][] = twitter
+features[user_permission][] = connect with oauthconnector_twitter
