@@ -1,0 +1,26 @@
+<?php
+/**
+ * Test the functionality of the CKAN Integration Endpoint
+ */
+class CkanEndpointTestCase extends DrupalWebTestCase {
+	
+	public static function getInfo() {
+		return array(
+			'name' => 'CKAN Endpoint Test Case',
+			'description' => 'Check if the XMLRPC endpoint is being created',
+			'group' => 'Landportal-Tests',
+		);
+	}
+
+	public function setUp() {
+		//Enable the module (dependencies are auto-enabled since Drupal 7)
+		parent::setUp(array('ckan_integration_endpoint'));
+	}
+
+	public function testEndpointCreated() {
+		// Open the endpoint path
+		$this->drupalGet('services/xmlrpc');
+		// Check if the returned page is OK
+		$this->drupalGetcontent('XML-RPC server accepts POST requests only.');
+	}
+}

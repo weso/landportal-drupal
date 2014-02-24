@@ -4,3 +4,4 @@ package = Landportal CKAN Integration
 core = 7.x
 dependencies[] = services
 dependencies[] = xmlrpc_server
+files[] = ckan_integration_endpoint.test
