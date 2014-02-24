@@ -11,6 +11,7 @@ drush dl -y oauth
 # Enable the custom features
 drush en -y user_account_fields
 drush en -y facebook_login
+drush en -y twitter_login
 
 # Enable the Landportal CKAN Integration modules
 drush en -y ckan_integration_endpoint
