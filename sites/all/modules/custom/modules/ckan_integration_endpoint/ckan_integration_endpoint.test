@@ -24,8 +24,9 @@ class CkanEndpointTestCase extends DrupalWebTestCase {
 	 * Send a GET request to the endpoint and check the result.
 	 */
 	public function testEndpointGet() {
-		$this->drupalGet('services/xmlrpc');
-		$this->drupalGetcontent('XML-RPC server accepts POST requests only.');
+		$response = $this->drupalGet($this->_get_xmlrpc_url());
+		$expected = 'XML-RPC server accepts POST requests only.';
+		$this->assertEqual($response, $expected);
 	}
 
 	/**
