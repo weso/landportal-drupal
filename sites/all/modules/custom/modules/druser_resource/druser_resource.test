@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * Test the functionality of the DRuser Resource
+ */
+class DruserResourceTestCase extends DrupalWebTestCase {
+
+	public static function getInfo() {
+		return array(
+			'name' => 'Druser Resource Test Case',
+			'description' => 'Check the functionality of the Druser Resource',
+			'group' => 'Landportal-Tests',
+		);
+	}
+
+	/**
+	 * Enable the required module.
+	 * Since Drupal 7 dependencies are auto-enabled.
+   */
+	public function setUp() {
+		parent::setUp(array('druser_resource'));
+	}
+
+	/**
+	 * Checks if the retrieve method is working properly without create any user
+	 */
+	public function testRetrieveEmpty() {
+		// Using the standard user reource will not work because it requires authentication
+		$resp = xmlrpc($this->_get_xmlrpc_url(), array('user.retrieve' => array(1)));
+		$this->assertFalse($resp);
+		// Using the druser resource will return a user (the admin always exists)
+		$resp = xmlrpc($this->_get_xmlrpc_url(), array('druser.retrieve' => array(1)));
+		$this->assertTrue(is_array($resp));
+		$this->assertTrue(!empty($resp));
+		// The response will be empty since we have not created any user
+		$resp = xmlrpc($this->_get_xmlrpc_url(), array('druser.retrieve' => array(2)));
+		$this->assertFalse($resp);
+	}
+
+	/**
+	 * Checks if the retrieve method is working properly without create any user
+	 */
+	public function testRetrieveWithUser() {
+		$user = $this->drupalCreateUser();
+		// Using the standard user reource will not work because it requires authentication
+		$resp = xmlrpc($this->_get_xmlrpc_url(), array('user.retrieve' => array($user->uid)));
+		$this->assertFalse($resp);
+		// The druser module bypasses the required authentication
+		$resp = xmlrpc($this->_get_xmlrpc_url(), array('druser.retrieve' => array($user->uid)));
+		$this->assertTrue(is_array($resp));
+		$this->assertTrue(!empty($resp));
+		$this->assertTrue($resp['uid'] == $user->uid);
+	}
+
+	public function _get_xmlrpc_url() {
+		return url(NULL, array('absolute' => TRUE)) . 'services/xmlrpc';
+	}
+}
