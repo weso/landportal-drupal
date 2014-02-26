@@ -33,7 +33,7 @@ function landportal_uris_theme() {
 	return array(
 		'mustache' => array(
 			'variables' => array('mustache_data' => NULL, 'mustache_template' => NULL),
-			'template' => 'page',
+			'template' => 'custom',
 			'path' => drupal_get_path('theme', 'mustache'),
 		),
 	);
