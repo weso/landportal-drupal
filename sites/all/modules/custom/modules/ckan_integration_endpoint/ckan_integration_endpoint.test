@@ -1,0 +1,57 @@
+<?php
+/**
+ * Test the functionality of the CKAN Integration Endpoint
+ */
+class CkanEndpointTestCase extends DrupalWebTestCase {
+
+	public static function getInfo() {
+		return array(
+			'name' => 'CKAN Endpoint Test Case',
+			'description' => 'Check if the XMLRPC endpoint is being created',
+			'group' => 'Landportal-Tests',
+		);
+	}
+
+	/**
+	 * Enable the required module.
+	 * Since Drupal 7 dependencies are auto-enabled.
+   */
+	public function setUp() {
+		parent::setUp(array('ckan_integration_endpoint'));
+	}
+
+	/**
+	 * Send a GET request to the endpoint and check the result.
+	 */
+	public function testEndpointGet() {
+		$response = $this->drupalGet($this->_get_xmlrpc_url());
+		$expected = 'XML-RPC server accepts POST requests only.';
+		$this->assertEqual($response, $expected);
+	}
+
+	/**
+	 * Send a POST request to the endpoint and check the result.
+	 * The XMLRPCmethod call used in the test is provided by the 'Services' module.
+	 */
+	public function testEndpointPost() {
+		$node = $this->drupalCreateNode();
+		$response = xmlrpc($this->_get_xmlrpc_url(), array('node.index' => array()));
+		$this->assertTrue(is_array($response));
+		$this->assertTrue(!empty($response));
+	}
+
+	/**
+	 * Send a POST request to the endpoint and check the result.
+	 * The request should return an empty array, since we have not created any node
+	 */
+	public function testEndpointPost2() {
+		$response = xmlrpc($this->_get_xmlrpc_url(), array('node.index' => array()));
+		$this->assertTrue(is_array($response));
+		$this->assertTrue(empty($response));
+	}
+
+	public function _get_xmlrpc_url() {
+		return url(NULL, array('absolute' => TRUE)) . 'services/xmlrpc';
+	}
+
+}
