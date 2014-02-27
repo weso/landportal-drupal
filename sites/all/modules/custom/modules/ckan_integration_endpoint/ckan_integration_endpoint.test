@@ -35,9 +35,9 @@ class CkanEndpointTestCase extends DrupalWebTestCase {
 	 */
 	public function testEndpointPost() {
 		$node = $this->drupalCreateNode();
-    $response = xmlrpc($this->_get_xmlrpc_url(), array('node.index' => array()));
-    $this->assertTrue(is_array($response));
-    $this->assertTrue(!empty($response));
+		$response = xmlrpc($this->_get_xmlrpc_url(), array('node.index' => array()));
+		$this->assertTrue(is_array($response));
+		$this->assertTrue(!empty($response));
 	}
 
 	/**
@@ -45,9 +45,9 @@ class CkanEndpointTestCase extends DrupalWebTestCase {
 	 * The request should return an empty array, since we have not created any node
 	 */
 	public function testEndpointPost2() {
-    $response = xmlrpc($this->_get_xmlrpc_url(), array('node.index' => array()));
-    $this->assertTrue(is_array($response));
-    $this->assertTrue(empty($response));
+		$response = xmlrpc($this->_get_xmlrpc_url(), array('node.index' => array()));
+		$this->assertTrue(is_array($response));
+		$this->assertTrue(empty($response));
 	}
 
 	public function _get_xmlrpc_url() {
