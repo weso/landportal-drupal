@@ -1,0 +1,5 @@
+name = Book Theme for Landportal
+description = Landportal Book theme made using Mustache
+core = 7.x
+engine = phptemplate
+stylesheets[all][] = styles/test.css

@@ -1,5 +1,0 @@
-name = Mustache Theme for Landportal
-description = Landportal theme made using Mustache
-core = 7.x
-engine = phptemplate
-stylesheets[all][] = styles/test.css
