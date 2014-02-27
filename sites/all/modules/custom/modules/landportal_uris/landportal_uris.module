@@ -31,10 +31,10 @@ function landportal_uris_menu() {
 
 function landportal_uris_theme() {
 	return array(
-		'mustache' => array(
+		'book' => array(
 			'variables' => array('mustache_data' => NULL, 'mustache_template' => NULL),
 			'template' => 'custom',
-			'path' => drupal_get_path('theme', 'mustache'),
+			'path' => drupal_get_path('theme', 'book'),
 		),
 	);
 }
@@ -48,14 +48,14 @@ function _route_callback_0($name) {
 	$m_template = $name;
 	$model = _get_model($name);
 	$m_data = $model->get();
-	return theme('mustache', array('mustache_template' => $m_template, 'mustache_data' => $m_data));
+	return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data));
 }
 
 function _route_callback_1($name, $param1) {
 	$m_template = $name;
 	$model = _get_model($name);
 	$m_data = $model->get($param1);
-	return theme('mustache', array('mustache_template' => $m_template, 'mustache_data' => $m_data));
+	return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data));
 }
 
 /*
