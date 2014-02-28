@@ -1,3 +1,64 @@
-<header>
-	<h1>CABECERA 2.0</h1>
+<header class="main-header">
+	<div class="bar">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-7 col-sm-5 logo">
+					<img src="{{path}}/static/images/header/logo.png" class="logo" alt="landportal.info" /> 
+					<span class="site">
+						<span class="separator">
+							<i class="fa fa-ellipsis-v fa"></i>
+						</span>
+						<i class="fa fa-book fa-lg"></i> Land Book
+					</span>
+				</div>
+				<div class="col-xs-5 col-sm-2 header-selectors">
+					<i class="fa fa-user fa-2x login" title="Login"></i>
+					<div class="selected-language">
+						<img src="{{path}}/static/images/header/gb.png" class="flag" alt="Selected language" />
+						<i class="fa fa-caret-down fa-2x language-down" title="Select language"></i>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-5 top-navigation">
+					<ol class="breadcrumb">
+					  <li class="active">Land Book</li>
+					  <li><a href="">Land Debate</a></li>
+					  <li><a href="">Land Library</a></li>
+					  <li><a href="">{{#labels}}{{sitemap}}{{/labels}}</a></li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="hidden-xs col-sm-8 col-md-9 motto">
+				{{#labels}}{{book_motto}}{{/labels}}
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-3">
+				<div class="input-group search">
+					<input type="text" class="form-control" placeholder="{{#labels}}{{search}}{{/labels}}" name="srch-term" id="srch-term">
+					<div class="input-group-btn">
+						<button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+					</div>
+				</div>
+			</div>			
+		</div>
+		<div class="row">
+			<div class="col-sm-12 description">
+				{{#labels}}{{book_description}}{{/labels}}
+			</div>
+		</div>
+	</div>
+	<div class="navigation">
+		<nav class="tabs">
+			<a href="" class="tab1" alt="Go to Home"><span>{{#labels}}{{home}}{{/labels}}</span></a>
+			<a href="" class="tab2" alt="Go to World Regions"><span>{{#labels}}{{world_regions}}{{/labels}}</span></a>
+			<a href="" class="tab3 selected" alt="Go to Countries"><span>{{#labels}}{{countries}}{{/labels}}</span></a>
+			<a href="" class="tab4" alt="Go to Indicators"><span>{{#labels}}{{indicators}}{{/labels}}</span></a>
+			<a href="" class="tab5" alt="Go to Data Catalog"><span>{{#labels}}{{data_catalog}}{{/labels}}</span></a>
+			<a href="" class="tab6" alt="Go to Data Sources"><span>{{#labels}}{{data_sources}}{{/labels}}</span></a>
+			<a href="" class="tab7" alt="Go to Data Widgets"><span>{{#labels}}{{data_widgets}}{{/labels}}</span></a>
+			<a href="" class="tab8" alt="Go to Data Reuse"><span>{{#labels}}{{data_reuse}}{{/labels}}</span></a>
+		</nav>
+	</div>
 </header>

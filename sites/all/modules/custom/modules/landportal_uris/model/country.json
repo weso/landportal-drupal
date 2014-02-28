@@ -1,0 +1,228 @@
+{
+	"info": {
+		"country": "Spain",
+		"continent": "Europe"
+	},
+	"charts": {
+		"main-index-rankings": {
+			"series": [{
+				"name": "First",
+				"values": [2, 4, 5],
+		        "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+		    }],
+		    "values": ["", "", ""]
+	    },
+	    "rural-development": {
+		    "series": [{
+				"name": "First",
+				"values": [2, 4, 5],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}, 
+			{
+				"name": "Second",
+				"values": [3, 2, 4],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}],
+			"values": ["Indicator 1", "Indicator 2", "Indicator 3"]
+		},
+		"employment-agriculture": {
+			"series": [{
+				"name": "France",
+				"values": [6],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Germany",
+				"values": [6],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Belgium",
+				"values": [5],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "United Kingdom",
+				"values": [5],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Italy",
+				"values": [3],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}, 
+			{
+				"name": "Portugal",
+				"values": [3],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Spain",
+				"values": [3],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Ireland",
+				"values": [2],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}],
+			"values": ["Indicator 1", "Indicator 1", "Indicator 1", "Indicator 1", "Indicator 1", "Indicator 1" ,"Indicator 1", "Indicator 1"]
+		},
+		"employment-timeline": {
+			"series": [{
+				"name": "Germany",
+				"values": [6, 4, 5, 5, 6],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Italy",
+				"values": [1, 3, 4, 5, 4],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}]
+		},
+		"land-1": {
+			"series": [{
+				"name": "Germany",
+				"values": [3, 4, 5, 4, 4],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Italy",
+				"values": [2, 3, 4, 4, 3],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}]
+		},
+		"land-2": {
+			"series": [{
+				"name": "Germany",
+				"values": [4, 4, 5, 5, 4],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Italy",
+				"values": [1, 2, 3, 5, 4],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}]
+		},
+		"land-3": {
+			"series": [{
+				"name": "Germany",
+				"values": [1, 1, 2, 1, 2],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Italy",
+				"values": [2, 2, 3, 3, 3],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}]
+		},
+		"land-4": {
+			"series": [{
+				"name": "Germany",
+				"values": [4, 4, 5, 5, 4],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Italy",
+				"values": [1, 1, 2, 1, 1],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}]
+		},
+		"gender-1": {
+			"series": [{
+				"name": "Germany",
+				"values": [2, 2, 2, 2, 2],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Italy",
+				"values": [1, 1, 3, 1, 2],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}]
+		},
+		"gender-2": {
+			"series": [{
+				"name": "Germany",
+				"values": [6, 4, 5, 5, 6],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Italy",
+				"values": [1, 3, 4, 5, 4],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}]
+		},
+		"gender-3": {
+			"series": [{
+				"name": "Germany",
+				"values": [3, 4, 3, 5, 4],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Italy",
+				"values": [6, 3, 5, 5, 4],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}]
+		},
+		"gender-4": {
+			"series": [{
+				"name": "Germany",
+				"values": [6, 4, 5, 5, 6],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Italy",
+				"values": [1, 3, 4, 5, 4],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}]
+		},
+		"hunger-1": {
+			"series": [{
+				"name": "Germany",
+				"values": [4, 4, 5, 5, 4],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Italy",
+				"values": [3, 3, 5, 5, 4],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}]
+		},
+		"hunger-2": {
+			"series": [{
+				"name": "Germany",
+				"values": [6, 4, 5, 5, 6],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Italy",
+				"values": [1, 3, 4, 5, 4],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}]
+		},
+		"hunger-3": {
+			"series": [{
+				"name": "Germany",
+				"values": [6, 6, 5, 5, 6],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Italy",
+				"values": [1, 1, 4, 4, 4],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}]
+		},
+		"hunger-4": {
+			"series": [{
+				"name": "Germany",
+				"values": [6, 4, 5, 5, 6],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			},
+			{
+				"name": "Italy",
+				"values": [1, 3, 4, 5, 4],
+			    "urls": ["http://www.google.es", "http://www.google.es", "http://www.google.es"]
+			}]
+		}
+	}
+}		
