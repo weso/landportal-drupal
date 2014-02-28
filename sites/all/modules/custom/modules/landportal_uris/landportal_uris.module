@@ -23,7 +23,6 @@ function landportal_uris_menu() {
 		}
 		$item['page arguments'] = $params;
 		$item['access callback'] = TRUE;
-
 		$items[$route['path']] = $item;
 	}
 	return $items;
@@ -68,5 +67,4 @@ function _get_model($name) {
 	$r = new ReflectionClass(ucfirst($name)); // First letter uppercase
 	return $r->newInstanceArgs();
 }
-
 

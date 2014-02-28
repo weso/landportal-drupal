@@ -25,6 +25,8 @@ $language = getLanguage($languages, 'en');
 $lang_path = drupal_get_path('theme', 'book').'/lang/'.$language.'.json';
 $labels = json_decode(file_get_contents($lang_path), true);
 $data['labels'] = $labels;
+// Load the required js files, name-convention
+$data['scripts'] = get_js($mustache_template);
 
 //Render the selected template with the required data.
 echo $template->render($data);
@@ -45,5 +47,18 @@ function getLanguage($languages, $default) {
 	if (empty($language) || !in_array($language, $languages))
 		$language = $default;
 	return $language;
+}
+
+/**
+ * Returns an array containing the required js files for a certain template.
+ * If the files do not exist, the returned array will be empty.
+ */
+function get_js($name) {
+	$js_path = drupal_get_path('theme', 'book') . '/js/' . 'prueba' . '.js';
+	if (file_exists($js_path)) {
+		return array($js_path);
+	} else {
+		return array();
+	}
 }
 
