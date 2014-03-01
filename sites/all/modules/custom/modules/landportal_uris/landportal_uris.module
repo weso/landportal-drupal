@@ -6,6 +6,7 @@
  * Note that the menu hooks are cached in the Drupal database.
  */
 function landportal_uris_menu() {
+	// Read the file and decode it into an associative array.
 	$routes = file_get_contents(drupal_get_path('module', 'landportal_uris').'/routes.json');
 	$routes = json_decode($routes, true);
 
@@ -14,7 +15,11 @@ function landportal_uris_menu() {
 		$item = array();
 		$item['title'] = $route['title'];
 		$num_params = count($route['params']);
+		// The page callback depends on the number of parameters that are passed
+		// to the path. For example: a path with 1 parameter will call route_callback_1.
 		$item['page callback'] = '_route_callback_' . $num_params;
+		// The first parameter will always be the name of the path. This parameter
+		// is not counted to assign the callback.
 		$params = array(
 			$route['name']
 		);
@@ -22,16 +27,20 @@ function landportal_uris_menu() {
 			array_push($params, $param);
 		}
 		$item['page arguments'] = $params;
+		// Allows the path to be accessed for all users.
 		$item['access callback'] = TRUE;
 		$items[$route['path']] = $item;
 	}
 	return $items;
 }
 
+/**
+ * Implements hook_theme().
+ */
 function landportal_uris_theme() {
 	return array(
 		'book' => array(
-			'variables' => array('mustache_data' => NULL, 'mustache_template' => NULL, 'mustache_data_str' => NULL),
+			'variables' => array('mustache_data' => NULL, 'mustache_template' => NULL),
 			'template' => 'custom',
 			'path' => drupal_get_path('theme', 'book'),
 		),
@@ -47,16 +56,14 @@ function _route_callback_0($name) {
 	$m_template = $name;
 	$model = _get_model($name);
 	$m_data = $model->get();
-	$m_data_str = $model->get_str();
-	return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data, 'mustache_data' => $m_data_str));
+	return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data));
 }
 
 function _route_callback_1($name, $param1) {
 	$m_template = $name;
 	$model = _get_model($name);
 	$m_data = $model->get($param1);
-	$m_data_str = $model->get_str($param1);
-	return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data, 'mustache_data' => $m_data_str));
+	return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data));
 }
 
 /*
@@ -69,4 +76,3 @@ function _get_model($name) {
 	$r = new ReflectionClass(ucfirst($name)); // First letter uppercase
 	return $r->newInstanceArgs();
 }
-
