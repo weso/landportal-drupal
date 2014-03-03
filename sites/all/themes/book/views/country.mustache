@@ -17,7 +17,13 @@
 		  <iframe class="map" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=6.87744140625%2C38.34165619279595%2C23.70849609375%2C46.255846818480315&amp;layer=mapnik"></iframe>
 		  
 		  <h2 class="section"><span>{{#labels}}{{main_index_rankings}}{{/labels}}</span></h2>
-		  <div id="main-index-rankings" class="graph"></div>
+		  <div id="main-index-rankings" class="graph">
+            {{#charts}}
+                {{#main-index-rankings}}
+                    {{>table}}
+                {{/main-index-rankings}}
+            {{/charts}}
+          </div>
 		  <h2 class="section"><span>{{#labels}}{{gender_issues}}{{/labels}}</span></h2>
 		  <table>
 			<tr>
@@ -46,91 +52,31 @@
 			</tr>
 		  </table>
 		  <h2 class="section"><span>{{#labels}}{{rural_development}}{{/labels}}</span></h2>
-		  <div id="rural-development" class="graph"></div>
+		  <div id="rural-development" class="graph">
+            {{#charts}}
+                {{#rural-development}}
+                    {{>table}}
+                {{/rural-development}}
+            {{/charts}}
+          </div>
 	  </div>
 	  <div class="col-sm-6">
 		  <h2 class="section"><span>{{#labels}}{{socio_economic_values}}{{/labels}}</span></h2>
-		  <table class="values">
-			<tr>
-				<td>
-					Life expectancy of birth - female (years)
-				</td>
-				<td>
-					85
-				</td>
-				<td class="year">
-					2011
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Life expectancy of birth - male (years)
-				</td>
-				<td>
-					80
-				</td>
-				<td class="year">
-					2011
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Mortality rate - under-5 (per 1.000 live births)
-				</td>
-				<td>
-					4
-				</td>
-				<td class="year">
-					2012
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Population growth (annual %)
-				</td>
-				<td>
-					0.32%
-				</td>
-				<td class="year">
-					2012
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Population - female (% of total)
-				</td>
-				<td>
-					51.45%
-				</td>
-				<td class="year">
-					2012
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Population (total)
-				</td>
-				<td>
-					60.917.978
-				</td>
-				<td class="year">
-					2012
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Rural population (% of total population)
-				</td>
-				<td>
-					31.42%
-				</td>
-				<td class="year">
-					2012
-				</td>
-			</tr>
-		  </table>
+          <div class="socioeconomic-values">
+            {{#charts}}
+                {{#socioeconomic-values}}
+                    {{>table}}
+                {{/socioeconomic-values}}
+            {{/charts}}
+        </div>
 		  <h2 class="section"><span>{{#labels}}{{agriculture_employment}}{{/labels}}</span></h2>
-		  <div id="employment-agriculture" class="graph"></div>
+		  <div id="employment-agriculture" class="graph">
+            {{#charts}}
+                {{#employment-agriculture}}
+                    {{>table}}
+                {{/employment-agriculture}}
+            {{/charts}}
+          </div>
 		  <h2 class="section"><span>{{#labels}}{{agriculture_timeline}}{{/labels}} {{#info}}{{country}}{{/info}}</span></h2>
 		  <div class="row">
 			<div class="col-xs-4">
@@ -142,30 +88,108 @@
 			  </select>
 			</div>
 		  </div>
-		  <div id="employment-timeline" class="graph"></div>
+		  <div id="employment-timeline" class="graph">
+            {{#charts}}
+                {{#employment-timeline}}
+                    {{>table}}
+                {{/employment-timeline}}
+            {{/charts}}          
+          </div>
 		  <div class="row evolutions">
 			<div class="col-xs-2 lead">{{#labels}}{{land}}{{/labels}}</div>
 			<div class="col-xs-2"></div>
-			<div id="land-1" class="col-xs-2 graph-small"></div>
-			<div id="land-2" class="col-xs-2 graph-small"></div>
-			<div id="land-3" class="col-xs-2 graph-small"></div>
-			<div id="land-4" class="col-xs-2 graph-small"></div>
+			<div id="land-1" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#land-1}}
+                    {{>table}}
+                {{/land-1}}
+            {{/charts}}
+            </div>
+			<div id="land-2" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#land-2}}
+                    {{>table}}
+                {{/land-2}}
+            {{/charts}}            
+            </div>
+			<div id="land-3" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#land-3}}
+                    {{>table}}
+                {{/land-3}}
+            {{/charts}}            
+            </div>
+			<div id="land-4" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#land-4}}
+                    {{>table}}
+                {{/land-4}}
+            {{/charts}}            
+            </div>
 		  </div>
 		  <div class="row evolutions">
 			<div class="col-xs-2 lead">{{#labels}}{{gender}}{{/labels}}</div>
 			<div class="col-xs-2"></div>
-			<div id="gender-1" class="col-xs-2 graph-small"></div>
-			<div id="gender-2" class="col-xs-2 graph-small"></div>
-			<div id="gender-3" class="col-xs-2 graph-small"></div>
-			<div id="gender-4" class="col-xs-2 graph-small"></div>
+			<div id="gender-1" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#gender-1}}
+                    {{>table}}
+                {{/gender-1}}
+            {{/charts}}            
+            </div>
+			<div id="gender-2" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#gender-2}}
+                    {{>table}}
+                {{/gender-2}}
+            {{/charts}}            
+            </div>
+			<div id="gender-3" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#gender-3}}
+                    {{>table}}
+                {{/gender-3}}
+            {{/charts}}            
+            </div>
+			<div id="gender-4" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#gender-4}}
+                    {{>table}}
+                {{/gender-4}}
+            {{/charts}}            
+            </div>
 		  </div>
 		  <div class="row evolutions">
 			<div class="col-xs-2 lead">{{#labels}}{{hunger}}{{/labels}}</div>
 			<div class="col-xs-2"></div>
-			<div id="hunger-1" class="col-xs-2 graph-small"></div>
-			<div id="hunger-2" class="col-xs-2 graph-small"></div>
-			<div id="hunger-3" class="col-xs-2 graph-small"></div>
-			<div id="hunger-4" class="col-xs-2 graph-small"></div>
+			<div id="hunger-1" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#hunger-1}}
+                    {{>table}}
+                {{/hunger-1}}
+            {{/charts}}            
+            </div>
+			<div id="hunger-2" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#hunger-2}}
+                    {{>table}}
+                {{/hunger-2}}
+            {{/charts}}            
+            </div>
+			<div id="hunger-3" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#hunger-3}}
+                    {{>table}}
+                {{/hunger-3}}
+            {{/charts}}            
+            </div>
+			<div id="hunger-4" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#hunger-4}}
+                    {{>table}}
+                {{/hunger-4}}
+            {{/charts}}            
+            </div>
 		  </div>
 	  </div>
 	  <div class="col-sm-3">
@@ -197,10 +221,3 @@
 	</div>
 </div>
 {{>footer}}
-{{#scripts}}
-	<script src="{{script}}"></script>
-	<script>
-		var data = {{data_str}};
-		load(data);
-	</script>
-{{/scripts}}

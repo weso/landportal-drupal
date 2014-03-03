@@ -5,7 +5,7 @@ $mustache = get_mustache('views', 'views/partials');
 // The template to use comes from the model.
 $template = $mustache->loadTemplate($mustache_template);
 // The basic data to render the template comes from the model.
-$data = get_template_data($mustache_data, $languages, 'en');
+$data = get_template_data($mustache_data, $languages, 'en', $mustache_template);
 //Render the selected template with the required data.
 echo $template->render($data);
 
@@ -98,9 +98,10 @@ function get_path() {
  * @param $mustache_data Model data.
  * @param $languages List of available languages to render the template in.
  * @param $default_lang Default language to render the template.
+ * @param $mustache_template The name of the template to render
  * @return Array with the data to render the template.
  */
-function get_template_data($mustache_data, $languages, $default_lang) {
+function get_template_data($mustache_data, $languages, $default_lang, $mustache_template) {
 	// The data to render the template comes from the model.
 	$data = $mustache_data;
 	// Get the language and append the labels to the data to render the template.

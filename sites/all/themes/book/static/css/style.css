@@ -604,7 +604,7 @@ h2.section span {
 
 iframe.map {
 	width: 100%;
-	height: 12em;
+	height: 15em;
 	border: none !important;
 	margin-bottom: 2em;
 }
@@ -667,18 +667,18 @@ td.issue {
 	padding-bottom: 1em;
 }
 
-table.values td {
+table.graphs td {
 	padding: 0.5em 0;
 	border-bottom: 0.1em dotted #ccd0d5;
 	color: #333;
 	font-style: italic;
 }
 
-table.values td.year {
+table.graphs td.year {
 	text-align: right;
 }
 
-table.values tr:nth-child(even) {
+table.graphs tr:nth-child(even) {
 	background-color: #faffff;
 }
 
@@ -747,6 +747,22 @@ div.lead {
 	color: #666;
 }
 
+div.socioeconomic-values table.graphs {
+    display: table !important;   
+}
+
+div.socioeconomic-values th.indicatorCode, div.socioeconomic-values td.indicatorCode {
+    display: none;
+}
+
+div.socioeconomic-values th.countryCode, div.socioeconomic-values td.countryCode {
+    display: none;
+}
+
+div.socioeconomic-values th.countryName, div.socioeconomic-values td.countryName {
+    display: none;
+}
+
 /* Land Book Home */
 
 div.map {
@@ -756,4 +772,14 @@ div.map {
 div.jvectormap-container {
 	width: 100%;
 	height: 100%;
+}
+
+/* Charts */
+
+.graphs {
+    display: none;   
+}
+
+.indicatorSelector, .chartSelector, .seriesSelector {
+    display: none;   
 }
