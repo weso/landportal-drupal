@@ -3,6 +3,8 @@
 class Country {
 	
 	public function get($iso3) {
-		return array('param1' => $iso3, 'param2' => 'Bienvenido');
+		$file = file_get_contents(drupal_get_path('module', 'landportal_uris').'/model/country.json');
+		return json_decode($file, true);
 	}
+	
 }

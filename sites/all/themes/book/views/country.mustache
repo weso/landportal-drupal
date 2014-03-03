@@ -1,4 +1,223 @@
 {{>header}}
-	<h1>{{#labels}}{{{welcome}}}{{/labels}}: <strong>{{param1}}</strong></h1>
-	<h2>{{param2}}</h2>
+<div class="content main-content container">
+	<ol class="breadcrumb">
+	  <li><a href="">{{#labels}}{{home}}{{/labels}}</a></li>
+	  <li><a href="">{{#labels}}{{land_book}}{{/labels}}</a></li>
+	  <li><a href="">{{#labels}}{{countries}}{{/labels}}</a></li>
+	  <li><a href="">{{#info}}{{continent}}{{/info}}</a></li>
+	  <li class="active">{{#info}}{{country}}{{/info}}</li>
+	</ol>
+	<div class="row">
+		<div class="col-sm-12">
+			<h1 class="country-name"><span>{{#info}}{{country}}{{/info}}</span></h1>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="col-sm-3">
+		  <iframe class="map" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=6.87744140625%2C38.34165619279595%2C23.70849609375%2C46.255846818480315&amp;layer=mapnik"></iframe>
+		  
+		  <h2 class="section"><span>{{#labels}}{{main_index_rankings}}{{/labels}}</span></h2>
+		  <div id="main-index-rankings" class="graph">
+            {{#charts}}
+                {{#main-index-rankings}}
+                    {{>table}}
+                {{/main-index-rankings}}
+            {{/charts}}
+          </div>
+		  <h2 class="section"><span>{{#labels}}{{gender_issues}}{{/labels}}</span></h2>
+		  <table>
+			<tr>
+				<td class="issue">
+					Inheritance rights of spouses
+				</td>
+				<td>
+					<div class="circle"><div class="green"></div></div>
+				</td>
+			</tr>
+			<tr>
+				<td class="issue">
+					Inheritance rights of daughters
+				</td>
+				<td>
+					<div class="circle"><div class="red"></div></div>
+				</td>
+			</tr>
+			<tr>
+				<td class="issue">
+					Access to land
+				</td>
+				<td>
+					<div class="circle"><div class="yellow"></div></div>
+				</td>
+			</tr>
+		  </table>
+		  <h2 class="section"><span>{{#labels}}{{rural_development}}{{/labels}}</span></h2>
+		  <div id="rural-development" class="graph">
+            {{#charts}}
+                {{#rural-development}}
+                    {{>table}}
+                {{/rural-development}}
+            {{/charts}}
+          </div>
+	  </div>
+	  <div class="col-sm-6">
+		  <h2 class="section"><span>{{#labels}}{{socio_economic_values}}{{/labels}}</span></h2>
+          <div class="socioeconomic-values">
+            {{#charts}}
+                {{#socioeconomic-values}}
+                    {{>table}}
+                {{/socioeconomic-values}}
+            {{/charts}}
+        </div>
+		  <h2 class="section"><span>{{#labels}}{{agriculture_employment}}{{/labels}}</span></h2>
+		  <div id="employment-agriculture" class="graph">
+            {{#charts}}
+                {{#employment-agriculture}}
+                    {{>table}}
+                {{/employment-agriculture}}
+            {{/charts}}
+          </div>
+		  <h2 class="section"><span>{{#labels}}{{agriculture_timeline}}{{/labels}} {{#info}}{{country}}{{/info}}</span></h2>
+		  <div class="row">
+			<div class="col-xs-4">
+				{{#labels}}{{compare_with}}{{/labels}}:
+			</div>
+			<div class="col-xs-8">
+			  <select class="form-control country-selector">
+				<option>Germany</option>
+			  </select>
+			</div>
+		  </div>
+		  <div id="employment-timeline" class="graph">
+            {{#charts}}
+                {{#employment-timeline}}
+                    {{>table}}
+                {{/employment-timeline}}
+            {{/charts}}          
+          </div>
+		  <div class="row evolutions">
+			<div class="col-xs-2 lead">{{#labels}}{{land}}{{/labels}}</div>
+			<div class="col-xs-2"></div>
+			<div id="land-1" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#land-1}}
+                    {{>table}}
+                {{/land-1}}
+            {{/charts}}
+            </div>
+			<div id="land-2" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#land-2}}
+                    {{>table}}
+                {{/land-2}}
+            {{/charts}}            
+            </div>
+			<div id="land-3" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#land-3}}
+                    {{>table}}
+                {{/land-3}}
+            {{/charts}}            
+            </div>
+			<div id="land-4" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#land-4}}
+                    {{>table}}
+                {{/land-4}}
+            {{/charts}}            
+            </div>
+		  </div>
+		  <div class="row evolutions">
+			<div class="col-xs-2 lead">{{#labels}}{{gender}}{{/labels}}</div>
+			<div class="col-xs-2"></div>
+			<div id="gender-1" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#gender-1}}
+                    {{>table}}
+                {{/gender-1}}
+            {{/charts}}            
+            </div>
+			<div id="gender-2" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#gender-2}}
+                    {{>table}}
+                {{/gender-2}}
+            {{/charts}}            
+            </div>
+			<div id="gender-3" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#gender-3}}
+                    {{>table}}
+                {{/gender-3}}
+            {{/charts}}            
+            </div>
+			<div id="gender-4" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#gender-4}}
+                    {{>table}}
+                {{/gender-4}}
+            {{/charts}}            
+            </div>
+		  </div>
+		  <div class="row evolutions">
+			<div class="col-xs-2 lead">{{#labels}}{{hunger}}{{/labels}}</div>
+			<div class="col-xs-2"></div>
+			<div id="hunger-1" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#hunger-1}}
+                    {{>table}}
+                {{/hunger-1}}
+            {{/charts}}            
+            </div>
+			<div id="hunger-2" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#hunger-2}}
+                    {{>table}}
+                {{/hunger-2}}
+            {{/charts}}            
+            </div>
+			<div id="hunger-3" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#hunger-3}}
+                    {{>table}}
+                {{/hunger-3}}
+            {{/charts}}            
+            </div>
+			<div id="hunger-4" class="col-xs-2 graph-small">
+            {{#charts}}
+                {{#hunger-4}}
+                    {{>table}}
+                {{/hunger-4}}
+            {{/charts}}            
+            </div>
+		  </div>
+	  </div>
+	  <div class="col-sm-3">
+		  <h2 class="section"><span>{{#labels}}{{data_sources}}{{/labels}}</span></h2>
+		  <select multiple="multiple" class="data-sources">
+			<option>Global Hunger Index</option>
+			<option>Social Institutions</option>
+			<option>Human Development Index</option>
+			<option selected="selected">Rural Development Data</option>
+			<option>Socio-economic Indicators</option>
+		  </select>
+		  <h2 class="section"><span>{{#labels}}{{indicators}}{{/labels}}</span></h2>
+		  <select class="form-control">
+			<option>Employment in Agriculture</option>
+		  </select>
+		  <button class="btn data-button">{{#labels}}{{full_data}}{{/labels}} {{#info}}{{country}}{{/info}}</button>
+		  <a href="" class="more-info">{{#labels}}{{more_about_the_indicators}}{{/labels}}</a>
+		  <h2 class="section"><span>{{#labels}}{{specific_country}}{{/labels}}</span></h2>
+		  <select class="form-control">
+			<option>Spain</option>
+		  </select>
+		  <a href="" class="more-info">{{#labels}}{{more_about_areas_and_countries}}{{/labels}}</a>
+		  <button class="btn data-button">
+			{{#labels}}{{more_resources}}{{/labels}} {{#info}}{{country}}{{/info}}
+			<p class="at-button">{{#labels}}{{at}}{{/labels}} landportal.info</p>
+		  </button>
+		  <button class="btn data-button-dark">{{#labels}}{{land_debates}}{{/labels}} {{#info}}{{country}}{{/info}}</button>
+	  </div>
+	</div>
+</div>
 {{>footer}}
