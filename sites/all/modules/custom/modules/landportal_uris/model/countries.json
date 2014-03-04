@@ -5,14 +5,14 @@
             "countries": [
                 {
                     "iso3": "JPN",
-                    "iso2": "JP",
+                    "iso2": "jp",
                     "name": "Japan",
                     "data": true,
                     "extended": false
                 },
                 {
                     "iso3": "RSN",
-                    "iso2": "RS",
+                    "iso2": "rs",
                     "name": "Russia",
                     "data": false,
                     "extended": false
@@ -24,21 +24,21 @@
             "countries": [
                 {
                     "iso3": "ESP",
-                    "iso2": "ES",
+                    "iso2": "es",
                     "name": "Spain",
                     "data": true,
                     "extended": true
                 },
                 {
                     "iso3": "POR",
-                    "iso2": "PT",
+                    "iso2": "pt",
                     "name": "Portugal",
                     "data": true,
                     "extended": false
                 },
                 {
                     "iso3": "FRA",
-                    "iso2": "FR",
+                    "iso2": "fr",
                     "name": "France",
                     "data": true,
                     "extended": false
