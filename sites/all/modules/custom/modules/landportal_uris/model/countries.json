@@ -1,0 +1,49 @@
+{
+    "continents": [
+        {
+            "name": "Asia",
+            "countries": [
+                {
+                    "iso3": "JPN",
+                    "iso2": "JP",
+                    "name": "Japan",
+                    "data": true,
+                    "extended": false
+                },
+                {
+                    "iso3": "RSN",
+                    "iso2": "RS",
+                    "name": "Russia",
+                    "data": false,
+                    "extended": false
+                }
+            ]
+        },
+        {
+            "name": "Europe",
+            "countries": [
+                {
+                    "iso3": "ESP",
+                    "iso2": "ES",
+                    "name": "Spain",
+                    "data": true,
+                    "extended": true
+                },
+                {
+                    "iso3": "POR",
+                    "iso2": "PT",
+                    "name": "Portugal",
+                    "data": true,
+                    "extended": false
+                },
+                {
+                    "iso3": "FRA",
+                    "iso2": "FR",
+                    "name": "France",
+                    "data": true,
+                    "extended": false
+                }
+            ]
+        }
+    ]
+}

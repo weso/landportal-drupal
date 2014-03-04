@@ -1,9 +1,40 @@
-<html>
-	<head>
-		<script src='sites/all/themes/mustache/js/prueba.js'></script>
-		<title>VISTA DE PAISES</title>
-	</head>
-	<body>
-		<h1>Listado de todos los paises</h1>
-	</body>
-</html>
+{{>header}}
+<div class="content main-content container">
+	<ol class="breadcrumb">
+	  <li><a href="">{{#labels}}{{home}}{{/labels}}</a></li>
+	  <li><a href="">{{#labels}}{{land_book}}{{/labels}}</a></li>
+	  <li class="active">{{#labels}}{{countries}}{{/labels}}</li>
+	</ol>
+	<div class="row">
+        {{#continents}}
+		<div class="col-sm-12 countries">
+			<h1 class="country-name"><span>{{name}}</span></h1>
+            <div class="row">
+                {{#countries}}
+                <div class="col-sm-8 col-md-6 col-lg-4">
+                    {{#data}}
+                    <a href="/countries/{{iso3}}">
+                        <img class="flag" src="{{path}}/static/images/flags/{{iso2}}.png" />
+                        <span class="name">{{name}}</span>
+                    </a>
+                    {{/data}}
+                    {{^data}}
+                        <img class="flag" src="{{path}}/static/images/flags/{{iso2}}.png" />
+                        <span class="name">{{name}}</span>
+                        <span class="no-data"><i class="fa fa-times"></i></span>
+                    {{/data}}
+                    {{#extended}}
+                        <span class="no-data"><i class="fa fa-star"></i></span>
+                    {{/extended}}
+                </div>
+                {{/countries}}
+            </div>
+		</div>
+        {{/continents}}
+	</div>
+	<div class="row">
+	  <div class="col-sm-3">
+      </div>
+    </div>
+</div>
+{{>footer}}

@@ -206,7 +206,7 @@ div.logo {
 	color: #8fcd1f;
 	font-size: 1.3em;
 	vertical-align: bottom;
-	display:​table
+	display: table
 }
 
 div.logo span.site {
@@ -214,10 +214,16 @@ div.logo span.site {
 	display: inline-block;
 	padding-top: 0.3em;
 	padding-left: 0.3em;
+    text-transform: lowercase;
+}
+
+div.logo span.site strong {
+    font-weight: normal;
+    color: #684c3e;
 }
 
 div.logo span.separator {
-	color: #8fcd1f;
+	color: #bbb;
 }
 
 div.logo i {
@@ -782,4 +788,21 @@ div.jvectormap-container {
 
 .indicatorSelector, .chartSelector, .seriesSelector {
     display: none;   
+}
+
+/* Countries */
+
+.countries h1 {
+    margin-top: 1em;
+}
+
+.countries img.flag {
+    width: 2em;
+    margin-right: 1em;
+    border: 0.1em solid #ccc;
+    vertical-align: middle;
+}
+
+.countries span.name {
+  
 }
