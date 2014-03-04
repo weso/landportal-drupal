@@ -4,7 +4,7 @@
 	"book_description": "The Land Book provides comprehensive country and thematic pages with direct access to comprehensive and in-depth information on land governance across the world.",
 	"home": "Home",
 	"world_regions": "World Regions",
-	"countries": "Contries",
+	"countries": "Countries",
 	"indicators": "Indicators",
 	"data_catalog": "Data Catalog",
 	"data_sources": "Data Sources",
@@ -36,5 +36,11 @@
 	"rome": "Rome",
 	"italy": "Italy",
 	"search": "Search",
-	"compare_with": "Compare with"
+	"compare_with": "Compare with",
+    "countries_description": "The Land Book follows the classification made by the <a href='#'>Geopolitical Ontology from the Food and Agriculture Organization</a> of the United Nations.",
+    "no_data": "No data is currently available for the countries marked as",
+    "extended_data": "Extended data is available for the countries marked as",
+    "select_a_country": "Select a country",
+    "expand_all": "Expand all",
+    "show_only_countries": "Show only countries with available data"
 }

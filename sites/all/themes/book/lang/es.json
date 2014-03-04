@@ -37,5 +37,11 @@
 	"rome": "Roma",
 	"italy": "Italia",
 	"search": "Buscar",
-	"compare_with": "Comparar con"
+	"compare_with": "Comparar con",
+    "countries_description": "El Land Book sigue la clasificación hecha por <a href='#'>Ontología Geopolítica para Food and Agriculture Organization (FAO)</a> de las Naciones Unidas.",
+    "no_data": "No existen datos para los países marcados con",
+    "extended_data": "Existen datos extra para los países marcados con",
+    "select_a_country": "Seleccione un país",
+    "expand_all": "Expandir todos los continentes",
+    "show_only_countries": "Mostrar solo los países con datos"
 }

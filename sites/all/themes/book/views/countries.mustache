@@ -5,15 +5,42 @@
 	  <li><a href="">{{#labels}}{{land_book}}{{/labels}}</a></li>
 	  <li class="active">{{#labels}}{{countries}}{{/labels}}</li>
 	</ol>
-	<div class="row">
+	<div class="row countries-container">
+		<div class="col-sm-12">
+            <p>
+                {{#labels}}{{{countries_description}}}{{/labels}}
+            </p>
+            <ul>
+                <li>{{#labels}}{{no_data}}{{/labels}} <i class="fa fa-times"></i></li>
+                <li>{{#labels}}{{extended_data}}{{/labels}} <i class="fa fa-star"></i></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row countries-container">
+        <div class="col-sm-6 col-lg-4">
+            <label for="select-country">{{#labels}}{{select_a_country}}{{/labels}}:</label>
+            <select name="select-country">
+                <option>Spain</option>
+            </select>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+            <input type="checkbox" name="expand-all" />
+            <label for="expand-all">{{#labels}}{{expand_all}}{{/labels}}</label>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+            <input type="checkbox" name="show-only" />
+            <label for="show-only">{{#labels}}{{show_only_countries}}{{/labels}}</label>
+        </div>
+    </div>
+    <div class="continents">
         {{#continents}}
-		<div class="col-sm-12 countries">
-			<h1 class="country-name"><span>{{name}}</span></h1>
-            <div class="row">
+        <div class="row continent">
+            <div class="col-sm-12 countries">
+                <h1 class="country-name"><span>{{name}}</span><span class="down"><i class="fa fa-angle-down"></i></span></h1>
                 {{#countries}}
                 <div class="col-sm-8 col-md-6 col-lg-4">
                     {{#data}}
-                    <a href="/countries/{{iso3}}">
+                    <a href="countries/{{iso3}}">
                         <img class="flag" src="{{path}}/static/images/flags/{{iso2}}.png" />
                         <span class="name">{{name}}</span>
                     </a>
@@ -29,12 +56,8 @@
                 </div>
                 {{/countries}}
             </div>
-		</div>
+        </div>
         {{/continents}}
-	</div>
-	<div class="row">
-	  <div class="col-sm-3">
-      </div>
     </div>
 </div>
 {{>footer}}
