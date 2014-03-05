@@ -19,14 +19,32 @@ echo $template->render($data);
  *	preferences.
  */
 function get_language($languages, $default) {
+    /*
 	// Add current language
-	$language = isset($_GET['language']) ? $_GET['language'] : '';
+    $language = isset($_POST['language']) ? $_POST['language'] : '';
 	if (empty($language) && isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])) {
 		$language =  substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 	}
 	if (empty($language) || !in_array($language, $languages))
 		$language = $default;
 	return $language;
+    */
+    // Check preferred language. First check the POST request, then the session
+    // and last the server settings.
+    $language = isset($_POST["language"]) ? $_POST["language"] : "";
+    if (empty($language) && isset($_SESSION["language"])) {
+        $language = $_SESSION["language"];
+    } elseif (empty($language) && isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])) {
+        $language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+    }
+    // If none of them was present, or the language is not recognized fallback
+    // to default
+    if (empty($language) || !in_array($language, $languages))
+        $language = $default;
+    // Store the choosen language in session
+    session_start();
+    $_SESSION["language"] = $language;
+    return $language;
 }
 
 /**
