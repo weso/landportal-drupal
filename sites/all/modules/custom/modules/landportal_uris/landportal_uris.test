@@ -8,7 +8,7 @@ class LandportalUrisTestCase extends DrupalWebTestCase {
 		return array(
 			'name' => 'Landportal URIs Test Case',
 			'description' => 'Check if the Landportal URIs are showing correctly',
-			'group' => 'Landportal-uris',
+			'group' => 'Landportal-Tests',
 		);
 	}
     
