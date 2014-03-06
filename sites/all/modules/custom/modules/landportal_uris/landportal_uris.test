@@ -8,7 +8,7 @@ class LandportalUrisTestCase extends DrupalWebTestCase {
 		return array(
 			'name' => 'Landportal URIs Test Case',
 			'description' => 'Check if the Landportal URIs are showing correctly',
-			'group' => 'Landportal-Tests',
+			'group' => 'Landportal-testacos',
 		);
 	}
     
@@ -18,7 +18,6 @@ class LandportalUrisTestCase extends DrupalWebTestCase {
             "libraries",
         );
 		parent::setUp($modules);
-        $this->_setTheme("book");
 	}
 
 	/**
@@ -48,18 +47,5 @@ class LandportalUrisTestCase extends DrupalWebTestCase {
         // Check if the page shows the error
         $this->assertNoRaw("<span>Countries</span>");
     }
-
-    /**
-     * Set the default theme to the LandBook theme
-     */
-    public function _setTheme($new_theme) {
-         db_update('system')->fields(array('status' => 1))
-                            ->condition('type', 'theme')
-                            ->condition('name', $new_theme)
-                            ->execute();
-         variable_set('theme_default', $new_theme);
-         unset($GLOBALS['theme']);
-         drupal_theme_initialize();
-     }
 }
 ?>
