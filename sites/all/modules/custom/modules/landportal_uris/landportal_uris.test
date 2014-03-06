@@ -1,0 +1,65 @@
+<?php
+/**
+ * Test the functionality of the custom Landportal URIs
+ */
+class LandportalUrisTestCase extends DrupalWebTestCase {
+
+	public static function getInfo() {
+		return array(
+			'name' => 'Landportal URIs Test Case',
+			'description' => 'Check if the Landportal URIs are showing correctly',
+			'group' => 'Landportal-uris',
+		);
+	}
+    
+    public function setUp() {
+        $modules = array(
+            "landportal_uris",
+            "libraries",
+        );
+		parent::setUp($modules);
+        $this->_setTheme("book");
+	}
+
+	/**
+	 * Send a request to the /countries page and check the response.
+	 */
+	public function testCountriesPage() {
+        $page = $this->drupalGet("countries");
+        // Check the page content and the title
+        $this->assertRaw("<span>Countries</span>");
+	}
+    
+    /**
+     * Send a request to a country page and check the response.
+     */
+    public function testCountryPage() {
+        $page = $this->drupalGet("countries/ESP");
+        // Check the page content and the title
+        $this->assertRaw("<span>Countries</span>");
+        $this->assertText("Spain");
+    }
+    
+    /**
+     * Send a request to a non existent country page and check the response.
+     */
+    public function testNonExistentCountryPage() {
+        $page = $this->drupalGet("countries/FOO");
+        // Check if the page shows the error
+        $this->assertNoRaw("<span>Countries</span>");
+    }
+
+    /**
+     * Set the default theme to the LandBook theme
+     */
+    public function _setTheme($new_theme) {
+         db_update('system')->fields(array('status' => 1))
+                            ->condition('type', 'theme')
+                            ->condition('name', $new_theme)
+                            ->execute();
+         variable_set('theme_default', $new_theme);
+         unset($GLOBALS['theme']);
+         drupal_theme_initialize();
+     }
+}
+?>
