@@ -18,10 +18,11 @@ function landportal_uris_menu() {
 		// The page callback depends on the number of parameters that are passed
 		// to the path. For example: a path with 1 parameter will call route_callback_1.
 		$item['page callback'] = '_route_callback_' . $num_params;
-		// The first parameter will always be the name of the path. This parameter
+		// The first parameter will always be the name of the path. 
+		// This parameter
 		// is not counted to assign the callback.
 		$params = array(
-			$route['name']
+			$route['name'],
 		);
 		foreach ($route['params'] as $param) {
 			array_push($params, $param);
@@ -37,6 +38,7 @@ function landportal_uris_menu() {
 /**
  * Implements hook_theme().
  */
+/*
 function landportal_uris_theme() {
 	return array(
 		'book' => array(
@@ -51,6 +53,7 @@ function landportal_uris_theme() {
         ),
 	);
 }
+*/
 
 /*
  * The function callback for each route will be automatically resolved depending
@@ -61,6 +64,7 @@ function _route_callback_0($name) {
 	$m_template = $name;
 	$model = _get_model($name);
 	$m_data = $model->get();
+	$m_data['application'] = _get_application_data($name);
 	return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data));
 }
 
@@ -71,6 +75,7 @@ function _route_callback_1($name, $param1) {
     if ($m_data === false) {
 	   return theme('404', array());
     } else {
+		$m_data['application'] = _get_application_data($name);
         return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data));
     }
 }
@@ -85,3 +90,51 @@ function _get_model($name) {
 	$r = new ReflectionClass(ucfirst($name)); // First letter uppercase
 	return $r->newInstanceArgs();
 }
+
+/**
+ * This function returns the required application data used in the views.
+ * This application data contains the available languages and the current
+ * user name.
+ */
+function _get_application_data($name) {
+	$appdata = array();
+	$appdata['languages'] = _get_available_languages();
+	$user = _get_current_user();
+	if (!is_null($user))
+		$appdata['user'] = $user;
+	return $appdata;
+}
+
+/**
+ * Returns an associative array containing the available languages and its
+ * name.
+ */
+function _get_available_languages() {
+	$result = array();
+	$lang_folder = drupal_get_path('theme', 'book') . '/lang/';
+	$files = new DirectoryIterator($lang_folder);
+	foreach ($files as $file) {
+		// Exclude '.' and '..' files
+		if ($file->isFile()) {
+			// Filename without extension
+			$filename = $file->getBasename('.' . $file->getExtension());
+			$filecontent = json_decode(file_get_contents($file->getPathname()), true);
+			$result[$filename] = $filecontent['language-name'];
+		}
+	}
+	return $result;
+}
+
+/**
+ * Returns an associative array containing the current user name.
+ * If there is no user, returns NULL
+ */
+function _get_current_user() {
+	//global $user;
+	if (!isset($user->name)) {
+		return NULL;
+	} else {
+		return array('name' => $user->name);
+	}
+}
+
