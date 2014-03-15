@@ -11,6 +11,12 @@
 		 	"name": "country",
 		 	"title": "Country",
 		 	"params": [1]
+		},
+		{
+			"path": "err404",
+		 	"name": "err404",
+		 	"title": "Error",
+		 	"params": []
 		}
 	]
 }

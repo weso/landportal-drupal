@@ -64,7 +64,7 @@ function _route_callback_0($name) {
 	$m_template = $name;
 	$model = _get_model($name);
 	$m_data = $model->get();
-	$m_data['application'] = _get_application_data($name);
+	$m_data['application'] = _get_application_data();
 	return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data));
 }
 
@@ -73,9 +73,10 @@ function _route_callback_1($name, $param1) {
 	$model = _get_model($name);
 	$m_data = $model->get($param1);
     if ($m_data === false) {
-	   return theme('404', array());
+	   $m_data['application'] = _get_application_data();
+        return theme('book', array('mustache_template' => 'err404', 'mustache_data' => $m_data));
     } else {
-		$m_data['application'] = _get_application_data($name);
+		$m_data['application'] = _get_application_data();
         return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data));
     }
 }
@@ -96,7 +97,7 @@ function _get_model($name) {
  * This application data contains the available languages and the current
  * user name.
  */
-function _get_application_data($name) {
+function _get_application_data() {
 	$appdata = array();
 	$appdata['languages'] = _get_available_languages();
 	$user = _get_current_user();
