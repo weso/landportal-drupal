@@ -1,6 +1,5 @@
 <?php
 
-//var_dump($mustache_data['application']);
 $languages = array('en', 'es', 'fr');
 $mustache = get_mustache('views', 'views/partials');
 // The template to use comes from the model.
