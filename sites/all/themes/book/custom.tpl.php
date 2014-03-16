@@ -1,62 +1,29 @@
 <?php
 
-$languages = array('en', 'es', 'fr');
 $mustache = get_mustache('views', 'views/partials');
 // The template to use comes from the model.
 $template = $mustache->loadTemplate($mustache_template);
 // The basic data to render the template comes from the model.
-$data = get_template_data($mustache_data, $languages, 'en', $mustache_template);
+$data = get_template_data($mustache_data, $mustache_template, $application_data);
 //Render the selected template with the required data.
 echo $template->render($data);
 
 /**
- * Get the language to show the template.
- *
- * @param $languages Array with the available languages.
- * @param $default Default language to show the template in. Must be present into
- *	the available languages.
- * @return The language in which the template must be shown depending on the user
- *	preferences.
- */
-function get_language($languages, $default) {
-    /*
-	// Add current language
-    $language = isset($_POST['language']) ? $_POST['language'] : '';
-	if (empty($language) && isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])) {
-		$language =  substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-	}
-	if (empty($language) || !in_array($language, $languages))
-		$language = $default;
-	return $language;
-    */
-    // Check preferred language. First check the POST request, then the session
-    // and last the server settings.
-    $language = isset($_POST["language"]) ? $_POST["language"] : "";
-    if (empty($language) && isset($_SESSION["language"])) {
-        $language = $_SESSION["language"];
-    } elseif (empty($language) && isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])) {
-        $language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-    }
-    // If none of them was present, or the language is not recognized fallback
-    // to default
-    if (empty($language) || !in_array($language, $languages))
-        $language = $default;
-    // Store the choosen language in session
-    session_start();
-    $_SESSION["language"] = $language;
-    return $language;
-}
-
-/**
  * Get the labels for the specified language.
  * 
- * @param $language the language to load its labels. The labels are parsed
- *	from the /lang/$language.json file.
+ * @param $languages Associative array containing all the available languages
+ *	and the selected.
  * @return associative array with the labels parsed from the JSON file.
  */
-function get_labels($language) {
+function get_labels($languages) {
+	foreach (array_keys($languages) as $lang) {
+		if ($languages[$lang]['selected'] === true) {
+			$selected = $lang;
+			break;
+		}
+	}
 	$theme_path = drupal_get_path('theme', 'book');
-	$labels_path = $theme_path . '/lang/' . $language . '.json';
+	$labels_path = $theme_path . '/lang/' . $selected . '.json';
 	$labels = json_decode(file_get_contents($labels_path), true);
 	return $labels;
 }
@@ -72,7 +39,7 @@ function get_labels($language) {
 function get_js($name) {
 	$js_path = drupal_get_path('theme', 'book') . '/js/' . $name . '.js';
 	if (file_exists($js_path)) {
-		return array("script" => 'http://' . $_SERVER['HTTP_HOST'] . '/' . $js_path);
+		return array("script" => 'http://' . $_SERVER1['HTTP_HOST'] . '/' . $js_path);
 	} else {
 		return array();
 	}
@@ -119,12 +86,13 @@ function get_path() {
  * @param $mustache_template The name of the template to render
  * @return Array with the data to render the template.
  */
-function get_template_data($mustache_data, $languages, $default_lang, $mustache_template) {
+function get_template_data($mustache_data, $mustache_template, $application_data) {
 	// The data to render the template comes from the model.
 	$data = $mustache_data;
+	// Append the application data
+	$data['application'] = $application_data;
 	// Get the language and append the labels to the data to render the template.
-	$language = get_language($languages, $default_lang);
-	$data['labels'] = get_labels($language);
+	$data['labels'] = get_labels($application_data['languages']);
 	// Get the required JavaScript files that will be passed to the template
 	$data['scripts'] = get_js($mustache_template);
 	// Get the absolute path to the theme. It is required in some templates.
