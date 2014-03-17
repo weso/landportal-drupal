@@ -32,6 +32,19 @@ function book_preprocess(&$variables) {
   $variables['theme_path'] = _get_path();
 }
 
+function book_preprocess_html(&$vars) {
+  $googlefonts = array(
+    '#tag' => 'link', // The #tag is the html tag - <link />
+    '#attributes' => array( // Set up an array of attributes inside the tag
+      'href' => 'http://fonts.googleapis.com/css?family=News+Cycle|Source+Sans+Pro:300,400', 
+      'rel' => 'stylesheet',
+      'type' => 'text/css',
+    ),
+  );
+  drupal_add_html_head($googlefonts, 'googlefonts');
+
+}
+
 
 /**
  * Get the application data required by all the templates. 

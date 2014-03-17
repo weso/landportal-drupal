@@ -13,3 +13,5 @@ scripts[] = js/bootstrap.min.js
 scripts[] = js/country_chart_options.js
 scripts[] = js/jquery-2.1.0.min.js
 scripts[] = js/wesCountry.min.js
+scripts[] = js/jquery-jvectormap-1.2.2.min.js
+scripts[] = js/jquery-jvectormap-world-mill-en.js
