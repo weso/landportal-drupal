@@ -1,0 +1,1486 @@
+{
+	"selectors": {
+		"regions": [
+			{
+				"code": "global",
+				"name": "Global"
+			},
+			{
+				"code": "asia",
+				"name": "Asia"
+			}		
+		],
+		"countries": [
+			{
+				"code": "ESP",
+				"name": "Spain"
+			},
+			{
+				"code": "FRA",
+				"name": "France"
+			}
+		],
+		"indicators": [
+			{
+				"code": "1",
+				"name": "Employment in Agriculture"
+			}
+		],
+		"data-sources": [
+			{
+				"code": "1",
+				"name": "Global Hunger Index"
+			},
+			{
+				"code": "2",
+				"name": "Social Institutions"
+			}		
+		]
+	},
+    "charts": [
+    {
+    	"region": "global",
+    	"heat-map": {
+	    	"years": [
+	    		{
+		    		"year": 2012,
+		    		"values": [
+						  { "code": "AF", "value": 16.63 },
+						  { "code": "AL", "value": 11.58 },
+						  { "code": "DZ", "value": 158.97 },
+						  { "code": "AO", "value": 85.81 },
+						  { "code": "AG", "value": 1.1 },
+						  { "code": "AR", "value": 351.02 },
+							 { "code":"AM", "value":8.83 },
+							 { "code":"AU", "value":1219.72 },
+							 { "code":"AT", "value":366.26 },
+							 { "code":"AZ", "value":52.17 },
+							 { "code":"BS", "value":7.54 },
+							 { "code":"BH", "value":21.73 },
+							 { "code":"BD", "value":105.4 },
+							 { "code":"BB", "value":3.96 },
+							 { "code":"BY", "value":52.89 },
+							 { "code":"BE", "value":461.33 },
+							 { "code":"BZ", "value":1.43 },
+							 { "code":"BJ", "value":6.49 },
+							 { "code":"BT", "value":1.4 },
+							 { "code":"BO", "value":19.18 },
+							 { "code":"BA", "value":16.2 },
+							 { "code":"BW", "value":12.5 },
+							 { "code":"BR", "value":2023.53 },
+							 { "code":"BN", "value":11.96 },
+							 { "code":"BG", "value":44.84 },
+							 { "code":"BF", "value":8.67 },
+							 { "code":"BI", "value":1.47 },
+							 { "code":"KH", "value":11.36 },
+							 { "code":"CM", "value":21.88 },
+							 { "code":"CA", "value":1563.66 },
+							 { "code":"CV", "value":1.57 },
+							 { "code":"CF", "value":2.11 },
+							 { "code":"TD", "value":7.59 },
+							 { "code":"CL", "value":199.18 },
+							 { "code":"CN", "value":5745.13 },
+							 { "code":"CO", "value":283.11 },
+							 { "code":"KM", "value":0.56 },
+							 { "code":"CD", "value":12.6 },
+							 { "code":"CG", "value":11.88 },
+							 { "code":"CR", "value":35.02 },
+							 { "code":"CI", "value":22.38 },
+							 { "code":"HR", "value":59.92 },
+							 { "code":"CY", "value":22.75 },
+							 { "code":"CZ", "value":195.23 },
+							 { "code":"DK", "value":304.56 },
+							 { "code":"DJ", "value":1.14 },
+							 { "code":"DM", "value":0.38 },
+							 { "code":"DO", "value":50.87 },
+							 { "code":"EC", "value":61.49 },
+							 { "code":"EG", "value":216.83 },
+							 { "code":"SV", "value":21.8 },
+							 { "code":"GQ", "value":14.55 },
+							 { "code":"ER", "value":2.25 },
+							 { "code":"EE", "value":19.22 },
+							 { "code":"ET", "value":30.94 },
+							 { "code":"FJ", "value":3.15 },
+							 { "code":"FI", "value":231.98 },
+							 { "code":"FR", "value":2555.44 },
+							 { "code":"GA", "value":12.56 },
+							 { "code":"GM", "value":1.04 },
+							 { "code":"GE", "value":11.23 },
+							 { "code":"DE", "value":3305.9 },
+							 { "code":"GH", "value":18.06 },
+							 { "code":"GR", "value":305.01 },
+							 { "code":"GD", "value":0.65 },
+							 { "code":"GT", "value":40.77 },
+							 { "code":"GN", "value":4.34 },
+							 { "code":"GW", "value":0.83 },
+							 { "code":"GY", "value":2.2 },
+							 { "code":"HT", "value":6.5 },
+							 { "code":"HN", "value":15.34 },
+							 { "code":"HK", "value":226.49 },
+							 { "code":"HU", "value":132.28 },
+							 { "code":"IS", "value":12.77 },
+							 { "code":"IN", "value":1430.02 },
+							 { "code":"ID", "value":695.06 },
+							 { "code":"IR", "value":337.9 },
+							 { "code":"IQ", "value":84.14 },
+							 { "code":"IE", "value":204.14 },
+							 { "code":"IL", "value":201.25 },
+							 { "code":"IT", "value":2036.69 },
+							 { "code":"JM", "value":13.74 },
+							 { "code":"JP", "value":5390.9 },
+							 { "code":"JO", "value":27.13 },
+							 { "code":"KZ", "value":129.76 },
+							 { "code":"KE", "value":32.42 },
+							 { "code":"KI", "value":0.15 },
+							 { "code":"KR", "value":986.26 },
+							 { "code":"KW", "value":117.32 },
+							 { "code":"KG", "value":4.44 },
+							 { "code":"LA", "value":6.34 },
+							 { "code":"LV", "value":23.39 },
+							 { "code":"LB", "value":39.15 },
+							 { "code":"LS", "value":1.8 },
+							 { "code":"LR", "value":0.98 },
+							 { "code":"LY", "value":77.91 },
+							 { "code":"LT", "value":35.73 },
+							 { "code":"LU", "value":52.43 },
+							 { "code":"MK", "value":9.58 },
+							 { "code":"MG", "value":8.33 },
+							 { "code":"MW", "value":5.04 },
+							 { "code":"MY", "value":218.95 },
+							 { "code":"MV", "value":1.43 },
+							 { "code":"ML", "value":9.08 },
+							 { "code":"MT", "value":7.8 },
+							 { "code":"MR", "value":3.49 },
+							 { "code":"MU", "value":9.43 },
+							 { "code":"MX", "value":1004.04 },
+							 { "code":"MD", "value":5.36 },
+							 { "code":"MN", "value":5.81 },
+							 { "code":"ME", "value":3.88 },
+							 { "code":"MA", "value":91.7 },
+							 { "code":"MZ", "value":10.21 },
+							 { "code":"MM", "value":35.65 },
+							 { "code":"NA", "value":11.45 },
+							 { "code":"NP", "value":15.11 },
+							 { "code":"NL", "value":770.31 },
+							 { "code":"NZ", "value":138 },
+							 { "code":"NI", "value":6.38 },
+							 { "code":"NE", "value":5.6 },
+							 { "code":"NG", "value":206.66 },
+							 { "code":"NO", "value":413.51 },
+							 { "code":"OM", "value":53.78 },
+							 { "code":"PK", "value":174.79 },
+							 { "code":"PA", "value":27.2 },
+							 { "code":"PG", "value":8.81 },
+							 { "code":"PY", "value":17.17 },
+							 { "code":"PE", "value":153.55 },
+							 { "code":"PH", "value":189.06 },
+							 { "code":"PL", "value":438.88 },
+							 { "code":"PT", "value":223.7 },
+							 { "code":"QA", "value":126.52 },
+							 { "code":"RO", "value":158.39 },
+							 { "code":"RU", "value":1476.91 },
+							 { "code":"RW", "value":5.69 },
+							 { "code":"WS", "value":0.55 },
+							 { "code":"ST", "value":0.19 },
+							 { "code":"SA", "value":434.44 },
+							 { "code":"SN", "value":12.66 },
+							 { "code":"RS", "value":38.92 },
+							 { "code":"SC", "value":0.92 },
+							 { "code":"SL", "value":1.9 },
+							 { "code":"SG", "value":217.38 },
+							 { "code":"SK", "value":86.26 },
+							 { "code":"SI", "value":46.44 },
+							 { "code":"SB", "value":0.67 },
+							 { "code":"ZA", "value":354.41 },
+							 { "code":"ES", "value":1374.78 },
+							 { "code":"LK", "value":48.24 },
+							 { "code":"KN", "value":0.56 },
+							 { "code":"LC", "value":1 },
+							 { "code":"VC", "value":0.58 },
+							 { "code":"SD", "value":65.93 },
+							 { "code":"SR", "value":3.3 },
+							 { "code":"SZ", "value":3.17 },
+							 { "code":"SE", "value":444.59 },
+							 { "code":"CH", "value":522.44 },
+							 { "code":"SY", "value":59.63 },
+							 { "code":"TW", "value":426.98 },
+							 { "code":"TJ", "value":5.58 },
+							 { "code":"TZ", "value":22.43 },
+							 { "code":"TH", "value":312.61 },
+							 { "code":"TL", "value":0.62 },
+							 { "code":"TG", "value":3.07 },
+							 { "code":"TO", "value":0.3 },
+							 { "code":"TT", "value":21.2 },
+							 { "code":"TN", "value":43.86 },
+							 { "code":"TR", "value":729.05 },
+							 { "code":"TM", "value":0 },
+							 { "code":"UG", "value":17.12 },
+							 { "code":"UA", "value":136.56 },
+							 { "code":"AE", "value":239.65 },
+							 { "code":"GB", "value":2258.57 },
+							 { "code":"US", "value":14624.18 },
+							 { "code":"UY", "value":40.71 },
+							 { "code":"UZ", "value":37.72 },
+							 { "code":"VU", "value":0.72 },
+							 { "code":"VE", "value":285.21 },
+							 { "code":"VN", "value":101.99 },
+							 { "code":"YE", "value":30.02 },
+							 { "code":"ZM", "value":15.69 },
+							 { "code":"ZW", "value":5.57 },
+							 { "code":"GL", "value":0.01 }
+					]
+	    		},
+	    		{
+		    		"year": 2011,
+		    		"values": [
+						  { "code": "AF", "value": 16.63 },
+						  { "code": "AL", "value": 11.58 },
+						  { "code": "DZ", "value": 158.97 },
+						  { "code": "AO", "value": 85.81 },
+						  { "code": "AG", "value": 1.1 },
+						  { "code": "AR", "value": 351.02 },
+							 { "code":"AM", "value":8.83 },
+							 { "code":"AU", "value":1219.72 },
+							 { "code":"AT", "value":366.26 },
+							 { "code":"AZ", "value":52.17 },
+							 { "code":"BS", "value":7.54 },
+							 { "code":"BH", "value":21.73 },
+							 { "code":"BD", "value":105.4 },
+							 { "code":"BB", "value":3.96 },
+							 { "code":"BY", "value":52.89 },
+							 { "code":"BE", "value":461.33 },
+							 { "code":"BZ", "value":1.43 },
+							 { "code":"BJ", "value":6.49 },
+							 { "code":"BT", "value":1.4 },
+							 { "code":"BO", "value":19.18 },
+							 { "code":"BA", "value":16.2 },
+							 { "code":"BW", "value":12.5 },
+							 { "code":"BR", "value":2023.53 },
+							 { "code":"BN", "value":11.96 },
+							 { "code":"BG", "value":44.84 },
+							 { "code":"BF", "value":8.67 },
+							 { "code":"BI", "value":1.47 },
+							 { "code":"KH", "value":11.36 },
+							 { "code":"CM", "value":21.88 },
+							 { "code":"CA", "value":1563.66 },
+							 { "code":"CV", "value":1.57 },
+							 { "code":"CF", "value":2.11 },
+							 { "code":"TD", "value":7.59 },
+							 { "code":"CL", "value":199.18 },
+							 { "code":"CN", "value":5745.13 },
+							 { "code":"CO", "value":283.11 },
+							 { "code":"KM", "value":0.56 },
+							 { "code":"CD", "value":12.6 },
+							 { "code":"CG", "value":11.88 },
+							 { "code":"CR", "value":35.02 },
+							 { "code":"CI", "value":22.38 },
+							 { "code":"HR", "value":59.92 },
+							 { "code":"CY", "value":22.75 },
+							 { "code":"CZ", "value":195.23 },
+							 { "code":"DK", "value":304.56 },
+							 { "code":"DJ", "value":1.14 },
+							 { "code":"DM", "value":0.38 },
+							 { "code":"DO", "value":50.87 },
+							 { "code":"EC", "value":61.49 },
+							 { "code":"EG", "value":216.83 },
+							 { "code":"SV", "value":21.8 },
+							 { "code":"GQ", "value":14.55 },
+							 { "code":"ER", "value":2.25 },
+							 { "code":"EE", "value":19.22 },
+							 { "code":"ET", "value":30.94 },
+							 { "code":"FJ", "value":3.15 },
+							 { "code":"FI", "value":231.98 },
+							 { "code":"FR", "value":2555.44 },
+							 { "code":"GA", "value":12.56 },
+							 { "code":"GM", "value":1.04 },
+							 { "code":"GE", "value":11.23 },
+							 { "code":"DE", "value":3305.9 },
+							 { "code":"GH", "value":18.06 },
+							 { "code":"GR", "value":305.01 },
+							 { "code":"GD", "value":0.65 },
+							 { "code":"GT", "value":40.77 },
+							 { "code":"GN", "value":4.34 },
+							 { "code":"GW", "value":0.83 },
+							 { "code":"GY", "value":2.2 },
+							 { "code":"HT", "value":6.5 },
+							 { "code":"HN", "value":15.34 },
+							 { "code":"HK", "value":226.49 },
+							 { "code":"HU", "value":132.28 },
+							 { "code":"IS", "value":12.77 },
+							 { "code":"IN", "value":1430.02 },
+							 { "code":"ID", "value":695.06 },
+							 { "code":"IR", "value":337.9 },
+							 { "code":"IQ", "value":84.14 },
+							 { "code":"IE", "value":204.14 },
+							 { "code":"IL", "value":201.25 },
+							 { "code":"IT", "value":2036.69 },
+							 { "code":"JM", "value":13.74 },
+							 { "code":"JP", "value":5390.9 },
+							 { "code":"JO", "value":27.13 },
+							 { "code":"KZ", "value":129.76 },
+							 { "code":"KE", "value":32.42 },
+							 { "code":"KI", "value":0.15 },
+							 { "code":"KR", "value":986.26 },
+							 { "code":"KW", "value":117.32 },
+							 { "code":"KG", "value":4.44 },
+							 { "code":"LA", "value":6.34 },
+							 { "code":"LV", "value":23.39 },
+							 { "code":"LB", "value":39.15 },
+							 { "code":"LS", "value":1.8 },
+							 { "code":"LR", "value":0.98 },
+							 { "code":"LY", "value":77.91 },
+							 { "code":"LT", "value":35.73 },
+							 { "code":"LU", "value":52.43 },
+							 { "code":"MK", "value":9.58 },
+							 { "code":"MG", "value":8.33 },
+							 { "code":"MW", "value":5.04 },
+							 { "code":"MY", "value":218.95 },
+							 { "code":"MV", "value":1.43 },
+							 { "code":"ML", "value":9.08 },
+							 { "code":"MT", "value":7.8 },
+							 { "code":"MR", "value":3.49 },
+							 { "code":"MU", "value":9.43 },
+							 { "code":"MX", "value":1004.04 },
+							 { "code":"MD", "value":5.36 },
+							 { "code":"MN", "value":5.81 },
+							 { "code":"ME", "value":3.88 },
+							 { "code":"MA", "value":91.7 },
+							 { "code":"MZ", "value":10.21 },
+							 { "code":"MM", "value":35.65 },
+							 { "code":"NA", "value":11.45 },
+							 { "code":"NP", "value":15.11 },
+							 { "code":"NL", "value":770.31 },
+							 { "code":"NZ", "value":138 },
+							 { "code":"NI", "value":6.38 },
+							 { "code":"NE", "value":5.6 },
+							 { "code":"NG", "value":206.66 },
+							 { "code":"NO", "value":413.51 },
+							 { "code":"OM", "value":53.78 },
+							 { "code":"PK", "value":174.79 },
+							 { "code":"PA", "value":27.2 },
+							 { "code":"PG", "value":8.81 },
+							 { "code":"PY", "value":17.17 },
+							 { "code":"PE", "value":153.55 },
+							 { "code":"PH", "value":189.06 },
+							 { "code":"PL", "value":438.88 },
+							 { "code":"PT", "value":223.7 },
+							 { "code":"QA", "value":126.52 },
+							 { "code":"RO", "value":158.39 },
+							 { "code":"RU", "value":1476.91 },
+							 { "code":"RW", "value":5.69 },
+							 { "code":"WS", "value":0.55 },
+							 { "code":"ST", "value":0.19 },
+							 { "code":"SA", "value":434.44 },
+							 { "code":"SN", "value":12.66 },
+							 { "code":"RS", "value":38.92 },
+							 { "code":"SC", "value":0.92 },
+							 { "code":"SL", "value":1.9 },
+							 { "code":"SG", "value":217.38 },
+							 { "code":"SK", "value":86.26 },
+							 { "code":"SI", "value":46.44 },
+							 { "code":"SB", "value":0.67 },
+							 { "code":"ZA", "value":354.41 },
+							 { "code":"ES", "value":1374.78 },
+							 { "code":"LK", "value":48.24 },
+							 { "code":"KN", "value":0.56 },
+							 { "code":"LC", "value":1 },
+							 { "code":"VC", "value":0.58 },
+							 { "code":"SD", "value":65.93 },
+							 { "code":"SR", "value":3.3 },
+							 { "code":"SZ", "value":3.17 },
+							 { "code":"SE", "value":444.59 },
+							 { "code":"CH", "value":522.44 },
+							 { "code":"SY", "value":59.63 },
+							 { "code":"TW", "value":426.98 },
+							 { "code":"TJ", "value":5.58 },
+							 { "code":"TZ", "value":22.43 },
+							 { "code":"TH", "value":312.61 },
+							 { "code":"TL", "value":0.62 },
+							 { "code":"TG", "value":3.07 },
+							 { "code":"TO", "value":0.3 },
+							 { "code":"TT", "value":21.2 },
+							 { "code":"TN", "value":43.86 },
+							 { "code":"TR", "value":729.05 },
+							 { "code":"TM", "value":0 },
+							 { "code":"UG", "value":17.12 },
+							 { "code":"UA", "value":136.56 },
+							 { "code":"AE", "value":239.65 },
+							 { "code":"GB", "value":2258.57 },
+							 { "code":"US", "value":14624.18 },
+							 { "code":"UY", "value":40.71 },
+							 { "code":"UZ", "value":37.72 },
+							 { "code":"VU", "value":0.72 },
+							 { "code":"VE", "value":285.21 },
+							 { "code":"VN", "value":101.99 },
+							 { "code":"YE", "value":30.02 },
+							 { "code":"ZM", "value":15.69 },
+							 { "code":"ZW", "value":5.57 },
+							 { "code":"GL", "value":0.01 }
+					]
+	    		},
+	    		{
+		    		"year": 2010,
+		    		"values": [
+						  { "code": "AF", "value": 16.63 },
+						  { "code": "AL", "value": 11.58 },
+						  { "code": "DZ", "value": 158.97 },
+						  { "code": "AO", "value": 85.81 },
+						  { "code": "AG", "value": 1.1 },
+						  { "code": "AR", "value": 351.02 },
+							 { "code":"AM", "value":8.83 },
+							 { "code":"AU", "value":1219.72 },
+							 { "code":"AT", "value":366.26 },
+							 { "code":"AZ", "value":52.17 },
+							 { "code":"BS", "value":7.54 },
+							 { "code":"BH", "value":21.73 },
+							 { "code":"BD", "value":105.4 },
+							 { "code":"BB", "value":3.96 },
+							 { "code":"BY", "value":52.89 },
+							 { "code":"BE", "value":461.33 },
+							 { "code":"BZ", "value":1.43 },
+							 { "code":"BJ", "value":6.49 },
+							 { "code":"BT", "value":1.4 },
+							 { "code":"BO", "value":19.18 },
+							 { "code":"BA", "value":16.2 },
+							 { "code":"BW", "value":12.5 },
+							 { "code":"BR", "value":2023.53 },
+							 { "code":"BN", "value":11.96 },
+							 { "code":"BG", "value":44.84 },
+							 { "code":"BF", "value":8.67 },
+							 { "code":"BI", "value":1.47 },
+							 { "code":"KH", "value":11.36 },
+							 { "code":"CM", "value":21.88 },
+							 { "code":"CA", "value":1563.66 },
+							 { "code":"CV", "value":1.57 },
+							 { "code":"CF", "value":2.11 },
+							 { "code":"TD", "value":7.59 },
+							 { "code":"CL", "value":199.18 },
+							 { "code":"CN", "value":5745.13 },
+							 { "code":"CO", "value":283.11 },
+							 { "code":"KM", "value":0.56 },
+							 { "code":"CD", "value":12.6 },
+							 { "code":"CG", "value":11.88 },
+							 { "code":"CR", "value":35.02 },
+							 { "code":"CI", "value":22.38 },
+							 { "code":"HR", "value":59.92 },
+							 { "code":"CY", "value":22.75 },
+							 { "code":"CZ", "value":195.23 },
+							 { "code":"DK", "value":304.56 },
+							 { "code":"DJ", "value":1.14 },
+							 { "code":"DM", "value":0.38 },
+							 { "code":"DO", "value":50.87 },
+							 { "code":"EC", "value":61.49 },
+							 { "code":"EG", "value":216.83 },
+							 { "code":"SV", "value":21.8 },
+							 { "code":"GQ", "value":14.55 },
+							 { "code":"ER", "value":2.25 },
+							 { "code":"EE", "value":19.22 },
+							 { "code":"ET", "value":30.94 },
+							 { "code":"FJ", "value":3.15 },
+							 { "code":"FI", "value":231.98 },
+							 { "code":"FR", "value":2555.44 },
+							 { "code":"GA", "value":12.56 },
+							 { "code":"GM", "value":1.04 },
+							 { "code":"GE", "value":11.23 },
+							 { "code":"DE", "value":3305.9 },
+							 { "code":"GH", "value":18.06 },
+							 { "code":"GR", "value":305.01 },
+							 { "code":"GD", "value":0.65 },
+							 { "code":"GT", "value":40.77 },
+							 { "code":"GN", "value":4.34 },
+							 { "code":"GW", "value":0.83 },
+							 { "code":"GY", "value":2.2 },
+							 { "code":"HT", "value":6.5 },
+							 { "code":"HN", "value":15.34 },
+							 { "code":"HK", "value":226.49 },
+							 { "code":"HU", "value":132.28 },
+							 { "code":"IS", "value":12.77 },
+							 { "code":"IN", "value":1430.02 },
+							 { "code":"ID", "value":695.06 },
+							 { "code":"IR", "value":337.9 },
+							 { "code":"IQ", "value":84.14 },
+							 { "code":"IE", "value":204.14 },
+							 { "code":"IL", "value":201.25 },
+							 { "code":"IT", "value":2036.69 },
+							 { "code":"JM", "value":13.74 },
+							 { "code":"JP", "value":5390.9 },
+							 { "code":"JO", "value":27.13 },
+							 { "code":"KZ", "value":129.76 },
+							 { "code":"KE", "value":32.42 },
+							 { "code":"KI", "value":0.15 },
+							 { "code":"KR", "value":986.26 },
+							 { "code":"KW", "value":117.32 },
+							 { "code":"KG", "value":4.44 },
+							 { "code":"LA", "value":6.34 },
+							 { "code":"LV", "value":23.39 },
+							 { "code":"LB", "value":39.15 },
+							 { "code":"LS", "value":1.8 },
+							 { "code":"LR", "value":0.98 },
+							 { "code":"LY", "value":77.91 },
+							 { "code":"LT", "value":35.73 },
+							 { "code":"LU", "value":52.43 },
+							 { "code":"MK", "value":9.58 },
+							 { "code":"MG", "value":8.33 },
+							 { "code":"MW", "value":5.04 },
+							 { "code":"MY", "value":218.95 },
+							 { "code":"MV", "value":1.43 },
+							 { "code":"ML", "value":9.08 },
+							 { "code":"MT", "value":7.8 },
+							 { "code":"MR", "value":3.49 },
+							 { "code":"MU", "value":9.43 },
+							 { "code":"MX", "value":1004.04 },
+							 { "code":"MD", "value":5.36 },
+							 { "code":"MN", "value":5.81 },
+							 { "code":"ME", "value":3.88 },
+							 { "code":"MA", "value":91.7 },
+							 { "code":"MZ", "value":10.21 },
+							 { "code":"MM", "value":35.65 },
+							 { "code":"NA", "value":11.45 },
+							 { "code":"NP", "value":15.11 },
+							 { "code":"NL", "value":770.31 },
+							 { "code":"NZ", "value":138 },
+							 { "code":"NI", "value":6.38 },
+							 { "code":"NE", "value":5.6 },
+							 { "code":"NG", "value":206.66 },
+							 { "code":"NO", "value":413.51 },
+							 { "code":"OM", "value":53.78 },
+							 { "code":"PK", "value":174.79 },
+							 { "code":"PA", "value":27.2 },
+							 { "code":"PG", "value":8.81 },
+							 { "code":"PY", "value":17.17 },
+							 { "code":"PE", "value":153.55 },
+							 { "code":"PH", "value":189.06 },
+							 { "code":"PL", "value":438.88 },
+							 { "code":"PT", "value":223.7 },
+							 { "code":"QA", "value":126.52 },
+							 { "code":"RO", "value":158.39 },
+							 { "code":"RU", "value":1476.91 },
+							 { "code":"RW", "value":5.69 },
+							 { "code":"WS", "value":0.55 },
+							 { "code":"ST", "value":0.19 },
+							 { "code":"SA", "value":434.44 },
+							 { "code":"SN", "value":12.66 },
+							 { "code":"RS", "value":38.92 },
+							 { "code":"SC", "value":0.92 },
+							 { "code":"SL", "value":1.9 },
+							 { "code":"SG", "value":217.38 },
+							 { "code":"SK", "value":86.26 },
+							 { "code":"SI", "value":46.44 },
+							 { "code":"SB", "value":0.67 },
+							 { "code":"ZA", "value":354.41 },
+							 { "code":"ES", "value":1374.78 },
+							 { "code":"LK", "value":48.24 },
+							 { "code":"KN", "value":0.56 },
+							 { "code":"LC", "value":1 },
+							 { "code":"VC", "value":0.58 },
+							 { "code":"SD", "value":65.93 },
+							 { "code":"SR", "value":3.3 },
+							 { "code":"SZ", "value":3.17 },
+							 { "code":"SE", "value":444.59 },
+							 { "code":"CH", "value":522.44 },
+							 { "code":"SY", "value":59.63 },
+							 { "code":"TW", "value":426.98 },
+							 { "code":"TJ", "value":5.58 },
+							 { "code":"TZ", "value":22.43 },
+							 { "code":"TH", "value":312.61 },
+							 { "code":"TL", "value":0.62 },
+							 { "code":"TG", "value":3.07 },
+							 { "code":"TO", "value":0.3 },
+							 { "code":"TT", "value":21.2 },
+							 { "code":"TN", "value":43.86 },
+							 { "code":"TR", "value":729.05 },
+							 { "code":"TM", "value":0 },
+							 { "code":"UG", "value":17.12 },
+							 { "code":"UA", "value":136.56 },
+							 { "code":"AE", "value":239.65 },
+							 { "code":"GB", "value":2258.57 },
+							 { "code":"US", "value":14624.18 },
+							 { "code":"UY", "value":40.71 },
+							 { "code":"UZ", "value":37.72 },
+							 { "code":"VU", "value":0.72 },
+							 { "code":"VE", "value":285.21 },
+							 { "code":"VN", "value":101.99 },
+							 { "code":"YE", "value":30.02 },
+							 { "code":"ZM", "value":15.69 },
+							 { "code":"ZW", "value":5.57 },
+							 { "code":"GL", "value":0.01 }
+					]
+	    		},
+	    		{
+		    		"year": 2009,
+		    		"values": [
+						  { "code": "AF", "value": 16.63 },
+						  { "code": "AL", "value": 11.58 },
+						  { "code": "DZ", "value": 158.97 },
+						  { "code": "AO", "value": 85.81 },
+						  { "code": "AG", "value": 1.1 },
+						  { "code": "AR", "value": 351.02 },
+							 { "code":"AM", "value":8.83 },
+							 { "code":"AU", "value":1219.72 },
+							 { "code":"AT", "value":366.26 },
+							 { "code":"AZ", "value":52.17 },
+							 { "code":"BS", "value":7.54 },
+							 { "code":"BH", "value":21.73 },
+							 { "code":"BD", "value":105.4 },
+							 { "code":"BB", "value":3.96 },
+							 { "code":"BY", "value":52.89 },
+							 { "code":"BE", "value":461.33 },
+							 { "code":"BZ", "value":1.43 },
+							 { "code":"BJ", "value":6.49 },
+							 { "code":"BT", "value":1.4 },
+							 { "code":"BO", "value":19.18 },
+							 { "code":"BA", "value":16.2 },
+							 { "code":"BW", "value":12.5 },
+							 { "code":"BR", "value":2023.53 },
+							 { "code":"BN", "value":11.96 },
+							 { "code":"BG", "value":44.84 },
+							 { "code":"BF", "value":8.67 },
+							 { "code":"BI", "value":1.47 },
+							 { "code":"KH", "value":11.36 },
+							 { "code":"CM", "value":21.88 },
+							 { "code":"CA", "value":1563.66 },
+							 { "code":"CV", "value":1.57 },
+							 { "code":"CF", "value":2.11 },
+							 { "code":"TD", "value":7.59 },
+							 { "code":"CL", "value":199.18 },
+							 { "code":"CN", "value":5745.13 },
+							 { "code":"CO", "value":283.11 },
+							 { "code":"KM", "value":0.56 },
+							 { "code":"CD", "value":12.6 },
+							 { "code":"CG", "value":11.88 },
+							 { "code":"CR", "value":35.02 },
+							 { "code":"CI", "value":22.38 },
+							 { "code":"HR", "value":59.92 },
+							 { "code":"CY", "value":22.75 },
+							 { "code":"CZ", "value":195.23 },
+							 { "code":"DK", "value":304.56 },
+							 { "code":"DJ", "value":1.14 },
+							 { "code":"DM", "value":0.38 },
+							 { "code":"DO", "value":50.87 },
+							 { "code":"EC", "value":61.49 },
+							 { "code":"EG", "value":216.83 },
+							 { "code":"SV", "value":21.8 },
+							 { "code":"GQ", "value":14.55 },
+							 { "code":"ER", "value":2.25 },
+							 { "code":"EE", "value":19.22 },
+							 { "code":"ET", "value":30.94 },
+							 { "code":"FJ", "value":3.15 },
+							 { "code":"FI", "value":231.98 },
+							 { "code":"FR", "value":2555.44 },
+							 { "code":"GA", "value":12.56 },
+							 { "code":"GM", "value":1.04 },
+							 { "code":"GE", "value":11.23 },
+							 { "code":"DE", "value":3305.9 },
+							 { "code":"GH", "value":18.06 },
+							 { "code":"GR", "value":305.01 },
+							 { "code":"GD", "value":0.65 },
+							 { "code":"GT", "value":40.77 },
+							 { "code":"GN", "value":4.34 },
+							 { "code":"GW", "value":0.83 },
+							 { "code":"GY", "value":2.2 },
+							 { "code":"HT", "value":6.5 },
+							 { "code":"HN", "value":15.34 },
+							 { "code":"HK", "value":226.49 },
+							 { "code":"HU", "value":132.28 },
+							 { "code":"IS", "value":12.77 },
+							 { "code":"IN", "value":1430.02 },
+							 { "code":"ID", "value":695.06 },
+							 { "code":"IR", "value":337.9 },
+							 { "code":"IQ", "value":84.14 },
+							 { "code":"IE", "value":204.14 },
+							 { "code":"IL", "value":201.25 },
+							 { "code":"IT", "value":2036.69 },
+							 { "code":"JM", "value":13.74 },
+							 { "code":"JP", "value":5390.9 },
+							 { "code":"JO", "value":27.13 },
+							 { "code":"KZ", "value":129.76 },
+							 { "code":"KE", "value":32.42 },
+							 { "code":"KI", "value":0.15 },
+							 { "code":"KR", "value":986.26 },
+							 { "code":"KW", "value":117.32 },
+							 { "code":"KG", "value":4.44 },
+							 { "code":"LA", "value":6.34 },
+							 { "code":"LV", "value":23.39 },
+							 { "code":"LB", "value":39.15 },
+							 { "code":"LS", "value":1.8 },
+							 { "code":"LR", "value":0.98 },
+							 { "code":"LY", "value":77.91 },
+							 { "code":"LT", "value":35.73 },
+							 { "code":"LU", "value":52.43 },
+							 { "code":"MK", "value":9.58 },
+							 { "code":"MG", "value":8.33 },
+							 { "code":"MW", "value":5.04 },
+							 { "code":"MY", "value":218.95 },
+							 { "code":"MV", "value":1.43 },
+							 { "code":"ML", "value":9.08 },
+							 { "code":"MT", "value":7.8 },
+							 { "code":"MR", "value":3.49 },
+							 { "code":"MU", "value":9.43 },
+							 { "code":"MX", "value":1004.04 },
+							 { "code":"MD", "value":5.36 },
+							 { "code":"MN", "value":5.81 },
+							 { "code":"ME", "value":3.88 },
+							 { "code":"MA", "value":91.7 },
+							 { "code":"MZ", "value":10.21 },
+							 { "code":"MM", "value":35.65 },
+							 { "code":"NA", "value":11.45 },
+							 { "code":"NP", "value":15.11 },
+							 { "code":"NL", "value":770.31 },
+							 { "code":"NZ", "value":138 },
+							 { "code":"NI", "value":6.38 },
+							 { "code":"NE", "value":5.6 },
+							 { "code":"NG", "value":206.66 },
+							 { "code":"NO", "value":413.51 },
+							 { "code":"OM", "value":53.78 },
+							 { "code":"PK", "value":174.79 },
+							 { "code":"PA", "value":27.2 },
+							 { "code":"PG", "value":8.81 },
+							 { "code":"PY", "value":17.17 },
+							 { "code":"PE", "value":153.55 },
+							 { "code":"PH", "value":189.06 },
+							 { "code":"PL", "value":438.88 },
+							 { "code":"PT", "value":223.7 },
+							 { "code":"QA", "value":126.52 },
+							 { "code":"RO", "value":158.39 },
+							 { "code":"RU", "value":1476.91 },
+							 { "code":"RW", "value":5.69 },
+							 { "code":"WS", "value":0.55 },
+							 { "code":"ST", "value":0.19 },
+							 { "code":"SA", "value":434.44 },
+							 { "code":"SN", "value":12.66 },
+							 { "code":"RS", "value":38.92 },
+							 { "code":"SC", "value":0.92 },
+							 { "code":"SL", "value":1.9 },
+							 { "code":"SG", "value":217.38 },
+							 { "code":"SK", "value":86.26 },
+							 { "code":"SI", "value":46.44 },
+							 { "code":"SB", "value":0.67 },
+							 { "code":"ZA", "value":354.41 },
+							 { "code":"ES", "value":1374.78 },
+							 { "code":"LK", "value":48.24 },
+							 { "code":"KN", "value":0.56 },
+							 { "code":"LC", "value":1 },
+							 { "code":"VC", "value":0.58 },
+							 { "code":"SD", "value":65.93 },
+							 { "code":"SR", "value":3.3 },
+							 { "code":"SZ", "value":3.17 },
+							 { "code":"SE", "value":444.59 },
+							 { "code":"CH", "value":522.44 },
+							 { "code":"SY", "value":59.63 },
+							 { "code":"TW", "value":426.98 },
+							 { "code":"TJ", "value":5.58 },
+							 { "code":"TZ", "value":22.43 },
+							 { "code":"TH", "value":312.61 },
+							 { "code":"TL", "value":0.62 },
+							 { "code":"TG", "value":3.07 },
+							 { "code":"TO", "value":0.3 },
+							 { "code":"TT", "value":21.2 },
+							 { "code":"TN", "value":43.86 },
+							 { "code":"TR", "value":729.05 },
+							 { "code":"TM", "value":0 },
+							 { "code":"UG", "value":17.12 },
+							 { "code":"UA", "value":136.56 },
+							 { "code":"AE", "value":239.65 },
+							 { "code":"GB", "value":2258.57 },
+							 { "code":"US", "value":14624.18 },
+							 { "code":"UY", "value":40.71 },
+							 { "code":"UZ", "value":37.72 },
+							 { "code":"VU", "value":0.72 },
+							 { "code":"VE", "value":285.21 },
+							 { "code":"VN", "value":101.99 },
+							 { "code":"YE", "value":30.02 },
+							 { "code":"ZM", "value":15.69 },
+							 { "code":"ZW", "value":5.57 },
+							 { "code":"GL", "value":0.01 }
+					]
+	    		},
+	    		{
+		    		"year": 2008,
+		    		"values": [
+						  { "code": "AF", "value": 16.63 },
+						  { "code": "AL", "value": 11.58 },
+						  { "code": "DZ", "value": 158.97 },
+						  { "code": "AO", "value": 85.81 },
+						  { "code": "AG", "value": 1.1 },
+						  { "code": "AR", "value": 351.02 },
+							 { "code":"AM", "value":8.83 },
+							 { "code":"AU", "value":1219.72 },
+							 { "code":"AT", "value":366.26 },
+							 { "code":"AZ", "value":52.17 },
+							 { "code":"BS", "value":7.54 },
+							 { "code":"BH", "value":21.73 },
+							 { "code":"BD", "value":105.4 },
+							 { "code":"BB", "value":3.96 },
+							 { "code":"BY", "value":52.89 },
+							 { "code":"BE", "value":461.33 },
+							 { "code":"BZ", "value":1.43 },
+							 { "code":"BJ", "value":6.49 },
+							 { "code":"BT", "value":1.4 },
+							 { "code":"BO", "value":19.18 },
+							 { "code":"BA", "value":16.2 },
+							 { "code":"BW", "value":12.5 },
+							 { "code":"BR", "value":2023.53 },
+							 { "code":"BN", "value":11.96 },
+							 { "code":"BG", "value":44.84 },
+							 { "code":"BF", "value":8.67 },
+							 { "code":"BI", "value":1.47 },
+							 { "code":"KH", "value":11.36 },
+							 { "code":"CM", "value":21.88 },
+							 { "code":"CA", "value":1563.66 },
+							 { "code":"CV", "value":1.57 },
+							 { "code":"CF", "value":2.11 },
+							 { "code":"TD", "value":7.59 },
+							 { "code":"CL", "value":199.18 },
+							 { "code":"CN", "value":5745.13 },
+							 { "code":"CO", "value":283.11 },
+							 { "code":"KM", "value":0.56 },
+							 { "code":"CD", "value":12.6 },
+							 { "code":"CG", "value":11.88 },
+							 { "code":"CR", "value":35.02 },
+							 { "code":"CI", "value":22.38 },
+							 { "code":"HR", "value":59.92 },
+							 { "code":"CY", "value":22.75 },
+							 { "code":"CZ", "value":195.23 },
+							 { "code":"DK", "value":304.56 },
+							 { "code":"DJ", "value":1.14 },
+							 { "code":"DM", "value":0.38 },
+							 { "code":"DO", "value":50.87 },
+							 { "code":"EC", "value":61.49 },
+							 { "code":"EG", "value":216.83 },
+							 { "code":"SV", "value":21.8 },
+							 { "code":"GQ", "value":14.55 },
+							 { "code":"ER", "value":2.25 },
+							 { "code":"EE", "value":19.22 },
+							 { "code":"ET", "value":30.94 },
+							 { "code":"FJ", "value":3.15 },
+							 { "code":"FI", "value":231.98 },
+							 { "code":"FR", "value":2555.44 },
+							 { "code":"GA", "value":12.56 },
+							 { "code":"GM", "value":1.04 },
+							 { "code":"GE", "value":11.23 },
+							 { "code":"DE", "value":3305.9 },
+							 { "code":"GH", "value":18.06 },
+							 { "code":"GR", "value":305.01 },
+							 { "code":"GD", "value":0.65 },
+							 { "code":"GT", "value":40.77 },
+							 { "code":"GN", "value":4.34 },
+							 { "code":"GW", "value":0.83 },
+							 { "code":"GY", "value":2.2 },
+							 { "code":"HT", "value":6.5 },
+							 { "code":"HN", "value":15.34 },
+							 { "code":"HK", "value":226.49 },
+							 { "code":"HU", "value":132.28 },
+							 { "code":"IS", "value":12.77 },
+							 { "code":"IN", "value":1430.02 },
+							 { "code":"ID", "value":695.06 },
+							 { "code":"IR", "value":337.9 },
+							 { "code":"IQ", "value":84.14 },
+							 { "code":"IE", "value":204.14 },
+							 { "code":"IL", "value":201.25 },
+							 { "code":"IT", "value":2036.69 },
+							 { "code":"JM", "value":13.74 },
+							 { "code":"JP", "value":5390.9 },
+							 { "code":"JO", "value":27.13 },
+							 { "code":"KZ", "value":129.76 },
+							 { "code":"KE", "value":32.42 },
+							 { "code":"KI", "value":0.15 },
+							 { "code":"KR", "value":986.26 },
+							 { "code":"KW", "value":117.32 },
+							 { "code":"KG", "value":4.44 },
+							 { "code":"LA", "value":6.34 },
+							 { "code":"LV", "value":23.39 },
+							 { "code":"LB", "value":39.15 },
+							 { "code":"LS", "value":1.8 },
+							 { "code":"LR", "value":0.98 },
+							 { "code":"LY", "value":77.91 },
+							 { "code":"LT", "value":35.73 },
+							 { "code":"LU", "value":52.43 },
+							 { "code":"MK", "value":9.58 },
+							 { "code":"MG", "value":8.33 },
+							 { "code":"MW", "value":5.04 },
+							 { "code":"MY", "value":218.95 },
+							 { "code":"MV", "value":1.43 },
+							 { "code":"ML", "value":9.08 },
+							 { "code":"MT", "value":7.8 },
+							 { "code":"MR", "value":3.49 },
+							 { "code":"MU", "value":9.43 },
+							 { "code":"MX", "value":1004.04 },
+							 { "code":"MD", "value":5.36 },
+							 { "code":"MN", "value":5.81 },
+							 { "code":"ME", "value":3.88 },
+							 { "code":"MA", "value":91.7 },
+							 { "code":"MZ", "value":10.21 },
+							 { "code":"MM", "value":35.65 },
+							 { "code":"NA", "value":11.45 },
+							 { "code":"NP", "value":15.11 },
+							 { "code":"NL", "value":770.31 },
+							 { "code":"NZ", "value":138 },
+							 { "code":"NI", "value":6.38 },
+							 { "code":"NE", "value":5.6 },
+							 { "code":"NG", "value":206.66 },
+							 { "code":"NO", "value":413.51 },
+							 { "code":"OM", "value":53.78 },
+							 { "code":"PK", "value":174.79 },
+							 { "code":"PA", "value":27.2 },
+							 { "code":"PG", "value":8.81 },
+							 { "code":"PY", "value":17.17 },
+							 { "code":"PE", "value":153.55 },
+							 { "code":"PH", "value":189.06 },
+							 { "code":"PL", "value":438.88 },
+							 { "code":"PT", "value":223.7 },
+							 { "code":"QA", "value":126.52 },
+							 { "code":"RO", "value":158.39 },
+							 { "code":"RU", "value":1476.91 },
+							 { "code":"RW", "value":5.69 },
+							 { "code":"WS", "value":0.55 },
+							 { "code":"ST", "value":0.19 },
+							 { "code":"SA", "value":434.44 },
+							 { "code":"SN", "value":12.66 },
+							 { "code":"RS", "value":38.92 },
+							 { "code":"SC", "value":0.92 },
+							 { "code":"SL", "value":1.9 },
+							 { "code":"SG", "value":217.38 },
+							 { "code":"SK", "value":86.26 },
+							 { "code":"SI", "value":46.44 },
+							 { "code":"SB", "value":0.67 },
+							 { "code":"ZA", "value":354.41 },
+							 { "code":"ES", "value":1374.78 },
+							 { "code":"LK", "value":48.24 },
+							 { "code":"KN", "value":0.56 },
+							 { "code":"LC", "value":1 },
+							 { "code":"VC", "value":0.58 },
+							 { "code":"SD", "value":65.93 },
+							 { "code":"SR", "value":3.3 },
+							 { "code":"SZ", "value":3.17 },
+							 { "code":"SE", "value":444.59 },
+							 { "code":"CH", "value":522.44 },
+							 { "code":"SY", "value":59.63 },
+							 { "code":"TW", "value":426.98 },
+							 { "code":"TJ", "value":5.58 },
+							 { "code":"TZ", "value":22.43 },
+							 { "code":"TH", "value":312.61 },
+							 { "code":"TL", "value":0.62 },
+							 { "code":"TG", "value":3.07 },
+							 { "code":"TO", "value":0.3 },
+							 { "code":"TT", "value":21.2 },
+							 { "code":"TN", "value":43.86 },
+							 { "code":"TR", "value":729.05 },
+							 { "code":"TM", "value":0 },
+							 { "code":"UG", "value":17.12 },
+							 { "code":"UA", "value":136.56 },
+							 { "code":"AE", "value":239.65 },
+							 { "code":"GB", "value":2258.57 },
+							 { "code":"US", "value":14624.18 },
+							 { "code":"UY", "value":40.71 },
+							 { "code":"UZ", "value":37.72 },
+							 { "code":"VU", "value":0.72 },
+							 { "code":"VE", "value":285.21 },
+							 { "code":"VN", "value":101.99 },
+							 { "code":"YE", "value":30.02 },
+							 { "code":"ZM", "value":15.69 },
+							 { "code":"ZW", "value":5.57 },
+							 { "code":"GL", "value":0.01 }
+					]
+	    		}
+	    	]
+    	},
+    	"employment-region-timeline": {
+	    	"observations": [
+	    	]
+    	},
+		"employment-agriculture": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "FRA",
+                        "name": "France"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 6
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 6
+                },
+                {
+                    "country": {
+                        "code": "BEL",
+                        "name": "Belgium"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "GBR",
+                        "name": "United Kingdom"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "POR",
+                        "name": "Portugal"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "ESP",
+                        "name": "Spain"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "IRE",
+                        "name": "Ireland"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 2
+                } 
+            ]
+		},
+		"employment-timeline": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 6
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 6
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 4
+                }
+            ]
+		}
+    },
+    {
+    	"region": "asia",
+    	"heat-map": {
+	    	"years": [
+	    		{
+		    		"year": 2012,
+		    		"values": [
+							 { "code":"CN", "value":1.57 },
+							 { "code":"RU", "value":2.11 }
+					]
+	    		},
+	    		{
+		    		"year": 2011,
+		    		"values": [
+							 { "code":"CN", "value":3.57 },
+							 { "code":"RU", "value":1.11 }
+					]
+	    		},
+	    		{
+		    		"year": 2010,
+		    		"values": [
+							 { "code":"CN", "value":4.57 },
+							 { "code":"RU", "value":5.11 }
+					]
+	    		},
+	    		{
+		    		"year": 2009,
+		    		"values": [
+							 { "code":"CN", "value":6.57 },
+							 { "code":"RU", "value":10.11 }
+					]
+	    		},
+	    		{
+		    		"year": 2008,
+		    		"values": [
+							 { "code":"CN", "value":1.57 },
+							 { "code":"RU", "value":2.11 }
+					]
+	    		}
+	    	]
+    	},
+    	"employment-region-timeline": {
+	    	"observations": [
+	    	]
+    	},
+		"employment-agriculture": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "FRA",
+                        "name": "France"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "BEL",
+                        "name": "Belgium"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "GBR",
+                        "name": "United Kingdom"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "POR",
+                        "name": "Portugal"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ESP",
+                        "name": "Spain"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "IRE",
+                        "name": "Ireland"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 1
+                } 
+            ]
+		},
+		"employment-timeline": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 6
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 6
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 4
+                }
+            ]
+		}
+    }]
+}		

@@ -22,16 +22,30 @@ function book_theme() {
 }
 
 /**
- * Adds the application data required by all the templates. The application 
- * data includes a list of the available languages and the current user name.
+ * Sets variables required by all the templates. Those variables are:
+ *  - $application_data: contains common application data required by all the
+ *    templates including the list of available languages and the current user name
+ *  - $theme_path: the full path to the theme folder. Used to load some static resources
  */
 function book_preprocess(&$variables) {
+  $variables['application_data'] = _get_application_data();
+  $variables['theme_path'] = _get_path();
+}
+
+
+/**
+ * Get the application data required by all the templates. 
+ * 
+ * @return a list of the available and selected langauges and the current user name (if
+ *  it exists.
+ */
+function _get_application_data() {
   $appdata = array();
   $appdata['languages'] = _get_languages('en');
   $user = _get_current_user();
   if (!is_null($user))
     $appdata['user'] = $user;
-  $variables['application_data'] = $appdata;
+  return $appdata;
 }
 
 /**
@@ -45,7 +59,7 @@ function book_preprocess(&$variables) {
 function _get_languages($default) {
   $languages = _get_available_languages();
   // Get the selected language
-  $selected = isset($_GET["language"]) ? $_GET["language"] : "";
+  $selected = isset($_POST["language"]) ? $_POST["language"] : "";
   if (empty($selected) && isset($_SESSION["language"])) {
     $selected = $_SESSION["language"];
   } elseif (empty($selected) && isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])) {
@@ -63,8 +77,10 @@ function _get_languages($default) {
 
 
 /**
- * Returns an associative array containing the available languages and its
- * name.
+ * Get the available languages.
+ *
+ * @return an associative array containing the available languages and its
+ *  name.
  */
 function _get_available_languages() {
   $result = array();
@@ -84,8 +100,10 @@ function _get_available_languages() {
 
 
 /**
- * Returns an associative array containing the current user name.
- * If there is no user, returns NULL
+ * Get the current user name.
+ * 
+ * @return an associative array containing the current user name or NULL
+ *  if there is not current user.
  */
 function _get_current_user() {
   global $user;
@@ -94,4 +112,16 @@ function _get_current_user() {
   } else {
     return array('name' => $user->name);
   }
+}
+
+
+/**
+ * Get the full theme path.
+ *
+ * @return The full theme path.
+ */
+function _get_path() {
+  $server_name = $_SERVER['HTTP_HOST'];
+  $theme_path = drupal_get_path('theme', 'book');
+  return 'http://' . $server_name . '/' . $theme_path;
 }

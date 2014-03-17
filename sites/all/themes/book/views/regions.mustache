@@ -1,0 +1,151 @@
+{{>header}}
+<div class="content main-content container">
+	<ol class="breadcrumb">
+	  <li><a href="">{{#labels}}{{index}}{{/labels}}</a></li>
+	  <li><a href="">{{#labels}}{{land_book}}{{/labels}}</a></li>
+	  <li class="active">{{#labels}}{{regions}}{{/labels}}</li>
+	</ol>
+	<div class="row">
+		<div class="col-sm-12">
+			
+		</div>
+	</div>
+	<div class="row">
+	  <div class="col-sm-9 graph-section">
+		  <h2 class="section"><span>{{#labels}}{{agriculture_employment}}{{/labels}}</span></h2>
+		  {{#charts}}
+		  		{{#heat-map}}
+		  			{{#years}}
+				  <table class="map-data heat-map year-{{year}} region-{{region}}">
+				  	<thead>
+				  		<tr>
+				  			<th>Country</th>
+				  			<th>Value</th>
+				  		</tr>
+				  	</thead>
+				  	<tbody>
+				  		{{#values}}
+						  		<tr>
+						  			<td>{{code}}</td>
+						  			<td>{{value}}</td>
+						  		</tr>
+				  		{{/values}}
+				  	</tbody>
+				  </table>
+				  	{{/years}}
+		  		{{/heat-map}}
+		  {{/charts}}
+          <div id="mapDiv" class="map">
+          		<div class="map-container"></div>
+          		<div class="country-label"></div>
+          </div>
+          <div class="timeline">
+          	<div class="line">
+          		<div class="year">
+	          		<a href="" title="2008" class="circle"></a>
+          		</div>
+          		<div class="year">
+	          		<a href="" title="2009" class="circle"></a>
+          		</div>
+          		<div class="year">
+	          		<a href="" title="2010" class="circle"></a>
+          		</div>
+          		<div class="year">
+	          		<a href="" title="2011" class="circle"></a>
+          		</div>
+          		<div class="year selected">
+	          		<a href="" title="2012" class="circle"></a>
+          		</div>
+          	</div>
+          	<div class="years">
+          		<div class="year">
+	          		<a href="" title="2008">2008</a>
+          		</div>
+          		<div class="year">
+	          		<a href="" title="2009">2009</a>
+          		</div>
+          		<div class="year">
+	          		<a href="" title="2010">2010</a>
+          		</div>
+          		<div class="year">
+	          		<a href="" title="2011">2011</a>
+          		</div>
+          		<div class="year selected">
+	          		<a href="" title="2012">2012</a>
+          		</div>
+          	</div>
+          </div>
+		  <h2 class="section"><span>{{#labels}}{{agriculture_employment}}{{/labels}}</span></h2>
+		  <div id="employment-agriculture" class="graph-large">
+            {{#charts}}
+            	<div class="region-chart region-{{region}}">
+	                {{#employment-agriculture}}
+	                    {{>table}}
+	                {{/employment-agriculture}}
+            	</div>
+            {{/charts}}
+          </div>
+		  <h2 class="section"><span>{{#labels}}{{agriculture_timeline}}{{/labels}} {{#info}}{{country}}{{/info}}</span></h2>
+		  <div class="row">
+			<div class="col-xs-4">
+				{{#labels}}{{compare_with}}{{/labels}}:
+			</div>
+			<div class="col-xs-8">
+			  <select class="form-control country-selector">
+			  	{{#selectors}}
+				  	{{#regions}}
+				  		<option>{{name}}</option>
+				  	{{/regions}}
+			  	{{/selectors}}
+			  </select>
+			</div>
+		  </div>
+		  <div id="employment-timeline" class="graph-large">
+            {{#charts}}
+            	<div class="region-chart region-{{region}}">
+	                {{#employment-timeline}}
+	                    {{>table}}
+	                {{/employment-timeline}}
+            	</div>
+            {{/charts}}          
+          </div>
+	  </div>
+	  <div class="col-sm-3">
+		  <h2 class="section"><span>{{#labels}}{{world_region}}{{/labels}}</span></h2>
+		  <select id="region-select" multiple="multiple" class="data-sources">
+		  	{{#selectors}}
+			  	{{#regions}}
+			  		<option value="{{code}}">{{name}}</option>
+			  	{{/regions}}
+		  	{{/selectors}}
+		  </select>
+		  <h2 class="section"><span>{{#labels}}{{sources}}{{/labels}}</span></h2>
+		  <select id="source-select" multiple="multiple" class="data-sources">
+		  	{{#selectors}}
+			  	{{#data-sources}}
+					<option>{{name}}</option>
+				{{/data-sources}}
+			{{/selectors}}
+		  </select>
+		   <h2 class="section"><span>{{#labels}}{{indicators}}{{/labels}}</span></h2>
+		   <select id="indicator-select" class="form-control">	
+		   	{{#selectors}}
+			  	{{#indicators}}
+					<option>{{name}}</option>
+				{{/indicators}}
+			{{/selectors}}
+		   </select>
+		  <a href="" class="more-info">{{#labels}}{{more_about_the_indicators}}{{/labels}}</a>
+		  <h2 class="section"><span>{{#labels}}{{specific_country}}{{/labels}}</span></h2>
+		  <select class="form-control">
+		  	{{#selectors}}
+			  	{{#countries}}
+					<option>{{name}}</option>
+				{{/countries}}
+			{{/selectors}}
+		  </select>
+		  <a href="" class="more-info">{{#labels}}{{more_about_areas_and_countries}}{{/labels}}</a>
+	  </div>
+	</div>
+</div>
+{{>footer}}

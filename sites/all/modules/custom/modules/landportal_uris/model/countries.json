@@ -1,18 +1,45 @@
 {
+    "country-list": [
+    	{
+	    	"iso3": "FRA",
+	    	"name": "France",
+	    	"data": true	
+    	},
+    	{
+	    	"iso3": "JPN",
+	    	"name": "Japan",
+	    	"data": true	
+    	},
+    	{
+	    	"iso3": "POR",
+	    	"name": "Portugal",
+	    	"data": true	
+    	},
+    	{
+	    	"iso3": "RSN",
+	    	"name": "Russia",
+	    	"data": false
+    	},
+    	{
+	    	"iso3": "ESP",
+	    	"name": "Spain",
+	    	"data": true
+    	}
+    ],
     "continents": [
         {
             "name": "Asia",
             "countries": [
                 {
                     "iso3": "JPN",
-                    "iso2": "jp",
+                    "iso2": "JP",
                     "name": "Japan",
                     "data": true,
                     "extended": false
                 },
                 {
                     "iso3": "RSN",
-                    "iso2": "rs",
+                    "iso2": "RS",
                     "name": "Russia",
                     "data": false,
                     "extended": false
@@ -24,21 +51,21 @@
             "countries": [
                 {
                     "iso3": "ESP",
-                    "iso2": "es",
+                    "iso2": "ES",
                     "name": "Spain",
                     "data": true,
                     "extended": true
                 },
                 {
                     "iso3": "POR",
-                    "iso2": "pt",
+                    "iso2": "PT",
                     "name": "Portugal",
                     "data": true,
                     "extended": false
                 },
                 {
                     "iso3": "FRA",
-                    "iso2": "fr",
+                    "iso2": "FR",
                     "name": "France",
                     "data": true,
                     "extended": false

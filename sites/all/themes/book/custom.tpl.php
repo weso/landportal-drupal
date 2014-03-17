@@ -4,9 +4,10 @@ $mustache = get_mustache('views', 'views/partials');
 // The template to use comes from the model.
 $template = $mustache->loadTemplate($mustache_template);
 // The basic data to render the template comes from the model.
-$data = get_template_data($mustache_data, $mustache_template, $application_data);
+$data = get_template_data($mustache_data, $mustache_template, $application_data, $theme_path);
 //Render the selected template with the required data.
 echo $template->render($data);
+
 
 /**
  * Get the labels for the specified language.
@@ -28,6 +29,7 @@ function get_labels($languages) {
 	return $labels;
 }
 
+
 /**
  * Get the required JavaScript files for a certain view.
  *
@@ -39,11 +41,12 @@ function get_labels($languages) {
 function get_js($name) {
 	$js_path = drupal_get_path('theme', 'book') . '/js/' . $name . '.js';
 	if (file_exists($js_path)) {
-		return array("script" => 'http://' . $_SERVER1['HTTP_HOST'] . '/' . $js_path);
+		return array("script" => 'http://' . $_SERVER['HTTP_HOST'] . '/' . $js_path);
 	} else {
 		return array();
 	}
 }
+
 
 /**
  * Get the Mustache object.
@@ -66,16 +69,6 @@ function get_mustache($views_path, $partials_path) {
 	return $mustache;
 }
 
-/**
- * Get the full theme path.
- *
- * @return The full theme path.
- */
-function get_path() {
-	$server_name = $_SERVER['HTTP_HOST'];
-	$theme_path = drupal_get_path('theme', 'book');
-	return 'http://' . $server_name . '/' . $theme_path;
-}
 
 /**
  * Get the required data to render the template.
@@ -86,7 +79,7 @@ function get_path() {
  * @param $mustache_template The name of the template to render
  * @return Array with the data to render the template.
  */
-function get_template_data($mustache_data, $mustache_template, $application_data) {
+function get_template_data($mustache_data, $mustache_template, $application_data, $theme_path) {
 	// The data to render the template comes from the model.
 	$data = $mustache_data;
 	// Append the application data
@@ -96,7 +89,7 @@ function get_template_data($mustache_data, $mustache_template, $application_data
 	// Get the required JavaScript files that will be passed to the template
 	$data['scripts'] = get_js($mustache_template);
 	// Get the absolute path to the theme. It is required in some templates.
-	$data['path'] = get_path();
+	$data['path'] = $theme_path;
 
 	return $data;
 }

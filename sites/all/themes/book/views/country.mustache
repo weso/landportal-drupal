@@ -1,7 +1,7 @@
 {{>header}}
 <div class="content main-content container">
 	<ol class="breadcrumb">
-	  <li><a href="">{{#labels}}{{home}}{{/labels}}</a></li>
+	  <li><a href="">{{#labels}}{{index}}{{/labels}}</a></li>
 	  <li><a href="">{{#labels}}{{land_book}}{{/labels}}</a></li>
 	  <li><a href="">{{#labels}}{{countries}}{{/labels}}</a></li>
 	  <li><a href="">{{#info}}{{continent}}{{/info}}</a></li>
@@ -19,9 +19,11 @@
 		  <h2 class="section"><span>{{#labels}}{{main_index_rankings}}{{/labels}}</span></h2>
 		  <div id="main-index-rankings" class="graph">
             {{#charts}}
-                {{#main-index-rankings}}
-                    {{>table}}
-                {{/main-index-rankings}}
+            	<div class="source-graph source-{{source}}">
+	                {{#main-index-rankings}}
+	                    {{>table}}
+	                {{/main-index-rankings}}
+            	</div>
             {{/charts}}
           </div>
 		  <h2 class="section"><span>{{#labels}}{{gender_issues}}{{/labels}}</span></h2>
@@ -54,15 +56,17 @@
 		  <h2 class="section"><span>{{#labels}}{{rural_development}}{{/labels}}</span></h2>
 		  <div id="rural-development" class="graph">
             {{#charts}}
-                {{#rural-development}}
-                    {{>table}}
-                {{/rural-development}}
+            	<div class="source-graph source-{{source}}">
+	                {{#rural-development}}
+	                    {{>table}}
+	                {{/rural-development}}
+            	</div>
             {{/charts}}
           </div>
 	  </div>
-	  <div class="col-sm-6">
+	  <div class="col-sm-6 graph-section">
 		  <h2 class="section"><span>{{#labels}}{{socio_economic_values}}{{/labels}}</span></h2>
-          <div class="socioeconomic-values">
+          <div class="socioeconomic-values source-{{source}}">
             {{#charts}}
                 {{#socioeconomic-values}}
                     {{>table}}
@@ -72,9 +76,11 @@
 		  <h2 class="section"><span>{{#labels}}{{agriculture_employment}}{{/labels}}</span></h2>
 		  <div id="employment-agriculture" class="graph">
             {{#charts}}
-                {{#employment-agriculture}}
-                    {{>table}}
-                {{/employment-agriculture}}
+            	<div class="source-graph source-{{source}}">
+	                {{#employment-agriculture}}
+	                    {{>table}}
+	                {{/employment-agriculture}}
+            	</div>
             {{/charts}}
           </div>
 		  <h2 class="section"><span>{{#labels}}{{agriculture_timeline}}{{/labels}} {{#info}}{{country}}{{/info}}</span></h2>
@@ -84,15 +90,19 @@
 			</div>
 			<div class="col-xs-8">
 			  <select class="form-control country-selector">
-				<option>Germany</option>
+				{{#countries}}
+					<option>{{name}}</option>
+				{{/countries}}
 			  </select>
 			</div>
 		  </div>
 		  <div id="employment-timeline" class="graph">
             {{#charts}}
-                {{#employment-timeline}}
-                    {{>table}}
-                {{/employment-timeline}}
+            	<div class="source-graph source-{{source}}">
+	                {{#employment-timeline}}
+	                    {{>table}}
+	                {{/employment-timeline}}
+            	</div>
             {{/charts}}          
           </div>
 		  <div class="row evolutions">
@@ -100,30 +110,38 @@
 			<div class="col-xs-2"></div>
 			<div id="land-1" class="col-xs-2 graph-small">
             {{#charts}}
-                {{#land-1}}
-                    {{>table}}
-                {{/land-1}}
+            	<div class="source-graph source-{{source}}">
+	                {{#land-1}}
+	                    {{>table}}
+	                {{/land-1}}
+            	</div>
             {{/charts}}
             </div>
 			<div id="land-2" class="col-xs-2 graph-small">
             {{#charts}}
-                {{#land-2}}
-                    {{>table}}
-                {{/land-2}}
+            	<div class="source-graph source-{{source}}">
+	                {{#land-2}}
+	                    {{>table}}
+	                {{/land-2}}
+            	</div>
             {{/charts}}            
             </div>
 			<div id="land-3" class="col-xs-2 graph-small">
             {{#charts}}
-                {{#land-3}}
-                    {{>table}}
-                {{/land-3}}
+            	<div class="source-graph source-{{source}}">
+	                {{#land-3}}
+	                    {{>table}}
+	                {{/land-3}}
+            	</div>
             {{/charts}}            
             </div>
 			<div id="land-4" class="col-xs-2 graph-small">
             {{#charts}}
-                {{#land-4}}
-                    {{>table}}
-                {{/land-4}}
+            	<div class="source-graph source-{{source}}">
+	                {{#land-4}}
+	                    {{>table}}
+	                {{/land-4}}
+            	</div>
             {{/charts}}            
             </div>
 		  </div>
@@ -132,30 +150,38 @@
 			<div class="col-xs-2"></div>
 			<div id="gender-1" class="col-xs-2 graph-small">
             {{#charts}}
-                {{#gender-1}}
-                    {{>table}}
-                {{/gender-1}}
+            	<div class="source-graph source-{{source}}">
+	                {{#gender-1}}
+	                    {{>table}}
+	                {{/gender-1}}
+            	</div>
             {{/charts}}            
             </div>
 			<div id="gender-2" class="col-xs-2 graph-small">
             {{#charts}}
-                {{#gender-2}}
-                    {{>table}}
-                {{/gender-2}}
+            	<div class="source-graph source-{{source}}">
+	                {{#gender-2}}
+	                    {{>table}}
+	                {{/gender-2}}
+            	</div>
             {{/charts}}            
             </div>
 			<div id="gender-3" class="col-xs-2 graph-small">
             {{#charts}}
-                {{#gender-3}}
-                    {{>table}}
-                {{/gender-3}}
+            	<div class="source-graph source-{{source}}">
+	                {{#gender-3}}
+	                    {{>table}}
+	                {{/gender-3}}
+            	</div>
             {{/charts}}            
             </div>
 			<div id="gender-4" class="col-xs-2 graph-small">
             {{#charts}}
-                {{#gender-4}}
-                    {{>table}}
-                {{/gender-4}}
+            	<div class="source-graph source-{{source}}">
+	                {{#gender-4}}
+	                    {{>table}}
+	                {{/gender-4}}
+            	</div>
             {{/charts}}            
             </div>
 		  </div>
@@ -164,52 +190,68 @@
 			<div class="col-xs-2"></div>
 			<div id="hunger-1" class="col-xs-2 graph-small">
             {{#charts}}
-                {{#hunger-1}}
-                    {{>table}}
-                {{/hunger-1}}
+            	<div class="source-graph source-{{source}}">
+	                {{#hunger-1}}
+	                    {{>table}}
+	                {{/hunger-1}}
+            	</div>
             {{/charts}}            
             </div>
 			<div id="hunger-2" class="col-xs-2 graph-small">
             {{#charts}}
-                {{#hunger-2}}
-                    {{>table}}
-                {{/hunger-2}}
+            	<div class="source-graph source-{{source}}">
+	                {{#hunger-2}}
+	                    {{>table}}
+	                {{/hunger-2}}
+            	</div>
             {{/charts}}            
             </div>
 			<div id="hunger-3" class="col-xs-2 graph-small">
             {{#charts}}
-                {{#hunger-3}}
-                    {{>table}}
-                {{/hunger-3}}
+            	<div class="source-graph source-{{source}}">
+	                {{#hunger-3}}
+	                    {{>table}}
+	                {{/hunger-3}}
+            	</div>
             {{/charts}}            
             </div>
 			<div id="hunger-4" class="col-xs-2 graph-small">
             {{#charts}}
-                {{#hunger-4}}
-                    {{>table}}
-                {{/hunger-4}}
+            	<div class="source-graph source-{{source}}">
+	                {{#hunger-4}}
+	                    {{>table}}
+	                {{/hunger-4}}
+            	</div>
             {{/charts}}            
             </div>
 		  </div>
 	  </div>
 	  <div class="col-sm-3">
-		  <h2 class="section"><span>{{#labels}}{{data_sources}}{{/labels}}</span></h2>
-		  <select multiple="multiple" class="data-sources">
-			<option>Global Hunger Index</option>
-			<option>Social Institutions</option>
-			<option>Human Development Index</option>
-			<option selected="selected">Rural Development Data</option>
-			<option>Socio-economic Indicators</option>
+		  <h2 class="section"><span>{{#labels}}{{sources}}{{/labels}}</span></h2>
+		  <select id="source-select" multiple="multiple" class="data-sources">
+		  	{{#selectors}}
+			  	{{#data-sources}}
+					<option value="{{code}}">{{name}}</option>
+				{{/data-sources}}
+			{{/selectors}}
 		  </select>
 		  <h2 class="section"><span>{{#labels}}{{indicators}}{{/labels}}</span></h2>
-		  <select class="form-control">
-			<option>Employment in Agriculture</option>
+		  <select id="indicator-select" class="form-control">
+		  	{{#selectors}}
+			  	{{#indicators}}
+					<option value="{{code}}">{{name}}</option>
+				{{/indicators}}
+			{{/selectors}}
 		  </select>
 		  <button class="btn data-button">{{#labels}}{{full_data}}{{/labels}} {{#info}}{{country}}{{/info}}</button>
 		  <a href="" class="more-info">{{#labels}}{{more_about_the_indicators}}{{/labels}}</a>
 		  <h2 class="section"><span>{{#labels}}{{specific_country}}{{/labels}}</span></h2>
 		  <select class="form-control">
-			<option>Spain</option>
+		  	{{#selectors}}
+			  	{{#countries}}
+					<option value="{{code}}>{{name}}</option>
+				{{/countries}}
+			{{/selectors}}
 		  </select>
 		  <a href="" class="more-info">{{#labels}}{{more_about_areas_and_countries}}{{/labels}}</a>
 		  <button class="btn data-button">

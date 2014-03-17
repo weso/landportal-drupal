@@ -1,0 +1,36 @@
+{
+    "indicator-list": [
+    	{
+	    	"code": "agriculture",
+	    	"name": "Agriculture and rural development"	
+    	}
+    ],
+    "indicators": [
+        {
+            "name": "Agriculture and rural development",
+            "indicators": [
+                {
+                    "name": "Indicator 1",
+                    "year": 2013
+                },
+                {
+                    "name": "Indicator 2",
+                    "year": 2013
+                }
+            ]
+        },
+        {
+            "name": "Climate change",
+            "indicators": [
+                {
+                    "name": "Indicator 1",
+                    "year": 2012
+                },
+                {
+                    "name": "Indicator 2",
+                    "year": 2012
+                }
+            ]
+        }
+    ]
+}

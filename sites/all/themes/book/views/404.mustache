@@ -1,0 +1,19 @@
+<header class="main-header compressed">
+	{{>topbar}}
+</header>
+<div class="e404 container">
+	<div class="row">
+		<div class="col-sm-12 compass">
+			<p class="error">
+				<span>{{#labels}}{{error_message}}{{/labels}}</span>
+			</p>		
+			<p class="description">
+				<span>{{#labels}}{{error_description}}{{/labels}}</span>
+			</p>
+			<div class="compass-back">
+				<img src="{{path}}/static/images/compass_front.png" alt="" /> 
+			</div>
+		</div>
+	</div>
+</div>
+{{>footer}}

@@ -17,6 +17,18 @@
 		 	"name": "err404",
 		 	"title": "Error",
 		 	"params": []
+		},
+		{
+			"path": "indicators",
+		 	"name": "indicators",
+		 	"title": "Indicator list",
+		 	"params": []
+		},
+		{
+			"path": "regions",
+		 	"name": "regions",
+		 	"title": "Region list",
+		 	"params": []
 		}
 	]
 }

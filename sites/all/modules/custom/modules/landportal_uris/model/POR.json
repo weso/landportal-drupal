@@ -1,9 +1,38 @@
 {
 	"info": {
-		"country": "Portugal",
+		"country": "Spain",
 		"continent": "Europe"
 	},
-    "charts": {
+	"selectors": {
+		"data-sources": [
+			{
+				"code": "hunger",
+				"name": "Global Hunger Index"
+			},
+			{
+				"code": "social",
+				"name": "Social Institutions"
+			}	
+		],
+		"countries": [
+			{
+				"code": "ESP",
+				"name": "Spain"
+			},
+			{
+				"code": "FRA",
+				"name": "France"
+			}
+		],
+		"indicators": [
+			{
+				"code": "1",
+				"name": "Employment in Agriculture"
+			}
+		]
+	},
+    "charts": [{
+    	"source": "hunger",
         "main-index-rankings": {
             "observations": [
                 {
@@ -1920,5 +1949,1924 @@
                 }
             ]
 		}
-    }
+    },
+    {
+    	"source": "social",
+        "main-index-rankings": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    },
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    },
+                    "indicator": {
+                        "code": "IND2",
+                        "name": "Indicator 2"
+                    },
+                    "year": 2013,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    },
+                    "indicator": {
+                        "code": "IND3",
+                        "name": "Indicator 3"
+                    },
+                    "year": 2013,
+                    "value": 5
+                }
+            ]
+        },
+        "rural-development": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND2",
+                        "name": "Indicator 2"
+                    },
+                    "year": 2013,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND3",
+                        "name": "Indicator 3"
+                    },
+                    "year": 2013,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "EUR",
+                        "name": "Europe"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "EUR",
+                        "name": "Europe"
+                    }, 
+                    "indicator": {
+                        "code": "IND2",
+                        "name": "Indicator 2"
+                    },
+                    "year": 2013,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "EUR",
+                        "name": "Europe"
+                    }, 
+                    "indicator": {
+                        "code": "IND3",
+                        "name": "Indicator 3"
+                    },
+                    "year": 2013,
+                    "value": 4
+                }
+            ]
+		},
+		"employment-agriculture": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "FRA",
+                        "name": "France"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "BEL",
+                        "name": "Belgium"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "GBR",
+                        "name": "United Kingdom"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "POR",
+                        "name": "Portugal"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "ESP",
+                        "name": "Spain"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "IRE",
+                        "name": "Ireland"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 3
+                } 
+            ]
+		},
+        "socioeconomic-values": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Life expectancy of birth - female (years)"
+                    },
+                    "year": 2011,
+                    "value": 85
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND2",
+                        "name": "Life expectancy of birth - male (years)"
+                    },
+                    "year": 2011,
+                    "value": 80
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND3",
+                        "name": "Mortality rate - under-5 (per 1.000 live births)"
+                    },
+                    "year": 2012,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND4",
+                        "name": "Population growth (annual %)"
+                    },
+                    "year": 2012,
+                    "value": "0.32%"
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND5",
+                        "name": "Population - female (% of total)"
+                    },
+                    "year": 2012,
+                    "value": "51.45%"
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND6",
+                        "name": "Population (total)"
+                    },
+                    "year": 2012,
+                    "value": "60.917.978"
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND6",
+                        "name": "Rural population (% of total population)"
+                    },
+                    "year": 2012,
+                    "value": "31.42%"
+                }
+            ]
+        },
+		"employment-timeline": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 6
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 6
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 4
+                }
+            ]
+		},
+        "land-1": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 3
+                }
+            ]
+		},
+        "land-2": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 6
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 7
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 8
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 3
+                }
+            ]
+		},
+        "land-3": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 6
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 1
+                }
+            ]
+		},
+        "land-4": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 6
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 2
+                }
+            ]
+		},
+        "gender-1": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 6
+                }
+            ]
+		},
+        "gender-2": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 6
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 6
+                }
+            ]
+		},
+        "gender-3": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 2
+                }
+            ]
+		},
+        "gender-4": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 6
+                }
+            ]
+		},
+        "hunger-1": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 6
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 3
+                }
+            ]
+		},
+        "hunger-2": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 6
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 3
+                }
+            ]
+		},
+        "hunger-3": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 5
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 3
+                }
+            ]
+		},
+        "hunger-4": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 6
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "DEU",
+                        "name": "Germany"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 1
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2009,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2010,
+                    "value": 3
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2011,
+                    "value": 2
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2012,
+                    "value": 4
+                },
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 5
+                }
+            ]
+		}
+    }]
 }		

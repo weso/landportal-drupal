@@ -1,0 +1,53 @@
+{{>header}}
+<div class="content main-content container">
+	<ol class="breadcrumb">
+	  <li><a href="">{{#labels}}{{index}}{{/labels}}</a></li>
+	  <li><a href="">{{#labels}}{{land_book}}{{/labels}}</a></li>
+	  <li class="active">{{#labels}}{{indicators}}{{/labels}}</li>
+	</ol>
+	<div class="row countries-container">
+		<div class="col-sm-12">
+            <p>
+                {{#labels}}{{{indicators_description}}}{{/labels}}
+            </p>
+            <p>
+            	{{#labels}}{{{last_update_description}}}{{/labels}}
+            </p>
+        </div>
+    </div>
+    <div class="row countries-container">
+        <div class="col-sm-6 col-lg-6">
+            <label for="select-indicator">{{#labels}}{{select_an_indicator}}{{/labels}}:</label>
+            <select id="country-select" name="select-indicator">
+            	<option selected="true">{{#labels}}{{select_an_indicator}}{{/labels}}</option>
+            	{{#indicator-list}}
+            		<option value={{code}}>{{name}}</option>
+                {{/indicator-list}}
+            </select>
+        </div>
+        <div class="col-sm-6 col-lg-6">
+            <input id="expand" type="checkbox" name="expand-all" />
+            <label for="expand-all">{{#labels}}{{expand_all}}{{/labels}}</label>
+        </div>
+    </div>
+    <div class="continents">
+        {{#indicators}}
+        <div class="row continent">
+            <div class="col-sm-12 countries">
+                <h1 class="country-name"><span>{{name}}</span><span class="down"><i class="fa fa-angle-down"></i></span></h1>
+                <div class="continent-countries">
+	                {{#indicators}}
+	                <div class="col-sm-8 col-md-6 col-lg-3">
+	                    <a href="indicators/{{iso3}}">
+	                        <span class="name">{{name}}</span>
+	                    </a>
+	                    <span class="name">{{year}}</span>
+	                </div>
+	                {{/indicators}}
+                </div>
+            </div>
+        </div>
+        {{/indicators}}
+    </div>
+</div>
+{{>footer}}
