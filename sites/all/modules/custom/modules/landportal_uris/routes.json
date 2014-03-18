@@ -40,6 +40,13 @@
 		 	"title": "Region list",
 		 	"navigation": "regions",
 		 	"params": []
+		},
+		{
+			"path": "widgets",
+		 	"name": "widgets",
+		 	"title": "Widgets",
+		 	"navigation": "widgets",
+		 	"params": []
 		}
 	]
 }
