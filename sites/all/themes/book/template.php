@@ -37,8 +37,8 @@ function book_theme() {
  *  - $theme_path: the full path to the theme folder. Used to load some static resources
  */
 function book_preprocess(&$variables) {
-  $variables['application_data'] = _get_application_data();
-  $variables['theme_path'] = _get_path();
+  $variables['application_data'] = get_application_data();
+  $variables['theme_path'] = get_path();
 }
 
 
@@ -67,36 +67,40 @@ function book_preprocess_html(&$vars) {
  * @return a list of the available and selected langauges and the current user name (if
  *  it exists.
  */
-function _get_application_data() {
+function get_application_data() {
   $appdata = array();
-  $appdata['languages'] = _get_languages('en');
+  $languages = get_languages('en');
+  $selected_lang = get_selected_language($languages);
   $user = _get_current_user();
+
+  $appdata['languages'] = $languages;
+  $appdata['language'] = $selected_lang;
   $appdata['user'] = $user;
   return $appdata;
 }
 
 /**
- * Get a list with all the available languages.
+ * Get a list with the available languages and the selected language marked.
  *
  * @param $default Default language to use
  * @return An associative array which keys are the ISO2 code of the available
  * languages and which contais the language name under the attribute
  * 'language' and the selected langauge under the attribute 'selected'
  */
-function _get_languages($default) {
+function get_languages($default) {
   $languages = _get_available_languages();
-  // Get the selected language
+  // Get the selected language in the following order of priority
+  // POST > GET > SESSION > SERVER > DEFAULT
   $selected = isset($_POST["language"]) ? $_POST["language"] : "";
-  //TODO mirar por get
-  if (empty($selected) && isset($_SESSION["language"])) {
+  if (empty($selected) && isset($_GET["language"])) {
+    $selected = $_GET['language'];
+  } elseif (empty($selected) && isset($_SESSION["language"])) {
     $selected = $_SESSION["language"];
   } elseif (empty($selected) && isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])) {
     $selected = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
   }
   // Mark the choosen or the default language as selected
   $languages = _select_language($languages, $selected, $default);
-  // Store the choosen or the default language in session
-  $_SESSION['language'] = _is_valid_language($languages, $selected) ? $selected : $default;
   return $languages;
 }
 
@@ -121,6 +125,23 @@ function _get_available_languages() {
     }
   }
   return $result;
+}
+
+
+/**
+ * Get the selected language code.
+ *
+ * @param $languages List of all languages, each containing its code. The selected
+ *  language must have a 'selected' field set to true.
+ * @return the ISO2 code of the selected language.
+ */
+function get_selected_language($languages) {
+  foreach ($languages as $lang) {
+    if ($lang['selected'] === true) {
+      return $lang['code'];
+    }
+  }
+  return NULL;
 }
 
 
@@ -187,7 +208,7 @@ function _get_current_user() {
  *
  * @return The full theme path.
  */
-function _get_path() {
+function get_path() {
   $server_name = $_SERVER['HTTP_HOST'];
   $theme_path = drupal_get_path('theme', 'book');
   return 'http://' . $server_name . '/' . $theme_path;

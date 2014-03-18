@@ -9,7 +9,7 @@
 				</span>
 			</div>
 			<div class="col-xs-5 col-sm-3 header-selectors">
-				<a href="" title="{{#labels}}{{signin}}{{/labels}}" class="login">
+				<a href="/user/login" title="{{#labels}}{{signin}}{{/labels}}" class="login">
 					<i class="fa fa-user fa-lg" title="{{#labels}}{{signin}}{{/labels}}"></i>	
 					{{#application}}
 						{{#user}}
@@ -27,10 +27,13 @@
 								<span class="language">{{code}}</span>
 							{{/selected}}
 							{{^selected}}
-								<a href="" title="{{language}}" class="language">{{code}}</a>
+								<a href="?language={{code}}" title="{{language}}" class="language">{{code}}</a>
 							{{/selected}}
 						{{/languages}}
 					{{/application}}
+					<form id="language-selection" method="POST">
+						<input type="hidden" name="language" id="selected-language" />
+					</form>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-5 top-navigation">

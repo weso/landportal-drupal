@@ -1,7 +1,7 @@
 {
 	"info": {
-		"country": "Spain",
-		"continent": "Europe"
+		"country": "Portugal",
+		"continent": "Asia"
 	},
 	"selectors": {
 		"data-sources": [
@@ -73,7 +73,7 @@
                 }
             ]
         },
-        "rural-development": {
+        "rural-development-1": {
             "observations": [
                 {
                     "country": {
@@ -89,32 +89,24 @@
                 },
                 {
                     "country": {
-                        "code": "ITA",
-                        "name": "Italy"
-                    }, 
-                    "indicator": {
-                        "code": "IND2",
-                        "name": "Indicator 2"
-                    },
-                    "year": 2013,
-                    "value": 4
-                },
-                {
-                    "country": {
-                        "code": "ITA",
-                        "name": "Italy"
-                    }, 
-                    "indicator": {
-                        "code": "IND3",
-                        "name": "Indicator 3"
-                    },
-                    "year": 2013,
-                    "value": 5
-                },
-                {
-                    "country": {
                         "code": "EUR",
                         "name": "Europe"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 3
+                }
+                ]
+		},
+        "rural-development-2": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
                     }, 
                     "indicator": {
                         "code": "IND1",
@@ -129,11 +121,27 @@
                         "name": "Europe"
                     }, 
                     "indicator": {
-                        "code": "IND2",
-                        "name": "Indicator 2"
+                        "code": "IND1",
+                        "name": "Indicator 1"
                     },
                     "year": 2013,
-                    "value": 2
+                    "value": 3
+                }
+                ]
+		},
+        "rural-development-3": {
+            "observations": [
+                {
+                    "country": {
+                        "code": "ITA",
+                        "name": "Italy"
+                    }, 
+                    "indicator": {
+                        "code": "IND1",
+                        "name": "Indicator 1"
+                    },
+                    "year": 2013,
+                    "value": 4
                 },
                 {
                     "country": {
@@ -141,13 +149,13 @@
                         "name": "Europe"
                     }, 
                     "indicator": {
-                        "code": "IND3",
-                        "name": "Indicator 3"
+                        "code": "IND1",
+                        "name": "Indicator 1"
                     },
                     "year": 2013,
-                    "value": 4
+                    "value": 3
                 }
-            ]
+                ]
 		},
 		"employment-agriculture": {
             "observations": [
@@ -2268,7 +2276,7 @@
                         "name": "Indicator 1"
                     },
                     "year": 2009,
-                    "value": 6
+                    "value": 3
                 },
                 {
                     "country": {
@@ -2280,7 +2288,7 @@
                         "name": "Indicator 1"
                     },
                     "year": 2010,
-                    "value": 4
+                    "value": 6
                 },
                 {
                     "country": {
@@ -2292,7 +2300,7 @@
                         "name": "Indicator 1"
                     },
                     "year": 2011,
-                    "value": 5
+                    "value": 1
                 },
                 {
                     "country": {
@@ -2304,7 +2312,7 @@
                         "name": "Indicator 1"
                     },
                     "year": 2012,
-                    "value": 5
+                    "value": 2
                 },
                 {
                     "country": {
@@ -2316,7 +2324,7 @@
                         "name": "Indicator 1"
                     },
                     "year": 2013,
-                    "value": 6
+                    "value": 2
                 },
                 {
                     "country": {
@@ -2352,7 +2360,7 @@
                         "name": "Indicator 1"
                     },
                     "year": 2011,
-                    "value": 4
+                    "value": 6
                 },
                 {
                     "country": {
@@ -2364,7 +2372,7 @@
                         "name": "Indicator 1"
                     },
                     "year": 2012,
-                    "value": 5
+                    "value": 1
                 },
                 {
                     "country": {
@@ -2376,7 +2384,7 @@
                         "name": "Indicator 1"
                     },
                     "year": 2013,
-                    "value": 4
+                    "value": 3
                 }
             ]
 		},

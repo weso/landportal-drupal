@@ -1,5 +1,19 @@
 <?php
 
+/*
+At this point THE FOLLOWING VARIABLES ARE AVAILABLE:
+	- $application_data: contains the application data required to render the
+	  views such as:
+		- the current user name
+		- the list of all available languages with ISO2 code, language name, and
+		  a selected attribute in the selected language
+		- the ISO2 code of the selected language
+	- $theme_path: contains the full path of the theme root folder.
+	- $mustache_data: contains all the data required to render the views
+	- $mustache_template: contains the name of the template to load
+	- $mustache_navigation: contains the name of the upper level of navigation
+*/
+
 $mustache = get_mustache('views', 'views/partials');
 // The template to use comes from the model.
 $template = $mustache->loadTemplate($mustache_template);
@@ -23,6 +37,9 @@ function get_labels($languages) {
 			break;
 		}
 	}
+	// Set the language in the session
+	$_SESSION['language'] = $selected;
+	// Load the labels
 	$theme_path = drupal_get_path('theme', 'book');
 	$labels_path = $theme_path . '/lang/' . $selected . '.json';
 	$labels = json_decode(file_get_contents($labels_path), true);

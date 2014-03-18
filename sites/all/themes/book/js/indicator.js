@@ -9,16 +9,16 @@ function cloneObject(obj) {
 
 // Charts
 
-function showChartsByRegion(region) {
-	var charts = document.querySelectorAll('.region-chart');
-	
+function showChartsByTopic(region) {
+	var charts = document.querySelectorAll('.topic-chart');
+
 	for (var i = 0; i < charts.length; i++)
 		charts[i].style.display = 'none';
 
 	for (var element in chartOptions) {
 	    var options = cloneObject(chartOptions[element]);
 	
-	    options.container += ' div.region-' + region;
+	    options.container += ' div.topic-' + region;
 	    var container = options.container;
 	
 	    if (!container)
@@ -45,15 +45,15 @@ function showChartsByRegion(region) {
 	}
 }
 
-showChartsByRegion('global');
-document.getElementById('region-select').selectedIndex = 0;
+showChartsByTopic('agriculture');
+document.getElementById('topic-select').selectedIndex = 0;
 
 // Map
 
 function loadHeatMap(region, year) {
 	var countryData = {};
 	
-	var countries = document.querySelectorAll('.heat-map.region-' + region + '.year-' + year + ' tbody tr');
+	var countries = document.querySelectorAll('.heat-map.topic-' + region + '.year-' + year + ' tbody tr');
 	
 	for (var i = 0; i < countries.length; i++) {
 		var children = countries[i].querySelectorAll('td');
@@ -96,32 +96,32 @@ function convertCode(code) {
 	switch(code.toLowerCase()) {
 		case "es":
 			return "ESP";
-		case "pt":
-			return "PRT";
-		case "fr":
-			return "FRA";
-		case "ru":
-			return "RUS";
-		case "jp":
-			return "JPN";
 	}
 	
 	return code;
 }
 
-loadHeatMap('global', 2012);
+loadHeatMap('agriculture', 2012);
 
-// Region select
+// Topic select
 
-var selectedRegion = 'global';
+var selectedTopic = 'agriculture';
 
-document.getElementById('region-select').onchange = function() {
+document.getElementById('topic-select').onchange = function() {
 	var region = this.options[this.selectedIndex].value;
 	
-	selectedRegion = region;
+	selectedTopic = region;
 	
-	showChartsByRegion(region);
+	showChartsByTopic(region);
 	loadHeatMap(region, selectedYear);
+	
+	document.getElementById('indicator-select').options[0].innerHTML = this.selectedIndex == 0 ? 'Employment in Agriculture' : 'Land pollution';
+	document.getElementById('all-indicator-select').options[0].innerHTML = this.selectedIndex == 0 ? 'Employment in Agriculture' : 'Land pollution';
+	
+	var h2s = document.querySelectorAll('.graph-section h2.section span');
+	
+	for (var i = 0; i < h2s.length; i++)
+		h2s[i].innerHTML = this.selectedIndex == 0 ? 'Employment in Agriculture for countries in the region' : 'Land pollution for countries in the region';
 }
 
 // Map timeline
@@ -137,35 +137,8 @@ for (var i = 0; i < years.length; i++) {
 			
 		this.parentNode.className = "year selected";
 		
-		loadHeatMap(selectedRegion, this.title);
+		loadHeatMap(selectedTopic, this.title);
 		
 		return false;	
-	}
-}
-
-// Source select
-
-var sourceSelect = document.getElementById('source-select');
-sourceSelect.selectedIndex = 0;
-
-sourceSelect.onchange = function() {
-	var source = this.options[this.selectedIndex].value;
-	
-	var indicatorSelect = document.getElementById('indicator-select');
-	
-	var title = 'Employment in Agriculture';
-	
-	if (this.selectedIndex == 0) {
-		indicatorSelect.options[0].innerHTML = title = 'Employment in Agriculture';
-	}
-	else {
-		indicatorSelect.options[0].innerHTML = title = 'Employment in Social Institutions';
-		
-	}
-	
-	var titles = document.querySelectorAll('.graph-section h2.section span');
-	
-	for (var i = 0; i < titles.length; i++) {
-		titles[i].innerHTML = title + ' FOR COUNTRIES IN THE REGION';
 	}
 }

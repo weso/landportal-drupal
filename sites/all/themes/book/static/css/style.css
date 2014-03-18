@@ -627,9 +627,10 @@ h2.section span {
 
 iframe.map {
 	width: 100%;
-	height: 15em;
+	height: 17em;
 	border: none !important;
 	margin-bottom: 2em;
+	margin-top: 0.5em;
 }
 
 div.evolutions {
@@ -816,6 +817,11 @@ table.map-data {
 	display: none;
 }
 
+.jvectormap-region {
+	stroke: #ddd;
+	stroke-width: 1;
+}
+
 /* Charts */
 
 .graphs {
@@ -895,6 +901,10 @@ div.continent-countries {
 	overflow: auto;
 	padding-top: 1em;
 	padding-bottom: 2em;
+}
+
+div.continent-countries div {
+	margin-bottom: 0.7em;
 }
 
 /* Graphs */
@@ -987,7 +997,7 @@ div.years div.year {
 	text-align: center;
 }
 
-div.years div.year a {
+div.years div.year span {
 	color: #555;
 	font-family: 'News Cycle', sans-serif;
 }
@@ -1161,4 +1171,55 @@ div.login-wrap .tab a:not(.selected):hover {
 
 .socioeconomic-values table.graphs:nth-child(2) {
 	display: none !important;
+}
+
+/* Widgets */
+
+div.chart-type-texts {
+	font-size: 0.8em;
+	margin-top: 0.5em;
+	margin-bottom: 2em;
+}
+
+form.widget-description input, form.widget-description textarea {
+	margin-bottom: 1em;
+}
+
+h2.country-form-title {
+	margin-top: 1.5em;
+}
+
+div.colour {
+	width: 2em;
+	height: 2em;
+}
+
+.colour-first {
+	background-color: #b41739;
+}
+
+.colour-second {
+	background-color: #4293c6;
+}
+
+.colour-third {
+	background-color: #17c8b6;
+}
+
+.colour-forth {
+	background-color: #dba40b;
+}
+
+.colour-fifth {
+	background-color: #70148e;
+}
+
+.graph-section button {
+	margin-top: 2em;
+}
+
+div.image-format a {
+	display: inline-block;
+	font-size: 1.3em;
+	margin-top: 0.6em;
 }

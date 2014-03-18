@@ -8,18 +8,53 @@ var chartOptions = {
 		},
 		serieColours: ["#d67777", "#8A0829", "#2b00f5", "#00af10"],
 		xAxis: {
-			margin: 5
+			margin: 5,
+			"font-colour": "#888",
+			"font-size": "0.8em"
 		},
         tablePosition: "below",
         selectBy: "byTime"
 	},
-	"rural-development": {
-		container: "#rural-development",
+	"rural-development-1": {
+		container: "#rural-development-1",
 		chartType: "pie",
 		valueOnItem: { show: false },
 		margins: [0, 0, 0, 0],
-		serieColours: ["#ff0002", "#8A0829", "#2b00f5", "#00af10"],
+		serieColours: ["#ff7f0e", "#8A0829", "#2b00f5", "#00af10"],
 		xAxis: {
+			"font-colour": "none",
+			"font-size": "0.8em"
+		},
+		legend: {
+			show: false
+		},
+        tablePosition: "below",
+        selectBy: "byTime"
+	},
+	"rural-development-2": {
+		container: "#rural-development-2",
+		chartType: "pie",
+		valueOnItem: { show: false },
+		margins: [0, 0, 2, 0],
+		serieColours: ["#ff7f0e", "#8A0829", "#2b00f5", "#00af10"],
+		xAxis: {
+			"font-colour": "none",
+			"font-size": "0.8em"
+		},
+		legend: {
+			show: false
+		},
+        tablePosition: "below",
+        selectBy: "byTime"
+	},
+	"rural-development-3": {
+		container: "#rural-development-3",
+		chartType: "pie",
+		valueOnItem: { show: false },
+		margins: [0, 0, 2, 0],
+		serieColours: ["#ff7f0e", "#8A0829", "#2b00f5", "#00af10"],
+		xAxis: {
+			"font-colour": "none",
 			"font-size": "0.8em"
 		},
 		legend: {
@@ -36,6 +71,10 @@ var chartOptions = {
 			title: "Countries",
 			"font-colour": "none",
 			"font-size": "0.8em"
+		},
+		yAxis: {
+			"font-colour": "#888",
+			"font-size": "1em"
 		},
 		valueOnItem: { show: false },
 		legend: {
