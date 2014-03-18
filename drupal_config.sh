@@ -4,6 +4,7 @@ drush dl -y logintoboggan
 drush en -y logintoboggan
 drush dl -y libraries
 drush en -y libraries
+drush en -y trigger
 
 # Dowload the following contrib modules
 drush dl -y oauth
