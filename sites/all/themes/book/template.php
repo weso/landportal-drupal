@@ -21,7 +21,9 @@ function book_theme() {
   return $items;
 }
 
+
 /**
+ * Implements hook_preprocess.
  * Sets variables required by all the templates. Those variables are:
  *  - $application_data: contains common application data required by all the
  *    templates including the list of available languages and the current user name
@@ -32,6 +34,12 @@ function book_preprocess(&$variables) {
   $variables['theme_path'] = _get_path();
 }
 
+
+/**
+ * Implements hook_preprocess_html.
+ * In this case preprocess the HTML to add a link to the <head> corresponding
+ * to the Google fonts.
+ */
 function book_preprocess_html(&$vars) {
   $googlefonts = array(
     '#tag' => 'link', // The #tag is the html tag - <link />
@@ -56,8 +64,7 @@ function _get_application_data() {
   $appdata = array();
   $appdata['languages'] = _get_languages('en');
   $user = _get_current_user();
-  if (!is_null($user))
-    $appdata['user'] = $user;
+  $appdata['user'] = $user;
   return $appdata;
 }
 
@@ -78,13 +85,10 @@ function _get_languages($default) {
   } elseif (empty($selected) && isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])) {
     $selected = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
   }
-  // If none of them was present, or the language is not recognized fallback
-  // to default (english). 
-  if (empty($selected) || !in_array($selected, array_keys($languages)))
-      $selected = $default;
-  // Store the choosen language in session
-  $_SESSION['language'] = $selected;
-  $languages[$selected]['selected'] = true;
+  // Mark the choosen or the default language as selected
+  $languages = _select_language($languages, $selected, $default);
+  // Store the choosen or the default language in session
+  $_SESSION['language'] = _is_valid_language($languages, $selected) ? $selected : $default;
   return $languages;
 }
 
@@ -105,12 +109,54 @@ function _get_available_languages() {
       // Filename without extension
       $filename = $file->getBasename('.' . $file->getExtension());
       $filecontent = json_decode(file_get_contents($file->getPathname()), true);
-      $result[$filename]['language'] = $filecontent['language-name'];
+      array_push($result, array('code' => $filename, 'language' => $filecontent['language-name']));
     }
   }
   return $result;
 }
 
+
+/**
+ * Check if the required language is valid-
+ *
+ * @param $language Array containing the list of available languages, each language
+ *  must specify its 'code' and 'language' name. For example {'code':'en', 'language':'English'}
+ * @param $required Two-letter code of the required language
+ * @return true if the required language is availabe or false if it is not.
+ */
+function _is_valid_language($languages, $required) {
+  foreach ($languages as $lang) {
+    if ($lang['code'] == $required)
+      return true;
+  }
+  return false;
+}
+
+
+/**
+ * Check if the required language is valid-
+ *
+ * @param $language Array containing the list of available languages, each language
+ *  must specify its 'code' and 'language' name. For example {'code':'en', 'language':'English'}
+ * @param $required Two-letter code of the required language
+ * @param $default Default language to fallback if the required language is not
+ *  a valid one. $default MUST BE A VALID LANGUAGE
+ * @return List of available languages with the $required or $default language
+ *  marked as selected.
+ */
+function _select_language($languages, $selected, $default) {
+  // If the selected language is not valid fallback to the default language
+  $lang_to_set = _is_valid_language($languages, $selected) ? $selected : $default;
+  // Set the choosen language as selected
+  foreach ($languages as $key => $lang) {
+    if ($lang['code'] == $lang_to_set) {
+      $languages[$key]['selected'] = true;
+      break;
+    }
+  }
+  // Return the available $languages with the selected or default language set
+  return $languages;
+}
 
 /**
  * Get the current user name.

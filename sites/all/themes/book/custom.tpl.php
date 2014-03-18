@@ -17,9 +17,9 @@ echo $template->render($data);
  * @return associative array with the labels parsed from the JSON file.
  */
 function get_labels($languages) {
-	foreach (array_keys($languages) as $lang) {
-		if ($languages[$lang]['selected'] === true) {
-			$selected = $lang;
+	foreach ($languages as $lang) {
+		if ($lang['selected'] === true) {
+			$selected = $lang['code'];
 			break;
 		}
 	}
