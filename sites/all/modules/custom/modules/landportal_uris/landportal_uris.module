@@ -23,6 +23,7 @@ function landportal_uris_menu() {
 		// is not counted to assign the callback.
 		$params = array(
 			$route['name'],
+			$route['navigation'],
 		);
 		foreach ($route['params'] as $param) {
 			array_push($params, $param);
@@ -40,21 +41,21 @@ function landportal_uris_menu() {
  * on the number of parameters declared in the 'routes.json' file.
  * For example with 1 parameter the function callback will be _route_callback_1.
  */
-function _route_callback_0($name) {
+function _route_callback_0($name, $navigation) {
 	$m_template = $name;
 	$model = _get_model($name);
 	$m_data = $model->get();
-	return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data));
+	return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data, 'mustache_navigation' => $navigation));
 }
 
-function _route_callback_1($name, $param1) {
+function _route_callback_1($name, $navigation, $param1) {
 	$m_template = $name;
 	$model = _get_model($name);
 	$m_data = $model->get($param1);
     if ($m_data === false) {
       return theme('404', array('mustache_data' => $m_data));
     } else {
-      return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data));
+      return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data, 'mustache_navigation' => $navigation));
     }
 }
 

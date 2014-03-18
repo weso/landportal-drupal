@@ -9,13 +9,13 @@ function book_theme() {
   $items['book'] = array(
     'path' => drupal_get_path('theme', 'book'),
     'template' => 'custom',
-    'variables' => array('mustache_data' => NULL, 'mustache_template' => NULL),
+    'variables' => array('mustache_data' => NULL, 'mustache_template' => NULL, 'mustache_navigation' => NULL),
   );
 
   $items['404'] = array(
     'path' => drupal_get_path('theme', 'book'),
     'template' => 'custom',
-    'variables' => array('mustache_data' => NULL, 'mustache_template' => 'err404'),
+    'variables' => array('mustache_data' => NULL, 'mustache_template' => 'e404', 'mustache_navigation' => NULL),
   );
 
   return $items;
@@ -80,6 +80,7 @@ function _get_languages($default) {
   $languages = _get_available_languages();
   // Get the selected language
   $selected = isset($_POST["language"]) ? $_POST["language"] : "";
+  //TODO mirar por get
   if (empty($selected) && isset($_SESSION["language"])) {
     $selected = $_SESSION["language"];
   } elseif (empty($selected) && isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])) {

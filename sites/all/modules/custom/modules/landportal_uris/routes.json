@@ -4,17 +4,19 @@
 			"path": "countries",
 		 	"name": "countries",
 		 	"title": "Country list",
+		 	"navigation": "countries",
 		 	"params": []
 		},
 		{
 			"path": "countries/%",
 		 	"name": "country",
 		 	"title": "Country",
+		 	"navigation": "countries",
 		 	"params": [1]
 		},
 		{
-			"path": "err404",
-		 	"name": "err404",
+			"path": "e404",
+		 	"name": "e404",
 		 	"title": "Error",
 		 	"params": []
 		},
@@ -22,12 +24,21 @@
 			"path": "indicators",
 		 	"name": "indicators",
 		 	"title": "Indicator list",
+		 	"navigation": "indicators",
 		 	"params": []
+		},
+		{
+			"path": "indicators/%",
+		 	"name": "indicator",
+		 	"title": "Indicator",
+		 	"navigation": "indicators",
+		 	"params": [1]
 		},
 		{
 			"path": "regions",
 		 	"name": "regions",
 		 	"title": "Region list",
+		 	"navigation": "regions",
 		 	"params": []
 		}
 	]

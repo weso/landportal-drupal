@@ -4,7 +4,7 @@ $mustache = get_mustache('views', 'views/partials');
 // The template to use comes from the model.
 $template = $mustache->loadTemplate($mustache_template);
 // The basic data to render the template comes from the model.
-$data = get_template_data($mustache_data, $mustache_template, $application_data, $theme_path);
+$data = get_template_data($mustache_data, $mustache_template, $mustache_navigation, $application_data, $theme_path);
 //Render the selected template with the required data.
 echo $template->render($data);
 
@@ -74,16 +74,19 @@ function get_mustache($views_path, $partials_path) {
  * Get the required data to render the template.
  *
  * @param $mustache_data Model data.
- * @param $languages List of available languages to render the template in.
- * @param $default_lang Default language to render the template.
  * @param $mustache_template The name of the template to render
+ * @param $mustache_navigation The tab corresponding to the upper level navigation
+ * @param $application_data Application data containing the availble languages and the current user
+ * @param $theme_path Full path of the theme, used in some links of the views
+ *
  * @return Array with the data to render the template.
  */
-function get_template_data($mustache_data, $mustache_template, $application_data, $theme_path) {
+function get_template_data($mustache_data, $mustache_template, $mustache_navigation, $application_data, $theme_path) {
 	// The data to render the template comes from the model.
 	$data = $mustache_data;
 	// Append the application data
 	$data['application'] = $application_data;
+	$data['application']['navigation'][$mustache_navigation] = $mustache_navigation;
 	// Get the language and append the labels to the data to render the template.
 	$data['labels'] = get_labels($application_data['languages']);
 	// Get the required JavaScript files that will be passed to the template

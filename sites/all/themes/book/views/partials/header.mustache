@@ -23,28 +23,87 @@
 	<!-- Navigation -->
 	<div class="navigation">
 		<nav class="tabs">
+			{{#application}}
+				{{#navigation}}
+					<!-- Regions -->
+					{{#regions}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{regions}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{regions}}{{/labels}}</span>
+						</a>
+					{{/regions}}
+					{{^regions}}
 						<a href="/regions" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{regions}}{{/labels}}">
 							<span>{{#labels}}{{regions}}{{/labels}}</span>
 						</a>
+					{{/regions}}
+					<!-- Countries -->
+					{{#countries}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{countries}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{countries}}{{/labels}}</span>
+						</a>
+					{{/countries}}
+					{{^countries}}
 						<a href="/countries" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{countries}}{{/labels}}">
 							<span>{{#labels}}{{countries}}{{/labels}}</span>
 						</a>
-
+					{{/countries}}
+					<!-- Indicators -->
+					{{#indicators}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{indicators}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{indicators}}{{/labels}}</span>
+						</a>
+					{{/indicators}}
+					{{^indicators}}
 						<a href="/indicators" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{indicators}}{{/labels}}">
 							<span>{{#labels}}{{indicators}}{{/labels}}</span>
 						</a>
+					{{/indicators}}
+					<!-- Catalog -->
+					{{#catalog}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{catalog}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{catalog}}{{/labels}}</span>
+						</a>
+					{{/catalog}}
+					{{^catalog}}
 						<a href="/catalog" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{catalog}}{{/labels}}">
 							<span>{{#labels}}{{catalog}}{{/labels}}</span>
 						</a>
+					{{/catalog}}
+					<!-- Sources -->
+					{{#sources}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{sources}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{sources}}{{/labels}}</span>
+						</a>
+					{{/sources}}
+					{{^sources}}
 						<a href="/sources" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{sources}}{{/labels}}">
 							<span>{{#labels}}{{sources}}{{/labels}}</span>
 						</a>
+					{{/sources}}
+					<!-- Widgets -->
+					{{#widgets}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{widgets}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{widgets}}{{/labels}}</span>
+						</a>
+					{{/widgets}}
+					{{^widgets}}
 						<a href="/widgets" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{widgets}}{{/labels}}">
 							<span>{{#labels}}{{widgets}}{{/labels}}</span>
 						</a>
+					{{/widgets}}
+					<!-- Data -->
+					{{#data}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{data}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{data}}{{/labels}}</span>
+						</a>
+					{{/data}}
+					{{^data}}
 						<a href="/data" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{data}}{{/labels}}">
 							<span>{{#labels}}{{data}}{{/labels}}</span>
 						</a>
+					{{/data}}
+				{{/navigation}}
+			{{/application}}
 		</nav>
 	</div>
 </header>

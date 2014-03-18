@@ -1,8 +1,8 @@
 if (window.attachEvent)
-	document.body.attachEvent('mousemove', onMouseMove);
+    document.body.attachEvent('mousemove', onMouseMove);
 else
-	document.body.addEventListener('mousemove', onMouseMove, false);
-	
+    document.body.addEventListener('mousemove', onMouseMove, false);
+    
 var compass = $('.compass-back img');
 var compassCenterX = compass.width() / 2;
 var compassCenterY = compass.height() / 2;
