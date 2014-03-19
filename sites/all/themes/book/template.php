@@ -12,12 +12,6 @@ function book_theme() {
     'variables' => array('mustache_data' => NULL, 'mustache_template' => NULL, 'mustache_navigation' => NULL),
   );
 
-  $items['404'] = array(
-    'path' => drupal_get_path('theme', 'book'),
-    'template' => 'custom',
-    'variables' => array('mustache_data' => NULL, 'mustache_template' => 'e404', 'mustache_navigation' => NULL),
-  );
-
   $items['user_login'] = array(
     'render element' => 'form',
     'path' => drupal_get_path('theme', 'book'),

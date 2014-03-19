@@ -53,7 +53,7 @@ function _route_callback_1($name, $navigation, $param1) {
 	$model = _get_model($name);
 	$m_data = $model->get($param1);
     if ($m_data === false) {
-      return theme('404', array('mustache_data' => $m_data));
+      return theme('book', array('mustache_template' => 'e404', 'mustache_data' => NULL, 'mustache_navigation' => NULL));
     } else {
       return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data, 'mustache_navigation' => $navigation));
     }

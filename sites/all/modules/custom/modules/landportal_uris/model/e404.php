@@ -3,6 +3,6 @@
 class e404 {
 	
 	public function get() {
-		return;
+		return "";
 	}
 }
