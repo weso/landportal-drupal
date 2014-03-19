@@ -94,5 +94,19 @@
     "topic": "Topic",
     "all_indicators": "All the indicators",
     "consult_the_socieconomic": "Socio-economic Land Library",
-    "debate_with_others": "Debate with others"
+    "debate_with_others": "Debate with others",
+    "organizations": "Organizations",
+    "clear_all": "Clear all",
+    "no_organizations": "There are no organizations that match this search",
+    "groups": "Grupos",
+    "no_groups": "There are no groups that match this search",
+    "tags": "Tags",
+    "no_tags": "There are no tags that match this search",
+    "formats": "Formats",
+    "no_formats": "There are no formats that match this search",
+    "licenses": "Licenses",
+    "no_licenses": "There are no licenses that match this search",
+    "no_datasets": "No datasets found",
+    "order_by": "Order by",
+    "correlate_with": "Correlate with"
 }

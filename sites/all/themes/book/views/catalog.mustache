@@ -1,0 +1,90 @@
+{{>header}}
+<div class="content main-content container">
+	<ol class="breadcrumb">
+	  <li><a href="">{{#labels}}{{index}}{{/labels}}</a></li>
+	  <li class="active">{{#labels}}{{catalog}}{{/labels}}</li>
+	</ol>
+	<div class="row">
+		
+	</div>
+	<div class="row">
+	  <div class="col-sm-9">
+		  <div class="input-group search dataset-search">
+			<input type="text" class="form-control" placeholder="{{#labels}}{{search}}{{/labels}}" name="srch-term" id="srch-term">
+				<div class="input-group-btn">
+					<button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+				</div>
+		  </div>
+		  <div class="row">
+		  	<div class="col-sm-9 dataset-message">
+			  	{{#labels}}{{no_datasets}}{{/labels}}
+		  	</div>
+		  	<div class="col-sm-3">
+			  	<div class="form-select control-group control-order-by">
+			        <label for="sort-selector">{{#labels}}{{order_by}}{{/labels}}</label>
+			        <select id="sort-selector" class="form-control" disabled="disabled">
+			              <option value="score desc, metadata_modified desc" selected="selected">Relevance</option>
+			              <option value="title_string asc">Name Ascending</option>
+			              <option value="title_string desc">Name Descending</option>
+			              <option value="metadata_modified desc">Last Modified</option>
+			        </select>
+			    </div>
+		  	</div>
+		  </div>
+		  <div class="result-content"></div>
+      </div>
+	  <div class="col-sm-3">
+		  <div class="panel panel-default">
+			  <div class="panel-heading">
+			  	<i class="fa fa-filter fa-lg"></i> 
+			  	{{#labels}}{{organizations}}{{/labels}} 
+			  	<a href="" class="clear-all-link">{{#labels}}{{clear_all}}{{/labels}}</a>
+			  </div>
+			  <div class="panel-body">
+			    <span class="text-muted">{{#labels}}{{no_organizations}}{{/labels}}</span>
+			  </div>
+	      </div>
+		  <div class="panel panel-default">
+			  <div class="panel-heading">
+			  	<i class="fa fa-filter fa-lg"></i> 
+			  	{{#labels}}{{groups}}{{/labels}} 
+			  	<a href="" class="clear-all-link">{{#labels}}{{clear_all}}{{/labels}}</a>
+			  </div>
+			  <div class="panel-body">
+			    <span class="text-muted">{{#labels}}{{no_groups}}{{/labels}}</span>
+			  </div>
+	      </div>
+		  <div class="panel panel-default">
+			  <div class="panel-heading">
+			  	<i class="fa fa-filter fa-lg"></i> 
+			  	{{#labels}}{{tags}}{{/labels}} 
+			  	<a href="" class="clear-all-link">{{#labels}}{{clear_all}}{{/labels}}</a>
+			  </div>
+			  <div class="panel-body">
+			    <span class="text-muted">{{#labels}}{{no_tags}}{{/labels}}</span>
+			  </div>
+	      </div>
+		  <div class="panel panel-default">
+			  <div class="panel-heading">
+			  	<i class="fa fa-filter fa-lg"></i> 
+			  	{{#labels}}{{formats}}{{/labels}} 
+			  	<a href="" class="clear-all-link">{{#labels}}{{clear_all}}{{/labels}}</a>
+			  </div>
+			  <div class="panel-body">
+			    <span class="text-muted">{{#labels}}{{no_formats}}{{/labels}}</span>
+			  </div>
+	      </div>
+		  <div class="panel panel-default">
+			  <div class="panel-heading">
+			  	<i class="fa fa-filter fa-lg"></i> 
+			  	{{#labels}}{{licenses}}{{/labels}} 
+			  	<a href="" class="clear-all-link">{{#labels}}{{clear_all}}{{/labels}}</a>
+			  </div>
+			  <div class="panel-body">
+			    <span class="text-muted">{{#labels}}{{no_licenses}}{{/labels}}</span>
+			  </div>
+	      </div>
+	  </div>
+	</div>
+</div>
+{{>footer}}

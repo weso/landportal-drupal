@@ -91,7 +91,7 @@
 				{{#labels}}{{compare_with}}{{/labels}}:
 			</div>
 			<div class="col-xs-8">
-			  <select class="form-control country-selector">
+			  <select id="region-comparer" class="form-control country-selector">
 			  	{{#selectors}}
 				  	{{#regions}}
 				  		<option>{{name}}</option>
@@ -137,10 +137,10 @@
 		   </select>
 		  <a href="" class="more-info">{{#labels}}{{more_about_the_indicators}}{{/labels}}</a>
 		  <h2 class="section"><span>{{#labels}}{{specific_country}}{{/labels}}</span></h2>
-		  <select class="form-control">
+		  <select id="country-select" class="form-control">
 		  	{{#selectors}}
 			  	{{#countries}}
-					<option>{{name}}</option>
+					<option value="{{iso3}}">{{name}}</option>
 				{{/countries}}
 			{{/selectors}}
 		  </select>

@@ -63,7 +63,7 @@
 		                {{/rural-development-1}}
 	            	</div>
 	            {{/charts}}
-	            Ind. 1
+	            HDI
 	          </div>
 			</div>
 			<div class="col-xs-4">
@@ -75,7 +75,7 @@
 		                {{/rural-development-2}}
 	            	</div>
 	            {{/charts}}
-	            Ind. 2
+	            GHI
 	          </div>
 			</div>
 			<div class="col-xs-4">
@@ -87,7 +87,7 @@
 		                {{/rural-development-3}}
 	            	</div>
 	            {{/charts}}
-	            Ind. 3
+	            Population
 	          </div>
 			</div>
 		  </div>
@@ -117,10 +117,12 @@
 				{{#labels}}{{compare_with}}{{/labels}}:
 			</div>
 			<div class="col-xs-8">
-			  <select class="form-control country-selector">
-				{{#countries}}
-					<option>{{name}}</option>
-				{{/countries}}
+			  <select id="country-comparison" class="form-control country-selector">
+			  	{{#selectors}}
+				  	{{#countries}}
+						<option value="{{iso3}}">{{name}}</option>
+					{{/countries}}
+				{{/selectors}}
 			  </select>
 			</div>
 		  </div>
@@ -274,10 +276,10 @@
 		  <button class="btn data-button">{{#labels}}{{full_data}}{{/labels}} {{#info}}{{country}}{{/info}}</button>
 		  <a href="" class="more-info">{{#labels}}{{more_about_the_indicators}}{{/labels}}</a>
 		  <h2 class="section"><span>{{#labels}}{{specific_country}}{{/labels}}</span></h2>
-		  <select class="form-control">
+		  <select id="country-select" class="form-control">
 		  	{{#selectors}}
 			  	{{#countries}}
-					<option value="{{code}}>{{name}}</option>
+					<option value="{{iso3}}">{{name}}</option>
 				{{/countries}}
 			{{/selectors}}
 		  </select>

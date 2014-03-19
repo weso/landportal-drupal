@@ -15,13 +15,13 @@
 		  	<div class="row">
 			  	<div class="col-sm-8">
 					<label for="indicator">{{#labels}}{{indicator}}{{/labels}}</label>
-					<select id="indicator" class="form-control">
+					<select id="indicator" class="form-control" disabled="disabled">
 						<option>Indicator 1</option>
 					</select>
 				</div>		
 				<div class="col-sm-4">
 					<label for="number_years">{{#labels}}{{number_years}}{{/labels}}</label>
-					<select id="number_years" class="form-control">
+					<select id="number_years" class="form-control" disabled="disabled">
 						<option>1</option>
 					</select>
 				</div>
@@ -65,6 +65,8 @@
 		  	</div>
 		  </form>
 		  <h2 class="section country-form-title"><span>{{#labels}}{{preview}}{{/labels}}</span></h2>
+		  <p id="chart-title">Title</p>
+		  <p id="chart-description">Description</p>
 		  <div id="mapDiv"></div>
 		  <div class="row">
 		  	<div class="col-sm-6">
@@ -120,81 +122,74 @@
       </div>
 	  <div class="col-sm-3">
 	  	  <h2 class="section"><span>{{#labels}}{{graph_type}}{{/labels}}</span></h2>
-	  	  <div class="row">
-	  	  	<div class="col-sm-4 text-center">
-		  	  	<img src="{{path}}/static/images/widgets/bar.png" alt="{{#labels}}{{bar_chart}}{{/labels}}" />
+	  	  <div class="row chart-type-texts">
+	  	  	<div class="col-sm-4 text-center widget-chart-button widget-button-selected" chart-type="bar">
+	  	  		<div>
+		  	  		<img src="{{path}}/static/images/widgets/bar-selected.png" alt="{{#labels}}{{bar_chart}}{{/labels}}" />
+	  	  		</div>
+	  	  		<span>{{#labels}}{{bar_chart}}{{/labels}}</span>
 	  	  	</div>
-	  	  	<div class="col-sm-4 text-center">
-		  	  	<img src="{{path}}/static/images/widgets/line.png" alt="{{#labels}}{{line_chart}}{{/labels}}" />
+	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="line">
+	  	  		<div>
+		  	  		<img src="{{path}}/static/images/widgets/line.png" alt="{{#labels}}{{line_chart}}{{/labels}}" />
+	  	  		</div>
+	  	  		<span>{{#labels}}{{bar_chart}}{{/labels}}</span>
 	  	  	</div>
-	  	  	<div class="col-sm-4 text-center">
-		  	  	<img src="{{path}}/static/images/widgets/pie.png" alt="{{#labels}}{{pie_chart}}{{/labels}}" />
+	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="pie">
+	  	  		<div>
+		  	  		<img src="{{path}}/static/images/widgets/pie.png" alt="{{#labels}}{{pie_chart}}{{/labels}}" />
+	  	  		</div>
+	  	  		<span>{{#labels}}{{bar_chart}}{{/labels}}</span>
 	  	  	</div>
 	  	  </div>
 	  	  <div class="row chart-type-texts">
-	  	  	<div class="col-sm-4 text-center">
-		  	  	{{#labels}}{{bar_chart}}{{/labels}}
+	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="map">
+	  	  		<div>
+		  	  		<img src="{{path}}/static/images/widgets/map.png" alt="{{#labels}}{{map_chart}}{{/labels}}" />
+	  	  		</div>
+	  	  		<span>{{#labels}}{{map_chart}}{{/labels}}</span>
 	  	  	</div>
-	  	  	<div class="col-sm-4 text-center">
-		  	  	{{#labels}}{{line_chart}}{{/labels}}
+	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="area">
+	  	  		<div>
+		  	  		<img src="{{path}}/static/images/widgets/area.png" alt="{{#labels}}{{area_chart}}{{/labels}}" />
+	  	  		</div>
+	  	  		<span>{{#labels}}{{area_chart}}{{/labels}}</span>
 	  	  	</div>
-	  	  	<div class="col-sm-4 text-center">
-		  	  	{{#labels}}{{pie_chart}}{{/labels}}
-	  	  	</div>
-	  	  </div>
-	  	  <div class="row">
-	  	  	<div class="col-sm-4 text-center">
-		  	  	<img src="{{path}}/static/images/widgets/map.png" alt="{{#labels}}{{map_chart}}{{/labels}}" />
-	  	  	</div>
-	  	  	<div class="col-sm-4 text-center">
-		  	  	<img src="{{path}}/static/images/widgets/area.png" alt="{{#labels}}{{area_chart}}{{/labels}}" />
-	  	  	</div>
-	  	  	<div class="col-sm-4 text-center">
-		  	  	<img src="{{path}}/static/images/widgets/table.png" alt="{{#labels}}{{data_table}}{{/labels}}" />
+	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="table">
+	  	  		<div>
+		  	  		<img src="{{path}}/static/images/widgets/table.png" alt="{{#labels}}{{data_table}}{{/labels}}" />
+	  	  		</div>
+	  	  		<span>{{#labels}}{{data_table}}{{/labels}}</span>
 	  	  	</div>
 	  	  </div>
 	  	  <div class="row chart-type-texts">
-	  	  	<div class="col-sm-4 text-center">
-		  	  	{{#labels}}{{map_chart}}{{/labels}}
+	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="polar">
+	  	  		<div>
+		  	  		<img src="{{path}}/static/images/widgets/polar.png" alt="{{#labels}}{{polar_chart}}{{/labels}}" />
+	  	  		</div>
+	  	  		<span>{{#labels}}{{polar_chart}}{{/labels}}</span>
+	  	  	</div>
+	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="scatter">
+	  	  		<div>
+		  	  		<img src="{{path}}/static/images/widgets/scatter.png" alt="{{#labels}}{{scatter_chart}}{{/labels}}" />
+	  	  		</div>
+	  	  		<span>{{#labels}}{{scatter_chart}}{{/labels}}</span>
 	  	  	</div>
 	  	  	<div class="col-sm-4 text-center">
-		  	  	{{#labels}}{{area_chart}}{{/labels}}
-	  	  	</div>
-	  	  	<div class="col-sm-4 text-center">
-		  	  	{{#labels}}{{data_table}}{{/labels}}
-	  	  	</div>
-	  	  </div>
-	  	  <div class="row">
-	  	  	<div class="col-sm-4 text-center">
-		  	  	<img src="{{path}}/static/images/widgets/polar.png" alt="{{#labels}}{{polar_chart}}{{/labels}}" />
-	  	  	</div>
-	  	  	<div class="col-sm-4 text-center">
-		  	  	<img src="{{path}}/static/images/widgets/scatter.png" alt="{{#labels}}{{scatter_chart}}{{/labels}}" />
-	  	  	</div>
-	  	  	<div class="col-sm-4 text-center">
-	  	  	</div>
-	  	  </div>
-	  	  <div class="row chart-type-texts">
-	  	  	<div class="col-sm-4 text-center">
-		  	  	{{#labels}}{{polar_chart}}{{/labels}}
-	  	  	</div>
-	  	  	<div class="col-sm-4 text-center">
-		  	  	{{#labels}}{{scatter_chart}}{{/labels}}
-	  	  	</div>
-	  	  	<div class="col-sm-4 text-center">
+
 	  	  	</div>
 	  	  </div>
 	  	  <h2 class="section"><span>{{#labels}}{{tell_story}}{{/labels}}</span></h2>
 	  	  <form role="form" class="widget-description">
 			  <div class="form-group">
 			    <label for="title">{{#labels}}{{title}}{{/labels}}</label>
-			    <input type="text" class="form-control" id="title" placeholder="{{#labels}}{{title}}{{/labels}}">
+			    <input type="text" class="form-control" id="title" value="Title" placeholder="{{#labels}}{{title}}{{/labels}}">
 			    <label for="description">{{#labels}}{{description}}{{/labels}}</label>
-			    <textarea class="form-control" id="description" rows="3"></textarea>
+			    <textarea class="form-control" id="description" rows="3">Description</textarea>
 			    <label for="label_x">{{#labels}}{{label_x}}{{/labels}}</label>
-			    <input type="text" class="form-control" id="label_x" placeholder="{{#labels}}{{label_x}}{{/labels}}">
+			    <input type="text" class="form-control" id="label_x" value="Years" placeholder="{{#labels}}{{label_x}}{{/labels}}">
 			    <label for="label_y">{{#labels}}{{label_y}}{{/labels}}</label>
-			    <input type="text" class="form-control" id="label_y" placeholder="{{#labels}}{{label_y}}{{/labels}}">
+			    <input type="text" class="form-control" id="label_y" value="Values" placeholder="{{#labels}}{{label_y}}{{/labels}}">
 			  </div>
 	  	  </form>
 	  </div>

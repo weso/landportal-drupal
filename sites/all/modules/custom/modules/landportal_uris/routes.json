@@ -47,6 +47,13 @@
 		 	"title": "Widgets",
 		 	"navigation": "widgets",
 		 	"params": []
+		},
+		{
+			"path": "catalog",
+		 	"name": "catalog",
+		 	"title": "Catalog",
+		 	"navigation": "catalog",
+		 	"params": []
 		}
 	]
 }

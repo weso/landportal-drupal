@@ -75,18 +75,8 @@
           		</div>
           	</div>
           </div>
-		  <h2 class="section"><span>{{#labels}}{{agriculture_employment}}{{/labels}}</span></h2>
-		  <div id="employment-agriculture" class="graph-large">
-            {{#charts}}
-            	<div class="topic-chart topic-{{topic}}">
-	                {{#employment-agriculture}}
-	                    {{>table}}
-	                {{/employment-agriculture}}
-            	</div>
-            {{/charts}}
-          </div>
-		  <h2 class="section"><span>{{#labels}}{{agriculture_timeline}}{{/labels}} {{#info}}{{country}}{{/info}}</span></h2>
-		  <div class="row">
+		  <h2 class="section"><span>{{#labels}}{{agriculture_timeline}}{{/labels}} {{#info}}{{indicator}}{{/info}}</span></h2>
+		  <div class="row compare-container">
 			<div class="col-xs-4">
 				{{#labels}}{{compare_with}}{{/labels}}:
 			</div>
@@ -109,6 +99,22 @@
             	</div>
             {{/charts}}          
           </div>
+          
+		  <div class="row compare-container">
+			<div class="col-xs-4">
+				{{#labels}}{{correlate_with}}{{/labels}}:
+			</div>
+			<div class="col-xs-8">
+			  <select class="form-control country-selector">
+			  	{{#selectors}}
+				  	{{#regions}}
+				  		<option>{{name}}</option>
+				  	{{/regions}}
+			  	{{/selectors}}
+			  </select>
+			</div>
+		  </div>
+		  <div id="correlate-chart" class="graph-large"></div>
 	  </div>
 	  <div class="col-sm-3">
 		  <h2 class="section"><span>{{#labels}}{{topic}}{{/labels}}</span></h2>

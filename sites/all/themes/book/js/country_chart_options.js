@@ -6,7 +6,7 @@ var chartOptions = {
 		legend: {
 			show: false
 		},
-		serieColours: ["#d67777", "#8A0829", "#2b00f5", "#00af10"],
+		serieColours: ["#ff7f0e", "#ff7f0e", "#2b00f5", "#00af10"],
 		xAxis: {
 			margin: 5,
 			"font-colour": "#888",
@@ -80,7 +80,7 @@ var chartOptions = {
 		legend: {
 			show: false
 		},
-		serieColours: ["#1184A7", "#1F95B2", "#2EA6BE", "#3CB7C9", "#555", "#59DAE0", "#68EBEC", "#77FDF8"],
+		serieColours: ["#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78", "#2ca02c", "#98df8a", "#d62728", "#ff9896"],
         tablePosition: "below",
         selectBy: "byTime"
 	},

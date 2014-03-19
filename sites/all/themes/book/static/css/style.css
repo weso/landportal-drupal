@@ -949,6 +949,7 @@ div.e404 p.description {
 
 .compass div.compass-back {
 	background-image: url('../images/compass_back.png');
+	display: inline-block;
 	width: intrinsic;
 	margin: 0 auto;
 }
@@ -1175,10 +1176,15 @@ div.login-wrap .tab a:not(.selected):hover {
 
 /* Widgets */
 
-div.chart-type-texts {
+div.chart-type-texts span {
 	font-size: 0.8em;
-	margin-top: 0.5em;
+	margin-top: 2em;
+}
+
+div.chart-type-texts {
 	margin-bottom: 2em;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 form.widget-description input, form.widget-description textarea {
@@ -1222,4 +1228,76 @@ div.image-format a {
 	display: inline-block;
 	font-size: 1.3em;
 	margin-top: 0.6em;
+}
+
+div.widget-chart-button {
+	padding-bottom: 0.2em;
+	border: 0.1em solid #fff;
+}
+
+div.widget-chart-button:hover {
+	border: 0.1em solid #ccc;
+	background-color: #f5f5f5;
+	border-radius: 0.3em;
+}
+
+div.widget-chart-button div {
+	height: 4.5em;
+	padding-top: 0.5em;
+}
+
+div.widget-button-selected {
+	border: 0.1em solid #ccc;
+	border-radius: 0.3em;
+	color: #2b3a77;
+}
+
+div.widget-button-selected:hover {
+	background-color: #fff;
+}
+
+/* Indicators */
+
+div.marker {
+	float: left;
+	width: 1em;
+	height: 2.7em;
+	border-left: 0.3em solid #000;
+	margin-right: 1em;
+}
+
+span.indicator-year {
+	float: right;
+	color: #254e87;
+}
+
+a.clear-all-link {
+	float: right;
+}
+
+div.dataset-search {
+	border: 0.1em solid #ccc;
+	margin-bottom: 1em;
+}
+
+div.dataset-search input {
+	font-size: 1.5em;
+}
+
+div.dataset-search i {
+	font-size: 1.1em;
+}
+
+div.dataset-message {
+	font-size: 1.4em;
+	margin-top: 0.5em;
+}
+
+div.result-content {
+	margin-top: 2em;
+	border-bottom: 0.1em dotted #ccc;
+}
+
+div.compare-container {
+	margin: 2em 0 2em 0;
 }

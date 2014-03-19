@@ -1,4 +1,8 @@
 {
+	"info": {
+		"indicator": "Employment in agriculture",
+		"continent": "Socio-economic and poverty"
+	},
 	"selectors": {
 		"topics": [
 			{

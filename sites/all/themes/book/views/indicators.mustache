@@ -21,7 +21,11 @@
             <select id="country-select" name="select-indicator">
             	<option selected="true">{{#labels}}{{select_an_indicator}}{{/labels}}</option>
             	{{#indicator-list}}
-            		<option value={{code}}>{{name}}</option>
+            		<option value="{{code}}"
+            		{{^data}}
+            			disabled="disabled"
+            		{{/data}}
+            		>{{name}}</option>
                 {{/indicator-list}}
             </select>
         </div>
@@ -37,11 +41,17 @@
                 <h1 class="country-name"><span>{{name}}</span><span class="down"><i class="fa fa-angle-down"></i></span></h1>
                 <div class="continent-countries">
 	                {{#indicators}}
-	                <div class="col-sm-8 col-md-6 col-lg-3">
-	                    <a href="indicators/{{iso3}}">
-	                        <span class="name">{{name}}</span>
-	                    </a>
-	                    <span class="name">{{year}}</span>
+	                <div class="col-sm-8 col-md-6 col-lg-4">
+	                	<div class="marker"></div>
+	                	<span class="indicator-year">{{year}}</span>
+	                	{{#data}}
+	                		<a href="indicators/{{iso3}}">
+	                        	<span class="name">{{name}}</span>
+	                        </a>
+	                	{{/data}}
+	                	{{^data}}
+	                		<span class="name">{{name}}</span>
+	                	{{/data}}
 	                </div>
 	                {{/indicators}}
                 </div>

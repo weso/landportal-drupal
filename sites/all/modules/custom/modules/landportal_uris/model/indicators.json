@@ -1,36 +1,116 @@
 {
     "indicator-list": [
-    	{
-	    	"code": "agriculture",
-	    	"name": "Agriculture and rural development"	
-    	}
+		{ "name": "Social institutions and gender index (value)", "data": false, "year": 2012 },
+		{ "name": "Social institutions and gender index (rank)", "data": false, "year": 2012 },
+		{ "name": "Discriminatory Family Code - subindex (value)", "data": false, "year": 2012 },
+		{ "name": "Discriminatory Family Code - subindex (rank)", "data": false, "year": 2012 },
+		{ "name": "Discriminatory Family Code - Inheritance rights of spouses", "data": false, "year": 2012 },
+		{ "name": "Discriminatory Family Code - Inheritance rights of daughters", "data": false, "year": 2012 },
+		{ "name": "Restricted Resources and Entitlements - subindex (value)", "data": false, "year": 2012 },
+		{ "name": "Restricted Resources and Entitlements - subindex (rank)", "data": false, "year": 2012 },
+		{ "name": "Restricted Resources and Entitlements - Access to land", "data": false, "year": 2012 },
+		{ "name": "Civil Liberties - subindex (value)", "data": false, "year": 2012 },
+		{ "name": "Civil Liberties - subindex (rank)", "data": false, "year": 2012 },
+		{ "name": "Undernourished 2004-2006", "data": false, "year": 2012 },
+		{ "name": "Underweight 2003-08", "data": false, "year": 2012 },
+		{ "name": "Under 5 mortality rate 2008", "data": false, "year": 2012 },
+		{ "name": "GHI 2010", "data": false, "year": 2012 },
+		{ "name": "GHI 2012", "data": false, "year": 2012 },
+		{ "name": "HDI rank", "data": false, "year": 2012 },
+		{ "name": "HDI 2000", "data": false, "year": 2012 },
+		{ "name": "HDI 2010", "data": false, "year": 2012 },
+		{ "name": "Agriculture, value added", "data": false, "year": 2012 },
+		{ "name": "Employment in agriculture", "data": false, "year": 2012 },
+		{ "name": "Surface area", "data": false, "year": 2012 },
+		{ "name": "Life expectancy at birth, female", "data": false, "year": 2012 },
+		{ "name": "Life expectancy at birth, male", "data": false, "year": 2012 },
+		{ "name": "Mortality rate, under-5 (per 1,000 live births)", "data": false, "year": 2012 },
+		{ "name": "Population, female", "data": false, "year": 2012 },
+		{ "name": "Rural population", "data": false, "year": 2012 },
+		{ "name": "Population", "data": false, "year": 2012 },
+		{ "name": "Population growth (annual %)", "data": false, "year": 2012 },
+		{ "name": "Total number of holders", "data": false, "year": 2012 },
+		{ "name": "Women holders", "data": false, "year": 2012 },
+		{ "name": "Holdings under co-ownership", "data": false, "year": 2012 },
+		{ "name": "Rural household headed by women", "data": false, "year": 2012 },
+		{ "name": "Land Area", "data": false, "year": 2012 },
+		{ "name": "Arable land (total)", "data": false, "year": 2012 },
+		{ "name": "Arable land (relative)", "data": false, "year": 2012 },
+		{ "name": "Agricultural area (total)", "data": false, "year": 2012 },
+		{ "name": "Agricultural area (relative)", "data": false, "year": 2012 },
+		{ "name": "Forest area (total)", "data": false, "year": 2012 },
+		{ "name": "Forest area (relative)", "data": false, "year": 2012 }
     ],
     "indicators": [
         {
-            "name": "Agriculture and rural development",
+            "name": "Social Institutions and Gender Index",
             "indicators": [
-                {
-                    "name": "Indicator 1",
-                    "year": 2013
-                },
-                {
-                    "name": "Indicator 2",
-                    "year": 2013
-                }
+				{ "name": "Social institutions and gender index (value)", "data": false, "year": 2012 },
+				{ "name": "Social institutions and gender index (rank)", "data": false, "year": 2012 },
+				{ "name": "Discriminatory Family Code - subindex (value)", "data": false, "year": 2012 },
+				{ "name": "Discriminatory Family Code - subindex (rank)", "data": false, "year": 2012 },
+				{ "name": "Discriminatory Family Code - Inheritance rights of spouses", "data": false, "year": 2012 },
+				{ "name": "Discriminatory Family Code - Inheritance rights of daughters", "data": false, "year": 2012 },
+				{ "name": "Restricted Resources and Entitlements - subindex (value)", "data": false, "year": 2012 },
+				{ "name": "Restricted Resources and Entitlements - subindex (rank)", "data": false, "year": 2012 },
+				{ "name": "Restricted Resources and Entitlements - Access to land", "data": false, "year": 2012 },
+				{ "name": "Civil Liberties - subindex (value)", "data": false, "year": 2012 },
+				{ "name": "Civil Liberties - subindex (rank)", "data": false, "year": 2012 }
             ]
         },
         {
-            "name": "Climate change",
+            "name": "Global Hunger Index",
             "indicators": [
-                {
-                    "name": "Indicator 1",
-                    "year": 2012
-                },
-                {
-                    "name": "Indicator 2",
-                    "year": 2012
-                }
+				{ "name": "Undernourished 2004-2006", "data": false, "year": 2012 },
+				{ "name": "Underweight 2003-08", "data": false, "year": 2012 },
+				{ "name": "Under 5 mortality rate 2008", "data": false, "year": 2012 },
+				{ "name": "GHI 2010", "data": false, "year": 2012 },
+				{ "name": "GHI 2012", "data": false, "year": 2012 }
             ]
+        },
+        {
+            "name": "Human Development Index",
+            "indicators": [
+				{ "name": "HDI rank", "data": false, "year": 2012 },
+				{ "name": "HDI 2000", "data": false, "year": 2012 },
+				{ "name": "HDI 2010", "data": false, "year": 2012 }
+            ]
+        },
+        {
+	        "name": "Rural Development Data",
+	        "indicators": [
+				{ "name": "Agriculture, value added", "data": false, "year": 2012 },
+				{ "name": "Employment in agriculture", "data": false, "year": 2012 },
+				{ "name": "Surface area", "data": false, "year": 2012 }
+	        ]
+        },
+        {
+	        "name": "Socio-Economic Indicators",
+	        "indicators": [
+				{ "name": "Life expectancy at birth, female", "data": false, "year": 2012 },
+				{ "name": "Life expectancy at birth, male", "data": false, "year": 2012 },
+				{ "name": "Mortality rate, under-5 (per 1,000 live births)", "data": false, "year": 2012 },
+				{ "name": "Population, female", "data": false, "year": 2012 },
+				{ "name": "Rural population", "data": false, "year": 2012 },
+				{ "name": "Population", "data": false, "year": 2012 },
+				{ "name": "Population growth (annual %)", "data": false, "year": 2012 }
+	        ]
+        },
+        {
+	        "name": "FAO",
+	        "indicators": [
+				{ "name": "Total number of holders", "data": false, "year": 2012 },
+				{ "name": "Women holders", "data": false, "year": 2012 },
+				{ "name": "Holdings under co-ownership", "data": false, "year": 2012 },
+				{ "name": "Rural household headed by women", "data": false, "year": 2012 },
+				{ "name": "Land Area", "data": false, "year": 2012 },
+				{ "name": "Arable land (total)", "data": false, "year": 2012 },
+				{ "name": "Arable land (relative)", "data": false, "year": 2012 },
+				{ "name": "Agricultural area (total)", "data": false, "year": 2012 },
+				{ "name": "Agricultural area (relative)", "data": false, "year": 2012 },
+				{ "name": "Forest area (total)", "data": false, "year": 2012 },
+				{ "name": "Forest area (relative)", "data": false, "year": 2012 }
+	        ]
         }
     ]
 }

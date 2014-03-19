@@ -95,5 +95,19 @@
     "topic": "Tópico",
     "all_indicators": "Todos los indicadores",
     "consult_the_socieconomic": "Land Library sociecómica",
-    "debate_with_others": "Debata con otros"
+    "debate_with_others": "Debata con otros",
+    "organizations": "Organizaciones",
+    "clear_all": "Limpiar todo",
+    "no_organizations": "No hay ninguna organización que cumpla los criterios de búsqueda",
+    "groups": "Grupos",
+    "no_groups": "No hay ningún grupo que cumpla los criterios de búsqueda",
+    "tags": "Etiquetas",
+    "no_tags": "No hay ninguna etiqueta que cumpla los criterios de búsqueda",
+    "formats": "Formatos",
+    "no_formats": "No hay ningún formato que cumpla los criterios de búsqueda",
+    "licenses": "Licencias",
+    "no_licenses": "No hay ninguna licencia que cumpla los criterios de búsqueda",
+    "no_datasets": "No se ha encontrado ningún conjunto de datos",
+    "order_by": "Ordenar por",
+    "correlate_with": "Relacionar con"
 }
