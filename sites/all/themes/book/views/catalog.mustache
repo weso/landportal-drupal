@@ -1,9 +1,295 @@
-<div class='header'>
-LANDPORTAL CKAN
-</div>
-<div class='ckan'>
-{{{ckan}}}
-</div>
-<div class='footer'>
-LANDPORTAL CKAN FOOTER
-</div>
+{{>header}}
+
+<div id="content" class="container">
+        
+          
+            
+            <div class="flash-messages">
+              
+            </div>
+          
+
+          
+            <div class="toolbar">
+              
+                
+                  <ol class="breadcrumb">
+                    
+<!-- Snippet snippets/home_breadcrumb_item.html start -->
+
+<li class="home"><a href="/data/"><i class="icon-home"></i><span> Home</span></a></li>
+<!-- Snippet snippets/home_breadcrumb_item.html end -->
+
+                    
+  <li class="active"><a href="/data/dataset">Datasets</a></li>
+
+                  </ol>
+                
+              
+            </div>
+          
+
+          <div class="">
+
+            
+            
+            
+
+            
+              <div class="primary">
+                
+                
+  <section class="module">
+    <div class="module-content">
+      
+        
+      
+      
+        
+        
+        
+<!-- Snippet snippets/search_form.html start -->
+
+
+
+
+
+
+<form class="search-form" method="get" data-module="select-switch">
+
+  
+    <div class="search-input control-group search-giant">
+      <input type="text" class="search" name="q" value="" autocomplete="off" placeholder="Search...">
+      <button type="submit" value="search">
+        <i class="icon-search"></i>
+        <span>Submit</span>
+      </button>
+    </div>
+  
+
+  
+    
+  
+
+  
+    
+      <div class="form-select control-group control-order-by">
+        <label for="field-order-by">Order by</label>
+        <select id="field-order-by" name="sort">
+          
+            
+              <option value="score desc, metadata_modified desc" selected="selected">Relevance</option>
+            
+          
+            
+              <option value="title_string asc">Name Ascending</option>
+            
+          
+            
+              <option value="title_string desc">Name Descending</option>
+            
+          
+            
+              <option value="metadata_modified desc">Last Modified</option>
+            
+          
+            
+          
+        </select>
+        <button class="btn js-hide" type="submit">Go</button>
+      </div>
+    
+  
+
+  
+    
+      <h2>
+<!-- Snippet snippets/search_result_text.html start -->
+
+
+  
+  
+  
+  
+
+Sorry no datasets found
+<!-- Snippet snippets/search_result_text.html end -->
+</h2>
+    
+  
+
+  
+    
+      <p class="filter-list">
+        
+      </p>
+    
+  
+
+</form>
+
+
+
+
+<!-- Snippet snippets/search_form.html end -->
+
+      
+      
+      
+<!-- Snippet snippets/package_list.html start -->
+
+
+<!-- Snippet snippets/package_list.html end -->
+
+      
+    </div>
+
+    
+    
+    
+  </section>
+
+  
+  <section class="module">
+    <div class="module-content">
+      <small>
+        
+        
+        
+           You can also access this registry using the <a href="/data/api/3">API</a> (see <a href="http://docs.ckan.org/en/ckan-2.1.1/api.html">API Docs</a>). 
+      </small>
+    </div>
+  </section>
+  
+
+              </div>
+            
+
+            
+              <aside class="secondary">
+                
+                
+  
+      
+<!-- Snippet snippets/facet_list.html start -->
+
+
+
+  
+    
+    <section class="module module-narrow module-shallow">
+      <h2 class="module-heading">
+        <i class="icon-medium icon-filter"></i>
+        
+        Organizations
+        <a href="/data/dataset" class="action">Clear All</a>
+      </h2>
+      
+        <p class="module-content empty">There are no Organizations that match this search</p>
+      
+    </section>
+  
+
+<!-- Snippet snippets/facet_list.html end -->
+
+  
+      
+<!-- Snippet snippets/facet_list.html start -->
+
+
+
+  
+    
+    <section class="module module-narrow module-shallow">
+      <h2 class="module-heading">
+        <i class="icon-medium icon-filter"></i>
+        
+        Groups
+        <a href="/data/dataset" class="action">Clear All</a>
+      </h2>
+      
+        <p class="module-content empty">There are no Groups that match this search</p>
+      
+    </section>
+  
+
+<!-- Snippet snippets/facet_list.html end -->
+
+  
+      
+<!-- Snippet snippets/facet_list.html start -->
+
+
+
+  
+    
+    <section class="module module-narrow module-shallow">
+      <h2 class="module-heading">
+        <i class="icon-medium icon-filter"></i>
+        
+        Tags
+        <a href="/data/dataset" class="action">Clear All</a>
+      </h2>
+      
+        <p class="module-content empty">There are no Tags that match this search</p>
+      
+    </section>
+  
+
+<!-- Snippet snippets/facet_list.html end -->
+
+  
+      
+<!-- Snippet snippets/facet_list.html start -->
+
+
+
+  
+    
+    <section class="module module-narrow module-shallow">
+      <h2 class="module-heading">
+        <i class="icon-medium icon-filter"></i>
+        
+        Formats
+        <a href="/data/dataset" class="action">Clear All</a>
+      </h2>
+      
+        <p class="module-content empty">There are no Formats that match this search</p>
+      
+    </section>
+  
+
+<!-- Snippet snippets/facet_list.html end -->
+
+  
+      
+<!-- Snippet snippets/facet_list.html start -->
+
+
+
+  
+    
+    <section class="module module-narrow module-shallow">
+      <h2 class="module-heading">
+        <i class="icon-medium icon-filter"></i>
+        
+        License
+        <a href="/data/dataset" class="action">Clear All</a>
+      </h2>
+      
+        <p class="module-content empty">There are no License that match this search</p>
+      
+    </section>
+  
+
+<!-- Snippet snippets/facet_list.html end -->
+
+  
+
+              </aside>
+            
+          </div>
+        
+      </div>
+
+{{>footer}}
