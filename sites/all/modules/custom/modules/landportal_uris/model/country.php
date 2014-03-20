@@ -11,8 +11,9 @@ class Country {
 	 * 		exists. False if the country does not exist.
 	 */
 	public function get($iso3) {
+		$temporal_country = 'country';
         $module_path = drupal_get_path("module", "landportal_uris");
-        $country_path = $module_path . "/model/" . $iso3 . ".json";
+        $country_path = $module_path . "/model/" . $temporal_country . ".json";
         // Check if the country exists
         if (file_exists($country_path)) {
             $country_data = file_get_contents($country_path);
