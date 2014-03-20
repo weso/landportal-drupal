@@ -56,7 +56,7 @@ function get_labels($languages) {
  * 	do not exist the returned array will be empty.
  */
 function get_js($name) {
-	$js_path = drupal_get_path('theme', 'book') . '/js/' . $name . '.js';
+	$js_path = drupal_get_path('theme', 'book') . '/js/controller/' . $name . '.js';
 	if (file_exists($js_path)) {
 		return array("script" => 'http://' . $_SERVER['HTTP_HOST'] . '/' . $js_path);
 	} else {

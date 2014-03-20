@@ -9,10 +9,10 @@ stylesheets[all][] = static/css/bootstrap-theme.min.css
 stylesheets[all][] = static/css/style.css
 stylesheets[all][] = static/css/wesCountry.min.css
 
-scripts[] = js/bootstrap.min.js
+scripts[] = js/libraries/bootstrap.min.js
+scripts[] = js/libraries/jquery-2.1.0.min.js
+scripts[] = js/libraries/wesCountry.min.js
+scripts[] = js/libraries/jquery-jvectormap-1.2.2.min.js
+scripts[] = js/libraries/jquery-jvectormap-world-mill-en.js
 scripts[] = js/country_chart_options.js
-scripts[] = js/jquery-2.1.0.min.js
-scripts[] = js/wesCountry.min.js
-scripts[] = js/jquery-jvectormap-1.2.2.min.js
-scripts[] = js/jquery-jvectormap-world-mill-en.js
 scripts[] = js/language.js
