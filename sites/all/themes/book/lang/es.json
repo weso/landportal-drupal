@@ -109,5 +109,7 @@
     "no_licenses": "No hay ninguna licencia que cumpla los criterios de búsqueda",
     "no_datasets": "No se ha encontrado ningún conjunto de datos",
     "order_by": "Ordenar por",
-    "correlate_with": "Relacionar con"
+    "correlate_with": "Relacionar con",
+    "evolution_of": "Evolución de",
+    "at_countries": "en los diferentes países"
 }

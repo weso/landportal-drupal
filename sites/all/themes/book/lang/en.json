@@ -108,5 +108,7 @@
     "no_licenses": "There are no licenses that match this search",
     "no_datasets": "No datasets found",
     "order_by": "Order by",
-    "correlate_with": "Correlate with"
+    "correlate_with": "Correlate with",
+    "evolution_of": "Evolution of",
+    "at_countries": "at the different countries"
 }

@@ -21,11 +21,7 @@
             <select id="country-select" name="select-indicator">
             	<option selected="true">{{#labels}}{{select_an_indicator}}{{/labels}}</option>
             	{{#indicator-list}}
-            		<option value="{{code}}"
-            		{{^data}}
-            			disabled="disabled"
-            		{{/data}}
-            		>{{name}}</option>
+            		<option value="{{id}}">{{name}}</option>
                 {{/indicator-list}}
             </select>
         </div>
@@ -44,14 +40,9 @@
 	                <div class="col-sm-8 col-md-6 col-lg-4">
 	                	<div class="marker"></div>
 	                	<span class="indicator-year">{{year}}</span>
-	                	{{#data}}
-	                		<a href="indicators/{{iso3}}">
-	                        	<span class="name">{{name}}</span>
-	                        </a>
-	                	{{/data}}
-	                	{{^data}}
-	                		<span class="name">{{name}}</span>
-	                	{{/data}}
+	                	<a href="indicators/{{id}}">
+	                       	<span class="name">{{name}}</span>
+	                    </a>
 	                </div>
 	                {{/indicators}}
                 </div>

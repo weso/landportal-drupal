@@ -12,7 +12,8 @@
 	</div>
 	<div class="row">
 	  <div class="col-sm-9 graph-section">
-		  <h2 class="section"><span>{{#labels}}{{agriculture_employment}}{{/labels}}</span></h2>
+	  	  <input type="hidden" id="path" value="{{path}}" />
+		  <h1 class="country-name"><span class="indicator-name"></span></h1>
 		  {{#charts}}
 		  		{{#heat-map}}
 		  			{{#years}}
@@ -75,24 +76,28 @@
           		</div>
           	</div>
           </div>
-		  <h2 class="section"><span>{{#labels}}{{agriculture_timeline}}{{/labels}} {{#info}}{{indicator}}{{/info}}</span></h2>
+		  <h2 class="section"><span>{{#labels}}{{evolution_of}}{{/labels}}</span> <span class="indicator-name"></span></h2>
 		  <div class="row compare-container">
 			<div class="col-xs-4">
 				{{#labels}}{{compare_with}}{{/labels}}:
 			</div>
 			<div class="col-xs-8">
-			  <select class="form-control country-selector">
+			  <select id="chart-timeline-comparison-indicator" class="form-control country-selector">
 			  	{{#selectors}}
-				  	{{#regions}}
-				  		<option>{{name}}</option>
-				  	{{/regions}}
-			  	{{/selectors}}
+				  	{{#indicators}}
+				  		<optgroup label="{{name}}">
+				  			{{#indicators}}
+								<option>{{name}}</option>
+							{{/indicators}}
+				  		</optgroup>
+					{{/indicators}}
+				{{/selectors}}
 			  </select>
 			</div>
 		  </div>
-		  <div id="employment-timeline" class="graph-large">
+		  <div id="chart-timeline-comparison" class="graph-large">
             {{#charts}}
-            	<div class="topic-chart topic-{{topic}}">
+            	<div class="indicator-chart">
 	                {{#employment-timeline}}
 	                    {{>table}}
 	                {{/employment-timeline}}
@@ -105,39 +110,69 @@
 				{{#labels}}{{correlate_with}}{{/labels}}:
 			</div>
 			<div class="col-xs-8">
-			  <select class="form-control country-selector">
+			  <select id="chart-correlate-comparison-indicator" class="form-control country-selector">
 			  	{{#selectors}}
-				  	{{#regions}}
-				  		<option>{{name}}</option>
-				  	{{/regions}}
-			  	{{/selectors}}
+				  	{{#indicators}}
+				  		<optgroup label="{{name}}">
+				  			{{#indicators}}
+								<option>{{name}}</option>
+							{{/indicators}}
+				  		</optgroup>
+					{{/indicators}}
+				{{/selectors}}
 			  </select>
 			</div>
 		  </div>
-		  <div id="correlate-chart" class="graph-large"></div>
+		  <div id="chart-correlation-comparison" class="graph-large"></div>
+		  <h2 class="section"><span class="indicator-name"></span> <span>{{#labels}}{{at_countries}}{{/labels}}</span></h2>
+		  <div class="table-responsive">
+			  <table id="country-values" class="table table-striped">
+				  <thead>
+				  		<tr>
+					  		<th>Country</th>
+					  		<th>Value</th>
+					  		<th>Last update</th>
+					  		<th>Tendency</th>
+				  		</tr>
+				  </thead>
+				  <tbody>
+
+				  </tbody>
+			  </table>
+		  </div>
 	  </div>
 	  <div class="col-sm-3">
 		  <h2 class="section"><span>{{#labels}}{{topic}}{{/labels}}</span></h2>
 		  <select id="topic-select" multiple="multiple" class="data-sources">
 		  	{{#selectors}}
-			  	{{#topics}}
-			  		<option value="{{code}}">{{name}}</option>
-			  	{{/topics}}
-		  	{{/selectors}}
-		  </select>
-		  <h2 class="section"><span>{{#labels}}{{indicator}}{{/labels}}</span></h2>
-		  <select id="indicator-select" multiple="multiple" class="data-sources">
-		  	{{#selectors}}
 			  	{{#indicators}}
-					<option>{{name}}</option>
+			  		<option>{{name}}</option>
 				{{/indicators}}
 			{{/selectors}}
 		  </select>
+		  <h2 class="section"><span>{{#labels}}{{indicator}}{{/labels}}</span></h2>
+		  <!-- all indicator selects -->
+		  <div>
+		  	{{#selectors}}
+			  	{{#indicators}}
+			  		<select class="topic-indicator-select data-sources" multiple="multiple">
+			  			{{#indicators}}
+							<option value="{{id}}">{{name}}</option>
+						{{/indicators}}
+			  		</select>
+				{{/indicators}}
+			{{/selectors}}
+		  </div>
+		   </select>
 		   <h2 class="section"><span>{{#labels}}{{all_indicators}}{{/labels}}</span></h2>
 		   <select id="all-indicator-select" class="form-control">	
-		   	{{#selectors}}
+		  	{{#selectors}}
 			  	{{#indicators}}
-					<option>{{name}}</option>
+			  		<optgroup label="{{name}}">
+			  			{{#indicators}}
+							<option value="{{id}}">{{name}}</option>
+						{{/indicators}}
+			  		</optgroup>
 				{{/indicators}}
 			{{/selectors}}
 		   </select>

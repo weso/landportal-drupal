@@ -911,6 +911,7 @@ div.continent-countries div {
 
 div.graph, div.graph .region-chart {
 	height: 20em;
+	margin-bottom: 2em;
 	margin-bottom: 0;
 }
 
@@ -922,6 +923,7 @@ div.graph-small, div.graph-small .region-chart {
 
 div.graph-large, div.graph-large -region-chart {
 	height: 25em;
+	margin-bottom: 3em;
 }
 
 /* 404 */
@@ -1300,4 +1302,21 @@ div.result-content {
 
 div.compare-container {
 	margin: 2em 0 2em 0;
+}
+
+select.topic-indicator-select {
+	display: none;
+}
+
+select.topic-indicator-select:first-of-type {
+	display: block;
+}
+
+.table img.flag {
+	width: 1.5em;
+	margin-right: 1em;
+}
+
+h1 span.indicator-name {
+	font-size: 0.5em;
 }

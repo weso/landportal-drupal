@@ -84,8 +84,8 @@ var chartOptions = {
         tablePosition: "below",
         selectBy: "byTime"
 	},
-	"employment-timeline": {
-		container: "#employment-timeline",
+	"chart-timeline-comparison": {
+		container: "#chart-timeline-comparison",
 		chartType: "line",
 		margins: [6, 0, 6, 0],
 		yAxis: { title: "" },
@@ -96,6 +96,23 @@ var chartOptions = {
         legend: {
 			show: false
 		}
+	},
+	"chart-correlation-comparison": {
+		container: "#chart-correlation-comparison",
+		margins: [4, 2, 1, 0],
+		xAxis: {
+			"font-family": "'Kite One', sans-serif",
+			"font-size": "14px"
+		},
+		yAxis: {
+			"font-family": "'Kite One', sans-serif",
+			"font-size": "12px"
+		},
+		legend: {
+			"font-family": "'Kite One', sans-serif",
+			"font-size": "14px"
+		},	
+		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"]
 	},
 	"land-1": {
 		container: "#land-1",
