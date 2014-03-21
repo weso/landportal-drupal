@@ -12,12 +12,13 @@ class Country {
 	 */
 	public function get($iso3) {
 		$temporal_country = 'country';
-        $module_path = drupal_get_path("module", "landportal_uris");
-        $country_path = $module_path . "/model/" . $temporal_country . ".json";
+        $file_path = drupal_get_path("module", "landportal_uris") . "/model/" . $temporal_country . ".json";
         // Check if the country exists
-        if (file_exists($country_path)) {
-            $country_data = file_get_contents($country_path);
-            return json_decode($country_data, true);
+        if (file_exists($file_path)) {
+            $file_data = file_get_contents($file_path);
+            $country_data = json_decode($file_data, true);
+            $country_data['entity-id'] = $iso3;
+            return $country_data;
         } else {
             return false;
         }
