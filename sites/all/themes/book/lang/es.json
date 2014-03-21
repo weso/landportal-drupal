@@ -111,5 +111,7 @@
     "order_by": "Ordenar por",
     "correlate_with": "Relacionar con",
     "evolution_of": "Evolución de",
-    "at_countries": "en los diferentes países"
+    "at_countries": "en los diferentes países",
+    "for_countries": "para países de la región",
+    "across_time": "a través del tiempo en"
 }

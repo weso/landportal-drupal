@@ -63,10 +63,12 @@ var chartOptions = {
         tablePosition: "below",
         selectBy: "byTime"
 	},
-	"employment-agriculture": {
-		container: "#employment-agriculture",
+	"chart-region-bar-comparison": {
+		container: "#chart-region-bar-comparison",
 		chartType: "bar",
 		margins: [6, 0, 6, 0],
+		groupMargin: 0,
+		barMargin: 2,
 		xAxis: {
 			title: "Countries",
 			"font-colour": "none",

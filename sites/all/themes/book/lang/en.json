@@ -110,5 +110,7 @@
     "order_by": "Order by",
     "correlate_with": "Correlate with",
     "evolution_of": "Evolution of",
-    "at_countries": "at the different countries"
+    "at_countries": "at the different countries",
+    "for_countries": "for countries in the region",
+    "across_time": "across time in"
 }

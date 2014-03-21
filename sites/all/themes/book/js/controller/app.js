@@ -83,6 +83,8 @@ function loadTemplate(params, partials, labels, language) {
             
             data.application.navigation[params.navigation] = params.navigation;
             
+            data['entity-id'] = params.id;
+            
             // Languages
             
             for (var i = 0; i < languages.length; i++) {

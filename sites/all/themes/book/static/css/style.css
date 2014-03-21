@@ -693,7 +693,7 @@ table.graphs td.year {
 }
 
 table.graphs tr:nth-child(even) {
-	background-color: #faffff;
+
 }
 
 select.country-selector {

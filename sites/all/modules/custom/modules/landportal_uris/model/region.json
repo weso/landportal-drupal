@@ -8,7 +8,23 @@
 			{
 				"code": "asia",
 				"name": "Asia"
-			}		
+			},
+			{
+				"code": "africa",
+				"name": "Africa"
+			},
+			{
+				"code": "americas",
+				"name": "Americas"
+			},
+			{
+				"code": "europe",
+				"name": "Europe"
+			},
+			{
+				"code": "oceania",
+				"name": "Oceania"
+			}
 		],
 		"countries": [
 				{ "iso2": "AF", "iso3" : "AFG", "name": "Afghanistan", "data": false, "extended": false },
@@ -261,20 +277,100 @@
 				{ "iso2": "TL", "iso3" : "TLS", "name": "East Timor", "data": false, "extended": false }
             ],
 		"indicators": [
-			{
-				"code": "1",
-				"name": "Employment in Agriculture"
-			}
-		],
+		        {
+		            "name": "Social Institutions and Gender Index",
+		            "indicators": [
+						{ "name": "Social institutions and gender index (value)", "id": "INDOECD1", "topic": "Land and gender", "min": "0", "max": "1", "units": "any value between 0 and 1. 0 means no or very low inequality and 1 means very high inequality", "data-source": "Social Institutions and Gender Index", "organisation" :"OECD" },
+						{ "name": "Social institutions and gender index (rank)", "id": "INDOECD2", "topic": "Land and gender", "min": "1", "max": "248", "units": "Rank", "data-source": "Social Institutions and Gender Index", "organisation" :"OECD" },
+						{ "name": "Discriminatory Family Code - subindex (value)", "id": "INDOECD3", "topic": "Land and gender", "min": "0", "max": "1", "units": "any value between 0 and 1. 0 means no or very low inequality and 1 means very high inequality", "data-source": "Social Institutions and Gender Index", "organisation" :"OECD" },
+						{ "name": "Discriminatory Family Code - subindex (rank)", "id": "INDOECD4", "topic": "Land and gender", "min": "1", "max": "248", "units": "Rank", "data-source": "Social Institutions and Gender Index", "organisation" :"OECD" },
+						{ "name": "Discriminatory Family Code - Inheritance rights of spouses", "id": "INDOECD5", "topic": "Land and gender", "min": "0", "max": "1", "units": "0: Women and men have equal rights of inheritance.0.5: (some) women have (some) rights, but less than men.1: Women and men have unequal rights of inheritance.", "data-source": "Social Institutions and Gender Index", "organisation" :"OECD" },
+						{ "name": "Discriminatory Family Code - Inheritance rights of daughters", "id": "INDOECD6", "topic": "Land and gender", "min": "0", "max": "1", "units": "0: Women and men have equal rights of inheritance.0.5: (some) women have (some) rights, but less than men.1: Women and men have unequal rights of inheritance.", "data-source": "Social Institutions and Gender Index", "organisation" :"OECD" },
+						{ "name": "Restricted Resources and Entitlements - subindex (value)", "id": "INDOECD7", "topic": "Land and gender", "min": "0", "max": "100", "units": "Value", "data-source": "Social Institutions and Gender Index", "organisation" :"OECD" },
+						{ "name": "Restricted Resources and Entitlements - subindex (rank)", "id": "INDOECD8", "topic": "Land and gender", "min": "1", "max": "248", "units": "Rank", "data-source": "Social Institutions and Gender Index", "organisation" :"OECD" },
+						{ "name": "Restricted Resources and Entitlements - Woman Access to land", "id": "INDOECD9", "topic": "Land and gender", "min": "0", "max": "1", "units": "0: Women have the same legal rights as men to own and access land. 0.5: Women have equal legal rights with men to own and access land, but discriminatory practices restrict women’s access to and ownership of land in practice. 1: Women have no/few legal rights to access or own land or access is severely restricted by discriminatory practices.", "data-source": "Social Institutions and Gender Index", "organisation" :"OECD" },
+						{ "name": "Civil Liberties - subindex (value)", "id": "INDOECD10", "topic": "Land and gender", "min": "0", "max": "1", "units": "any value between 0 and 1. 0 means no or very low inequality and 1 means very high inequality", "data-source": "Social Institutions and Gender Index", "organisation" :"OECD" },
+						{ "name": "Civil Liberties - subindex (rank)", "id": "INDOECD11", "topic": "Land and gender", "min": "1", "max": "248", "units": "Rank", "data-source": "Social Institutions and Gender Index", "organisation" :"OECD" }
+		            ]
+		        },
+		        {
+			        "name": "Global Hunger Index",
+			        "indicators": [
+						{ "name": "Undernourished 2004-2006", "id": "INDIPFRI1", "topic": "Food security and Hunger", "min": "0,2", "max": "56", "units": "Percentage (of total population)", "data-source": "Global Hunger Index", "organisation" :"IFPRI" },
+						{ "name": "Underweight 2003-08", "id": "INDIPFRI2", "topic": "Food security and Hunger", "min": "0,4", "max": "45", "units": "Percentage (of under 5 children)", "data-source": "Global Hunger Index", "organisation" :"IFPRI" },
+						{ "name": "Under 5 mortality rate 2008", "id": "INDIPFRI3", "topic": "Socio-Economic and poverty", "min": "2", "max": "68", "units": "Percentage (of under 5 children)", "data-source": "Global Hunger Index", "organisation" :"IFPRI" },
+						{ "name": "GHI", "id": "INDIPFRI4", "topic": "Food security and Hunger", "min": "2", "max": "98", "units": "GHI value", "data-source": "Global Hunger Index", "organisation" :"IFPRI" }
+			        ]
+		        },
+		        {
+		        	"name": "Human Development Index",
+		        	"indicators": [
+						{ "name": "HDI rank", "id": "INDUNDP1", "topic": "Socio-Economic and poverty", "min": "1", "max": "248", "units": "Rank", "data-source": "Human Development Index", "organisation" :"UNDP" },
+						{ "name": "HDI", "id": "INDUNDP2", "topic": "Socio-Economic and poverty", "min": "0,176", "max": "0,956", "units": "HDI value", "data-source": "Human Development Index", "organisation" :"UNDP" }
+		        	]
+		        },
+		        {
+			        "name": "Rural Development Data",
+			        "indicators": [
+						{ "name": "Agriculture, value added", "id": "INDWB1", "topic": "Socio-Economic and poverty", "min": "0", "max": "100", "units": "Percentage (of GDP)", "data-source": "Rural Development Data", "organisation" :"World Bank" },
+						{ "name": "Employment in agriculture", "id": "INDWB2", "topic": "Socio-Economic and poverty", "min": "2", "max": "92", "units": "Percentage (ag. employment/ total employment)", "data-source": "Rural Development Data", "organisation" :"World Bank" },
+						{ "name": "Surface area", "id": "INDWB3", "topic": "Conuntry data", "min": "160", "max": "17098240", "units": "sq. km", "data-source": "Rural Development Data", "organisation" :"World Bank" }
+			        ]
+		        },
+		        {
+			        "name": "Socio-Economic Indicators",
+			        "indicatos": [
+						{ "name": "Life expectancy at birth, female", "id": "INDWB3", "topic": "Socio-Economic and poverty", "min": "10", "max": "90", "units": "years", "data-source": "Socio-Economic Indicators", "organisation" :"World Bank" },
+						{ "name": "Life expectancy at birth, male", "id": "INDWB4", "topic": "Socio-Economic and poverty", "min": "10", "max": "90", "units": "years", "data-source": "Socio-Economic Indicators", "organisation" :"World Bank" },
+						{ "name": "Mortality rate, under-5 (per 1,000 live births)", "id": "INDWB5", "topic": "Socio-Economic and poverty", "min": "0", "max": "100", "units": "per 1,000 live births", "data-source": "Socio-Economic Indicators", "organisation" :"World Bank" },
+						{ "name": "Population, female", "id": "INDWB6", "topic": "Socio-Economic and poverty", "min": "30", "max": "70", "units": "Percentage (female/total populaton)", "data-source": "Socio-Economic Indicators", "organisation" :"World Bank" },
+						{ "name": "Rural population", "id": "INDWB7", "topic": "Country data", "min": "10", "max": "90", "units": "Percentage (rural/total population)", "data-source": "Socio-Economic Indicators", "organisation" :"World Bank" },
+						{ "name": "Population", "id": "INDWB8", "topic": "Country data", "min": "500000", "max": "1351000000", "units": "value", "data-source": "Socio-Economic Indicators", "organisation" :"World Bank" },
+						{ "name": "Population growth (annual %)", "id": "INDWB9", "topic": "Country data", "min": "-50", "max": "80", "units": "Percentage (annual)", "data-source": "Socio-Economic Indicators", "organisation" :"World Bank" }
+			        ]
+		        },
+		        {
+			        "name": "FAO",
+			        "indicators": [
+						{ "name": "Total number of holders", "id": "INDFAO1", "topic": "Land tenure", "min": "20000", "max": "119221000", "units": "total value", "data-source": "FAO", "organisation" :"Gender and Land Rights Database" },
+						{ "name": "Women holders", "id": "INDFAO2", "topic": "Land and gender", "min": "17000", "max": "12987544", "units": "total value", "data-source": "FAO", "organisation" :"Gender and Land Rights Database" },
+						{ "name": "Holdings under co-ownership", "id": "INDFAO3", "topic": "Land tenure", "min": "8000", "max": "15000000", "units": "total value", "data-source": "FAO", "organisation" :"Gender and Land Rights Database" },
+						{ "name": "Rural household headed by women", "id": "INDFAO4", "topic": "Land and gender", "min": "36000", "max": "1655000", "units": "total value", "data-source": "FAO", "organisation" :"Gender and Land Rights Database" },
+						{ "name": "Land Area", "id": "INDFAO5", "topic": "Country data", "min": "1", "max": "566325", "units": "1000 Ha (10 sq. km)", "data-source": "FAO", "organisation" :"UN FAOSTAT" },
+						{ "name": "Arable land (total)", "id": "INDFAO6", "topic": "Usage and investment", "min": "1", "max": "455218", "units": "1000 Ha (10 sq. km)", "data-source": "FAO", "organisation" :"UN FAOSTAT" },
+						{ "name": "Arable land (relative)", "id": "INDFAO7", "topic": "Usage and investment", "min": "10", "max": "90", "units": "Percentage (arable/total)", "data-source": "FAO", "organisation" :"UN FAOSTAT" },
+						{ "name": "Agricultural area (total)", "id": "INDFAO8", "topic": "Usage and investment", "min": "1", "max": "488124", "units": "1000 Ha (10 sq. km)", "data-source": "FAO", "organisation" :"UN FAOSTAT" },
+						{ "name": "Agricultural area (relative)", "id": "INDFAO9", "topic": "Usage and investment", "min": "10", "max": "90", "units": "Percentage (agricultural/total)", "data-source": "FAO", "organisation" :"UN FAOSTAT" },
+						{ "name": "Forest area (total)", "id": "INDFAO10", "topic": "Usage and investment", "min": "1", "max": "388541", "units": "1000 Ha (10 sq. km)", "data-source": "FAO", "organisation" :"UN FAOSTAT" },
+						{ "name": "Forest area (relative)", "id": "INDFAO11", "topic": "Usage and investment", "min": "10", "max": "90", "units": "Percentage (forest/total)", "data-source": "FAO", "organisation" :"UN FAOSTAT" }
+			        ]
+		        }
+		    ],
 		"data-sources": [
 			{
 				"code": "1",
-				"name": "Global Hunger Index"
+				"name": "Social Institutions and Gender Index"
 			},
 			{
 				"code": "2",
-				"name": "Social Institutions"
-			}		
+				"name": "Global Hunger Index"
+			},
+			{
+				"code": "3",
+				"name": "Human Development Index"
+			},
+			{
+				"code": "4",
+				"name": "Rural Development Data"
+			},
+			{
+				"code": "5",
+				"name": "Rural Development Data"
+			},
+			{
+				"code": "6",
+				"name": "FAO"
+			}
 		]
 	},
     "charts": [

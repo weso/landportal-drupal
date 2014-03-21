@@ -1,24 +1,26 @@
-<table class="graphs">
-    <thead>
-        <tr>
-            <th class="countryCode">Country code</th>
-            <th class="countryName">Country name</th>
-            <th class="indicatorCode">Indicator code</th>
-            <th class="indicatorName">Indicator name</th>
-            <th class="value">Value</th>
-            <th class="year">Year</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#observations}}
-        <tr>
-            <td class="countryCode">{{#country}}{{code}}{{/country}}</td>
-            <td class="countryName">{{#country}}{{name}}{{/country}}</td>
-            <td class="indicatorCode">{{#indicator}}{{code}}{{/indicator}}</td>
-            <td class="indicatorName">{{#indicator}}{{name}}{{/indicator}}</td>
-            <td class="value">{{value}}</td>
-            <td class="year">{{year}}</td>
-        </tr>
-        {{/observations}}
-    </tbody>
-</table>
+<div class="table-responsive">
+	<table class="graphs table table-striped">
+	    <thead>
+	        <tr>
+	            <th class="countryCode">Country code</th>
+	            <th class="countryName">Country name</th>
+	            <th class="indicatorCode">Indicator code</th>
+	            <th class="indicatorName">Indicator name</th>
+	            <th class="value">Value</th>
+	            <th class="year">Year</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        {{#observations}}
+	        <tr>
+	            <td class="countryCode">{{#country}}{{code}}{{/country}}</td>
+	            <td class="countryName">{{#country}}{{name}}{{/country}}</td>
+	            <td class="indicatorCode">{{#indicator}}{{code}}{{/indicator}}</td>
+	            <td class="indicatorName">{{#indicator}}{{name}}{{/indicator}}</td>
+	            <td class="value">{{value}}</td>
+	            <td class="year">{{year}}</td>
+	        </tr>
+	        {{/observations}}
+	    </tbody>
+	</table>
+</div>
