@@ -307,11 +307,23 @@ indicatorSelect.onchange = function() {
 	
 	for (var i = 0; i < texts.length; i++)
 		texts[i].innerHTML = this.options[this.selectedIndex].innerHTML;
+		
+	var source = this.options[this.selectedIndex].parentNode.label;
+	
+	var sourceSelect = document.getElementById('source-select');
+	
+	for (var i = 0; i < sourceSelect.options.length; i++)
+		if (sourceSelect.options[i].innerHTML == source) {
+			sourceSelect.selectedIndex = sourceSelect.options[i].index;
+			
+			break;
+		}	
 }
 
 indicatorSelect.selectedIndex = 0;
 indicatorSelect.onchange();
-var selectedRegion = 'global';
+
+var selectedRegion = document.getElementById('entity-id') ? document.getElementById('entity-id').value : 'global';
 
 // Charts
 
@@ -415,8 +427,12 @@ function updateTimelineChart(selectedIndicator, selectedYear) {
 	container.appendChild(chart.render());
 }
 
-showChartsByRegion('global');
-document.getElementById('region-select').selectedIndex = 0;
+(function() {
+	showChartsByRegion(selectedRegion);
+
+	var index = document.querySelector('#region-select option[value="' + selectedRegion + '"]');		
+	document.getElementById('region-select').selectedIndex = index ? index.index : 0;
+})();
 
 // Map
 
@@ -526,6 +542,8 @@ regionSelect.onchange = function() {
 	
 	for (var i = 0; i < texts.length; i++)
 		texts[i].innerHTML = this.options[this.selectedIndex].innerHTML;
+		
+	history.pushState({}, document.title, "/regions/" + region);
 }
 
 regionSelect.onchange();

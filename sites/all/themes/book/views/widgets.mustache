@@ -16,29 +16,35 @@
 			  	<div class="col-sm-8">
 					<label for="indicator">{{#labels}}{{indicator}}{{/labels}}</label>
 					<select id="indicator" class="form-control" disabled="disabled">
-						<option>Indicator 1</option>
+						<option>Social institutions and gender index (value)</option>
 					</select>
 				</div>		
 				<div class="col-sm-4">
 					<label for="number_years">{{#labels}}{{number_years}}{{/labels}}</label>
-					<select id="number_years" class="form-control" disabled="disabled">
+					<select id="number_years" class="form-control">
 						<option>1</option>
+						<option>2</option>
+						<option selected="selected">3</option>
+						<option>4</option>
+						<option>5</option>
 					</select>
 				</div>
 		  	</div>
 			<h2 class="section country-form-title"><span>{{#labels}}{{countries}}{{/labels}}</span></h2>
 		  	<div class="row">
-			  	<div class="col-sm-8">
+			  	<div class="col-sm-8 country-selection-row">
 					<label for="country">{{#labels}}{{select_country}}{{/labels}}</label>
-					<select name="country" class="form-control">
-						<option>Albania</option>
+					<select name="country" class="form-control" disabled="disabled">
+						<option>Spain</option>
 					</select>
 				</div>		
-				<div class="col-sm-4">
+				<div class="col-sm-4 country-selection-row">
 					<label>{{#labels}}{{pick_colour}}{{/labels}}</label>
-					<div class="row">
+					<div class="row" row="1">
 						<div class="col-xs-2">
-							<div class="colour colour-first"></div>
+							<div class="colour colour-first">
+								<i class="fa fa-check fa-2x"></i>
+							</div>
 						</div>
 						<div class="col-xs-2">
 							<div class="colour colour-second"></div>
@@ -52,20 +58,51 @@
 						<div class="col-xs-2">
 							<div class="colour colour-fifth"></div>
 						</div>
+						<div class="col-xs-2 text-muted">
+							<i class="fa fa-plus fa-2x"></i>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-8 country-selection-row">
+					<label for="country">{{#labels}}{{select_country}}{{/labels}}</label>
+					<select name="country" class="form-control" disabled="disabled">
+						<option>Italy</option>
+					</select>
+				</div>		
+				<div class="col-sm-4 country-selection-row">
+					<label>{{#labels}}{{pick_colour}}{{/labels}}</label>
+					<div class="row" row="2">
 						<div class="col-xs-2">
+							<div class="colour colour-first"></div>
+						</div>
+						<div class="col-xs-2">
+							<div class="colour colour-second">
+								<i class="fa fa-check fa-2x"></i>
+							</div>
+						</div>
+						<div class="col-xs-2">
+							<div class="colour colour-third"></div>
+						</div>
+						<div class="col-xs-2">
+							<div class="colour colour-forth"></div>
+						</div>
+						<div class="col-xs-2">
+							<div class="colour colour-fifth"></div>
+						</div>
+						<div class="col-xs-2 text-muted">
 							<i class="fa fa-plus fa-2x"></i>
 						</div>
 					</div>
 				</div>
 				<div class="col-sm-12 text-right">
-					<button type="button" class="btn btn-primary">
+					<button type="button" class="btn btn-primary" disabled="disabled">
 						{{#labels}}{{add_country}}{{/labels}}
 					</button>
 				</div>
 		  	</div>
 		  </form>
 		  <h2 class="section country-form-title"><span>{{#labels}}{{preview}}{{/labels}}</span></h2>
-		  <p id="chart-title">Title</p>
+		  <p id="chart-title" class="chart-title">Social institutions and gender index (value)</p>
 		  <p id="chart-description">Description</p>
 		  <div id="mapDiv"></div>
 		  <div class="row">
@@ -143,7 +180,7 @@
 	  	  	</div>
 	  	  </div>
 	  	  <div class="row chart-type-texts">
-	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="map">
+	  	  	<div class="col-sm-4 text-center widget-chart-button disabled" chart-type="map">
 	  	  		<div>
 		  	  		<img src="{{path}}/static/images/widgets/map.png" alt="{{#labels}}{{map_chart}}{{/labels}}" />
 	  	  		</div>
@@ -155,7 +192,7 @@
 	  	  		</div>
 	  	  		<span>{{#labels}}{{area_chart}}{{/labels}}</span>
 	  	  	</div>
-	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="table">
+	  	  	<div class="col-sm-4 text-center widget-chart-button disabled" chart-type="table">
 	  	  		<div>
 		  	  		<img src="{{path}}/static/images/widgets/table.png" alt="{{#labels}}{{data_table}}{{/labels}}" />
 	  	  		</div>
@@ -183,7 +220,7 @@
 	  	  <form role="form" class="widget-description">
 			  <div class="form-group">
 			    <label for="title">{{#labels}}{{title}}{{/labels}}</label>
-			    <input type="text" class="form-control" id="title" value="Title" placeholder="{{#labels}}{{title}}{{/labels}}">
+			    <input type="text" class="form-control" id="title" value="Social institutions and gender index (value)" placeholder="{{#labels}}{{title}}{{/labels}}">
 			    <label for="description">{{#labels}}{{description}}{{/labels}}</label>
 			    <textarea class="form-control" id="description" rows="3">Description</textarea>
 			    <label for="label_x">{{#labels}}{{label_x}}{{/labels}}</label>

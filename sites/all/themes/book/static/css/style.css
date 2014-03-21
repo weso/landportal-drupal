@@ -1183,6 +1183,10 @@ div.chart-type-texts span {
 	margin-top: 2em;
 }
 
+div.disabled span {
+	color: #888;
+}
+
 div.chart-type-texts {
 	margin-bottom: 2em;
 	margin-left: 0;
@@ -1200,6 +1204,8 @@ h2.country-form-title {
 div.colour {
 	width: 2em;
 	height: 2em;
+	text-align: center;
+	color: #fff;
 }
 
 .colour-first {
@@ -1256,6 +1262,14 @@ div.widget-button-selected {
 
 div.widget-button-selected:hover {
 	background-color: #fff;
+}
+
+div.country-selection-row {
+	margin-bottom: 1em;
+}
+
+p.chart-title {
+	font-weight: bold;
 }
 
 /* Indicators */

@@ -215,6 +215,76 @@ var countryList = [
 	{ "iso3": "ZWE", "name": "Zimbabwe", "iso2": "ZW" }
 ];
 
+// All indicator select
+
+var allIndicators = document.getElementById('all-indicator-select');
+allIndicators.onchange = changeIndicator;
+allIndicators.onchange();
+
+function changeIndicator() {
+	selectedIndicator = this.options[this.selectedIndex].value;
+
+	updateMap(selectedIndicator, selectedYear);
+	updateCharts(selectedIndicator, selectedYear);
+	
+	var texts = document.querySelectorAll('span.indicator-name');
+	
+	for (var i = 0; i < texts.length; i++)
+		texts[i].innerHTML = this.options[this.selectedIndex].innerHTML;
+		
+	updateSelectorsByIndicator(selectedIndicator);
+}
+
+function getIndicator(code) {
+	var code = code ? code : document.getElementById('entity-id').value;
+	var name = code;
+	var index = 0;
+	var topic = null;
+	
+	var indicator = document.querySelector('#all-indicator-select option[value="' + code + '"]')
+	
+	if (indicator) {
+		name = indicator.innerHTML;
+		index = indicator.index;	
+		topic = indicator.parentNode.label;
+	}
+	
+	return {
+		"code": code,
+		"name": name,
+		"index": index,
+		"topic": topic
+	}
+}
+
+function updateSelectorsByIndicator(code) {
+	var indicator = getIndicator(code);
+
+	var indicatorSelect = document.getElementById('all-indicator-select');
+	indicatorSelect.selectedIndex = indicator.index;
+	//indicatorSelect.onchange();
+	
+	var topics = document.querySelectorAll('#topic-select option');
+	
+	for (var i = 0; i < topics.length; i++)
+		if (topics[i].innerHTML == indicator.topic) {
+			document.getElementById('topic-select').selectedIndex = topics[i].index;
+			
+			var indicatorSelect = selectTopic(topics[i].index + 1);
+			indicatorSelect.style.display = 'block';
+			
+			var selected = indicatorSelect.querySelector('option[value="' + indicator.code + '"]');
+	
+			indicatorSelect.selectedIndex = selected ? selected.index : 0;
+			
+			break;
+		}
+}
+
+updateSelectorsByIndicator();
+
+//
+
 function cloneObject(obj) {
 	var o = {};
 	
@@ -278,7 +348,7 @@ function updateTimelineChart(selectedIndicator, selectedYear) {
 	container.appendChild(chart.render());
 }
 
-document.getElementById('topic-select').selectedIndex = 0;
+//document.getElementById('topic-select').selectedIndex = 0;
 
 // Correlation
 
@@ -414,27 +484,23 @@ function convertCode(code) {
 // Topic select
 
 document.getElementById('topic-select').onchange = function() {
-	var region = this.options[this.selectedIndex].value;
-	
-	var indicatorSelectors = document.querySelectorAll('select.topic-indicator-select');
-	
-	for (var i = 0; i < indicatorSelectors.length; i++)
-		indicatorSelectors[i].style.display = 'none';
-	
-	var indicatorSelect = document.querySelector('select.topic-indicator-select:nth-of-type(' + (this.selectedIndex + 1) + ')');
-	
-	if (indicatorSelect) {
+	if (indicatorSelect = selectTopic(this.selectedIndex + 1)) {
 		indicatorSelect.style.display = 'block';
 		indicatorSelect.selectedIndex = 0;
 		indicatorSelect.onchange();
 	}
 }
 
-// All indicator select
-
-var allIndicators = document.getElementById('all-indicator-select');
-allIndicators.onchange = changeIndicator;
-allIndicators.onchange();
+function selectTopic(topicIndex) {
+	var indicatorSelectors = document.querySelectorAll('select.topic-indicator-select');
+	
+	for (var i = 0; i < indicatorSelectors.length; i++)
+		indicatorSelectors[i].style.display = 'none';
+	
+	var indicatorSelect = document.querySelector('select.topic-indicator-select:nth-of-type(' + topicIndex + ')');
+	
+	return indicatorSelect;
+}
 
 // Indicator select
 
@@ -456,6 +522,7 @@ for (var i = 0; i < indicatorSelectors.length; i++)
 		}
 	};
 	
+/*	
 if (indicatorSelectors.length > 0) {
 	indicatorSelectors[0].selectedIndex = 0;
 	indicatorSelectors[0].onchange();
@@ -463,18 +530,7 @@ if (indicatorSelectors.length > 0) {
 	if (indicatorSelectors[0].options.length > 0)
 		selectedIndicator = indicatorSelectors[0].options[0].value;
 }
-
-function changeIndicator() {
-	selectedIndicator = this.options[this.selectedIndex].value;
-
-	updateMap(selectedIndicator, selectedYear);
-	updateCharts(selectedIndicator, selectedYear);
-	
-	var texts = document.querySelectorAll('span.indicator-name');
-	
-	for (var i = 0; i < texts.length; i++)
-		texts[i].innerHTML = this.options[this.selectedIndex].innerHTML;
-}
+*/
 
 // Comparison indicator select
 

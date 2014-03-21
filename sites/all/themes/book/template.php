@@ -52,6 +52,15 @@ function book_preprocess_html(&$vars) {
   );
   drupal_add_html_head($googlefonts, 'googlefonts');
 
+  $meta_viewport = array(
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'content' => 'width=device-width',
+      'name' => 'viewport',
+    )
+  );
+  drupal_add_html_head($meta_viewport, 'viewport');
+
 }
 
 

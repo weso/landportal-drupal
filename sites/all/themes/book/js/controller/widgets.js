@@ -1,3 +1,7 @@
+var numberOfYears = 3;
+var colour1 = '#b41739';
+var colour2 = '#4293c6';
+
 /* Chart type buttons */
 
 var chartType = 'bar';
@@ -24,11 +28,40 @@ function selectTypeButton(button) {
 	renderChart(chartType);
 }
 
-var typeButtons = document.querySelectorAll('.widget-chart-button');
+var typeButtons = document.querySelectorAll('.widget-chart-button:not(.disabled)');
 
 for (var i = 0; i < typeButtons.length; i++)
 	typeButtons[i].onclick = function() {
 		selectTypeButton(this);
+	}
+	
+// Colour selectors
+
+var colours = document.querySelectorAll('div.colour');
+
+for (var i = 0; i < colours.length; i++)
+	colours[i].onclick = function() {
+		var parent = this.parentNode.parentNode;
+		
+		var colours = parent.querySelectorAll('div.colour');
+		
+		for (var i = 0; i < colours.length; i++)
+			colours[i].innerHTML = '';
+	
+		var row = parent.getAttribute('row');
+		
+		switch(row) {
+			case "1":
+				colour1 = window.getComputedStyle(this, null).getPropertyValue("background-color");
+				break;
+			case "2":
+				colour2 = window.getComputedStyle(this, null).getPropertyValue("background-color");
+				break;
+		}
+
+		this.innerHTML = '<i class="fa fa-check fa-2x"></i>';
+		
+		renderChart(chartType, label_x, label_y);
 	}
 	
 /* Chart descriptions */
@@ -54,6 +87,14 @@ document.getElementById('label_y').onkeyup = function() {
 	renderChart(chartType, label_x, label_y);
 }
 
+/* Number of years */
+
+var numberOfYearsSelector = document.getElementById('number_years');
+numberOfYearsSelector.onchange = function() {
+	numberOfYears = this.options[this.selectedIndex].value;
+	renderChart(chartType, label_x, label_y);
+}
+
 /* Chart preview */
 
 function renderChart(type, label_x, label_y) {
@@ -64,7 +105,7 @@ function renderChart(type, label_x, label_y) {
 			"font-family": "'Kite One', sans-serif",
 			"font-size": "14px",
 			title: label_x ? label_x : "Years",
-			values: ["Jan", "Feb", "Mar", "Apr", "May"],
+			values: [],
 		},
 		yAxis: {
 			"font-family": "'Kite One', sans-serif",
@@ -77,15 +118,27 @@ function renderChart(type, label_x, label_y) {
 		},
 		series: [
 		{
-	        name: "2012",
-	        values: [100, 200, 300]
+	        name: "Spain",
+	        values: []
 	    },
 	    {  
-	    	name: "2013",
-	     	values: [50, 5, 40]
-	    }]
+	    	name: "Italy",
+	     	values: []
+	    }],
+	    serieColours: [colour1, colour2]
 	};
 	
+	Math.seedrandom('ESP');
+	for (var i = 0; i < numberOfYears; i++)
+		options.series[0].values.push(random(1, 500));
+	
+	Math.seedrandom('ITA');
+	for (var i = 0; i < numberOfYears; i++)
+		options.series[1].values.push(random(1, 500));
+		
+	for (var i = 0; i < numberOfYears; i++)	
+		options.xAxis.values.push(2014 - numberOfYears + 1 + i)
+
 	var mapDiv = document.getElementById("mapDiv");
 	mapDiv.innerHTML = '';
 	
@@ -113,4 +166,8 @@ function renderChart(type, label_x, label_y) {
 	}
 	
 	mapDiv.appendChild(chart.render());
+}
+
+function random(min, max) {
+	return Math.floor((Math.random() * max) + min);
 }
