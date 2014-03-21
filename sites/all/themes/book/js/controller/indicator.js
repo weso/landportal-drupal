@@ -215,26 +215,6 @@ var countryList = [
 	{ "iso3": "ZWE", "name": "Zimbabwe", "iso2": "ZW" }
 ];
 
-// All indicator select
-
-var allIndicators = document.getElementById('all-indicator-select');
-allIndicators.onchange = changeIndicator;
-allIndicators.onchange();
-
-function changeIndicator() {
-	selectedIndicator = this.options[this.selectedIndex].value;
-
-	updateMap(selectedIndicator, selectedYear);
-	updateCharts(selectedIndicator, selectedYear);
-	
-	var texts = document.querySelectorAll('span.indicator-name');
-	
-	for (var i = 0; i < texts.length; i++)
-		texts[i].innerHTML = this.options[this.selectedIndex].innerHTML;
-		
-	updateSelectorsByIndicator(selectedIndicator);
-}
-
 function getIndicator(code) {
 	var code = code ? code : document.getElementById('entity-id').value;
 	var name = code;
@@ -282,6 +262,26 @@ function updateSelectorsByIndicator(code) {
 }
 
 updateSelectorsByIndicator();
+
+// All indicator select
+
+var allIndicators = document.getElementById('all-indicator-select');
+allIndicators.onchange = changeIndicator;
+allIndicators.onchange();
+
+function changeIndicator() {
+	selectedIndicator = this.options[this.selectedIndex].value;
+
+	updateMap(selectedIndicator, selectedYear);
+	updateCharts(selectedIndicator, selectedYear);
+	
+	var texts = document.querySelectorAll('span.indicator-name');
+	
+	for (var i = 0; i < texts.length; i++)
+		texts[i].innerHTML = this.options[this.selectedIndex].innerHTML;
+		
+	updateSelectorsByIndicator(selectedIndicator);
+}
 
 //
 
@@ -465,19 +465,10 @@ function updateCountryTable(selectedIndicator, selectedYear) {
 // Map
 
 function convertCode(code) {
-	switch(code.toLowerCase()) {
-		case "es":
-			return "ESP";
-		case "pt":
-			return "PRT";
-		case "fr":
-			return "FRA";
-		case "ru":
-			return "RUS";
-		case "jp":
-			return "JPN";
-	}
-	
+	for (var j = 0; j < countryList.length; j++)
+		if (countryList[j].iso2.toLowerCase() == code.toLowerCase())
+			return countryList[j].iso3;
+				
 	return code;
 }
 

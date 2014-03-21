@@ -322,6 +322,9 @@ function getCountry() {
 	
 	if (map)
 		map.src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=" + country.name + "&aq=&amp;ie=UTF8&hq=&amp;hnear=" + country.name + "&t=m&z=4&output=embed";
+		
+	var continent = getCountryRegion(country.code);
+	document.getElementById('continent-link').href = "regions/" + continent;
 })();
 
 function getCountriesByRegion(region) {
@@ -398,7 +401,7 @@ function updateCompareChart(selectedIndicator) {
 	if (!container)
 		return;
 		
-	var countries = getCountriesByRegion(getCountryRegion('ESP'));
+	var countries = getCountriesByRegion(getCountryRegion(getCountry().code));
 
 	options.series = [];
 	options.serieColours = [];
@@ -428,13 +431,18 @@ function updateCompareChart(selectedIndicator) {
 		options.series.push(serie);
 	}
 	
-	for (var i = 0; i < countries.length; i++) {
-		options.serieColours.push(makeGradientColour(colour1, colour2, (i / countries.length) * 100).cssColour);
-	}
-	
 	options.series.sort(function(a, b) {
 		return b.values[0] - a.values[0];
 	});
+	
+	var country = getCountry().name;
+	
+	for (var i = 0; i < countries.length; i++) {
+		if (options.series[i].name == country)
+			options.serieColours.push("#2a7085");
+		else
+			options.serieColours.push(makeGradientColour(colour1, colour2, (i / countries.length) * 100).cssColour);
+	}
 
 	options.width = container.offsetWidth;
 	options.height = container.offsetHeight;
@@ -528,7 +536,7 @@ function showTimeline() {
 	
 	timelineContainer.innerHTML = '';
 	
-	Math.seedrandom('ESP' + selectedIndicator);
+	Math.seedrandom(getCountry().code + selectedIndicator);
 	for (var i = 2008; i <= 2012; i++)
 		timelineOptions.series[0].values.push(Math.floor((Math.random() * 50) + 1));
 	
@@ -594,7 +602,7 @@ function showTimelineSmall(container) {
 	
 	timelineContainer.innerHTML = '';
 	
-	Math.seedrandom('ESP' + selectedIndicator + container);
+	Math.seedrandom(getCountry().code + selectedIndicator + container);
 	for (var i = 2008; i <= 2012; i++)
 		timelineOptions.series[0].values.push(Math.floor((Math.random() * 50) + 1));
 	

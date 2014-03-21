@@ -921,6 +921,11 @@ div.graph-small, div.graph-small .region-chart {
 	padding: 0 !important;
 }
 
+div.graph-medium, div.graph-medium .region-chart {
+	height: 15em;
+	margin-bottom: 2em;
+}
+
 div.graph-large, div.graph-large -region-chart {
 	height: 25em;
 	margin-bottom: 3em;

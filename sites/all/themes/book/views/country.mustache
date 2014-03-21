@@ -2,10 +2,9 @@
 <input type="hidden" id="entity-id" value="{{entity-id}}" />
 <div class="content main-content container">
 	<ol class="breadcrumb">
-	  <li><a href="">{{#labels}}{{index}}{{/labels}}</a></li>
-	  <li><a href="">{{#labels}}{{land_book}}{{/labels}}</a></li>
-	  <li><a href="">{{#labels}}{{countries}}{{/labels}}</a></li>
-	  <li><a href="">{{#info}}{{continent}}{{/info}}</a></li>
+	  <li><a href="regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
+	  <li><a href="countries">{{#labels}}{{countries}}{{/labels}}</a></li>
+	  <li><a id="continent-link" href="">{{#info}}{{continent}}{{/info}}</a></li>
 	  <li class="active"><span class="country-name">{{#info}}{{country}}{{/info}}</span></li>
 	</ol>
 	<div class="row">
@@ -103,7 +102,7 @@
             {{/charts}}
         </div>
 		  <h2 class="section"><span class="indicator-name"></span> <span>{{#labels}}{{for_countries}}{{/labels}}</span></h2>
-		  <div id="chart-region-bar-comparison" class="graph">
+		  <div id="chart-region-bar-comparison" class="graph-medium">
             {{#charts}}
             	<div class="source-graph chart-content">
 	                {{#employment-agriculture}}

@@ -508,19 +508,11 @@ function loadHeatMap(region, year) {
 }
 
 function convertCode(code) {
-	switch(code.toLowerCase()) {
-		case "es":
-			return "ESP";
-		case "pt":
-			return "PRT";
-		case "fr":
-			return "FRA";
-		case "ru":
-			return "RUS";
-		case "jp":
-			return "JPN";
-	}
-	
+	for (var i = 0; i < continents.length; i++)
+		for (var j = 0; j < continents[i].countries.length; j++)
+			if (continents[i].countries[j].iso2.toLowerCase() == code.toLowerCase())
+				return continents[i].countries[j].iso3;
+				
 	return code;
 }
 
