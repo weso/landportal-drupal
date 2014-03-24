@@ -324,7 +324,9 @@ function getCountry() {
 		map.src="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=" + country.name + "&aq=&amp;ie=UTF8&hq=&amp;hnear=" + country.name + "&t=m&z=4&output=embed";
 		
 	var continent = getCountryRegion(country.code);
-	document.getElementById('continent-link').href = "/regions/" + continent;
+	var link = document.getElementById('continent-link')
+	link.href = "/regions/" + continent;
+	link.innerHTML = continent.charAt(0).toUpperCase() + continent.slice(1);;
 })();
 
 function getCountriesByRegion(region) {
