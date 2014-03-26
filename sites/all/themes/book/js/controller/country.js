@@ -356,6 +356,12 @@ function cloneObject(obj) {
 }
 
 function showFixedCharts() {
+	var values = document.querySelectorAll('table.graphs td.value');
+	Math.seedrandom(getCountry().code);
+	
+	for (var i = 0; i < values.length; i++)
+		values[i].innerHTML = random(1, 100);
+
 	for (var element in chartOptions) {
 	    var options = cloneObject(chartOptions[element]);
 	
@@ -505,31 +511,16 @@ function showTimeline() {
 	var compare = document.getElementById('country-comparison');
 	var countryCode = compare.options[compare.selectedIndex].value;
 
-	var timelineOptions = {
-		container: "#employment-timeline",
-		chartType: "line",
-		margins: [6, 0, 6, 0],
-		yAxis: { title: "" },
-		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
-        selectBy: "byIndicator",
-        vertex: { "show": true },
-        valueOnItem: { show: false },
-        yAxis: {
-			"font-colour": "#888",
-			"font-size": "1em"
-		},
-        legend: {
-			show: false
-		},
-		series: [{
-            name: "this",
-            values: []
-        },
-        {  
-        	name: "2013",
-         	values: []
-        }]
-	};
+	var timelineOptions = chartOptions['chart-timeline-comparison'];
+	
+	timelineOptions.series = [{
+        name: "this",
+        values: []
+    },
+    {  
+    	name: "2013",
+     	values: []
+    }];
 	
 	var timelineContainer = document.getElementById('employment-timeline');
 	
@@ -571,31 +562,16 @@ function showTimelineSmall(container) {
 	var compare = document.getElementById('country-comparison');
 	var countryCode = compare.options[compare.selectedIndex].value;
 
-	var timelineOptions = {
-		chartType: "line",
-		margins: [6, 0, 6, 0],
-		yAxis: { title: "" },
-		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
-        selectBy: "byIndicator",
-        vertex: { "show": true },
-        valueOnItem: { show: false },
-        yAxis: {
-			"font-colour": "none",
-			"font-size": "1em"
-		},
-        legend: {
-			show: false
-		},
-		vertex: { "show": false },
-		series: [{
-            name: "2012",
-            values: []
-        },
-        {  
-        	name: "2013",
-         	values: []
-        }]
-	};
+	var timelineOptions = chartOptions['chart-timeline-comparison-small'];
+
+	timelineOptions.series = [{
+        name: "2012",
+        values: []
+    },
+    {  
+    	name: "2013",
+     	values: []
+    }];
 	
 	var timelineContainer = document.getElementById(container);
 	

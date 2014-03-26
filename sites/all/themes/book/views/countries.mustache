@@ -20,14 +20,13 @@
             <label for="select-country">{{#labels}}{{select_a_country}}{{/labels}}:</label>
             <select id="country-select" name="select-country">
             	<option selected="true">{{#labels}}{{select_a_country}}{{/labels}}</option>
-            	{{#country-list}}
-            		{{#data}}
-	                	<option value={{iso3}}>{{name}}</option>
-	                {{/data}}
-	                {{^data}}
-	                	<option disabled="true" value={{iso3}}>{{name}}</option>
-	                {{/data}}
-                {{/country-list}}
+            	{{#continents}}
+            		<optgroup label="{{name}}">
+            			{{#countries}}
+            				<option value="{{iso3}}">{{name}}</option>
+            			{{/countries}}
+            		</optgroup>
+            	{{/continents}}
             </select>
         </div>
         <div class="col-sm-6 col-lg-4">

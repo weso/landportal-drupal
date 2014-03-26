@@ -19,12 +19,16 @@
             <label for="select-indicator">{{#labels}}{{select_an_indicator}}{{/labels}}:</label>
             <select id="country-select" name="select-indicator">
             	<option selected="true">{{#labels}}{{select_an_indicator}}{{/labels}}</option>
-            	{{#indicator-list}}
-            		<option value="{{id}}">{{name}}</option>
-                {{/indicator-list}}
+            	{{#indicators}}
+            			<optgroup label="{{name}}">
+				  			{{#indicators}}
+								<option value="{{id}}">{{name}}</option>
+							{{/indicators}}
+				  		</optgroup>
+                {{/indicators}}
             </select>
         </div>
-        <div class="col-sm-6 col-lg-6">
+        <div class="col-sm-6 col-lg-6 text-right">
             <input id="expand" type="checkbox" name="expand-all" />
             <label for="expand-all">{{#labels}}{{expand_all}}{{/labels}}</label>
         </div>

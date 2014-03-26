@@ -589,7 +589,7 @@
                         "name": "Life expectancy of birth - female (years)"
                     },
                     "year": 2011,
-                    "value": 85
+                    "value": ""
                 },
                 {
                     "country": {
@@ -601,7 +601,7 @@
                         "name": "Life expectancy of birth - male (years)"
                     },
                     "year": 2011,
-                    "value": 80
+                    "value": ""
                 },
                 {
                     "country": {
@@ -613,7 +613,7 @@
                         "name": "Mortality rate - under-5 (per 1.000 live births)"
                     },
                     "year": 2012,
-                    "value": 4
+                    "value": ""
                 },
                 {
                     "country": {
@@ -625,7 +625,7 @@
                         "name": "Population growth (annual %)"
                     },
                     "year": 2012,
-                    "value": "0.32%"
+                    "value": ""
                 },
                 {
                     "country": {
@@ -637,7 +637,7 @@
                         "name": "Population - female (% of total)"
                     },
                     "year": 2012,
-                    "value": "51.45%"
+                    "value": ""
                 },
                 {
                     "country": {
@@ -649,7 +649,7 @@
                         "name": "Population (total)"
                     },
                     "year": 2012,
-                    "value": "60.917.978"
+                    "value": ""
                 },
                 {
                     "country": {
@@ -661,7 +661,7 @@
                         "name": "Rural population (% of total population)"
                     },
                     "year": 2012,
-                    "value": "31.42%"
+                    "value": ""
                 }
             ]
         },

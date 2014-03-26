@@ -820,6 +820,7 @@ table.map-data {
 .jvectormap-region {
 	stroke: #ddd;
 	stroke-width: 1;
+	cursor: pointer;
 }
 
 /* Charts */
@@ -1211,6 +1212,24 @@ div.colour {
 	height: 2em;
 	text-align: center;
 	color: #fff;
+	
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none; 
+	-o-user-select: none;
+	user-select: none;
+}
+
+div.colour-plus {
+	width: 2em;
+	height: 2em;
+	text-align: center;
+	
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none; 
+	-o-user-select: none;
+	user-select: none;
 }
 
 .colour-first {
@@ -1275,6 +1294,14 @@ div.country-selection-row {
 
 p.chart-title {
 	font-weight: bold;
+}
+
+div.palette {
+
+}
+
+div.palette div {
+	margin-bottom: 0.5em;
 }
 
 /* Indicators */

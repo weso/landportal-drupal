@@ -97,6 +97,31 @@ var chartOptions = {
         valueOnItem: { show: false },
         legend: {
 			show: false
+		},
+		stroke: {
+			width: 3
+		}
+	},
+	"chart-timeline-comparison-small": {
+		chartType: "line",
+		margins: [6, 0, 6, 0],
+		yAxis: { title: "" },
+		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
+        selectBy: "byIndicator",
+        vertex: { "show": true },
+        valueOnItem: { show: false },
+        yAxis: {
+			"font-colour": "none",
+			"font-size": "1em"
+		},
+        legend: {
+			show: false
+		},
+		vertex: { 
+			"show": false 
+		},
+		stroke: {
+			width: 1
 		}
 	},
 	"chart-correlation-comparison": {

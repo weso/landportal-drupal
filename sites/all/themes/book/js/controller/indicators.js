@@ -7,7 +7,7 @@ document.getElementById('country-select').onchange = function() {
 	if (this.selectedIndex == 0)
 		return;
 		
-	window.location.href = 'countries/' + this.options[this.selectedIndex].value;
+	window.location.href = 'indicators/' + this.options[this.selectedIndex].value;
 }
 
 // Continent toggle
