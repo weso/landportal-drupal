@@ -7,6 +7,10 @@ drush en -y libraries
 drush en -y trigger
 drush dl -y og
 drush en -y og og_ui og_register
+drush dl -y apachesolr
+drush en -y apachesolr apachesolr_search
+drush dl -y facetapi
+drush en -y facetapi
 
 # Dowload the following contrib modules
 drush dl -y oauth
