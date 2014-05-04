@@ -12,6 +12,7 @@ drush en -y apachesolr apachesolr_search
 drush dl -y facetapi
 drush en -y facetapi
 
+
 # Dowload the following contrib modules
 drush dl -y oauth
 
@@ -30,4 +31,16 @@ drush en -y landportal_uris
 
 # Enable the Landportal Testing modules
 drush en -y unit_testing
+
+# Enable the LandBook modules
+drush dl -y feeds
+drush en -y feeds feeds_ui
+drush dl feeds_sql
+drush en -y feeds_sql
+drush en -y landbook_nodes
+drush en -y landbook_nodes_importers
+drush en -y landbook_nodes_access
+
+# Disable overlay menus
+drush dis -y overlay
 
