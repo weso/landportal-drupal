@@ -1,0 +1,18 @@
+<?php
+
+function landbook_nodes_access_init() {
+    $node = menu_get_object();
+    //arg(2) allows us to ignore node/###/edit, etc
+    if (!empty($node->type) && !arg(2)){
+        //Our field_id (for example 'ESP') is stored here by Drupal
+        $landbook_id = $node->field_id["und"][0]["value"];
+        switch ($node->type) {
+            case "landbook_country":
+                drupal_goto("countries/" . $landbook_id);  
+                break;
+            case "landbook_indicator":
+                drupal_goto("indicators/" . $landbook_id);  
+                break;
+        }
+    }
+}

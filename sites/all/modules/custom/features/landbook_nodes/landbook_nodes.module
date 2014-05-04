@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the LandBook nodes feature.
+ */
+
+include_once 'landbook_nodes.features.inc';
