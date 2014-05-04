@@ -1,22 +1,18 @@
 <?php
 
-/*
-    Implements HOOK_node_view. This function lets us act on a node before it is
-    shown.
-    This hook is used to redirect to the LandBook custom urls when accessing a
-    landbook node. Landbook nodes are only used to enable Solr search, they have
-    no real content (apart from the name and description) so we want to redirect
-    to the Landbook page which has the real content.
-*/
-function landbook_nodes_access_node_view($node, $view_mode, $langcode) {
-    //The node ID (for example 'ESP' is stored here by Drupal)
-    $landbook_id = $node->field_id["und"][0]["value"];
-    switch ($node->type) {
-        case "landbook_indicator":
-            drupal_goto("indicators/" . $landbook_id);
-            break;
-        case "landbook_country":
-            drupal_goto("countries/" . $landbook_id);
-            break;
+function landbook_nodes_access_init() {
+    $node = menu_get_object();
+    //arg(2) allows us to ignore node/###/edit, etc
+    if (!empty($node->type) && !arg(2)){
+        //Our field_id (for example 'ESP') is stored here by Drupal
+        $landbook_id = $node->field_id["und"][0]["value"];
+        switch ($node->type) {
+            case "landbook_country":
+                drupal_goto("countries/" . $landbook_id);  
+                break;
+            case "landbook_indicator":
+                drupal_goto("indicators/" . $landbook_id);  
+                break;
+        }
     }
 }
