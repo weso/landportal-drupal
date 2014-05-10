@@ -1,5 +1,5 @@
 name = User account fields
-description = Fields of an user account
+description = Fields of the LandPortal Users
 core = 7.x
 package = Features
 version = 7.x-1.0
@@ -7,7 +7,9 @@ project = user_account_fields
 dependencies[] = features
 dependencies[] = text
 features[features_api][] = api:2
+features[field_base][] = field_api_token
 features[field_base][] = field_firstname
 features[field_base][] = field_lastname
+features[field_instance][] = user-user-field_api_token
 features[field_instance][] = user-user-field_firstname
 features[field_instance][] = user-user-field_lastname

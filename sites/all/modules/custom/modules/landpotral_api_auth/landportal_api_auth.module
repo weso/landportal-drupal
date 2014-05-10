@@ -1,0 +1,52 @@
+<?php
+
+
+/**
+ * Overrides hook_user_insert.
+ * This module aims to generate a unique access token for each user to authenticate against the
+ * LandPortal API. In every case, the user token will be stored in the Drupal database. If any error
+ * happens when sending the token to the API the user can contact the administrator, so he can make
+ * manually the request and store the token in the API.
+ */
+function landportal_api_auth_user_insert(&$edit, $account, $category) {
+  $username = $edit["name"];
+  $token = _generate_token($username);
+  _store_token_in_db($token, $account->uid);
+  _send_token_to_api($username, $token);
+}
+
+function _generate_token($username) {
+  return hash("sha256", $username ."landportal". time());
+}
+
+function _send_token_to_api($username, $token) {
+  $token = _generate_token($username);
+  $data = json_encode(array("user"=>$username, "token"=>$token));
+
+  $request = curl_init('http://localhost:80/api/auth');
+  curl_setopt($request, CURLOPT_CUSTOMREQUEST, "POST");
+  curl_setopt($request, CURLOPT_POSTFIELDS, $data);
+  curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($request, CURLOPT_HTTPHEADER, array(
+      'Content-Type: application/json',
+      'Content-Length: ' . strlen($data))
+  );
+  $result = curl_exec($request);
+  if ($result != 201) {
+    drupal_set_message("The API could not store your access token. Please contact the site administrator", "error");
+  }
+}
+
+function _store_token_in_db($token, $user_id) {
+  db_insert('field_data_field_api_token')->fields(
+  array(
+  	'entity_type' => 'user',
+  	'bundle' => 'user',
+  	'deleted' => 0,
+  	'entity_id' => $user_id,
+  	'language' => 'und',
+  	'delta' => 0,
+  	'field_api_token_value' => $token,
+  	)
+  )->execute();
+}
