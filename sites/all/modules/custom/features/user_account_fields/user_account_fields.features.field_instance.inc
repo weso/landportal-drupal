@@ -10,6 +10,47 @@
 function user_account_fields_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'user-user-field_api_token'
+  $field_instances['user-user-field_api_token'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'This field stores the user\'s authentication token for the LandBook API.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_api_token',
+    'label' => 'api_token',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 9,
+    ),
+  );
+
   // Exported field_instance: 'user-user-field_firstname'
   $field_instances['user-user-field_firstname'] = array(
     'bundle' => 'user',
@@ -82,6 +123,8 @@ function user_account_fields_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('First name');
   t('Last name');
+  t('This field stores the user\'s authentication token for the LandBook API.');
+  t('api_token');
 
   return $field_instances;
 }
