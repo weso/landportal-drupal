@@ -16,8 +16,10 @@ drush en -y facetapi
 # Dowload the following contrib modules
 drush dl -y oauth
 
+# Generate authentication tokens for the API
+drush en -y landportal_api_auth
+
 # Enable the custom features
-drush en -y user_account_fields
 drush en -y facebook_login
 drush en -y twitter_login
 
@@ -43,4 +45,3 @@ drush en -y landbook_nodes_access
 
 # Disable overlay menus
 drush dis -y overlay
-
