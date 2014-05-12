@@ -20,13 +20,9 @@
             <label for="select-country">{{#labels}}{{select_a_country}}{{/labels}}:</label>
             <select id="country-select" name="select-country">
             	<option selected="true">{{#labels}}{{select_a_country}}{{/labels}}</option>
-            	{{#continents}}
-            		<optgroup label="{{name}}">
-            			{{#countries}}
-            				<option value="{{iso3}}">{{name}}</option>
-            			{{/countries}}
-            		</optgroup>
-            	{{/continents}}
+    			{{#countries}}
+    				<option value="{{iso3}}" {{^data}}disabled="disabled"{{/data}}>{{name}}</option>
+    			{{/countries}}
             </select>
         </div>
         <div class="col-sm-6 col-lg-4">
@@ -48,13 +44,13 @@
 	                <div class="col-sm-8 col-md-6 col-lg-4">
 	                    {{#data}}
 	                    <a href="countries/{{iso3}}">
-	                        <img class="flag" src="{{path}}/static/images/flags/{{iso2}}.png" onerror="this.src='{{path}}/static/images/flags/no-flag.png'" />
+	                        <img class="flag flag-{{iso3}}" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeAQMAAAAB/jzhAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAAxJREFUeNpjYBiMAAAAlgABjcjBIQAAAABJRU5ErkJggg==">
 	                        <span class="name">{{name}}</span>
 	                    </a>
 	                    {{/data}}
 	                    {{^data}}
 	                    	<div class="no-data-country">
-		                        <img class="flag" src="{{path}}/static/images/flags/{{iso2}}.png" onerror="this.src='{{path}}/static/images/flags/no-flag.png'" />
+		                        <img class="flag flag-{{iso3}}" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeAQMAAAAB/jzhAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAAxJREFUeNpjYBiMAAAAlgABjcjBIQAAAABJRU5ErkJggg==">
 		                        <span class="name">{{name}}</span>
 		                        <span class="no-data"><i class="fa fa-ban"></i></span>
 	                    	</div>

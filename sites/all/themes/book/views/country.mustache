@@ -1,57 +1,68 @@
 {{>header}}
 <input type="hidden" id="entity-id" value="{{entity-id}}" />
+<input type="hidden" id="path" value="{{path}}" />
+<input type="hidden" id="continent-id" value="{{#info}}{{#region}}{{un_code}}{{/region}}{{/info}}" />
+<input type="hidden" id="continent-name" value="{{#info}}{{#region}}{{name}}{{/region}}{{/info}}" />
+<input type="hidden" id="country-name" value="{{#info}}{{name}}{{/info}}" />
+<input type="hidden" id="un-code" value="{{#info}}{{un_code}}{{/info}}" />
+<input type="hidden" id="starred-indicators" value="{{#starred}}{{id}},{{/starred}}" />
 <div class="content main-content container">
 	<ol class="breadcrumb">
 	  <li><a href="/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
 	  <li><a href="/countries">{{#labels}}{{countries}}{{/labels}}</a></li>
-	  <li><a id="continent-link" href=""></a></li>
-	  <li class="active"><span class="country-name"></span></li>
+	  <li>
+	  	<a id="continent-link" href="regions/{{#info}}{{#region}}{{un_code}}{{/region}}{{/info}}">
+	  		{{#info}}{{#region}}{{name}}{{/region}}{{/info}}
+	  	</a>
+	  </li>
+	  <li class="active"><span class="country-name">{{#info}}{{name}}{{/info}}</span></li>
 	</ol>
 	<div class="row">
 		<div class="col-sm-12">
-			<h1 class="country-name"><span class="country-name"></span></h1>
+			<h1 class="country-name">
+				<img id="flag" class="flag" src="{{path}}/static/images/flags/{{#info}}{{iso3}}{{/info}}.png" />
+				<span class="country-name no-margin">{{#info}}{{name}}{{/info}}</span>
+			</h1>
 		</div>
 	</div>
 	<div class="row">
 	  <div class="col-sm-3">
-		  <iframe class="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl={{#application}}{{language}}{{/application}}&amp;geocode=&amp;q={{#info}}{{country}}{{/info}}&amp;aq=&amp;ie=UTF8&amp;hq=&amp;hnear={{#info}}{{country}}{{/info}}&amp;t=m&amp;z=4&amp;output=embed"></iframe>
+	  	  <div id="world-map" class="world-map"></div>
+	  	  <h2 class="section"><span>{{#labels}}{{country_map}}{{/labels}}</span></h2>
+	  	  <div id="country-map" class="country-map"></div>
+	  	  <!--
+		  <iframe class="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl={{#application}}{{language}}{{/application}}&amp;geocode=&amp;q={{#info}}{{country}}{{/info}}&amp;aq=&amp;ie=UTF8&amp;hq=&amp;hnear={{#info}}{{country}}{{/info}}&amp;t=m&amp;z=4&amp;output=embed"></iframe> -->
 		  <h2 class="section"><span>{{#labels}}{{main_index_rankings}}{{/labels}}</span></h2>
 		  <div id="main-index-rankings" class="graph">
             {{#charts}}
             	<div class="source-graph chart-content">
-	                {{#main-index-rankings}}
+	                {{#spider}}
 	                    {{>table}}
-	                {{/main-index-rankings}}
+	                {{/spider}}
             	</div>
             {{/charts}}
           </div>
 		  <h2 class="section"><span>{{#labels}}{{gender_issues}}{{/labels}}</span></h2>
 		  <table>
-			<tr>
-				<td class="issue">
-					Inheritance rights of spouses
-				</td>
-				<td>
-					<div class="circle"><div class="green"></div></div>
-				</td>
-			</tr>
-			<tr>
-				<td class="issue">
-					Inheritance rights of daughters
-				</td>
-				<td>
-					<div class="circle"><div class="red"></div></div>
-				</td>
-			</tr>
-			<tr>
-				<td class="issue">
-					Access to land
-				</td>
-				<td>
-					<div class="circle"><div class="yellow"></div></div>
-				</td>
-			</tr>
+		  	{{#charts}}
+		  		{{#trafficLights}}
+		  			{{#observations}}
+		  				<tr>
+							<td class="issue">
+								{{#indicator}}{{name}}{{/indicator}}
+							</td>
+							<td>
+								<div class="circle"><div class="green"></div></div>
+							</td>
+		  				</tr>
+		  			{{/observations}}
+		  			{{^observations}}
+		  				{{#labels}}{{no_data_available}}{{/labels}}
+		  			{{/observations}}
+		  		{{/trafficLights}}
+		  	{{/charts}}
 		  </table>
+		  <!--
 		  <h2 class="section"><span>{{#labels}}{{rural_development}}{{/labels}}</span></h2>
 		  <div class="row">
 			<div class="col-xs-4">
@@ -91,18 +102,23 @@
 	          </div>
 			</div>
 		  </div>
+		  -->
 	  </div>
 	  <div class="col-sm-6 graph-section">
 		  <h2 class="section"><span>{{#labels}}{{socio_economic_values}}{{/labels}}</span></h2>
           <div class="socioeconomic-values chart-content">
             {{#charts}}
-                {{#socioeconomic-values}}
+                {{#tableIndicators}}
                     {{>table}}
-                {{/socioeconomic-values}}
+                {{/tableIndicators}}
             {{/charts}}
         </div>
 		  <h2 class="section"><span class="indicator-name"></span> <span>{{#labels}}{{for_countries}}{{/labels}}</span></h2>
-		  <div id="chart-region-bar-comparison" class="graph-medium">
+		  <div id="mapDiv" class="map-medium indicator-map">
+          		<div class="map-container"></div>
+          		<div class="country-label"></div>
+          </div>		  
+		  <div id="chart-region-bar-comparison" class="graph-medium no-margin">
             {{#charts}}
             	<div class="source-graph chart-content">
 	                {{#employment-agriculture}}
@@ -126,7 +142,7 @@
 			  </select>
 			</div>
 		  </div>
-		  <div id="employment-timeline" class="graph">
+		  <div id="chart-timeline-comparison" class="graph">
             {{#charts}}
             	<div class="source-graph chart-content">
 	                {{#employment-timeline}}
@@ -134,147 +150,36 @@
 	                {{/employment-timeline}}
             	</div>
             {{/charts}}          
-          </div>
+          </div> 
 		  <div class="row evolutions">
-			<div class="col-xs-2 lead">{{#labels}}{{land}}{{/labels}}</div>
-			<div class="col-xs-2"></div>
-			<div id="land-1" class="col-xs-2 graph-small">
-            {{#charts}}
-            	<div class="source-graph chart-content">
-	                {{#land-1}}
-	                    {{>table}}
-	                {{/land-1}}
-            	</div>
-            {{/charts}}
-            </div>
-			<div id="land-2" class="col-xs-2 graph-small">
-            {{#charts}}
-            	<div class="source-graph chart-content">
-	                {{#land-2}}
-	                    {{>table}}
-	                {{/land-2}}
-            	</div>
-            {{/charts}}            
-            </div>
-			<div id="land-3" class="col-xs-2 graph-small">
-            {{#charts}}
-            	<div class="source-graph chart-content">
-	                {{#land-3}}
-	                    {{>table}}
-	                {{/land-3}}
-            	</div>
-            {{/charts}}            
-            </div>
-			<div id="land-4" class="col-xs-2 graph-small">
-            {{#charts}}
-            	<div class="source-graph chart-content">
-	                {{#land-4}}
-	                    {{>table}}
-	                {{/land-4}}
-            	</div>
-            {{/charts}}            
-            </div>
-		  </div>
-		  <div class="row evolutions">
-			<div class="col-xs-2 lead">{{#labels}}{{gender}}{{/labels}}</div>
-			<div class="col-xs-2"></div>
-			<div id="gender-1" class="col-xs-2 graph-small">
-            {{#charts}}
-            	<div class="source-graph chart-content">
-	                {{#gender-1}}
-	                    {{>table}}
-	                {{/gender-1}}
-            	</div>
-            {{/charts}}            
-            </div>
-			<div id="gender-2" class="col-xs-2 graph-small">
-            {{#charts}}
-            	<div class="source-graph chart-content">
-	                {{#gender-2}}
-	                    {{>table}}
-	                {{/gender-2}}
-            	</div>
-            {{/charts}}            
-            </div>
-			<div id="gender-3" class="col-xs-2 graph-small">
-            {{#charts}}
-            	<div class="source-graph chart-content">
-	                {{#gender-3}}
-	                    {{>table}}
-	                {{/gender-3}}
-            	</div>
-            {{/charts}}            
-            </div>
-			<div id="gender-4" class="col-xs-2 graph-small">
-            {{#charts}}
-            	<div class="source-graph chart-content">
-	                {{#gender-4}}
-	                    {{>table}}
-	                {{/gender-4}}
-            	</div>
-            {{/charts}}            
-            </div>
-		  </div>
-		  <div class="row evolutions">
-			<div class="col-xs-2 lead">{{#labels}}{{hunger}}{{/labels}}</div>
-			<div class="col-xs-2"></div>
-			<div id="hunger-1" class="col-xs-2 graph-small">
-            {{#charts}}
-            	<div class="source-graph chart-content">
-	                {{#hunger-1}}
-	                    {{>table}}
-	                {{/hunger-1}}
-            	</div>
-            {{/charts}}            
-            </div>
-			<div id="hunger-2" class="col-xs-2 graph-small">
-            {{#charts}}
-            	<div class="source-graph chart-content">
-	                {{#hunger-2}}
-	                    {{>table}}
-	                {{/hunger-2}}
-            	</div>
-            {{/charts}}            
-            </div>
-			<div id="hunger-3" class="col-xs-2 graph-small">
-            {{#charts}}
-            	<div class="source-graph chart-content">
-	                {{#hunger-3}}
-	                    {{>table}}
-	                {{/hunger-3}}
-            	</div>
-            {{/charts}}            
-            </div>
-			<div id="hunger-4" class="col-xs-2 graph-small">
-            {{#charts}}
-            	<div class="source-graph chart-content">
-	                {{#hunger-4}}
-	                    {{>table}}
-	                {{/hunger-4}}
-            	</div>
-            {{/charts}}            
-            </div>
-		  </div>
+		  	{{#starred}}
+		  		<div class="col-xs-3">
+		  			{{id}} - {{name}}
+		  			<div id="starred_{{id}}" class="graph-small"></div>
+		  		</div>
+		  	{{/starred}}
+		  </div>	  	
 	  </div>
 	  <div class="col-sm-3">
 		  <h2 class="section"><span>{{#labels}}{{sources}}{{/labels}}</span></h2>
 		  <select id="source-select" multiple="multiple" class="data-sources">
 		  	{{#selectors}}
 			  	{{#data-sources}}
-					<option>{{name}}</option>
+					<option {{^with_data}}disabled="disabled"{{/with_data}}>{{name}}</option>
 				{{/data-sources}}
 			{{/selectors}}
 		  </select>
 		  <h2 class="section"><span>{{#labels}}{{indicators}}{{/labels}}</span></h2>
 		  <select id="indicator-select" class="form-control">
 			  	{{#selectors}}
-				  	{{#indicators}}
+				  	{{#data-sources}}
 				  		<optgroup label="{{name}}">
 				  			{{#indicators}}
-								<option>{{name}}</option>
+								<option 
+									value="{{id}}" {{^with_data}}disabled="disabled"{{/with_data}}>{{name}}</option>
 							{{/indicators}}
 				  		</optgroup>
-					{{/indicators}}
+					{{/data-sources}}
 				{{/selectors}}
 		  </select>
 		  <button class="btn data-button">{{#labels}}{{full_data}}{{/labels}} <span class="country-name">{{#info}}{{country}}{{/info}}</span></button>

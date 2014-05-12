@@ -17,43 +17,9 @@
           <div id="mapDiv" class="map">
           		<div class="map-container"></div>
           		<div class="country-label"></div>
+          		<img src="{{path}}/static/images/loading.gif" class="loading" alt="" />
           </div>
-          <div class="timeline">
-          	<div class="line">
-          		<div class="year" title="2008">
-	          		<a href="" title="2008" class="circle"></a>
-          		</div>
-          		<div class="year" title="2009">
-	          		<a href="" title="2009" class="circle"></a>
-          		</div>
-          		<div class="year" title="2010">
-	          		<a href="" title="2010" class="circle"></a>
-          		</div>
-          		<div class="year" title="2011">
-	          		<a href="" title="2011" class="circle"></a>
-          		</div>
-          		<div class="year selected" title="2012">
-	          		<a href="" title="2012" class="circle"></a>
-          		</div>
-          	</div>
-          	<div class="years">
-          		<div class="year">
-	          		<span title="2008">2008</span>
-          		</div>
-          		<div class="year">
-	          		<span title="2009">2009</span>
-          		</div>
-          		<div class="year">
-	          		<span title="2010">2010</span>
-          		</div>
-          		<div class="year">
-	          		<span title="2011">2011</span>
-          		</div>
-          		<div class="year selected">
-	          		<span title="2012">2012</span>
-          		</div>
-          	</div>
-          </div>
+          <div id="timeline"></div>
 		  <h2 class="section"><span class="indicator-name"></span> <span>{{#labels}}{{for_countries}}{{/labels}}</span></h2>
 		  <div id="chart-region-bar-comparison" class="graph-medium">
             {{#charts}}
@@ -73,7 +39,7 @@
 			  <select id="region-comparer" class="form-control">
 			  	{{#selectors}}
 				  	{{#regions}}
-				  		<option>{{name}}</option>
+				  		<option value="{{un_code}}">{{name}}</option>
 				  	{{/regions}}
 			  	{{/selectors}}
 			  </select>
@@ -87,6 +53,7 @@
 	                {{/employment-timeline}}
             	</div>
             {{/charts}}          
+            <img src="{{path}}/static/images/loading.gif" class="loading" style="display:inline" alt="" />
           </div>
 	  </div>
 	  <div class="col-sm-3">
@@ -94,7 +61,7 @@
 		  <select id="region-select" multiple="multiple" class="form-control data-sources">
 		  	{{#selectors}}
 			  	{{#regions}}
-			  		<option value="{{code}}">{{name}}</option>
+			  		<option value="{{un_code}}">{{name}}</option>
 			  	{{/regions}}
 		  	{{/selectors}}
 		  </select>
@@ -109,13 +76,13 @@
 		   <h2 class="section"><span>{{#labels}}{{indicators}}{{/labels}}</span></h2>
 		   <select id="indicator-select" class="form-control">	
 			  	{{#selectors}}
-				  	{{#indicators}}
+				  	{{#data-sources}}
 				  		<optgroup label="{{name}}">
 				  			{{#indicators}}
-								<option>{{name}}</option>
+								<option>{{id}}</option>
 							{{/indicators}}
 				  		</optgroup>
-					{{/indicators}}
+					{{/data-sources}}
 				{{/selectors}}
 		   </select>
 		  <a href="" class="more-info">{{#labels}}{{more_about_the_indicators}}{{/labels}}</a>

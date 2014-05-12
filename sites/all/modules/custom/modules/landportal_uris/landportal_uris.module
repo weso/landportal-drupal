@@ -1,4 +1,7 @@
 <?php
+
+include(drupal_get_path('theme', 'book').'/language.php');
+
 /**
  * Implements hook_menu().
  *
@@ -18,7 +21,7 @@ function landportal_uris_menu() {
 		// The page callback depends on the number of parameters that are passed
 		// to the path. For example: a path with 1 parameter will call route_callback_1.
 		$item['page callback'] = '_route_callback_' . $num_params;
-		// The first parameter will always be the name of the path. 
+		// The first parameter will always be the name of the path.
 		// This parameter
 		// is not counted to assign the callback.
 		$params = array(
@@ -44,19 +47,32 @@ function landportal_uris_menu() {
 function _route_callback_0($name, $navigation) {
 	$m_template = $name;
 	$model = _get_model($name);
-	$m_data = $model->get();
+  $options = _create_options();
+	$m_data = $model->get($options);
 	return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data, 'mustache_navigation' => $navigation));
 }
 
 function _route_callback_1($name, $navigation, $param1) {
 	$m_template = $name;
 	$model = _get_model($name);
-	$m_data = $model->get($param1);
+  $options = _create_options();
+	$m_data = $model->get($options, $param1);
     if ($m_data === false) {
       return theme('book', array('mustache_template' => 'e404', 'mustache_data' => NULL, 'mustache_navigation' => NULL));
     } else {
       return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data, 'mustache_navigation' => $navigation));
     }
+}
+
+/**
+ * Creates the options object for the views
+ */
+function _create_options() {
+  $options = new stdClass();
+  $lang = new Language();
+  $options->language = $lang->get_selected_language();
+  $options->host = 'http://localhost:80/api';
+  return $options;
 }
 
 /*

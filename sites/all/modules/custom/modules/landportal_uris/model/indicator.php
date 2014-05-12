@@ -1,19 +1,36 @@
 <?php
-
 class Indicator {
+	public function get($options) {
 	
-	public function get($indicator_id) {
-        $temporal_indicator = 'indicator';
-        $file_path = drupal_get_path("module", "landportal_uris") . "/model/" . $temporal_indicator . ".json";
-
-        if (file_exists($file_path)) {
-            $file_data = file_get_contents($file_path);
-            $indicator_data = json_decode($file_data, true);
-            $indicator_data['entity-id'] = $indicator_id;
-            return $indicator_data;
-        } else {
-            return false;
-        }
+		$lang = $options->language;
+		$api = $options->host;
+	
+		$topics = (array)json_decode(file_get_contents("$api/topics?lang=$lang"));
+		
+		$indicators = array();
+		
+		function sortIndicators($a, $b) {
+	    	if ($a->name == $b->name)
+	        	return 0;
+	    
+	    	return ($a->name < $b->name) ? -1 : 1;
+		}	
+		
+		for ($i = 0; $i < count($topics); $i++) {
+			$id = $topics[$i]->id;
+			
+			$_indicators = json_decode(file_get_contents("$api/topics/$id/indicators?lang=$lang"));
+			
+			$topics[$i]->indicators = $_indicators;
+			
+			$indicators = array_merge($indicators, $_indicators);
+		}
+		
+		usort($indicators, "sortIndicators");	
+		
+		return array(
+				'selectors' =>
+					array('topics' => $topics, 'indicators' => $indicators)
+				);		
 	}
-    
 }

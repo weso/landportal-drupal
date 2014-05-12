@@ -66,7 +66,7 @@ var chartOptions = {
 	"chart-region-bar-comparison": {
 		container: "#chart-region-bar-comparison",
 		chartType: "bar",
-		margins: [6, 0, 6, 0],
+		margins: [6, 0, 6, 2],
 		groupMargin: 0,
 		barMargin: 2,
 		xAxis: {
@@ -75,8 +75,9 @@ var chartOptions = {
 			"font-size": "0.8em"
 		},
 		yAxis: {
+			title: "",
 			"font-colour": "#888",
-			"font-size": "1em"
+			"font-size": "0.7em"
 		},
 		valueOnItem: { show: false },
 		legend: {
@@ -89,8 +90,16 @@ var chartOptions = {
 	"chart-timeline-comparison": {
 		container: "#chart-timeline-comparison",
 		chartType: "line",
-		margins: [6, 0, 6, 0],
-		yAxis: { title: "" },
+		margins: [6, 0, 6, 2],
+		xAxis: {
+			title: "",
+			"font-colour": "none",
+			"font-size": "1em",
+			values: []		
+		},
+		yAxis: { 
+			title: "",
+		},
 		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
         selectBy: "byIndicator",
         vertex: { "show": true },
@@ -141,153 +150,13 @@ var chartOptions = {
 		},	
 		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"]
 	},
-	"land-1": {
+	"starred-indicator": {
 		container: "#land-1",
 		yAxis: { "font-colour": "none"},
-		margins: [10, 4, 0, 4],
-		chartType: "line",
-		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
-		vertex: { "show": false },
-        selectBy: "byIndicator",
-        valueOnItem: { show: false },
-        legend: {
-			show: false
-		}
-	},
-	"land-2": {
-		container: "#land-2",
-		yAxis: { "font-colour": "none"},
-		margins: [10, 4, 0, 4],
-		chartType: "line",
-		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
-		vertex: { "show": false },
-        selectBy: "byIndicator",
-        valueOnItem: { show: false },
-        legend: {
-			show: false
-		}
-	},
-	"land-3": {
-		container: "#land-3",
-		yAxis: { "font-colour": "none"},
-		margins: [10, 4, 0, 4],
-		chartType: "line",
-		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
-		vertex: { "show": false },
-        selectBy: "byIndicator",
-        valueOnItem: { show: false },
-        legend: {
-			show: false
-		}
-	},
-	"land-4": {
-		container: "#land-4",
-		yAxis: { "font-colour": "none"},
-		margins: [10, 4, 0, 4],
-		chartType: "line",
-		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
-		vertex: { "show": false },
-        selectBy: "byIndicator",
-        valueOnItem: { show: false },
-        legend: {
-			show: false
-		}
-	},
-	"gender-1": {
-		container: "#gender-1",
-		yAxis: { "font-colour": "none"},
-		margins: [10, 4, 0, 4],
-		chartType: "line",
-		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
-		vertex: { "show": false },
-        selectBy: "byIndicator",
-        valueOnItem: { show: false },
-        legend: {
-			show: false
-		}
-	},
-	"gender-2": {
-		container: "#gender-2",
-		yAxis: { "font-colour": "none"},
-		margins: [10, 4, 0, 4],
-		chartType: "line",
-		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
-		vertex: { "show": false },
-        selectBy: "byIndicator",
-        valueOnItem: { show: false },
-        legend: {
-			show: false
-		}
-	},
-	"gender-3": {
-		container: "#gender-3",
-		yAxis: { "font-colour": "none"},
-		margins: [10, 4, 0, 4],
-		chartType: "line",
-		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
-		vertex: { "show": false },
-        selectBy: "byIndicator",
-        valueOnItem: { show: false },
-        legend: {
-			show: false
-		}
-	},
-	"gender-4": {
-		container: "#gender-4",
-		yAxis: { "font-colour": "none"},
-		margins: [10, 4, 0, 4],
-		chartType: "line",
-		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
-		vertex: { "show": false },
-        selectBy: "byIndicator",
-        valueOnItem: { show: false },
-        legend: {
-			show: false
-		}
-	},
-	"hunger-1": {
-		container: "#hunger-1",
-		yAxis: { "font-colour": "none"},
-		margins: [10, 4, 0, 4],
-		chartType: "line",
-		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
-		vertex: { "show": false },
-        selectBy: "byIndicator",
-        valueOnItem: { show: false },
-        legend: {
-			show: false
-		}
-	},
-	"hunger-2": {
-		container: "#hunger-2",
-		yAxis: { "font-colour": "none"},
-		margins: [10, 4, 0, 4],
-		chartType: "line",
-		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
-		vertex: { "show": false },
-        selectBy: "byIndicator",
-        valueOnItem: { show: false },
-        legend: {
-			show: false
-		}
-	},
-	"hunger-3": {
-		container: "#hunger-3",
-		yAxis: { "font-colour": "none"},
-		margins: [10, 4, 0, 4],
-		chartType: "line",
-		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
-		vertex: { "show": false },
-        selectBy: "byIndicator",
-        valueOnItem: { show: false },
-        legend: {
-			show: false
-		}
-	},
-	"hunger-4": {
-		container: "#hunger-4",
-		yAxis: { "font-colour": "none"},
-		margins: [10, 4, 0, 4],
+		xAxis: {
+			"font-colour": "none"
+		},
+		margins: [10, 0, 0, 0],
 		chartType: "line",
 		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
 		vertex: { "show": false },

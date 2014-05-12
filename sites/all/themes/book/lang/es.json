@@ -113,5 +113,7 @@
     "evolution_of": "Evolución de",
     "at_countries": "en los diferentes países",
     "for_countries": "para países de la región",
-    "across_time": "a través del tiempo en"
+    "across_time": "a través del tiempo en",
+    "country_map": "Mapa del país",
+    "no_data_available": "No existen datos"
 }

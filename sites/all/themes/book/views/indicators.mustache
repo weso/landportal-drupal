@@ -20,11 +20,7 @@
             <select id="country-select" name="select-indicator">
             	<option selected="true">{{#labels}}{{select_an_indicator}}{{/labels}}</option>
             	{{#indicators}}
-            			<optgroup label="{{name}}">
-				  			{{#indicators}}
-								<option value="{{id}}">{{name}}</option>
-							{{/indicators}}
-				  		</optgroup>
+            		<option value="{{id}}">{{name}}</option>
                 {{/indicators}}
             </select>
         </div>
@@ -34,10 +30,10 @@
         </div>
     </div>
     <div class="continents">
-        {{#indicators}}
+        {{#topics}}
         <div class="row continent">
             <div class="col-sm-12 countries">
-                <h1 class="country-name"><span>{{name}}</span><span class="down"><i class="fa fa-angle-down"></i></span></h1>
+                <h1 class="country-name"><span>{{translation_name}}</span><span class="down"><i class="fa fa-angle-down"></i></span></h1>
                 <div class="continent-countries">
 	                {{#indicators}}
 	                <div class="col-sm-8 col-md-6 col-lg-4">
@@ -51,7 +47,7 @@
                 </div>
             </div>
         </div>
-        {{/indicators}}
+        {{/topics}}
     </div>
 </div>
 {{>footer}}

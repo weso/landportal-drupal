@@ -17,8 +17,8 @@
 	            <td class="countryName">{{#country}}{{name}}{{/country}}</td>
 	            <td class="indicatorCode">{{#indicator}}{{code}}{{/indicator}}</td>
 	            <td class="indicatorName">{{#indicator}}{{name}}{{/indicator}}</td>
-	            <td class="value">{{value}}</td>
-	            <td class="year">{{year}}</td>
+	            <td class="value">{{#value}}{{value}}{{/value}}</td>
+	            <td class="year">{{#ref_time}}{{year}}{{/ref_time}}</td>
 	        </tr>
 	        {{/observations}}
 	    </tbody>
