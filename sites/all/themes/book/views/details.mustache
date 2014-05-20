@@ -1,0 +1,73 @@
+{{>header}}
+<div class="content main-content container">
+	<ol class="breadcrumb">
+		<li><a href="/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
+		<li><a href="/countries">{{#labels}}{{countries}}{{/labels}}</a></li>
+		<li>
+			<a id="continent-link" href="regions/{{#info}}{{#region}}{{un_code}}{{/region}}{{/info}}">
+				{{#info}}{{#region}}{{name}}{{/region}}{{/info}}
+			</a>
+		</li>
+		<li><a href="/countries/{{#info}}{{iso3}}{{/info}}">{{#info}}{{name}}{{/info}}</a></li>
+		<li class="active">{{#labels}}{{detail}}{{/labels}}</li>
+	</ol>
+	<div class="row">
+
+	</div>
+	<div class="row">
+		<div class="col-sm-9">
+			<h1 class="country-name">
+				<span>{{#labels}}{{all_available_indicators}}{{/labels}} {{#info}}{{name}}{{/info}}</span>
+				{{#selectors}}
+					{{#topics}}
+						<h2 class="section"><span>{{name}}</span></h2>
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>{{#labels}}{{indicator}}{{/labels}}</th>
+									<th>{{#labels}}{{value}}{{/labels}}</th>
+									<th>{{#labels}}{{last_updated}}{{/labels}}</th>
+									<th>{{#labels}}{{source}}{{/labels}}</th>
+								</tr>
+							</thead>
+							<tbody>
+								{{#indicators}}
+									<tr>
+										<td>{{name}}</td>
+										<td>{{value}}</td>
+										<td>{{last_update}}</td>
+										<td>{{source}}</td>
+									</tr>
+								{{/indicators}}
+							</tbody>
+						</table>
+					{{/topics}}
+				{{/selectors}}
+			</h1>
+		</div>
+		<div class="col-sm-3">
+			<h2 class="section"><span>{{#labels}}{{specific_country}}{{/labels}}</span></h2>
+			<select id="country-select" class="form-control">
+				<option disabled="disabled" selected="true">{{#labels}}{{select_one}}{{/labels}}</option>
+				{{#selectors}}
+					{{#countries}}
+					<option value="{{iso3}}">{{name}}</option>
+				{{/countries}}
+			{{/selectors}}
+			</select>
+			<a href="" class="more-info">{{#labels}}{{more_about_areas_and_countries}}{{/labels}}</a>
+			<button class="btn data-button">
+				{{#labels}}{{download_all_data}}{{/labels}} {{#info}}{{name}}{{/info}}
+			</button>
+			<button class="btn data-button">
+				{{#labels}}{{consult_library}}{{/labels}} {{#info}}{{name}}{{/info}}
+				<p class="at-button">{{#labels}}{{at}}{{/labels}} landportal.info</p>
+			</button>
+			<button class="btn data-button-dark">
+					{{#labels}}{{debate_with_others_about}}{{/labels}}
+					{{#info}}{{name}}{{/info}}
+			</button>
+		</div>
+	</div>
+</div>
+{{>footer}}

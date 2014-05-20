@@ -1,11 +1,4 @@
 var ajax = new (function() {
-	var http = false;
-
-	if (window.XMLHttpRequest)
-		http = new XMLHttpRequest();
-	else if (window.ActiveXObject)
-		http = new ActiveXObject('Microsoft.XMLHTTP');
-
 	// Cache
 
 	var cache = {};
@@ -14,6 +7,13 @@ var ajax = new (function() {
 
 	this.load = function(settings)
 	{
+		var http = false;
+
+		if (window.XMLHttpRequest)
+			http = new XMLHttpRequest();
+		else if (window.ActiveXObject)
+			http = new ActiveXObject('Microsoft.XMLHTTP');
+
 		var url = settings.url;
 
 		if (!url)
@@ -90,8 +90,8 @@ var ajax = new (function() {
 		observationsCallback = callback;
 
 		ajax.load({
-			url: api + '/observations/' + region + '/' + indicator,
-			parameters: 'lang=' + language,
+			url: api + '/observations_by_region.php',
+			parameters: 'region=' + region + '&indicator=' + indicator + '&language=' + language,
 			callback: loadObservationsCallback
 		});
 	}
@@ -111,6 +111,7 @@ var ajax = new (function() {
 	}
 
 	function processData(data) {
+		console.log(data);
 		data = JSON.parse(data);
 
 		var obsData = {};
@@ -138,6 +139,9 @@ var ajax = new (function() {
 			var time = data[i]['ref_time'].value;
 
 			var value = data[i].value ? data[i].value.value : null;
+			var previous_value = data[i].previous_value;
+
+			var preferable_tendency = data[i].indicator.preferable_tendency;
 
 			if (!value)
 				continue;
@@ -152,7 +156,9 @@ var ajax = new (function() {
 				name: countryName,
 				code: countryCode,
 				value: value,
-				lastUpdate: lastUpdate
+				previous_value: previous_value,
+				lastUpdate: lastUpdate,
+				preferable_tendency: preferable_tendency
 			});
 		}
 
@@ -177,8 +183,8 @@ var ajax = new (function() {
 			return;
 
 		ajax.load({
-			url: api + '/observations/' + region + '/' + indicator + '/average',
-			parameters: 'lang=' + language,
+			url: api + '/observations_by_region_average.php',
+			parameters: 'region=' + region + '&indicator=' + indicator + '&language=' + language,
 			callback: callback
 		});
 	}
@@ -197,8 +203,8 @@ var ajax = new (function() {
 			return;
 
 		ajax.load({
-			url: api + '/observations/' + country + '/' + indicator,
-			parameters: 'lang=' + language,
+			url: api + (indicator == 'starred' ? '/observations_by_country_starred.php' : '/observations_by_country.php'),
+			parameters: 'country=' + country + '&indicator=' + indicator + '&language=' + language,
 			callback: function(data) {
 				data = JSON.parse(data);
 

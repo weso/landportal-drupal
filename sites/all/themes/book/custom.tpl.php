@@ -1,13 +1,16 @@
 <?php
 
 /*
-At this point THE FOLLOWING VARIABLES ARE AVAILABLE:
+At this point THE FOLLOWING VARIABLES ARE AVAILABLE (from template.php::book_preprocess)
 	- $application_data: contains the application data required to render the
 	  views such as:
 		- the current user name
 		- the list of all available languages with ISO2 code, language name, and
 		  a selected attribute in the selected language
 		- the ISO2 code of the selected language
+		- the server name
+		- the API url
+		- the Sparql endpoint url
 	- $theme_path: contains the full path of the theme root folder.
 	- $mustache_data: contains all the data required to render the views
 	- $mustache_template: contains the name of the template to load
@@ -25,7 +28,7 @@ echo $template->render($data);
 
 /**
  * Get the labels for the specified language.
- * 
+ *
  * @param $languages Associative array containing all the available languages
  *	and the selected.
  * @return associative array with the labels parsed from the JSON file.

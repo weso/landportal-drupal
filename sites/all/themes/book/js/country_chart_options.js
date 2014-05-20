@@ -20,7 +20,7 @@ var chartOptions = {
 		chartType: "pie",
 		valueOnItem: { show: false },
 		margins: [0, 0, 0, 0],
-		serieColours: ["#ff7f0e", "#8A0829", "#2b00f5", "#00af10"],
+		serieColours: ["#ddd", "#ff7f0e"],
 		xAxis: {
 			"font-colour": "none",
 			"font-size": "0.8em"
@@ -36,7 +36,7 @@ var chartOptions = {
 		chartType: "pie",
 		valueOnItem: { show: false },
 		margins: [0, 0, 2, 0],
-		serieColours: ["#ff7f0e", "#8A0829", "#2b00f5", "#00af10"],
+		serieColours: ["#ddd", "#1184a7"],
 		xAxis: {
 			"font-colour": "none",
 			"font-size": "0.8em"
@@ -52,7 +52,7 @@ var chartOptions = {
 		chartType: "pie",
 		valueOnItem: { show: false },
 		margins: [0, 0, 2, 0],
-		serieColours: ["#ff7f0e", "#8A0829", "#2b00f5", "#00af10"],
+		serieColours: ["#ddd", "#00af10"],
 		xAxis: {
 			"font-colour": "none",
 			"font-size": "0.8em"
@@ -66,7 +66,7 @@ var chartOptions = {
 	"chart-region-bar-comparison": {
 		container: "#chart-region-bar-comparison",
 		chartType: "bar",
-		margins: [6, 0, 6, 2],
+		margins: [6, 0, 6, 4],
 		groupMargin: 0,
 		barMargin: 2,
 		xAxis: {
@@ -90,17 +90,19 @@ var chartOptions = {
 	"chart-timeline-comparison": {
 		container: "#chart-timeline-comparison",
 		chartType: "line",
-		margins: [6, 0, 6, 2],
+		margins: [6, 0, 6, 4],
 		xAxis: {
 			title: "",
 			"font-colour": "none",
 			"font-size": "1em",
-			values: []		
+			values: []
 		},
-		yAxis: { 
+		yAxis: {
+			"font-colour": "#888",
+			"font-size": "0.7em",
 			title: "",
 		},
-		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
+		serieColours: ["#0489B1", "#ff7f0e", "#2b00f5", "#00af10"],
         selectBy: "byIndicator",
         vertex: { "show": true },
         valueOnItem: { show: false },
@@ -126,8 +128,8 @@ var chartOptions = {
         legend: {
 			show: false
 		},
-		vertex: { 
-			"show": false 
+		vertex: {
+			"show": false
 		},
 		stroke: {
 			width: 1
@@ -145,25 +147,27 @@ var chartOptions = {
 			"font-size": "12px"
 		},
 		legend: {
-			"font-family": "'Kite One', sans-serif",
-			"font-size": "14px"
-		},	
+			show: false
+		},
 		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"]
 	},
 	"starred-indicator": {
-		container: "#land-1",
+		container: "",
 		yAxis: { "font-colour": "none"},
 		xAxis: {
 			"font-colour": "none"
 		},
 		margins: [10, 0, 0, 0],
-		chartType: "line",
-		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"],
+		chartType: "area",
+		serieColours: ["#0489B1", "#ff7f0e", "#2b00f5", "#00af10"],
 		vertex: { "show": false },
         selectBy: "byIndicator",
         valueOnItem: { show: false },
         legend: {
 			show: false
+		},
+		stroke: {
+			width: 1
 		}
 	}
-}		
+}
