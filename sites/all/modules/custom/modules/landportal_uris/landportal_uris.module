@@ -47,7 +47,7 @@ function landportal_uris_menu() {
 function _route_callback_0($name, $navigation) {
 	$m_template = $name;
 	$model = _get_model($name);
-  $options = _create_options();
+    $options = _create_options();
 	$m_data = $model->get($options);
 	return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data, 'mustache_navigation' => $navigation));
 }
@@ -55,7 +55,7 @@ function _route_callback_0($name, $navigation) {
 function _route_callback_1($name, $navigation, $param1) {
 	$m_template = $name;
 	$model = _get_model($name);
-  $options = _create_options();
+    $options = _create_options();
 	$m_data = $model->get($options, $param1);
     if ($m_data === false) {
       return theme('book', array('mustache_template' => 'e404', 'mustache_data' => NULL, 'mustache_navigation' => NULL));
@@ -71,7 +71,9 @@ function _create_options() {
   $options = new stdClass();
   $lang = new Language();
   $options->language = $lang->get_selected_language();
-  $options->host = 'http://localhost:80/api';
+  $options->host = 'http://'. $server_name;
+  $options->querystring = $_GET;
+  $options->sparql = "http://156.35.82.103:1300/sparql";
   return $options;
 }
 

@@ -43,7 +43,7 @@
 		},
 		{
 			"path": "regions/%",
-			"name": "region",
+			"name": "regions",
 			"title": "Region",
 			"navigation": "regions",
 			"params": [1]
@@ -61,6 +61,34 @@
 		 	"title": "Catalog",
 		 	"navigation": "catalog",
 		 	"params": []
+		},
+		{
+			"path": "sources",
+			"name": "datasources",
+			"title": "Data Sources",
+			"navigation": "sources",
+			"params": []
+		},
+		{
+			"path": "sources/%",
+			"name": "datasource",
+			"title": "Data Source",
+			"navigation": "sources",
+			"params": [1]
+		},
+		{
+			"path": "countries/%/details",
+			"name": "details",
+			"title": "Country detail",
+			"navigation": "countries",
+			"params": [1]
+		},
+		{
+			"path": "reuse",
+			"name": "reuse",
+			"title": "Data Reuse",
+			"navigation": "reuse",
+			"params": []
 		}
 	]
 }

@@ -1,0 +1,96 @@
+{{>header}}
+<input type="hidden" id="sparql-url" value="{{#application}}{{sparql-url}}{{/application}}" />
+<div class="content main-content container">
+	<ol class="breadcrumb">
+		<li><a href="/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
+		<li class="active">{{#labels}}{{data}}{{/labels}}</li>
+	</ol>
+	<div class="row">
+
+	</div>
+	<div class="row">
+		<div class="col-sm-9">
+			<h1 class="country-name">
+				<span>{{#labels}}{{linked_open_data_store}}{{/labels}}</span>
+			</h1>
+			<form id="run-query" role="form">
+			  <div class="form-group">
+			    <label for="namespace">{{#labels}}{{default_namespace}}{{/labels}}</label>
+			    <input type="text" name="default-graph-uri" class="form-control" id="namespace" value="{{namespace}}" placeholder="{{#labels}}{{default_namespace}}{{/labels}}">
+			  </div>
+				<div class="form-group">
+					<label for="query">{{#labels}}{{query}}{{/labels}}</label>
+					<textarea name="query" class="form-control query" id="query">{{query}}</textarea>
+				</div>
+				<div class="form-group">
+					<label for="format">{{#labels}}{{format}}{{/labels}}:</label>
+					<select id="format" name="format">
+						<option value="text/html" selected="selected">HTML</option>
+						<option value="application/vnd.ms-excel">Spreadsheet</option>
+						<option value="application/sparql-results+xml">XML</option>
+						<option value="json">JSON</option>
+						<option value="application/javascript">Javascript</option>
+						<option value="text/plain">NTriples</option>
+						<option value="application/rdf+xml">RDF/XML</option>
+					</select>
+				</div>
+				<button class="btn data-button">
+					{{#labels}}{{run_query}}{{/labels}}
+				</button>
+			</form>
+			<div id="query-result-html" class="query-result-html">{{{html}}}</div>
+			<div id="query-result" class="query-result">
+				<pre class="prettyprint lang-{{language}}">{{result}}</pre>
+			</div>
+			<h2 class="section"><span>{{#labels}}{{query_examples}}{{/labels}}</span></h2>
+			<h3 class="example">{{#labels}}{{all_indicators}}{{/labels}}</h3>
+			<pre class="prettyprint lang-sql">PREFIX lp: &lt;http://purl.org/landportal/ontology/landlibrary#&gt;
+
+SELECT ?in WHERE {
+	?ind a lp:Indicator .
+}</pre>
+			<form>
+				<input type="hidden" name="default-graph-uri" value="PREFIX lp: <http://purl.org/landportal/ontology/landlibrary#>" />
+				<input type="hidden" name="query" value="SELECT ?in WHERE { ?ind a lp:Indicator . }" />
+				<input type="hidden" name="format" value="json" />
+				<button class="btn data-button">
+					{{#labels}}{{test_query}}{{/labels}}
+				</button>
+			</form>
+			<h3 class="example">{{#labels}}{{all_countries}}{{/labels}}</h3>
+			<pre class="prettyprint lang-sql">PREFIX lp: &lt;http://purl.org/landportal/ontology/landlibrary#&gt;
+
+SELECT ?cou WHERE {
+	?cou a lp:Country .
+}</pre>
+<form>
+	<input type="hidden" name="default-graph-uri" value="PREFIX lp: <http://purl.org/landportal/ontology/landlibrary#>" />
+	<input type="hidden" name="query" value="SELECT ?cou WHERE { ?cou a lp:Country . }" />
+	<input type="hidden" name="format" value="json" />
+	<button class="btn data-button">
+		{{#labels}}{{test_query}}{{/labels}}
+	</button>
+</form>
+		</div>
+		<div class="col-sm-3">
+			<button class="btn data-button">
+				{{#labels}}{{browse_data_at_the_catalog}}{{/labels}}
+			</button>
+			<button class="btn data-button">
+				{{#labels}}{{linked_data_browser}}{{/labels}}
+			</button>
+			<button class="btn data-button">
+				{{#labels}}{{data_model_documentation}}{{/labels}}
+			</button>
+			<button class="btn data-button">
+				{{#labels}}{{api_documentation_access}}{{/labels}}
+			</button>
+			<button class="btn data-button">
+				{{#labels}}{{direct_data_download}}{{/labels}}
+			</button>
+		</div>
+	</div>
+</div>
+{{>footer}}
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script src="https://google-code-prettify.googlecode.com/svn/trunk/src/lang-sql.js"></script>

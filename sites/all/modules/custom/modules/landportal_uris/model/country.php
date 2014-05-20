@@ -1,120 +1,219 @@
 <?php
+include_once("database.php");
+/*
+$a = new Country();
+header('Content-Type: application/json');
+echo json_encode($a->get(array(), 'ESP'));
+*/
 
 class Country {
 	private $spiderIndicators = array('INDOECD1', 'INDIPFRI0', 'INDUNDP0');
 	private $trafficLigths = array('INDOECD1', 'INDOECD8', 'INDOECD10', 'INDOECD9', 'INDOECD11');
 	private $tableIndicators = array('INDWB10', 'INDWB9', 'INDWB6', 'INDWB13', 'INDWB12', 'INDWB14', 'INDWB11');
+	private $gaugeIndicators = array("INDFAOSTAT5", "INDFAOSTAT6" , "INDFAOSTAT7");
 
-	private function cmp($a, $b) {
-		return strcmp($b->ref_time->value, $a->ref_time->value);
-	}
-	
-	private function formatValue($obj) {
-		$obj->value->value = number_format((float)$obj->value->value, 2, '.', '');
-		
-		return $obj;
+	public function get_from_cache($lang, $iso3) {
+		$key = $this->generate_cache_key($lang, $iso3);
+		if (apc_exists($key) !== false)
+			return apc_fetch($key);
+		return null;
 	}
 
-	private function getLastObservation($array, $indicator) {
-		usort($array, array($this, "cmp"));
-		
-		$i = 0;
-		
-		while($i < count($array)) {
-			if ($array[$i]->value->value != null)
-				return $this->formatValue($array[$i]);
-			
-			$i++;
-		}
-		
-		if (count($array) > 0)
-			return $this->formatValue($array[0]);
-		else {
-			null;
-		}
-	}
-	
-	private function getObservations($api, $lang, $countryCode, $array) {
-		$data = array();
-	
-		foreach ($array as $indicator) {
-			$observations = (array)json_decode(file_get_contents("$api/observations/$countryCode/$indicator?lang=$lang", false));
-			
-			$last = $this->getLastObservation($observations, $indicator);
-			
-			if ($last != null)
-				array_push($data, $last);
-		}
-		
-		return $data;
+	private function generate_cache_key($lang, $iso3) {
+		return hash('md5', "country" . $lang . $iso3);
 	}
 
-	public function get($options, $countryCode) {
-	
-		function sortByName($a, $b) {
-	    	return strcasecmp($a->name, $b->name);
-		}
-	
+	public function get($options, $iso3) {
 		$lang = $options->language;
+		//$lang = "en";
 		$api = $options->host;
-		
-		// Table indicators
-	
-		$spiderData = $this->getObservations($api, $lang, $countryCode, $this->spiderIndicators);
-		$trafficLigthsData = $this->getObservations($api, $lang, $countryCode, $this->trafficLigths);
-		$tableData = $this->getObservations($api, $lang, $countryCode, $this->tableIndicators);
 
-		// Country info		
+		$cached = $this->get_from_cache($lang, $iso3);
+		if ($cached !== null)
+			return $cached;
 		
-		$info = (array)json_decode(file_get_contents("$api/countries/$countryCode?lang=$lang", false));
-	
-		$dataSources = (array)json_decode(file_get_contents("$api/datasources?lang=$lang", false));
-		$indicatorsWithData = json_decode(file_get_contents("$api/countries/$countryCode/indicators?lang=$lang", false));
-		
-		$indicatorsWithDataIds = array();
-		foreach ($indicatorsWithData as $object) {
-			$indicatorsWithDataIds[$object->id] = $object;
-		}
-		
-		for ($i = 0; $i < count($dataSources); $i++) {
-			$source = $dataSources[$i]->id;
-			$indicators = (array)json_decode(file_get_contents("$api/datasources/$source/indicators?lang=$lang", false));
-			
-			$sourceData = false;
-			
-			for ($j = 0; $j < count($indicators); $j++) {
-				$id = $indicators[$j]->id;
-				$indicators[$j] = json_decode(file_get_contents("$api/indicators/$id?lang=$lang", false));
-				
-				$withData = (isset($indicatorsWithDataIds[$id]));
-				$indicators[$j]->with_data = $withData;
-				
-				$sourceData = $sourceData || $withData;
-			}
-		
-			usort($indicators, "sortByName");
-			
-			$dataSources[$i]->indicators = $indicators;
-			$dataSources[$i]->with_data = $sourceData;
-		}
-		
-		$countries = json_decode(file_get_contents("$api/countries?lang=$lang", false));
-		
-		usort($dataSources, "sortByName");
-		usort($countries, "sortByName");
-
-		$starredIndicators = (array)json_decode(file_get_contents("$api/indicators/starred?lang=$lang", false));
-	
-		return array(
-				'info' => $info,
-				'selectors' =>
-					array('data-sources' => $dataSources, 'countries' => $countries),
-				'starred' => $starredIndicators,
-				'charts' => array(
-						'spider' => array('observations' => $spiderData),
-						'trafficLights' => array('observations' => $trafficLigthsData),
-						'tableIndicators' => array('observations' => $tableData)
-					)
-				);
+		$database = new DataBaseHelper();
+		$connection = $database->open();
+		$datasources = $database->query($connection, "datasources_by_country", array($lang, $iso3));
+		$info = $database->query($connection, "country", array($lang, $iso3));
+		$countries = $database->query($connection, "countries_without_region", array($lang));
+		$indicators_imploded = "'". implode("','", $this->spiderIndicators) ."','".  implode("','", $this->trafficLigths) ."','".  implode("','", $this->tableIndicators) ."','". implode("','", $this->gaugeIndicators) ."'";
+		$charts = $database->query($connection, "country_chart_indicators", array($lang, $iso3, $indicators_imploded));
+		$starred = $database->query($connection, "starred_indicators", array($lang));
+		$database->close($connection);
+		$result = $this->compose_data($datasources, $info, $countries, $charts, $starred);
+		apc_store($this->generate_cache_key($lang, $iso3), $result);
+		return $result;
 	}
+
+
+	private function compose_data($datasources, $info, $countries, $charts, $starred) {
+		$result = array();
+		$result["info"] = $this->compose_info($info);
+		$result["selectors"] = array(
+			"data-sources" => $this->compose_datasources($datasources),
+			"countries" => $this->compose_countries($countries)
+		);
+		$result["starred"] = $this->compose_starred($starred);
+		$result["charts"] = $this->compose_charts($charts);
+		$result["entity-id"] = $result["info"]["iso3"];
+		return $result;
+	}
+
+
+	private function compose_starred($data) {
+		$indicators = array();
+		$topics = array();
+		for ($i = 0; $i < count($data); $i++) {
+			$topic_id = $data[$i]["topic_id"];
+			if (!array_key_exists($topic_id, $topics)) {
+				$topics[$topic_id] = array(
+					"id" => $topic_id,
+					"name" => $data[$i]["topic_name"],
+					"indicators" => array()
+				);
+			}
+			$indicator = array(
+				"preferable_tendency" => $data[$i]["preferable_tendency"],
+				"last_update" => $data[$i]["last_update"],
+				"topic_id" => $topic_id,
+				"topic_name" => $data[$i]["topic_name"],
+				"starred" => $data[$i]["starred"],
+				"description" => utf8_encode($data[$i]["description"]),
+				"name" => utf8_encode($data[$i]["name"]),
+				"id" => $data[$i]["id"]
+			);
+			array_push($indicators, $indicator);
+			array_push($topics[$topic_id]["indicators"], $indicator);
+		}
+		return array(
+			"topics" => array_values($topics),
+			"indicators" => $indicators,
+		);
+	}
+
+
+	private function compose_datasources($data) {
+		$result = array();
+		for ($i = 0; $i < count($data); $i++) {
+			$datasource_id = $data[$i]["dat_id"];
+			if (!array_key_exists($datasource_id, $result)) {
+				$result[$datasource_id] = array(
+					"id" => $datasource_id,
+					"name" => utf8_encode($data[$i]["dat_name"]),
+					"organization_id" => $data[$i]["organization_id"],
+					"indicators" => array(),
+					"with_data" => false
+				);
+			}
+			$indicator = array(
+				"id" => $data[$i]["ind_id"],
+				"preferable_tendency" => $data[$i]["preferable_tendency"],
+				"last_update" => $data[$i]["last_update"],
+				"starred" => $data[$i]["starred"],
+				"name" => utf8_encode($data[$i]["ind_name"]),
+				"description" => utf8_encode($data[$i]["ind_description"]),
+				"with_data" => $data[$i]["data"] > 0
+			);
+			if ($data[$i]["data"] > 0)
+				$result[$datasource_id]["with_data"] = true;
+			array_push($result[$datasource_id]["indicators"], $indicator);
+		}
+		return array_values($result);
+	}
+
+	private function compose_info($data) {
+		$result = array(
+			"id" => $data[0]["id"],
+			"name" => utf8_encode($data[0]["country_name"]),
+			"faoURI" => utf8_encode($data[0]["faoURI"]),
+			"iso2" => $data[0]["iso2"],
+			"iso3" => $data[0]["iso3"],
+			"region" => array(
+				"un_code" => $data[0]["un_code"],
+				"id" => $data[0]["region_id"],
+				"name" => utf8_encode($data[0]["region_name"])
+			)
+		);
+		return $result;
+	}
+
+	private function compose_countries($data) {
+		$result = array();
+		for ($i = 0; $i < count($data); $i++) {
+			$country = array(
+				"id" => $data[$i]["id"],
+				"name" => utf8_encode($data[$i]["country_name"]),
+				"faoURI" => utf8_encode($data[$i]["faoURI"]),
+				"iso2" => $data[$i]["iso2"],
+				"iso3" => $data[$i]["iso3"],
+			);
+			array_push($result, $country);
+		}
+		return $result;
+	}
+
+	function compose_charts($observations) {
+		$spider_obs = array(
+			"observations"=>array()
+		);
+		$traffic_obs = array(
+			"observations"=>array()
+		);
+		$table_obs = array(
+			"observations"=>array()
+		);
+		$gauge_obs = array();
+		for ($i = 0; $i < count($observations); $i++) {
+			$indicator_id = $observations[$i]["ind_id"];
+			$country = array(
+				"faoURI" => utf8_encode($observations[$i]["faoURI"]),
+				"iso2" => $observations[$i]["iso2"],
+				"iso3" => $observations[$i]["iso3"],
+				"name" => utf8_encode($observations[$i]["country_name"])
+			);
+			$indicator = array(
+				"id" => $observations[$i]["ind_id"],
+				"name" => utf8_encode($observations[$i]["ind_name"]),
+				"description" => utf8_encode($observations[$i]["ind_description"]),
+				"last_update" => $observations[$i]["ind_last_update"],
+				"preferable_tendency" => $observations[$i]["ind_preferable_tendency"],
+				"starred" => $observations[$i]["ind_starred"]
+			);
+			$observation = array(
+				"country" => $country,
+				"indicator" => $indicator,
+				"ref_time" => array(
+					"value" => $observations[$i]["ref_time_value"]
+				),
+				"value" => array(
+					"value" => number_format((float)$observations[$i]["value"], 2, '.', '')
+				)
+			);
+			if (in_array($indicator_id, $this->spiderIndicators)) {
+				array_push($spider_obs["observations"], $observation);
+			} elseif (in_array($indicator_id, $this->trafficLights)) {
+				array_push($traffic_obs["observations"], $observation);
+			} elseif (in_array($indicator_id, $this->tableIndicators)) {
+				array_push($table_obs["observations"], $observation);
+			} elseif (in_array($indicator_id, $this->gaugeIndicators)) {
+				$complement = $observation;
+				$complement["value"]["value"] = 100 - $complement["value"]["value"];
+				$complement["country"]["name"] = "Other";
+				array_push($gauge_obs, array(
+					"observations" => array($complement, $observation),
+					"index" => count($gauge_obs) + 1,
+					"value" => $observation["value"]["value"],
+					"indicator" => $indicator["name"]
+				));
+			}
+		}
+		return array(
+			"spider" => $spider_obs,
+			"trafficLights" => $traffic_obs,
+			"tableIndicators" => $table_obs,
+			"gaugeIndicators" => $gauge_obs,
+		);
+	}
+
 }

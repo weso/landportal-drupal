@@ -11,7 +11,7 @@ function getRegionStringCode(code) {
 		case "9":
 			return 'oceania';
 	}
-	
+
 	return '';
 }
 
@@ -21,17 +21,17 @@ var selectedIndicator = indicatorSelect.options[0].value;
 function getCountryRegion() {
 	var id = document.getElementById('continent-id').value;
 	var name = document.getElementById('continent-name').value;
-	
+
 	return {
 		code: id,
-		name: name	
+		name: name
 	};
 }
 
 function getCountry() {
 	var code = document.getElementById('entity-id').value;
 	var name = document.getElementById('country-name').value;
-	
+
 	return {
 		"code": code,
 		"name": name,
@@ -46,19 +46,12 @@ var timelineObjects = {
 
 (function() {
 	var country = getCountry();
-		
-	var flag = document.querySelector("img#flag");
-	
-	var path = document.getElementById('path').value;
-	
-	if (flag)
-		flag.src = path + '/static/images/flags/' + country.code + '.png'
-		
+
 	var worldMap = document.querySelector('#world-map');
-	
+
 	wesCountry.maps.createMap({
 		container: '#world-map',
-		"borderWidth": 4,
+		"borderWidth": '0em',
 		"borderColour": "#e8e8e8",
 		"colourRange": ["#64B966"],
 		"backgroundColour": "#fff",
@@ -79,11 +72,11 @@ var timelineObjects = {
 			window.location.href = '/countries/' + info.iso3;
 		}
 	});
-	
+
 	var map = wesCountry.maps.createMap({
 		container: '#country-map',
-		"borderWidth": 0.5,
-		"borderColour": "#c8c8c8",
+		"borderWidth": '0.1em',
+		"borderColour": "#d8d8d8",
 		"colourRange": ["#64B966"],
 		"backgroundColour": "#fff",
 		"landColour": "#e8e8e8",
@@ -102,14 +95,14 @@ var timelineObjects = {
 			window.location.href = '/countries/' + info.iso3;
 		}
 	});
-	
+
 	map.zoomToCountry(country.code);
-	
+
 	// Starred indicators
-	
+
 	var comparingCountry = document.getElementById('country-comparison');
 	var comparingCountryName = comparingCountry.options[comparingCountry.selectedIndex].innerHTML;
-	
+
 	timelineObjects.main = new util.timelineChart({
 		chartOptions: chartOptions['chart-timeline-comparison'],
 		firstElement: country.name,
@@ -117,12 +110,12 @@ var timelineObjects = {
 		getfirstElementData: null,
 		getSecondElementData: null
 	});
-	
+
 	var starredIndicatorList = document.getElementById('starred-indicators').value.split(',');
-	
+
 	for (var i = 0; i < starredIndicatorList.length; i++) {
 		var indicator = starredIndicatorList[i];
-		
+
 		if (!indicator)
 			 continue;
 
@@ -137,72 +130,83 @@ var timelineObjects = {
 			getSecondElementData: null
 		});
 	}
-	
-	ajax.loadObservationsByCountry(country.code, function(starredData) {	
+
+	ajax.loadObservationsByCountry(country.code, function(starredData) {
 		var processedIndicators = [];
-		
+
 		for (var i = 0; i < starredData.length; i++) {
 			var indicator = starredData[i].indicator;
 			var values = starredData[i].values;
-			
+
 			processedIndicators.push(indicator);
-			
+
 			if (timelineObjects.starred[indicator])
 				timelineObjects.starred[indicator].updateFirstElement(country.name, values);
 		}
-		
+
 		// Indicators with no data for main country
 		for (var i = 0; i < starredIndicatorList.length; i++) {
 			var indicator = starredIndicatorList[i];
-		
+
 			if (!indicator)
 				continue;
-		
-			if (processedIndicators.indexOf(indicator) == -1)
+
+			if (processedIndicators.indexOf(indicator) == -1) {
 				if (timelineObjects.starred[indicator])
-					timelineObjects.starred[indicator].updateFirstElement(country.name, []);	
+					timelineObjects.starred[indicator].updateFirstElement(country.name, []);
+			}
 		}
 
 		updateTimelineCountry(showByIndicator);
-	});		
+	});
 })();
 
 function cloneObject(obj) {
 	var o = {};
-	
+
 	for (var property in obj)
 		o[property] = obj[property];
-		
+
 	return o;
 }
 
 function showFixedCharts() {
 	for (var element in chartOptions) {
 	    var options = cloneObject(chartOptions[element]);
-	
+
+			var container = options.container;
+
+			if (!container)
+				continue;
+
+			container = document.querySelector(container);
+
+			if (!container)
+				continue;
+
 	    options.container += ' div.chart-content';
 	    var container = options.container;
 
 	    if (!container)
 	        continue;
-	
+
 	    container = document.querySelector(container);
 
 	    if (!container)
 	        continue;
-	        
+
 	    container.style.display = 'block';
-	     
+
 	    var innerDiv = container.querySelector(options.container + ' div.table-responsive div');
 
 	    if (innerDiv)
-	    	container.removeChild(innerDiv);
-	
+	    	innerDiv.parentNode.removeChild(innerDiv);
+
 	    options.width = container.parentNode.offsetWidth;
 	    options.height = container.parentNode.offsetHeight;
-	
+
 	    var selectBy = options.selectBy ? options.selectBy : "byTime";
-	
+
 	    wesCountry.data.parseTable(options, selectBy);
 	}
 }
@@ -214,52 +218,76 @@ function showByIndicator() {
 	selectedIndicator = indicatorSelect.options[indicatorSelect.selectedIndex].value;
 
 	ajax.loadObservations(getCountryRegion().code, selectedIndicator, function(data) {
-		updateCompareChart(data);
-		loadIndicatorMap(data);
-		
-		ajax.loadObservationsByCountryAndIndicator(getCountry().code, selectedIndicator, function(data) {
-			data = data.length > 0 ? data[0].values : [];
-			timelineObjects.main.updateFirstElement(getCountry().name, data);
-		
-			var comparingCountry = document.getElementById('country-comparison');
-			var countryCode = comparingCountry.options[comparingCountry.selectedIndex].value;
-			var countryName = comparingCountry.options[comparingCountry.selectedIndex].innerHTML;
-		
-			ajax.loadObservationsByCountryAndIndicator(countryCode, selectedIndicator, function(data) {
-				data = data.length > 0 ? data[0].values : [];
-				timelineObjects.main.updateSecondElement(countryName, data);
-			});
-		});
+		var filteredData = lastObservationForEachCountry(data);
+		updateCompareChart(filteredData);
+		loadIndicatorMap(filteredData);
 	});
-	
+
+	ajax.loadObservationsByCountryAndIndicator(getCountry().code, selectedIndicator, function(data) {
+		data = data.length > 0 ? data[0].values : [];
+		timelineObjects.main.updateFirstElement(getCountry().name, data);
+	});
+
+	var comparingCountry = document.getElementById('country-comparison');
+	var countryCode = comparingCountry.options[comparingCountry.selectedIndex].value;
+	var countryName = comparingCountry.options[comparingCountry.selectedIndex].innerHTML;
+
+	ajax.loadObservationsByCountryAndIndicator(countryCode, selectedIndicator, function(data) {
+		data = data.length > 0 ? data[0].values : [];
+		timelineObjects.main.updateSecondElement(countryName, data);
+	});
+
 	var texts = document.querySelectorAll('span.indicator-name');
-	
+
 	for (var i = 0; i < texts.length; i++)
-		texts[i].innerHTML = indicatorSelect.options[indicatorSelect.selectedIndex].innerHTML;	
+		texts[i].innerHTML = indicatorSelect.options[indicatorSelect.selectedIndex].innerHTML;
+}
+
+function lastObservationForEachCountry(countryData) {
+	// We get the last observation of each country
+
+	var lastTime = countryData.times[countryData.times.length - 1];
+	var countryList = [];
+	var countryCodeList = [];
+
+	for (var i = countryData.times.length - 1; i >= 0; i--) {
+		var year = countryData.times[i];
+		var observations = countryData.observations[year];
+
+		for (var j = 0; j < observations.length; j++) {
+			var code = observations[j].code;
+
+			if (countryCodeList.indexOf(code) == -1) {
+				countryCodeList.push(code);
+				countryList.push(observations[j]);
+			}
+		}
+	}
+
+	return countryList;
 }
 
 //showByIndicator();
 
 var regionMap = null;
 
-function loadIndicatorMap(countryData) {		
+function loadIndicatorMap(countryData) {
 	var map = document.querySelector('#mapDiv .map-container');
-	
-	if (map)
-		map.innerHTML = '';		
-		
-	var lastTime = countryData.times[countryData.times.length - 1];
-	var countryList = countryData.observations[lastTime];	
-	
-	var map = document.querySelector('#mapDiv .map-container');
-	
+
 	if (map)
 		map.innerHTML = '';
 
+	var map = document.querySelector('#mapDiv .map-container');
+
+	if (map)
+		map.innerHTML = '';
+
+	var countryList = countryData;
+
 	regionMap = wesCountry.maps.createMap({
 		container: '#mapDiv .map-container',
-		borderWidth: 1,
-		borderColour: '#c8c8c8',
+		borderWidth: '0.28em',
+		borderColour: '#dfdfdf',
 		landColour: '#e8e8e8',
 		colourRange: ['#A9F5BC', '#1184a7'],
 		countries: countryList,
@@ -272,76 +300,76 @@ function loadIndicatorMap(countryData) {
 			selectCountry(this, info);
 		},
 		onCountryOut: function(info) {
-			
+
 		}
 	});
-	
+
 	var regionCode = getRegionStringCode(getCountry().region.code);
 
 	regionMap.zoomToCountry('region-' + regionCode);
-	
+
 	selectCountry(null, regionMap.getCountryInfo(getCountry().code));
 }
 
 function selectCountry(e, info) {
 	if (!info.value)
 		return;
-		
+
 	var selected = document.querySelectorAll('.selected-country');
-	
+
 	for (var i = 0; i < selected.length; i++) {
 		var element = selected[i];
-		
+
 		var className = element.getAttribute('class');
 		className = className.replace(' selected-country', '');
 		element.setAttributeNS(null, 'class', className);
 	}
-	
+
 	if (!e)
 		e = document.querySelector('.indicator-map #' + info.iso3);
 
 	var className = e.getAttribute('class');
 	className += ' selected-country';
 	e.setAttributeNS(null, 'class', className);
-	
+
 	showCountryInfo({
 		id: info.iso3,
 		name: info.nombre,
 		value: info.value
 	});
-	
+
 	// Highlight bar
-	
+
 	var bar = document.querySelector('#chart-region-bar-comparison #' + info.iso3);
-	
+
 	if (bar)
 		bar.selectBar();
 }
 
 function showCountryInfo(info) {
 	var visor = regionMap.visor();
-		
+
 	if (!visor)
 		return;
-		
+
 	visor.innerHTML = '';
-	
+
 	var left = document.createElement('div');
 	left.className = 'left';
 	visor.appendChild(left);
-	
+
 	var flag = document.createElement('img');
 	left.appendChild(flag);
-	
+
 	flag.className = 'country-flag flag-' + info.id;
 	flag.alt = '';
 	flag.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeAQMAAAAB/jzhAAAAA1BMVEX///+nxBvIAAAAAXRSTlMAQObYZgAAAAxJREFUeNpjYBiMAAAAlgABjcjBIQAAAABJRU5ErkJggg==";
-	
+
 	var name = document.createElement('span');
 	name.innerHTML = info.name;
 	name.className = 'name';
 	left.appendChild(name);
-	
+
 	var value = document.createElement('span');
 	value.innerHTML = info.value;
 	value.className = 'value';
@@ -350,24 +378,25 @@ function showCountryInfo(info) {
 
 function updateCompareChart(countryData) {
 	var options = chartOptions['chart-region-bar-comparison'];
-	
+
 	var container = document.querySelector(options.container);
-	
+
 	if (!container)
 		return;
-		
-	var lastTime = countryData.times[countryData.times.length - 1];
-	var countries = countryData.observations[lastTime];	
+
+	//var lastTime = countryData.times[countryData.times.length - 1];
+	//var countries = countryData.observations[lastTime];
+	var countries = countryData;
 
 	options.series = [];
 	options.serieColours = [];
-	
+
 	var colour1 = {
 		r: 17,
 		g: 132,
 		b: 167
 	};
-	
+
 	var colour2 = {
 		r: 169,
 		g: 245,
@@ -382,18 +411,18 @@ function updateCompareChart(countryData) {
 				parseFloat(countries[i].value)
 			]
 		};
-		
+
 		options.series.push(serie);
 	}
-	
+
 	options.series.sort(function(a, b) {
 		return b.values[0] - a.values[0];
 	});
-	
+
 	var country = getCountry().name;
-	
+
 	options.overColour = "#FFBF00";
-	
+
 	for (var i = 0; i < countries.length; i++) {
 		options.serieColours.push(makeGradientColour(colour1, colour2, (i / countries.length) * 100).cssColour);
 	}
@@ -402,13 +431,13 @@ function updateCompareChart(countryData) {
 	options.height = container.offsetHeight;
 
 	// Tooltip
-	
+
 	options.events = {
 		onmouseover: function(info) {
 			selectCountry(null, regionMap.getCountryInfo(info.id));
 		}
 	}
-	
+
 	var chart = wesCountry.charts.barChart(options);
 	container.innerHTML = '';
 	container.appendChild(chart.render());
@@ -428,14 +457,14 @@ var selectedIndicator = '';
 
 sourceSelect.onchange = function() {
 	var source = this.options[this.selectedIndex].value;
-	
+
 	var indicatorSelect = document.getElementById('indicator-select');
-	
+
 	var indicatorOption = document.querySelector('#indicator-select optgroup[label="' + source + '"] option:first-child');
 
 	if (indicatorOption) {
 		indicatorSelect.selectedIndex = indicatorOption.index;
-		indicatorSelect.onchange();	
+		indicatorSelect.onchange();
 	}
 }
 
@@ -446,9 +475,9 @@ var indicatorSelect = document.getElementById('indicator-select');
 indicatorSelect.onchange = function() {
 	//selectedIndicator = this.options[this.selectedIndex].value;
 	showByIndicator();
-	
+
 	//var texts = document.querySelectorAll('span.indicator-name');
-	
+
 	//for (var i = 0; i < texts.length; i++)
 	//	texts[i].innerHTML = this.options[this.selectedIndex].innerHTML;
 };
@@ -479,45 +508,52 @@ document.getElementById('country-comparison').onchange = function () {
 	ajax.loadObservationsByCountryAndIndicator(countryCode, selectedIndicator, function(data) {
 		data = data.length > 0 ? data[0].values : [];
 		timelineObjects.main.updateSecondElement(countryName, data);
-		
+
 		updateTimelineCountry();
-	});	
+	});
 }
 
 function updateTimelineCountry(callback) {
 	var comparingCountry = document.getElementById('country-comparison');
-	var comparingCountryName = comparingCountry.options[comparingCountry.selectedIndex].innerHTML;	
-	
+	var comparingCountryName = comparingCountry.options[comparingCountry.selectedIndex].innerHTML;
+
 	var starredIndicatorList = document.getElementById('starred-indicators').value.split(',');
 
 	ajax.loadObservationsByCountry(comparingCountry.options[comparingCountry.selectedIndex].value, function(starredData) {
 		var processedIndicators = [];
-		
-		for (var i = 0; i < starredData.length; i++) { 
+
+		for (var i = 0; i < starredData.length; i++) {
 			var indicator = starredData[i].indicator;
 			var values = starredData[i].values;
-			
+
 			processedIndicators.push(indicator);
-			
+
 			if (timelineObjects.starred[indicator])
 				timelineObjects.starred[indicator].updateSecondElement(comparingCountryName, values);
 		}
-		
+
 		// Indicators with no data for comparing country
 		for (var i = 0; i < starredIndicatorList.length; i++) {
 			var indicator = starredIndicatorList[i];
-		
+
 			if (!indicator)
 				continue;
-		
-			if (processedIndicators.indexOf(indicator) == -1)
+
+			if (processedIndicators.indexOf(indicator) == -1) { console.log(indicator)
 				if (timelineObjects.starred[indicator])
-					timelineObjects.starred[indicator].updateFirstElement(comparingCountryName, []);	
+					timelineObjects.starred[indicator].updateSecondElement(comparingCountryName, []);
+			}
 		}
-		
+
 		if (callback)
 			callback();
 	});
+}
+
+// Full data button
+
+document.getElementById('full-data-button').onclick = function() {
+	window.location.href = '/countries/' + getCountry().code + '/details';
 }
 
 // Colours
@@ -532,24 +568,24 @@ function makeGradientColour(colour1, colour2, percent) {
     function makeColourPiece(num) {
         num = Math.min(num, 255);   // not more than 255
         num = Math.max(num, 0);     // not less than 0
-        
+
         var str = num.toString(16);
-        
+
         if (str.length < 2) {
             str = "0" + str;
         }
-        
+
         return(str);
     }
 
     newColour.r = makeChannel(colour1.r, colour2.r);
     newColour.g = makeChannel(colour1.g, colour2.g);
     newColour.b = makeChannel(colour1.b, colour2.b);
-    newColour.cssColour = "#" + 
-                        makeColourPiece(newColour.r) + 
-                        makeColourPiece(newColour.g) + 
+    newColour.cssColour = "#" +
+                        makeColourPiece(newColour.r) +
+                        makeColourPiece(newColour.g) +
                         makeColourPiece(newColour.b);
-                        
+
     return(newColour);
 }
 

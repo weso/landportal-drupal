@@ -73,19 +73,18 @@ function book_preprocess_html(&$vars) {
  *  it exists.
  */
 function get_application_data() {
-  $appdata = array();
-  //$languages = get_languages('en');
-  //$selected_lang = get_selected_language($languages);
   $lang = new Language();
-  $languages = $lang->get_languages('en');
-  $selected_lang = $lang->get_selected_language($languages);
-  $user = _get_current_user();
+  $server_name = $_SERVER['HTTP_HOST'];
+  $ajax_files_path = drupal_get_path("module", "landportal_uris") . "/ajax";
 
-  $appdata['languages'] = $languages;
-  $appdata['language'] = $selected_lang;
-  $appdata['user'] = $user;
-  $appdata['api'] = 'http://localhost:80/api';
-  return $appdata;
+  return array(
+      "languages" => $lang->get_languages('en'),
+      "language" => $lang->get_selected_language($languages),
+      "user" => _get_current_user(),
+      "server_name" => $_SERVER["HTTP_HOST"],
+      "api" => "http://{$server_name}/{$ajax_files_path}",
+      "sparql" => "http://156.35.82.103:1300/sparql",
+  );
 }
 
 

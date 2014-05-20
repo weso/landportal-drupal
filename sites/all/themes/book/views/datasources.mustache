@@ -1,0 +1,21 @@
+{{>header}}
+<div class="content main-content container">
+	<ol class="breadcrumb">
+	  <li><a href="/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
+	  <li class="active">{{#labels}}{{sources}}{{/labels}}</li>
+	</ol>
+	<div class="row">
+
+	</div>
+	<div class="row data-sources">
+		{{#data-sources}}
+			<div class="col-sm-3 data-source-link">
+				<a href="/sources/{{id}}" title="{{#labels}}{{go_to}}{{/labels}} {{name}}">
+					<img alt="" src="{{path}}/static/images/sources/{{id}}.png" />
+					{{name}}
+				</a>
+			</div>
+		{{/data-sources}}
+	</div>
+</div>
+{{>footer}}

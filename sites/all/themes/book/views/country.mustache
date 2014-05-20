@@ -5,7 +5,7 @@
 <input type="hidden" id="continent-name" value="{{#info}}{{#region}}{{name}}{{/region}}{{/info}}" />
 <input type="hidden" id="country-name" value="{{#info}}{{name}}{{/info}}" />
 <input type="hidden" id="un-code" value="{{#info}}{{un_code}}{{/info}}" />
-<input type="hidden" id="starred-indicators" value="{{#starred}}{{id}},{{/starred}}" />
+<input type="hidden" id="starred-indicators" value="{{#starred}}{{#indicators}}{{id}},{{/indicators}}{{/starred}}" />
 <div class="content main-content container">
 	<ol class="breadcrumb">
 	  <li><a href="/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
@@ -20,8 +20,10 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<h1 class="country-name">
-				<img id="flag" class="flag" src="{{path}}/static/images/flags/{{#info}}{{iso3}}{{/info}}.png" />
-				<span class="country-name no-margin">{{#info}}{{name}}{{/info}}</span>
+				<span class="country-name no-margin flag">
+					<img id="flag" class="flag" src="{{path}}/static/images/flags/{{#info}}{{iso3}}{{/info}}.png" />
+					{{#info}}{{name}}{{/info}}
+				</span>
 			</h1>
 		</div>
 	</div>
@@ -38,6 +40,9 @@
             	<div class="source-graph chart-content">
 	                {{#spider}}
 	                    {{>table}}
+											{{^observations}}
+												<div class="text-center text-muted">{{#labels}}{{no_data_available}}{{/labels}}</div>
+											{{/observations}}
 	                {{/spider}}
             	</div>
             {{/charts}}
@@ -57,53 +62,30 @@
 		  				</tr>
 		  			{{/observations}}
 		  			{{^observations}}
-		  				{{#labels}}{{no_data_available}}{{/labels}}
+		  				<div class="text-center text-muted">{{#labels}}{{no_data_available}}{{/labels}}</div>
 		  			{{/observations}}
 		  		{{/trafficLights}}
 		  	{{/charts}}
 		  </table>
-		  <!--
+
 		  <h2 class="section"><span>{{#labels}}{{rural_development}}{{/labels}}</span></h2>
 		  <div class="row">
-			<div class="col-xs-4">
-			  <div id="rural-development-1" class="graph-small text-center">
-	            {{#charts}}
-	            	<div class="source-graph chart-content">
-		                {{#rural-development-1}}
-		                    {{>table}}
-		                {{/rural-development-1}}
-	            	</div>
-	            {{/charts}}
-	            HDI
-	          </div>
-			</div>
-			<div class="col-xs-4">
-			  <div id="rural-development-2" class="graph-small text-center">
-	            {{#charts}}
-	            	<div class="source-graph chart-content">
-		                {{#rural-development-2}}
-		                    {{>table}}
-		                {{/rural-development-2}}
-	            	</div>
-	            {{/charts}}
-	            GHI
-	          </div>
-			</div>
-			<div class="col-xs-4">
-			  <div id="rural-development-3" class="graph-small text-center">
-	            {{#charts}}
-	            	<div class="source-graph chart-content">
-		                {{#rural-development-3}}
-		                    {{>table}}
-		                {{/rural-development-3}}
-	            	</div>
-	            {{/charts}}
-	            Population
-	          </div>
-			</div>
-		  </div>
-		  -->
-	  </div>
+			{{#charts}}
+				{{#gaugeIndicators}}
+					<div class="col-xs-4">
+					  <div id="rural-development-{{index}}" class="graph-small text-center">
+			        <div class="source-graph chart-content">
+				        {{>table}}
+			        </div>
+			        <p class="percentage">{{value}}%</p>
+							<p class="indicator-name">{{indicator}}</p>
+			      </div>
+					</div>
+				{{/gaugeIndicators}}
+			{{/charts}}
+	  	</div>
+
+		</div>
 	  <div class="col-sm-6 graph-section">
 		  <h2 class="section"><span>{{#labels}}{{socio_economic_values}}{{/labels}}</span></h2>
           <div class="socioeconomic-values chart-content">
@@ -117,7 +99,7 @@
 		  <div id="mapDiv" class="map-medium indicator-map">
           		<div class="map-container"></div>
           		<div class="country-label"></div>
-          </div>		  
+          </div>
 		  <div id="chart-region-bar-comparison" class="graph-medium no-margin">
             {{#charts}}
             	<div class="source-graph chart-content">
@@ -149,16 +131,23 @@
 	                    {{>table}}
 	                {{/employment-timeline}}
             	</div>
-            {{/charts}}          
-          </div> 
-		  <div class="row evolutions">
-		  	{{#starred}}
-		  		<div class="col-xs-3">
-		  			{{id}} - {{name}}
-		  			<div id="starred_{{id}}" class="graph-small"></div>
-		  		</div>
-		  	{{/starred}}
-		  </div>	  	
+            {{/charts}}
+          </div>
+
+	  	{{#starred}}
+				{{#topics}}
+					<h2 class="section"><span>{{name}}</span></h2>
+					<div class="row evolutions">
+						{{#indicators}}
+				  		<div class="col-xs-3">
+				  			<div id="starred_{{id}}" class="graph-small"></div>
+								<p class="indicator-name">{{name}}</p>
+				  		</div>
+						{{/indicators}}
+					</div>
+				{{/topics}}
+	  	{{/starred}}
+
 	  </div>
 	  <div class="col-sm-3">
 		  <h2 class="section"><span>{{#labels}}{{sources}}{{/labels}}</span></h2>
@@ -175,14 +164,16 @@
 				  	{{#data-sources}}
 				  		<optgroup label="{{name}}">
 				  			{{#indicators}}
-								<option 
+								<option
 									value="{{id}}" {{^with_data}}disabled="disabled"{{/with_data}}>{{name}}</option>
 							{{/indicators}}
 				  		</optgroup>
 					{{/data-sources}}
 				{{/selectors}}
 		  </select>
-		  <button class="btn data-button">{{#labels}}{{full_data}}{{/labels}} <span class="country-name">{{#info}}{{country}}{{/info}}</span></button>
+		  <button id="full-data-button" class="btn data-button">
+				{{#labels}}{{full_data}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span>
+			</button>
 		  <a href="" class="more-info">{{#labels}}{{more_about_the_indicators}}{{/labels}}</a>
 		  <h2 class="section"><span>{{#labels}}{{specific_country}}{{/labels}}</span></h2>
 		  <select id="country-select" class="form-control">
@@ -194,10 +185,10 @@
 		  </select>
 		  <a href="" class="more-info">{{#labels}}{{more_about_areas_and_countries}}{{/labels}}</a>
 		  <button class="btn data-button">
-			{{#labels}}{{more_resources}}{{/labels}} <span class="country-name">{{#info}}{{country}}{{/info}}</span>
+			{{#labels}}{{more_resources}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span>
 			<p class="at-button">{{#labels}}{{at}}{{/labels}} landportal.info</p>
 		  </button>
-		  <button class="btn data-button-dark">{{#labels}}{{land_debates}}{{/labels}} <span class="country-name">{{#info}}{{country}}{{/info}}</span></button>
+		  <button class="btn data-button-dark">{{#labels}}{{land_debates}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span></button>
 	  </div>
 	</div>
 </div>
