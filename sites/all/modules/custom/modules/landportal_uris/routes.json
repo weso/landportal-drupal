@@ -15,7 +15,7 @@
             "params": [2]
         },
         {
-            "path": "book/e404",
+            "path": "e404",
             "name": "e404",
             "title": "Error",
             "params": []
