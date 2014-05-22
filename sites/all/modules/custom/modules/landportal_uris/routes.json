@@ -1,94 +1,94 @@
 {
-	"routes": [
-		{
-			"path": "countries",
-		 	"name": "countries",
-		 	"title": "Country list",
-		 	"navigation": "countries",
-		 	"params": []
-		},
-		{
-			"path": "countries/%",
-		 	"name": "country",
-		 	"title": "Country",
-		 	"navigation": "countries",
-		 	"params": [1]
-		},
-		{
-			"path": "e404",
-		 	"name": "e404",
-		 	"title": "Error",
-		 	"params": []
-		},
-		{
-			"path": "indicators",
-		 	"name": "indicators",
-		 	"title": "Indicator list",
-		 	"navigation": "indicators",
-		 	"params": []
-		},
-		{
-			"path": "indicators/%",
-		 	"name": "indicator",
-		 	"title": "Indicator",
-		 	"navigation": "indicators",
-		 	"params": [1]
-		},
-		{
-			"path": "regions",
-		 	"name": "regions",
-		 	"title": "Region list",
-		 	"navigation": "regions",
-		 	"params": []
-		},
-		{
-			"path": "regions/%",
-			"name": "regions",
-			"title": "Region",
-			"navigation": "regions",
-			"params": [1]
-		},
-		{
-			"path": "widgets",
-		 	"name": "widgets",
-		 	"title": "Widgets",
-		 	"navigation": "widgets",
-		 	"params": []
-		},
-		{
-			"path": "catalog",
-		 	"name": "catalog",
-		 	"title": "Catalog",
-		 	"navigation": "catalog",
-		 	"params": []
-		},
-		{
-			"path": "sources",
-			"name": "datasources",
-			"title": "Data Sources",
-			"navigation": "sources",
-			"params": []
-		},
-		{
-			"path": "sources/%",
-			"name": "datasource",
-			"title": "Data Source",
-			"navigation": "sources",
-			"params": [1]
-		},
-		{
-			"path": "countries/%/details",
-			"name": "details",
-			"title": "Country detail",
-			"navigation": "countries",
-			"params": [1]
-		},
-		{
-			"path": "reuse",
-			"name": "reuse",
-			"title": "Data Reuse",
-			"navigation": "reuse",
-			"params": []
-		}
-	]
+    "routes": [
+        {
+            "path": "book/countries",
+            "name": "countries",
+            "title": "Country list",
+            "navigation": "countries",
+            "params": []
+        },
+        {
+            "path": "book/countries/%",
+            "name": "country",
+            "title": "Country",
+            "navigation": "countries",
+            "params": [2]
+        },
+        {
+            "path": "book/e404",
+            "name": "e404",
+            "title": "Error",
+            "params": []
+        },
+        {
+            "path": "book/indicators",
+            "name": "indicators",
+            "title": "Indicator list",
+            "navigation": "indicators",
+            "params": []
+        },
+        {
+            "path": "book/indicators/%",
+            "name": "indicator",
+            "title": "Indicator",
+            "navigation": "indicators",
+            "params": [2]
+        },
+        {
+            "path": "book/regions",
+            "name": "regions",
+            "title": "Region list",
+            "navigation": "regions",
+            "params": []
+        },
+        {
+            "path": "book/regions/%",
+            "name": "regions",
+            "title": "Region",
+            "navigation": "regions",
+            "params": [2]
+        },
+        {
+            "path": "book/widgets",
+            "name": "widgets",
+            "title": "Widgets",
+            "navigation": "widgets",
+            "params": []
+        },
+        {
+            "path": "book/catalog",
+            "name": "catalog",
+            "title": "Catalog",
+            "navigation": "catalog",
+            "params": []
+        },
+        {
+            "path": "book/sources",
+            "name": "datasources",
+            "title": "Data Sources",
+            "navigation": "sources",
+            "params": []
+        },
+        {
+            "path": "book/sources/%",
+            "name": "datasource",
+            "title": "Data Source",
+            "navigation": "sources",
+            "params": [2]
+        },
+        {
+            "path": "book/countries/%/details",
+            "name": "details",
+            "title": "Country detail",
+            "navigation": "countries",
+            "params": [2]
+        },
+        {
+            "path": "book/reuse",
+            "name": "reuse",
+            "title": "Data Reuse",
+            "navigation": "reuse",
+            "params": []
+        }
+    ]
 }
