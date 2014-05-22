@@ -1,0 +1,58 @@
+<header class="main-header">{{>topbar-home}}</header>
+
+<div id="carousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="{{path}}/static/images/carousel/first.jpg" alt="...">
+      <div class="carousel-caption">
+        {{#labels}}{{motto}}{{/labels}}
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+
+	<div class="content main-content container">
+		<div class="row text-center">
+			<div class="col-sm-4">
+				<h2 class="land-module">land<span class="landbook">book</span></h2>
+				<h3 class="module-motto">{{#labels}}{{book_motto}}{{/labels}}</h3>
+				<p class="module-description">{{#labels}}{{book_description}}{{/labels}}</p>
+        <a href="/book">
+  				<button class="btn btn-default">
+  					{{#labels}}{{visit_the}}{{/labels}} land<strong>book</strong>
+  				</button>
+        </a>
+			</div>
+			<div class="col-sm-4 middle-module">
+				<h2 class="land-module">land<span class="landdebate">debate</span></h2>
+				<h3 class="module-motto">{{#labels}}{{debate_motto}}{{/labels}}</h3>
+				<p class="module-description">{{#labels}}{{debate_description}}{{/labels}}</p>
+				<button class="btn btn-default">
+					{{#labels}}{{join_the}}{{/labels}} land<strong>debate</strong>
+				</button>
+			</div>
+			<div class="col-sm-4">
+				<h2 class="land-module">land<span class="landlibrary">library</span></h2>
+				<h3 class="module-motto">{{#labels}}{{library_motto}}{{/labels}}</h3>
+				<p class="module-description">{{#labels}}{{library_description}}{{/labels}}</p>
+				<button class="btn btn-default" disabled="disabled">
+					{{#labels}}{{coming_soon}}{{/labels}}
+				</button>
+			</div>
+		</div>
+	</div>
+{{>footer}}

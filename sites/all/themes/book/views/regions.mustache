@@ -2,13 +2,13 @@
 <input type="hidden" id="entity-id" value="{{entity-id}}" />
 <div class="content main-content container">
 	<ol class="breadcrumb">
-	  <li><a href="/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
-	  <li><a href="/regions/global">{{#labels}}{{regions}}{{/labels}}</a></li>
+	  <li><a href="/book/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
+	  <li><a href="/book/regions/global">{{#labels}}{{regions}}{{/labels}}</a></li>
 	  <li class="active"><span class="region-name"></span></li>
 	</ol>
 	<div class="row">
 		<div class="col-sm-12">
-			
+
 		</div>
 	</div>
 	<div class="row">
@@ -52,7 +52,7 @@
 	                    {{>table}}
 	                {{/employment-timeline}}
             	</div>
-            {{/charts}}          
+            {{/charts}}
             <img src="{{path}}/static/images/loading.gif" class="loading" style="display:inline" alt="" />
           </div>
 	  </div>
@@ -74,7 +74,7 @@
 			{{/selectors}}
 		  </select>
 		   <h2 class="section"><span>{{#labels}}{{indicators}}{{/labels}}</span></h2>
-		   <select id="indicator-select" class="form-control">	
+		   <select id="indicator-select" class="form-control">
 			  	{{#selectors}}
 				  	{{#data-sources}}
 				  		<optgroup label="{{name}}">

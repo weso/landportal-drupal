@@ -1,14 +1,14 @@
 {{>header}}
 <div class="content main-content container">
 	<ol class="breadcrumb">
-		<li><a href="/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
-		<li><a href="/countries">{{#labels}}{{countries}}{{/labels}}</a></li>
+		<li><a href="/book/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
+		<li><a href="/book/countries">{{#labels}}{{countries}}{{/labels}}</a></li>
 		<li>
 			<a id="continent-link" href="regions/{{#info}}{{#region}}{{un_code}}{{/region}}{{/info}}">
 				{{#info}}{{#region}}{{name}}{{/region}}{{/info}}
 			</a>
 		</li>
-		<li><a href="/countries/{{#info}}{{iso3}}{{/info}}">{{#info}}{{name}}{{/info}}</a></li>
+		<li><a href="/book/countries/{{#info}}{{iso3}}{{/info}}">{{#info}}{{name}}{{/info}}</a></li>
 		<li class="active">{{#labels}}{{detail}}{{/labels}}</li>
 	</ol>
 	<div class="row">

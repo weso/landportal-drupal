@@ -69,7 +69,7 @@ var timelineObjects = {
 			country.region
 		],
 		onCountryClick: function(info) {
-			window.location.href = '/countries/' + info.iso3;
+			window.location.href = '/book/countries/' + info.iso3;
 		}
 	});
 
@@ -92,7 +92,7 @@ var timelineObjects = {
 			country.region
 		],
 		onCountryClick: function(info) {
-			window.location.href = '/countries/' + info.iso3;
+			window.location.href = '/book/countries/' + info.iso3;
 		}
 	});
 
@@ -294,7 +294,7 @@ function loadIndicatorMap(countryData) {
 		zoom: false,
 		zoomToCountryFactor: 1,
 		onCountryClick: function(info) {
-			window.location.href = '/countries/' + info.iso3;
+			window.location.href = '/book/countries/' + info.iso3;
 		},
 		onCountryOver: function(info) {
 			selectCountry(this, info);
@@ -495,7 +495,7 @@ for (var i = 0; i < indicatorSelect.options.length; i++)
 /* Country select */
 
 document.getElementById('country-select').onchange = function() {
-	window.location.href = '/countries/' + this.options[this.selectedIndex].value;
+	window.location.href = '/book/countries/' + this.options[this.selectedIndex].value;
 }
 
 /* Timeline */
@@ -553,7 +553,7 @@ function updateTimelineCountry(callback) {
 // Full data button
 
 document.getElementById('full-data-button').onclick = function() {
-	window.location.href = '/countries/' + getCountry().code + '/details';
+	window.location.href = '/book/countries/' + getCountry().code + '/details';
 }
 
 // Colours

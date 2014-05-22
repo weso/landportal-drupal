@@ -1,8 +1,12 @@
 {
   "language-name": "English",
-  "sitemap": "Sitemap",
+  "sitemap": "sitemap",
   "book_motto": "Get information by country",
   "book_description": "The Land Book provides comprehensive country and thematic pages with direct access to comprehensive and in-depth information on land governance across the world.",
+  "debate_motto": "Debate with others",
+  "debate_description": "The Land Debate institute responds to the fact that not all knowledge is already captured in publications and documents, and the need to stimulate a diverse conversation over effective practice and promising innovation in land governance.",
+  "library_motto": "Consult the library",
+  "library_description": "The Land Library will be an indexed repository of documents including country reports, peer-reviewed publications, policy documents, analytical studies, maps, quality blog posts and multimedia content.",
   "index": "Home",
   "regions": "World Regions",
   "countries": "Countries",
@@ -139,5 +143,10 @@
   "test_query": "Test query",
   "query_examples": "Query examples",
   "all_indicators": "All indicators",
-  "all_countries": "All countries"
+  "all_countries": "All countries",
+  "motto": "Find, share and connect",
+  "visit_the": "Visit the",
+  "coming_soon": "Coming soon",
+  "join_the": "Join the",
+  "delete": "Delete"
 }

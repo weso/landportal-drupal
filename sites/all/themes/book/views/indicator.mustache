@@ -3,13 +3,13 @@
 <input type="hidden" id="path" value="{{path}}" />
 <div class="content main-content container">
 	<ol class="breadcrumb">
-	  <li><a href="/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
-	  <li><a href="/indicators">{{#labels}}{{indicators}}{{/labels}}</a></li>
+	  <li><a href="/book/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
+	  <li><a href="/book/indicators">{{#labels}}{{indicators}}{{/labels}}</a></li>
 	  <li class="active"><span class="indicator-name"></span></li>
 	</ol>
 	<div class="row">
 		<div class="col-sm-12">
-			
+
 		</div>
 	</div>
 	<div class="row">
@@ -69,9 +69,9 @@
 	                    {{>table}}
 	                {{/employment-timeline}}
             	</div>
-            {{/charts}}          
+            {{/charts}}
           </div>
-          
+
 		  <div class="row compare-container">
 			<div class="col-xs-4">
 				{{#labels}}{{correlate_with}}{{/labels}}:
@@ -132,7 +132,7 @@
 		  </div>
 		   </select>
 		   <h2 class="section"><span>{{#labels}}{{all_indicators}}{{/labels}}</span></h2>
-		   <select id="all-indicator-select" class="form-control">	
+		   <select id="all-indicator-select" class="form-control">
 		  	{{#selectors}}
 			  	{{#topics}}
 			  		<optgroup label="{{translation_name}}">
@@ -144,7 +144,7 @@
 			{{/selectors}}
 		   </select>
 		  <a href="" class="more-info">{{#labels}}{{more_about_the_indicators}}{{/labels}}</a>
-		  
+
 		  <button class="btn data-button">
 			{{#labels}}{{consult_the_socieconomic}}{{/labels}}
 		  </button>

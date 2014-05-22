@@ -1,25 +1,34 @@
 {{>header}}
-<canvas id="canvas" class="hidden"></canvas> 
+<input type="hidden" id="api" value="{{#application}}{{api-widgets}}{{/application}}" />
+<canvas id="canvas" class="hidden"></canvas>
 <div class="content main-content container">
 	<ol class="breadcrumb">
-	  <li><a href="/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
+	  <li><a href="/book/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
 	  <li class="active">{{#labels}}{{widgets}}{{/labels}}</li>
 	</ol>
 	<div class="row">
-		
+
 	</div>
 	<div class="row">
 	  <div class="col-sm-9 graph-section">
 		  <h2 class="section"><span>{{#labels}}{{create_own_data_view}}{{/labels}}</span></h2>
 		  <form role="form">
 		  	<div class="row">
-			  	<div class="col-sm-8">
+			  	<div class="col-sm-12">
 					<label for="indicator">{{#labels}}{{indicator}}{{/labels}}</label>
-					<select id="indicator" class="form-control" disabled="disabled">
-						<option>Social institutions and gender index (value)</option>
+					<select id="indicator-select" class="form-control">
+							{{#selectors}}
+								{{#data-sources}}
+									<optgroup label="{{name}}">
+										{{#indicators}}
+										<option value="{{id}}">{{name}}</option>
+									{{/indicators}}
+									</optgroup>
+							{{/data-sources}}
+						{{/selectors}}
 					</select>
-				</div>		
-				<div class="col-sm-4">
+				</div>
+				<div class="col-sm-4 hidden">
 					<label for="number_years">{{#labels}}{{number_years}}{{/labels}}</label>
 					<select id="number_years" class="form-control">
 						<option>1</option>
@@ -32,39 +41,63 @@
 		  	</div>
 			<h2 class="section country-form-title"><span>{{#labels}}{{countries}}{{/labels}}</span></h2>
 		  	<div class="row">
-			  	<div class="col-sm-8 country-selection-row">
-					<label for="country">{{#labels}}{{select_country}}{{/labels}}</label>
-					<select name="country" class="form-control" disabled="disabled">
-						<option>Spain</option>
-					</select>
-				</div>		
-				<div class="col-sm-4 country-selection-row">
-					<label>{{#labels}}{{pick_colour}}{{/labels}}</label>
-					<div class="row palette" row="1">
+
+					<div id="row-prototype" class="hidden">
+						<div class="col-sm-2 delete-row">
+							<label>{{#labels}}{{delete}}{{/labels}}</label>
+							<i class="fa fa-times fa-2x"></i>
+						</div>
+						<div class="col-sm-6 country-selection-row">
+							<label for="country">{{#labels}}{{select_country}}{{/labels}}</label>
+							<select class="form-control country-select">
+								{{#selectors}}
+									{{#countries}}
+										<option value="{{iso3}}">{{name}}</option>
+									{{/countries}}
+								{{/selectors}}
+							</select>
+						</div>
+						<div class="col-sm-4 country-selection-row">
+							<label>{{#labels}}{{pick_colour}}{{/labels}}</label>
+							<div class="row palette-empty" row="1">
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="col-sm-8 country-selection-row">
-					<label for="country">{{#labels}}{{select_country}}{{/labels}}</label>
-					<select name="country" class="form-control" disabled="disabled">
-						<option>Italy</option>
-					</select>
-				</div>		
-				<div class="col-sm-4 country-selection-row">
-					<label>{{#labels}}{{pick_colour}}{{/labels}}</label>
-					<div class="row palette" row="2">
+					<div id="countries">
+						<div class="country-row">
+							<div class="col-sm-2 delete-row">
+								<label>{{#labels}}{{delete}}{{/labels}}</label>
+								<i class="fa fa-times fa-2x"></i>
+							</div>
+					  	<div class="col-sm-6 country-selection-row">
+								<label for="country">{{#labels}}{{select_country}}{{/labels}}</label>
+								<select class="form-control country-select">
+									{{#selectors}}
+										{{#countries}}
+											<option value="{{iso3}}">{{name}}</option>
+										{{/countries}}
+									{{/selectors}}
+								</select>
+							</div>
+							<div class="col-sm-4 country-selection-row">
+								<label>{{#labels}}{{pick_colour}}{{/labels}}</label>
+								<div class="row palette-empty" row="1">
+								</div>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="col-sm-12 text-right">
-					<button type="button" class="btn btn-primary" disabled="disabled">
-						{{#labels}}{{add_country}}{{/labels}}
-					</button>
-				</div>
+
+					<div class="col-sm-12 text-right">
+						<button id="add-country" type="button" class="btn btn-primary">
+							{{#labels}}{{add_country}}{{/labels}}
+						</button>
+					</div>
 		  	</div>
 		  </form>
 		  <h2 class="section country-form-title"><span>{{#labels}}{{preview}}{{/labels}}</span></h2>
-		  <p id="chart-title" class="chart-title">Social institutions and gender index (value)</p>
+		  <p id="chart-title" class="chart-title">Title</p>
 		  <p id="chart-description">Description</p>
-		  <div id="mapDiv"></div>
+		  <div id="mapDiv" class="graph graph-large"></div>
 		  <div class="row">
 		  	<div class="col-sm-6">
 			  <h2 class="section country-form-title"><span>{{#labels}}{{share}}{{/labels}}</span></h2>
@@ -111,48 +144,48 @@
 		  </div>
 		  <h2 class="section country-form-title"><span>{{#labels}}{{permalink}}{{/labels}}</span></h2>
 		  <p class="text-center">
-			  <a href="">http://landportal.info/book/api/graphs/barchart?colour1=3</a>
+			  <a href="" id="permalink"></a>
 		  </p>
 		  <h2 class="section country-form-title"><span>{{#labels}}{{website_insert}}{{/labels}}</span></h2>
 		  <label for="copy_code">{{#labels}}{{copy_code}}{{/labels}}</label>
-		  <textarea class="form-control" id="copy_code" rows="8">(function(e,undefined){var t,n,r=typeof undefined,i=e.location,o=e.document,s=o.documentElement,a=e.jQuery,u=e.$,l={},c=[],p="2.0.3",f=c.concat,h=c.push,d=c.slice,g=c.indexOf,m=l.toString,y=l.hasOwnProperty,v=p.trim,x=function(e,n){return new x.fn.init(e,n,t)},b=/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source,w=/\S+/g,T=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,C=/^<(\w+)\s*\/?>(?:<\/\1>|)$/,k=/^-ms-/,N=/-([\da-z])/gi,E=function(e,t){return t.toUpperCase()},S=function(){o.removeEventListener("DOMContentLoaded",S,!1),e.removeEventListener("load",S,!1),x.ready()};x.fn=x.prototype</textarea>
+		  <textarea class="form-control" id="copy_code" rows="8"></textarea>
       </div>
 	  <div class="col-sm-3">
 	  	  <h2 class="section"><span>{{#labels}}{{graph_type}}{{/labels}}</span></h2>
 	  	  <div class="row chart-type-texts">
-	  	  	<div class="col-sm-4 text-center widget-chart-button widget-button-selected" chart-type="bar">
+	  	  	<div class="col-sm-4 text-center widget-chart-button widget-button-selected" chart-type="barchart">
 	  	  		<div>
 		  	  		<img src="{{path}}/static/images/widgets/bar-selected.png" alt="{{#labels}}{{bar_chart}}{{/labels}}" />
 	  	  		</div>
 	  	  		<span>{{#labels}}{{bar_chart}}{{/labels}}</span>
 	  	  	</div>
-	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="line">
+	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="linechart">
 	  	  		<div>
 		  	  		<img src="{{path}}/static/images/widgets/line.png" alt="{{#labels}}{{line_chart}}{{/labels}}" />
 	  	  		</div>
-	  	  		<span>{{#labels}}{{bar_chart}}{{/labels}}</span>
+	  	  		<span>{{#labels}}{{line_chart}}{{/labels}}</span>
 	  	  	</div>
-	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="pie">
+	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="piechart">
 	  	  		<div>
 		  	  		<img src="{{path}}/static/images/widgets/pie.png" alt="{{#labels}}{{pie_chart}}{{/labels}}" />
 	  	  		</div>
-	  	  		<span>{{#labels}}{{bar_chart}}{{/labels}}</span>
+	  	  		<span>{{#labels}}{{pie_chart}}{{/labels}}</span>
 	  	  	</div>
 	  	  </div>
 	  	  <div class="row chart-type-texts">
-	  	  	<div class="col-sm-4 text-center widget-chart-button disabled" chart-type="map">
+	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="map">
 	  	  		<div>
 		  	  		<img src="{{path}}/static/images/widgets/map.png" alt="{{#labels}}{{map_chart}}{{/labels}}" />
 	  	  		</div>
 	  	  		<span>{{#labels}}{{map_chart}}{{/labels}}</span>
 	  	  	</div>
-	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="area">
+	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="areachart">
 	  	  		<div>
 		  	  		<img src="{{path}}/static/images/widgets/area.png" alt="{{#labels}}{{area_chart}}{{/labels}}" />
 	  	  		</div>
 	  	  		<span>{{#labels}}{{area_chart}}{{/labels}}</span>
 	  	  	</div>
-	  	  	<div class="col-sm-4 text-center widget-chart-button disabled" chart-type="table">
+	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="table">
 	  	  		<div>
 		  	  		<img src="{{path}}/static/images/widgets/table.png" alt="{{#labels}}{{data_table}}{{/labels}}" />
 	  	  		</div>
@@ -160,13 +193,14 @@
 	  	  	</div>
 	  	  </div>
 	  	  <div class="row chart-type-texts">
-	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="polar">
+					<div class="col-sm-4"></div>
+	  	  	<div class="col-sm-4 text-center widget-chart-button" chart-type="polarchart">
 	  	  		<div>
 		  	  		<img src="{{path}}/static/images/widgets/polar.png" alt="{{#labels}}{{polar_chart}}{{/labels}}" />
 	  	  		</div>
 	  	  		<span>{{#labels}}{{polar_chart}}{{/labels}}</span>
 	  	  	</div>
-	  	  	<div class="col-sm-4 text-center widget-chart-button disabled" chart-type="scatter">
+	  	  	<div class="col-sm-4 text-center widget-chart-button disabled hidden" chart-type="scatterchart">
 	  	  		<div>
 		  	  		<img src="{{path}}/static/images/widgets/scatter.png" alt="{{#labels}}{{scatter_chart}}{{/labels}}" />
 	  	  		</div>
@@ -180,7 +214,7 @@
 	  	  <form role="form" class="widget-description">
 			  <div class="form-group">
 			    <label for="title">{{#labels}}{{title}}{{/labels}}</label>
-			    <input type="text" class="form-control" id="title" value="Social institutions and gender index (value)" placeholder="{{#labels}}{{title}}{{/labels}}">
+			    <input type="text" class="form-control" id="title" value="Title" placeholder="{{#labels}}{{title}}{{/labels}}">
 			    <label for="description">{{#labels}}{{description}}{{/labels}}</label>
 			    <textarea class="form-control" id="description" rows="3">Description</textarea>
 			    <label for="label_x">{{#labels}}{{label_x}}{{/labels}}</label>

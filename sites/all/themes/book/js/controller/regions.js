@@ -10,7 +10,7 @@ var timeline = new util.timelineChart({
 
 // API connection
 
-function getAPIInfo(region, indicator) {console.log(region + " " + indicator);
+function getAPIInfo(region, indicator) {
 	ajax.loadObservations(region, indicator, function(observations) { console.log(observations)
 		setTimeSelector(observations.times);
 		loadHeatMap(selectedYear);
@@ -32,7 +32,7 @@ var selectedIndicator = '';
 var selectedYear = null;
 var selectedRegion = document.getElementById('entity-id') ? document.getElementById('entity-id').value : 1;
 
-if (selectedRegion == '')
+if (selectedRegion = '')
 	selectedRegion = 1;
 
 var indicatorSelect = document.getElementById('indicator-select');
@@ -133,7 +133,7 @@ function loadHeatMap(year) {console.log(ajax.getObservations())
 			"borderColour": '#aaa',
 			countries: countryData,
 			onCountryClick: function(info) {
-				window.location.href = '/countries/' + info.iso3;
+				window.location.href = '/book/countries/' + info.iso3;
 			}
 		});
 	}
@@ -157,7 +157,7 @@ regionSelect.onchange = function() {
 	for (var i = 0; i < texts.length; i++)
 		texts[i].innerHTML = this.options[this.selectedIndex].innerHTML;
 
-	history.pushState({}, document.title, "/regions/" + region);
+	history.pushState({}, document.title, "/book/regions/" + region);
 
 	var option = document.querySelector('#region-comparer option[disabled]');
 	option.disabled = false;
@@ -255,7 +255,7 @@ function makeGradientColour(colour1, colour2, percent) {
 
 document.getElementById('country-select').onchange = function() {
 
-	window.location.href = '/countries/' + this.options[this.selectedIndex].value;
+	window.location.href = '/book/countries/' + this.options[this.selectedIndex].value;
 }
 
 /* Region comparition */

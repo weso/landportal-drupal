@@ -47,7 +47,7 @@ function book_preprocess_html(&$vars) {
   $googlefonts = array(
     '#tag' => 'link', // The #tag is the html tag - <link />
     '#attributes' => array( // Set up an array of attributes inside the tag
-      'href' => 'http://fonts.googleapis.com/css?family=News+Cycle|Source+Sans+Pro:300,400',
+      'href' => 'http://fonts.googleapis.com/css?family=News+Cycle|Source+Sans+Pro:300,400|Josefin+Sans:300',
       'rel' => 'stylesheet',
       'type' => 'text/css',
     ),
@@ -84,6 +84,7 @@ function get_application_data() {
       "server_name" => $_SERVER["HTTP_HOST"],
       "api" => "http://{$server_name}/{$ajax_files_path}",
       "sparql" => "http://156.35.82.103:1300/sparql",
+      "api-widgets" => "http://156.35.82.103/api",
   );
 }
 

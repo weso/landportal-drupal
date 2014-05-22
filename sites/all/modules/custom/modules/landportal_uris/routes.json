@@ -42,6 +42,13 @@
             "params": []
         },
         {
+            "path": "book",
+            "name": "regions",
+            "title": "Region list",
+            "navigation": "regions",
+            "params": []
+        },
+        {
             "path": "book/regions/%",
             "name": "regions",
             "title": "Region",
@@ -88,6 +95,13 @@
             "name": "reuse",
             "title": "Data Reuse",
             "navigation": "reuse",
+            "params": []
+        },
+        {
+            "path": "home",
+            "name": "home",
+            "title": "LandPortal home",
+            "navigation": "home",
             "params": []
         }
     ]

@@ -8,10 +8,10 @@
 <input type="hidden" id="starred-indicators" value="{{#starred}}{{#indicators}}{{id}},{{/indicators}}{{/starred}}" />
 <div class="content main-content container">
 	<ol class="breadcrumb">
-	  <li><a href="/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
-	  <li><a href="/countries">{{#labels}}{{countries}}{{/labels}}</a></li>
+	  <li><a href="/book/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
+	  <li><a href="/book/countries">{{#labels}}{{countries}}{{/labels}}</a></li>
 	  <li>
-	  	<a id="continent-link" href="regions/{{#info}}{{#region}}{{un_code}}{{/region}}{{/info}}">
+	  	<a id="continent-link" href="/book/regions/{{#info}}{{#region}}{{un_code}}{{/region}}{{/info}}">
 	  		{{#info}}{{#region}}{{name}}{{/region}}{{/info}}
 	  	</a>
 	  </li>
@@ -73,7 +73,7 @@
 			{{#charts}}
 				{{#gaugeIndicators}}
 					<div class="col-xs-4">
-					  <div id="rural-development-{{index}}" class="graph-small text-center">
+					  <div id="rural-development-{{index}}" class="graph-small text-center no-signature">
 			        <div class="source-graph chart-content">
 				        {{>table}}
 			        </div>
@@ -139,7 +139,7 @@
 					<h2 class="section"><span>{{name}}</span></h2>
 					<div class="row evolutions">
 						{{#indicators}}
-				  		<div class="col-xs-3">
+				  		<div class="col-xs-3 no-signature">
 				  			<div id="starred_{{id}}" class="graph-small"></div>
 								<p class="indicator-name">{{name}}</p>
 				  		</div>
