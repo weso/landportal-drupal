@@ -1,34 +1,28 @@
 #!/usr/bin/env bash
-# Enable the following contrib modules
-drush dl -y logintoboggan
+
+## General modules
+drush dl logintoboggan
 drush en -y logintoboggan
-drush dl -y libraries
+drush dl libraries
 drush en -y libraries
 drush en -y trigger
-#drush dl -y og
-#drush en -y og og_ui og_register
-drush dl -y apachesolr
+drush dl apachesolr
 drush en -y apachesolr apachesolr_search
-#drush dl -y facetapi
-#drush en -y facetapi
-
-
-# Dowload the following contrib modules
 drush dl -y oauth
 
-# Generate authentication tokens for the API
-drush en -y landportal_api_auth
 
 # Enable the custom features
 drush en -y facebook_login
 drush en -y twitter_login
+drush en -y landportal_api_auth
+
 
 # Enable the Landportal CKAN Integration modules
-drush en -y ckan_integration_endpoint
-drush en -y druser_resource
-drush en -y session_resource
+#drush en -y ckan_integration_endpoint
+#drush en -y druser_resource
+#drush en -y session_resource
 
-# Enable the Landportal UI modules
+## LandBook moduñes
 drush en -y landportal_uris
 
 # Enable the Landportal Testing modules
@@ -57,3 +51,12 @@ drush dl date
 drush en -y date_repeat_field #Allows adding date fields to nodes (used in the detabte nodes)
 drush dl link
 drush en -y link #Allows adding link fields to nodes (used in the organization nodes)
+drush dl social_buttons
+drush en -y social_buttons #Shows buttons for sharing nodes in Twitter, Facebook, Google+ and LinkedIn
+drush dl views
+drush en -y views views_ui #Used for the custom views of the LandDebate
+
+## LandDebate structure
+drush en -y landdebate_content_types #Includes: debate, news, organizations, blog posts and events
+drush en -y landdebate_permissions #Permissions to edit and create the LandDebate content types
+drush en -y landdebate_views #The custom views created for the LandDebate

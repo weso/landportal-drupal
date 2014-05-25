@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the LandDebate content types feature.
+ */
+
+include_once 'landdebate_content_types.features.inc';

@@ -30,22 +30,22 @@ h2 {
 	font-weight: normal;
 }
 
-/* Header */
+/* Header Book */
 
-header.main-header {
+header.book-header {
 	background-color: rgba(86, 131, 9, 0.8);
 	background-image: url('../images/header/grass-small.png');
 	background-size: cover;
 }
 
-header.main-header .bar {
+header.book-header .bar {
 	background-color: #fff;
 	padding-top: 0.3em;
 	padding-bottom: 0.1em;
 }
 
 @media (min-width: 768px) {
-	header.main-header {
+	header.book-header {
 		background-image: url('../images/header/grass-medium.png');
 	}
 }
@@ -108,13 +108,32 @@ div.header-selectors {
 	float: right;
 }
 
-/* Navigation */
+/* Header Debate */
 
-div.navigation {
+header.debate-header {
+	background-color: rgba(1, 75, 145, 0.8);
+	background-image: url('../images/header/pebbles-small.png');
+	background-size: cover;
+}
+
+header.debate-header .bar {
+	background-color: #fff;
+	padding-top: 0.3em;
+	padding-bottom: 0.1em;
+}
+
+@media (min-width: 768px) {
+	header.debate-header {
+		background-image: url('../images/header/pebbles-medium.png');
+	}
+}
+
+/* Navigation book */
+
+header.book-header div.navigation {
 	margin-top: 1em;
 	overflow: auto;
 	background-color: rgba(130,180,130, 0.70);
-	/*background-image: url('../images/header/grass-small.png');*/
 }
 
 div.navigation a {
@@ -150,35 +169,35 @@ div.navigation a:last-child {
 	}
 }
 
-div.navigation nav.tabs a:nth-child(1) {
+header.book-header div.navigation nav.tabs a:nth-child(1) {
 	background-color: rgba(95, 131, 87, 0.3);
 }
 
-div.navigation nav.tabs a:nth-child(2) {
+header.book-header div.navigation nav.tabs a:nth-child(2) {
 	background-color: rgba(79, 162, 46, 0.3);
 }
 
-div.navigation nav.tabs a:nth-child(3) {
+header.book-header div.navigation nav.tabs a:nth-child(3) {
 	background-color: rgba(54, 98, 98, 0.3);
 }
 
-div.navigation nav.tabs a:nth-child(4) {
+header.book-header div.navigation nav.tabs a:nth-child(4) {
 	background-color: rgba(95, 131, 87, 0.3);
 }
 
-div.navigation nav.tabs a:nth-child(5) {
+header.book-header div.navigation nav.tabs a:nth-child(5) {
 	background-color: rgba(79, 162, 46, 0.3);
 }
 
-div.navigation nav.tabs a:nth-child(6) {
+header.book-header div.navigation nav.tabs a:nth-child(6) {
 	background-color: rgba(54, 98, 98, 0.3);
 }
 
-div.navigation nav.tabs a:nth-child(7) {
+header.book-header div.navigation nav.tabs a:nth-child(7) {
 	background-color: rgba(95, 131, 87, 0.3);
 }
 
-div.navigation nav.tabs a:nth-child(8) {
+header.book-header div.navigation nav.tabs a:nth-child(8) {
 	background-color: rgba(79, 162, 46, 0.3);
 }
 
@@ -205,6 +224,58 @@ div.top-navigation ol.breadcrumb {
 	padding-left: 0;
 	padding-right: 0;
 	margin-bottom: 0;
+}
+
+/* Navigation debate */
+
+header.debate-header div.navigation {
+	margin-top: 1em;
+	overflow: auto;
+	background-color: rgba(10, 104, 172, 0.3);
+}
+
+@media (min-width: 480px) {
+	header.debate-header div.navigation a {
+		width: 33.33%;
+	}
+}
+
+@media (min-width: 1200px) {
+	header.debate-header div.navigation a {
+		width: 16.66%;
+	}
+}
+
+header.debate-header div.navigation nav.tabs a:nth-child(1) {
+	background-color: rgba(46, 100, 254, 0.3);
+}
+
+header.debate-header div.navigation nav.tabs a:nth-child(2) {
+	background-color: rgba(1, 169, 219, 0.3);
+}
+
+header.debate-header div.navigation nav.tabs a:nth-child(3) {
+	background-color: rgba(10, 104, 172, 0.3);
+}
+
+header.debate-header div.navigation nav.tabs a:nth-child(4) {
+	background-color: rgba(46, 100, 254, 0.3);
+}
+
+header.debate-header div.navigation nav.tabs a:nth-child(5) {
+	background-color: rgba(1, 169, 219, 0.3);
+}
+
+header.debate-header div.navigation nav.tabs a:nth-child(6) {
+	background-color: rgba(10, 104, 172, 0.3);
+}
+
+header.debate-header div.navigation nav.tabs a:nth-child(7) {
+	background-color: rgba(46, 100, 254, 0.3);
+}
+
+header.debate-header div.navigation nav.tabs a:nth-child(8) {
+	background-color: rgba(1, 169, 219, 0.3);
 }
 
 /* Breadcrumb */
@@ -1814,4 +1885,70 @@ table.sparql td, table.sparql th {
 
 table.sparql tr:nth-child(odd) {
 	background-color: #f5f5f5 !important;
+}
+
+/* Debates */
+
+.debate-entry {
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+	margin-right: 2em;
+	border-bottom: 0.1em dotted #ccc;
+}
+
+.debate-entry div.debate-status {
+	border: 0.1em solid #ccc;
+}
+
+.debate-entry div.debate-status a {
+	background-color: #428bca;
+	display: inline-block;
+	width: 100%;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+	padding: 0.5em 0;
+}
+
+.debate-entry div.debate-status a[href$="/open_debates"] {
+	background-color: #01DF3A;
+}
+
+.debate-entry div.debate-status a[href$="/coming_debates"] {
+	background-color: #fff;
+	color: #333;
+}
+
+.debate-entry div.debate-status a[href$="/closed_debates"] {
+	background-color: #FE2E2E;
+}
+
+.debate-entry h3 {
+	text-align: left;
+}
+
+.debate-entry img {
+	width: 100%;
+	height: auto;
+}
+
+.debate-entry .topics {
+	color: #fff;
+}
+
+.debate-entry .topics a {
+	background-color: #428bca;
+	display: inline;
+	padding: .2em .6em .3em;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+}
+
+.debate-entry .read-more {
+	text-align: right;
 }
