@@ -157,5 +157,18 @@
   "news": "Noticias",
   "events": "Eventos",
   "community": "Comunidad",
-  "land_blog": "El blog de LandPortal"
+  "land_blog": "El blog de LandPortal",
+  "written_by": "Por",
+  "on": "en",
+  "older_posts": "Entradas anteriores",
+  "older_debates": "Debates anteriores",
+  "older_news": "Noticias anteriores",
+  "older_events": "Eventos anteriores",
+  "land_news": "Noticias del suelo",
+  "land_events": "Eventos del suelo",
+  "tweets_related": "Tweets relacionados con",
+  "covered_topics": "Tópicos que tratan",
+  "countries_of_work": "Países en los que trabajan",
+  "operations_area": "Área de operación",
+  "visit_website": "Visita su página"
 }

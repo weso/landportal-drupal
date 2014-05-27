@@ -24,8 +24,8 @@
  * @ingroup views_templates
  */
 ?>
-<?php include("template-loader.php");
-    $labels = get_labels($application_data['languages']);
+<?php include_once("template-loader.php");
+  $labels = get_labels($application_data['languages']);
 ?>
 <div class="row debate-entry">
     <div class="col-sm-3">

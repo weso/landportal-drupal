@@ -55,6 +55,8 @@ drush dl social_buttons
 drush en -y social_buttons #Shows buttons for sharing nodes in Twitter, Facebook, Google+ and LinkedIn
 drush dl views
 drush en -y views views_ui #Used for the custom views of the LandDebate
+drush dl calendar
+drush en -y calendar #Used for displaying the event calendar
 
 ## LandDebate structure
 drush en -y landdebate_content_types #Includes: debate, news, organizations, blog posts and events

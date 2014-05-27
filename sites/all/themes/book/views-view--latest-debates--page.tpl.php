@@ -28,7 +28,7 @@
  */
 
 ?>
-<?php include("template-loader.php");
+<?php include_once("template-loader.php");
     get_template("debate-header", "debates", $application_data, $theme_path);
     $labels = get_labels($application_data['languages']);
 ?>
@@ -42,7 +42,7 @@
         <div class="col-sm-12">
             <h1 class="country-name">
                 <span class="country-name">
-                    <?php echo $labels["land_debates"]; ?>
+                    <?php echo $labels["debates"]; ?>
                 </span>
             </h1>
         </div>
@@ -58,7 +58,7 @@
               <?php endif; ?>
 
               <?php if ($rows): ?>
-                <div class="row view-content">
+                <div class="view-content">
                   <?php print $rows; ?>
                 </div>
               <?php elseif ($empty): ?>
@@ -77,18 +77,25 @@
                 <?php print $more; ?>
               <?php endif; ?>
 
-              <?php if ($footer): ?>
-                <div class="row view-footer">
-                  <?php print $footer; ?>
+              <div class="row">
+                <div class="col-sm-12">
+                  <h2 class="section older-debates">
+                    <span class="older-debatees">
+                      <?php echo $labels["older_debates"]; ?>
+                    </span>
+                  </h2>
+                  <?php if ($footer): ?>
+                    <div class="view-footer">
+                      <?php print $footer; ?>
+                    </div>
+                  <?php endif; ?>
+                  <?php if ($feed_icon): ?>
+                    <div class="feed-icon">
+                      <?php print $feed_icon; ?>
+                    </div>
+                  <?php endif; ?>
                 </div>
-              <?php endif; ?>
-
-              <?php if ($feed_icon): ?>
-                <div class="feed-icon">
-                  <?php print $feed_icon; ?>
-                </div>
-              <?php endif; ?>
-
+              </div>
             </div>
         </div>
         <div class="col-sm-3">

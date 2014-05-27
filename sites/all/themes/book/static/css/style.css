@@ -1889,7 +1889,7 @@ table.sparql tr:nth-child(odd) {
 
 /* Debates */
 
-.debate-entry {
+.debate-entry, .blog-entry, .news-entry, .events-entry {
 	margin-bottom: 1em;
 	padding-bottom: 1em;
 	margin-right: 2em;
@@ -1925,30 +1925,45 @@ table.sparql tr:nth-child(odd) {
 	background-color: #FE2E2E;
 }
 
-.debate-entry h3 {
+.debate-entry h3, .blog-entry h3, .news-entry h3, .events-entry h3 {
 	text-align: left;
 }
 
-.debate-entry img {
+.debate-entry img, .blog-entry img, .news-entry img, .events-entry  img, .node-view img {
 	width: 100%;
 	height: auto;
 }
 
-.debate-entry .topics {
+.debate-entry .topics, .blog-entry .topics, .events-entry .topics, .node-view .topics {
 	color: #fff;
 }
 
-.debate-entry .topics a {
+.debate-entry .topics a, .blog-entry .topics a, .events-entry .topics a, .node-view .topics a {
 	background-color: #428bca;
-	display: inline;
-	padding: .2em .6em .3em;
+	display: inline-block;
+	padding: .1em .6em;
 	color: #fff;
 	text-align: center;
 	white-space: nowrap;
 	vertical-align: baseline;
 	border-radius: .25em;
+	margin-bottom: 0.4em;
 }
 
-.debate-entry .read-more {
+.debate-entry .read-more, .blog-entry .read-more, .news-entry .read-more, .events-entry .read-more {
 	text-align: right;
+}
+
+.second-and-third img {
+	max-height: 10em;
+	width: 100%;
+}
+
+.topics .field-item {
+	width: auto;
+	float: left;
+}
+
+.body {
+	clear: both;
 }

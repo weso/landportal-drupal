@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Blog template.
+ * LandDebate events template.
  *
  * Variables available:
  * - $classes_array: An array of classes determined in
@@ -29,50 +29,30 @@
 ?>
 <!-- Highlights the corresponding tab in the header -->
 <?php include_once("template-loader.php");
-  get_template("debate-header", "blog", $application_data, $theme_path);
+  get_template("debate-header", "events", $application_data, $theme_path);
   $labels = get_labels($application_data['languages']);
 ?>
 <div class="content main-content container">
   <!-- Breadcrumbs -->
   <ol class="breadcrumb">
     <li><a href="/"><?php echo $labels["index"]; ?></a></li>
-    <li class="active"><?php echo $labels["land_blog"]; ?></li>
+    <li class="active"><?php echo $labels["events"]; ?></li>
   </ol>
   <!-- View title -->
   <div class="row">
     <div class="col-sm-12">
       <h1 class="country-name">
         <span class="country-name">
-          <?php echo $labels["land_blog"]; ?>
+          <?php echo $labels["land_events"]; ?>
         </span>
-      </h1>
-    </div>
+      </h1> <!-- End column -->
+    </div> <!-- End row -->
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <?php print render($title_prefix); ?>
       <?php if ($title): ?>
         <?php print $title; ?>
       <?php endif; ?>
-      <?php print render($title_suffix); ?>
-      <?php if ($header): ?>
-        <div class="view-header">
-          <?php print $header; ?>
-        </div>
-      <?php endif; ?>
-
-      <?php if ($exposed): ?>
-        <div class="view-filters">
-          <?php print $exposed; ?>
-        </div>
-      <?php endif; ?>
-
-      <?php if ($attachment_before): ?>
-        <div class="attachment attachment-before">
-          <?php print $attachment_before; ?>
-        </div>
-      <?php endif; ?>
-
       <?php if ($rows): ?>
         <div class="view-content">
           <?php print $rows; ?>
@@ -82,43 +62,31 @@
           <?php print $empty; ?>
         </div>
       <?php endif; ?>
-
-      <?php if ($pager): ?>
-        <?php print $pager; ?>
-      <?php endif; ?>
-
-      <?php if ($attachment_after): ?>
-        <div class="attachment attachment-after">
-          <?php print $attachment_after; ?>
-        </div>
-      <?php endif; ?>
-
-      <?php if ($more): ?>
-        <?php print $more; ?>
-      <?php endif; ?>
-    </div>
+    </div> <!-- End column -->
   </div> <!-- End row -->
 
   <!-- Older posts -->
   <div class="row">
-      <div class="col-sm-12">
-        <h2 class="section older-posts">
-          <span class="older-posts">
-            <?php echo $labels["older_posts"]; ?>
-          </span>
-        </h3>
-
+    <div class="col-sm-9">
+      <h2 class="section older-events">
+        <span class="older-events">
+          <?php echo $labels["older_events"]; ?>
+        </span>
+      </h3>
       <?php if ($footer): ?>
         <div class="view-footer">
           <?php print $footer; ?>
         </div>
       <?php endif; ?>
-    </div>
-    <?php if ($feed_icon): ?>
-      <div class="feed-icon">
-        <?php print $feed_icon; ?>
-      </div>
-    <?php endif; ?>
+    </div> <!-- End column -->
+    <!-- Event calendar -->
+    <div class="col-sm-3">
+      <?php if ($header): ?>
+        <div class="view-header">
+          <?php print $header; ?>
+        </div>
+      <?php endif; ?>
+    </div> <!-- End column -->
   </div> <!-- End row -->
 </div>
-<?php get_template("footer", "blog", $application_data, $theme_path); ?>
+<?php get_template("footer", "events", $application_data, $theme_path); ?>

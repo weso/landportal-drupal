@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Blog template.
+ * LandDebate news template.
  *
  * Variables available:
  * - $classes_array: An array of classes determined in
@@ -29,27 +29,27 @@
 ?>
 <!-- Highlights the corresponding tab in the header -->
 <?php include_once("template-loader.php");
-  get_template("debate-header", "blog", $application_data, $theme_path);
+  get_template("debate-header", "news", $application_data, $theme_path);
   $labels = get_labels($application_data['languages']);
 ?>
 <div class="content main-content container">
   <!-- Breadcrumbs -->
   <ol class="breadcrumb">
     <li><a href="/"><?php echo $labels["index"]; ?></a></li>
-    <li class="active"><?php echo $labels["land_blog"]; ?></li>
+    <li class="active"><?php echo $labels["news"]; ?></li>
   </ol>
   <!-- View title -->
   <div class="row">
     <div class="col-sm-12">
       <h1 class="country-name">
         <span class="country-name">
-          <?php echo $labels["land_blog"]; ?>
+          <?php echo $labels["land_news"]; ?>
         </span>
       </h1>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-9">
       <?php print render($title_prefix); ?>
       <?php if ($title): ?>
         <?php print $title; ?>
@@ -97,6 +97,11 @@
         <?php print $more; ?>
       <?php endif; ?>
     </div>
+    <!-- Twitter timeline -->
+    <div class="col-sm-3">
+      <a class="twitter-timeline" href="https://twitter.com/search?q=%23landportal" data-widget-id="470981258374180864"><?php echo $labels["tweets_related"], " ", $node->field_hashtag["und"]["0"]["value"]; ?></a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
   </div> <!-- End row -->
 
   <!-- Older posts -->
@@ -104,7 +109,7 @@
       <div class="col-sm-12">
         <h2 class="section older-posts">
           <span class="older-posts">
-            <?php echo $labels["older_posts"]; ?>
+            <?php echo $labels["older_news"]; ?>
           </span>
         </h3>
 
@@ -121,4 +126,4 @@
     <?php endif; ?>
   </div> <!-- End row -->
 </div>
-<?php get_template("footer", "blog", $application_data, $theme_path); ?>
+<?php get_template("footer", "news", $application_data, $theme_path); ?>
