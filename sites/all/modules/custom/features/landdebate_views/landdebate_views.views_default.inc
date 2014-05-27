@@ -152,9 +152,11 @@ function landdebate_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '9';
-  $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -186,9 +188,9 @@ function landdebate_views_views_default_views() {
   $handler->display->display_options['filters']['field_related_topics_tid']['id'] = 'field_related_topics_tid';
   $handler->display->display_options['filters']['field_related_topics_tid']['table'] = 'field_data_field_related_topics';
   $handler->display->display_options['filters']['field_related_topics_tid']['field'] = 'field_related_topics_tid';
+  $handler->display->display_options['filters']['field_related_topics_tid']['value'] = '';
   $handler->display->display_options['filters']['field_related_topics_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_related_topics_tid']['expose']['operator_id'] = 'field_related_topics_tid_op';
-  $handler->display->display_options['filters']['field_related_topics_tid']['expose']['label'] = 'Topic';
   $handler->display->display_options['filters']['field_related_topics_tid']['expose']['operator'] = 'field_related_topics_tid_op';
   $handler->display->display_options['filters']['field_related_topics_tid']['expose']['identifier'] = 'field_related_topics_tid';
   $handler->display->display_options['filters']['field_related_topics_tid']['expose']['multiple'] = TRUE;
@@ -205,7 +207,6 @@ function landdebate_views_views_default_views() {
   $handler->display->display_options['filters']['field_related_countries_tid']['value'] = '';
   $handler->display->display_options['filters']['field_related_countries_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_related_countries_tid']['expose']['operator_id'] = 'field_related_countries_tid_op';
-  $handler->display->display_options['filters']['field_related_countries_tid']['expose']['label'] = 'Country';
   $handler->display->display_options['filters']['field_related_countries_tid']['expose']['operator'] = 'field_related_countries_tid_op';
   $handler->display->display_options['filters']['field_related_countries_tid']['expose']['identifier'] = 'field_related_countries_tid';
   $handler->display->display_options['filters']['field_related_countries_tid']['expose']['remember_roles'] = array(
@@ -221,7 +222,6 @@ function landdebate_views_views_default_views() {
   $handler->display->display_options['filters']['field_related_continents_tid']['value'] = '';
   $handler->display->display_options['filters']['field_related_continents_tid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_related_continents_tid']['expose']['operator_id'] = 'field_related_continents_tid_op';
-  $handler->display->display_options['filters']['field_related_continents_tid']['expose']['label'] = 'Region';
   $handler->display->display_options['filters']['field_related_continents_tid']['expose']['operator'] = 'field_related_continents_tid_op';
   $handler->display->display_options['filters']['field_related_continents_tid']['expose']['identifier'] = 'field_related_continents_tid';
   $handler->display->display_options['filters']['field_related_continents_tid']['expose']['remember_roles'] = array(
@@ -236,7 +236,6 @@ function landdebate_views_views_default_views() {
   $handler->display->display_options['filters']['title']['field'] = 'title';
   $handler->display->display_options['filters']['title']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
-  $handler->display->display_options['filters']['title']['expose']['label'] = 'Name';
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
   $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
@@ -281,10 +280,6 @@ function landdebate_views_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('Topic'),
-    t('Country'),
-    t('Region'),
-    t('Name'),
     t('Page'),
     t('Image'),
   );
@@ -312,6 +307,11 @@ function landdebate_views_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '2';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Header: Global: View area */
+  $handler->display->display_options['header']['view']['id'] = 'view';
+  $handler->display->display_options['header']['view']['table'] = 'views';
+  $handler->display->display_options['header']['view']['field'] = 'view';
+  $handler->display->display_options['header']['view']['view_to_insert'] = 'event_calendar:block_1';
   /* Footer: Global: View area */
   $handler->display->display_options['footer']['view']['id'] = 'view';
   $handler->display->display_options['footer']['view']['table'] = 'views';
@@ -581,12 +581,12 @@ function landdebate_views_views_default_views() {
   $handler->display->display_options['fields']['uid']['alter']['trim_whitespace'] = TRUE;
   $handler->display->display_options['fields']['uid']['alter']['strip_tags'] = TRUE;
   $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
-  /* Sort criterion: Content: Date (field_date) */
+  /* Sort criterion: Content: Date -  start date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['order'] = 'DESC';
-  /* Sort criterion: Content: Date (field_date:value2) */
+  /* Sort criterion: Content: Date - end date (field_date:value2) */
   $handler->display->display_options['sorts']['field_date_value2']['id'] = 'field_date_value2';
   $handler->display->display_options['sorts']['field_date_value2']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value2']['field'] = 'field_date_value2';
@@ -782,12 +782,12 @@ function landdebate_views_views_default_views() {
     'multiple_to' => '',
     'show_repeat_rule' => 'show',
   );
-  /* Sort criterion: Content: Date (field_date) */
+  /* Sort criterion: Content: Date -  start date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['order'] = 'DESC';
-  /* Sort criterion: Content: Date (field_date:value2) */
+  /* Sort criterion: Content: Date - end date (field_date:value2) */
   $handler->display->display_options['sorts']['field_date_value2']['id'] = 'field_date_value2';
   $handler->display->display_options['sorts']['field_date_value2']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value2']['field'] = 'field_date_value2';
@@ -847,11 +847,10 @@ function landdebate_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '4';
   $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Title */
@@ -929,8 +928,10 @@ function landdebate_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '3';
+  $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Title */
@@ -1008,11 +1009,10 @@ function landdebate_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['pager']['options']['offset'] = '2';
   $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Title */
