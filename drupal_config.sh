@@ -57,6 +57,8 @@ drush dl views
 drush en -y views views_ui #Used for the custom views of the LandDebate
 drush dl calendar
 drush en -y calendar #Used for displaying the event calendar
+drush dl wysiwyg
+drush en -y wysiwyg #Displays a WYSIWYG editor for text fields
 
 ## LandDebate structure
 drush en -y landdebate_content_types #Includes: debate, news, organizations, blog posts and events
