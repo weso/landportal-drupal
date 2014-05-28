@@ -1,5 +1,6 @@
 {
   "language-name": "English",
+  "date_format": "m/d/Y",
   "sitemap": "sitemap",
   "book_motto": "Get information by country",
   "book_description": "The Land Book provides comprehensive country and thematic pages with direct access to comprehensive and in-depth information on land governance across the world.",
@@ -177,5 +178,12 @@
   "edit-title": "Name",
   "share": "Share",
   "date": "Date",
-  "language": "Language"
+  "language": "Language",
+  "from": "From",
+  "to": "To",
+  "edit": "Edit",
+  "reply": "Reply",
+  "delete": "Delete",
+  "comment_forbidden": "Log in or register to post comments",
+  "user_comments": "What the users say"
 }
