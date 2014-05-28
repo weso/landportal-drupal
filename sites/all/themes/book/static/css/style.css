@@ -2004,3 +2004,20 @@ div.debate-status a[href$="/closed_debates"] {
 .entry-header > div {
 	clear: both;
 }
+
+.entry-comments {
+	margin-top: 2em;
+}
+
+.entry-comments div {
+	margin-bottom: 0.5em;
+}
+
+.comment-author, .comment-links {
+	font-size: 0.9em;
+	margin-bottom: 0.5em;
+}
+
+.entry-comments h2.title {
+	display: none;
+}

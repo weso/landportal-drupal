@@ -120,8 +120,7 @@
         <div class="user date">
           <?php echo $labels["written_by"]; ?>
           <?php echo render($name); ?>
-          <?php echo $labels["on"], " ", $date; ?>
-          <?php echo format_date($date); ?>
+          <?php echo $labels["on"], " ", date($labels["date_format"], $created); ?>
         </div>
       </header>
       <!-- Body -->
@@ -129,7 +128,10 @@
         <?php print render($content["body"]); ?>
       </div>
       <!-- Comments -->
-      <div class="comments">
+      <div class="entry-comments">
+        <h2 class="section">
+          <span><?php echo $labels["user_comments"]; ?></span>
+        </h2>
         <?php
           // Remove the "Add new comment" link on the teaser page or if the comment
           // form is being displayed on the same page.

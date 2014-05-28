@@ -78,11 +78,6 @@
  * @see template_process()
  */
 ?>
-<!--
-<pre>
-  <?php print_r($content); ?>
-</pre>
--->
 <?php include_once("template-loader.php");
   get_template("debate-header", "debates", $application_data, $theme_path);
   $labels = get_labels($application_data['languages']);
@@ -114,6 +109,7 @@
           <h2 class="section">
             <span><?php echo $labels["date"]; ?></span>
           </h2>
+          <span><?php print $node->field_date["und"]["0"]["value"]; ?></span>
           <?php print render($content["field_date"]); ?>
         </div>
         <div class="facilitator">
@@ -151,7 +147,10 @@
           <?php print render($content["body"]); ?>
         </div>
         <!-- Comments -->
-        <div class="comments">
+        <div class="entry-comments">
+          <h2 class="section">
+            <span><?php echo $labels["user_comments"]; ?></span>
+          </h2>
           <?php
             // Remove the "Add new comment" link on the teaser page or if the comment
             // form is being displayed on the same page.

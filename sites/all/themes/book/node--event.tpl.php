@@ -127,24 +127,12 @@
         <div class="user date">
           <?php echo $labels["written_by"]; ?>
           <?php echo render($name); ?>
-          <?php echo $labels["on"], " ", $date; ?>
-          <?php echo format_date($date); ?>
+          <?php echo $labels["on"], " ", date($labels["date_format"], $created); ?>
         </div>
       </header>
       <!-- Body -->
       <div class="body">
         <?php print render($content["body"]); ?>
-      </div>
-      <!-- Comments -->
-      <div class="comments">
-        <?php
-          // Remove the "Add new comment" link on the teaser page or if the comment
-          // form is being displayed on the same page.
-          if ($teaser || !empty($content['comments']['comment_form'])) {
-            unset($content['links']['comment']['#links']['comment-add']);
-          }
-        ?>
-        <?php print render($content['comments']); ?>
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 {
   "language-name": "Español",
+  "date_format": "d/m/Y",
   "sitemap": "mapa web",
   "book_motto": "Obtén información por país",
   "book_description": "El Land Book ofrece una completa guía de países con acceso directo a información detallada sobre la gestión del suelo a nivel mundial.",
@@ -177,5 +178,12 @@
   "edit-title": "Nombre",
   "share": "Compartir",
   "date": "Fecha",
-  "language": "Idioma"
+  "language": "Idioma",
+  "from": "Desde",
+  "to": "Hasta",
+  "edit": "Editar",
+  "reply": "Responder",
+  "delete": "Eliminar",
+  "comment_forbidden": "Log in or register to post comments",
+  "user_comments": "Lo que dicen los usuarios los usuarios"
 }
