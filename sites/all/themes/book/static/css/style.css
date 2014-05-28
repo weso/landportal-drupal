@@ -1896,11 +1896,12 @@ table.sparql tr:nth-child(odd) {
 	border-bottom: 0.1em dotted #ccc;
 }
 
-.debate-entry div.debate-status {
+div.debate-status {
 	border: 0.1em solid #ccc;
+	border-radius: .25em;
 }
 
-.debate-entry div.debate-status a {
+div.debate-status a {
 	background-color: #428bca;
 	display: inline-block;
 	width: 100%;
@@ -1912,16 +1913,16 @@ table.sparql tr:nth-child(odd) {
 	padding: 0.5em 0;
 }
 
-.debate-entry div.debate-status a[href$="/open_debates"] {
+div.debate-status a[href$="/open_debates"] {
 	background-color: #01DF3A;
 }
 
-.debate-entry div.debate-status a[href$="/coming_debates"] {
+div.debate-status a[href$="/coming_debates"] {
 	background-color: #fff;
 	color: #333;
 }
 
-.debate-entry div.debate-status a[href$="/closed_debates"] {
+div.debate-status a[href$="/closed_debates"] {
 	background-color: #FE2E2E;
 }
 
@@ -1962,8 +1963,44 @@ table.sparql tr:nth-child(odd) {
 .topics .field-item {
 	width: auto;
 	float: left;
+	margin-right: 0.5em;
 }
 
 .body {
+	clear: both;
+}
+
+.view-filters input {
+	width: 100%;
+}
+
+.social-buttons, .event-date, .debate-status, .entry-header-entry {
+	margin-top: 1em;
+}
+
+.social-botton {
+	width: 50%;
+	display: block;
+	float: left;
+}
+
+.event-date p {
+	font-size: 0.8em;
+}
+
+.related-region div, .entry-language div {
+	display: inline;
+}
+
+.entry-header {
+	margin-bottom: 3em;
+	font-size: 0.9em;
+}
+
+.entry-header h2 {
+	font-size: 1em;
+}
+
+.entry-header > div {
 	clear: both;
 }

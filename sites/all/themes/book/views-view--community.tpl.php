@@ -85,6 +85,9 @@
           <?php print $exposed; ?>
         </div>
       <?php endif; ?>
+      <div>
+        FACEBOOK WIDGET PLACEHOLDER
+      </div>
     </div> <!-- End column -->
   </div> <!-- End row -->
 

@@ -31,23 +31,32 @@
     <div class="col-sm-3">
         <!-- Image -->
         <?php print $fields["field_image"]->content; ?>
-        <!-- Date -->
-        <p class="date"><?php print $fields["field_date"]->content; ?></p>
         <!-- Debate status -->
         <div class="debate-status"><?php print $fields["field_status"]->content; ?></div>
+        <!-- Date -->
+        <div class="event-date">
+          <h2 class="section">
+            <span><?php echo $labels["date"]; ?></span>
+          </h2>
+          <p>
+            <?php print $fields["field_date"]->content; ?>
+          </p>
+        </div>
+        <!-- Facilitator -->
+        <div class="facilitator">
+          <h2 class="section">
+            <span><?php echo $labels["facilitated_by"]; ?></span>
+          </h2>
+          <?php $facilitator_id = $fields["uid"]->raw; ?>
+          <a href="/user/<?php echo $facilitator_id; ?>" class="user"><?php
+              $user_fields = user_load(intval($facilitator_id));
+              print $user_fields->name;
+          ?></a>
+        </div>
     </div>
     <div class="col-sm-9">
         <!-- Title -->
         <h3><?php print $fields["title"]->content; ?></h3>
-        <!-- Facilitator -->
-        <div class="user">
-            <?php $facilitator_id = $fields["uid"]->raw; ?>
-            <?php echo $labels["facilitated_by"]; ?>
-            <a href="/user/<?php echo $facilitator_id; ?>" class="user"><?php
-                $user_fields = user_load(intval($facilitator_id));
-                print $user_fields->name;
-            ?></a>
-        </div>
         <!-- Related topics -->
         <div class="topics"><?php print $fields["field_related_topics"]->content; ?></div>
         <!-- Content teaser -->

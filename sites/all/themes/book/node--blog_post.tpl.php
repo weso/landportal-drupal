@@ -103,22 +103,27 @@
       <div class="image">
         <?php print render($content["field_image"]); ?>
       </div>
-      <div class="social_buttons">
+      <div class="social-buttons">
+        <h2 class="section">
+          <span><?php echo $labels["share"]; ?></span>
+        </h2>
         <?php print render($content["field_social_buttons"]); ?>
       </div>
     </div>
     <div class="col-sm-9">
-      <!-- Author and date -->
-      <div class="user date">
-        <?php echo $labels["written_by"]; ?>
-        <?php echo render($name); ?>
-        <?php echo $labels["on"], " ", $date; ?>
-        <?php echo format_date($date); ?>
-      </div>
-      <!-- Related topics -->
-      <div class="topics">
-        <?php print render($content["field_related_topics"]); ?>
-      </div>
+      <header class="entry-header">
+        <!-- Related topics -->
+        <div class="topics">
+          <?php print render($content["field_related_topics"]); ?>
+        </div>
+        <!-- Author and date -->
+        <div class="user date">
+          <?php echo $labels["written_by"]; ?>
+          <?php echo render($name); ?>
+          <?php echo $labels["on"], " ", $date; ?>
+          <?php echo format_date($date); ?>
+        </div>
+      </header>
       <!-- Body -->
       <div class="body">
         <?php print render($content["body"]); ?>

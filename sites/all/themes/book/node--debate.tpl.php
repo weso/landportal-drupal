@@ -109,33 +109,43 @@
         <div class="image">
           <?php print render($content["field_image"]); ?>
         </div>
+        <div class="debate-status"><?php print render($content["field_status"]); ?></div>
         <div class="event-date">
+          <h2 class="section">
+            <span><?php echo $labels["date"]; ?></span>
+          </h2>
           <?php print render($content["field_date"]); ?>
         </div>
-        <div class="debate-status"><?php print render($content["field_status"]); ?></div>
         <div class="facilitator">
-          <?php echo $labels["facilitated_by"]; ?>
+          <h2 class="section">
+            <span><?php echo $labels["facilitated_by"]; ?></span>
+          </h2>
           <!-- <?php print render($user_picture); ?> -->
           <?php echo render($name); ?>
         </div>
-        <div class="social_buttons">
+        <div class="social-buttons">
+          <h2 class="section">
+            <span><?php echo $labels["share"]; ?></span>
+          </h2>
           <?php print render($content["field_social_buttons"]); ?>
         </div>
       </div>
       <div class="col-sm-9">
         <!-- Related topics -->
-        <div class="topics">
-          <?php print render($content["field_related_topics"]); ?>
-        </div>
-        <div class="language">
-          LANGUAGE:
-          <?php print render($content["field_language"]); ?>
-        </div>
-        <!-- Related region -->
-        <div class="related-regions">
-          REGION:
-          <?php print render($content["field_related_region"]); ?>
-        </div>
+        <header class="entry-header">
+          <div class="topics">
+            <?php print render($content["field_related_topics"]); ?>
+          </div>
+          <div class="entry-language">
+            <?php echo $labels["language"], ":"; ?>
+            <?php print render($content["field_language"]); ?>
+          </div>
+          <!-- Related region -->
+          <div class="related-region">
+            <?php echo $labels["world_region"], ":"; ?>
+            <?php print render($content["field_related_region"]); ?>
+          </div>
+        </header>
         <!-- Body -->
         <div class="body">
           <?php print render($content["body"]); ?>

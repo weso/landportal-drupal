@@ -166,9 +166,16 @@
   "older_events": "Eventos anteriores",
   "land_news": "Noticias del suelo",
   "land_events": "Eventos del suelo",
-  "tweets_related": "Tweets relacionados con",
+  "tweets_related": "Tuits relacionados con",
   "covered_topics": "Tópicos que tratan",
   "countries_of_work": "Países en los que trabajan",
   "operations_area": "Área de operación",
-  "visit_website": "Visita su página"
+  "visit_website": "Visita su página",
+  "edit-field-related-topics-tid": "Tópicos relacionados",
+  "edit-field-related-countries-tid": "Países relacionados",
+  "edit-field-related-continents-tid": "Regiones relacionadas",
+  "edit-title": "Nombre",
+  "share": "Compartir",
+  "date": "Fecha",
+  "language": "Idioma"
 }

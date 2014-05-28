@@ -170,5 +170,12 @@
   "covered_topics": "Topics they cover",
   "countries_of_work": "Countries where they work",
   "operations_area": "Area of operations",
-  "visit_website": "Visit the website"
+  "visit_website": "Visit the website",
+  "edit-field-related-topics-tid": "Related topics",
+  "edit-field-related-countries-tid": "Related countries",
+  "edit-field-related-continents-tid": "Related regions",
+  "edit-title": "Name",
+  "share": "Share",
+  "date": "Date",
+  "language": "Language"
 }

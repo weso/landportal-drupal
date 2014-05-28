@@ -115,21 +115,26 @@
     </div>
     <!-- Right column -->
     <div class="col-sm-3">
-      <!-- Operations area -->
-      <p><?php echo $labels["operations_area"]; ?></p>
-      <div class="operations-area">
-        <?php print render($content["field_related_contients"]); ?>
-      </div>
-      <!-- Related countries -->
-      <p><?php echo $labels["countries_of_work"]; ?></p>
-      <div class="countries-of-work">
-        <?php print render($content["field_related_countries"]); ?>
-      </div>
-      <!-- Related topics -->
-      <p><?php echo $labels["covered_topics"]; ?></p>
-      <div class="topics">
-        <?php print render($content["field_related_topics"]); ?>
-      </div>
+      <header class="entry-header">
+        <!-- Related topics -->
+        <div class="topics entry-header-entry">
+          <?php print render($content["field_related_topics"]); ?>
+        </div>
+        <!-- Operations area -->
+        <div class="entry-header-entry">
+          <h2 class="section">
+            <span><?php echo $labels["operations_area"]; ?></span>
+          </h2>
+          <?php print render($content["field_related_continents"]); ?>
+        </div>
+        <!-- Related countries -->
+        <div class="entry-header-entry">
+          <h2 class="section">
+            <span><?php echo $labels["countries_of_work"]; ?></span>
+          </h2>
+          <?php print render($content["field_related_countries"]); ?>
+        </div>
+      </header>
     </div>
   </div>
 </div>
