@@ -26,6 +26,11 @@
 ?>
 <?php include_once("template-loader.php");
   $labels = get_labels($application_data['languages']);
+  // We conver the field_date of the current node into a UNIX timestamp in order
+  // to show it internationalized depending on the language that the user has
+  // selected.
+  $field_date_begining = strtotime($row->field_data_field_date_field_date_value);
+  $field_date_end = strtotime($row->field_data_field_date_field_date_value2);
 ?>
 <div class="row debate-entry">
     <div class="col-sm-3">
@@ -38,9 +43,9 @@
           <h2 class="section">
             <span><?php echo $labels["date"]; ?></span>
           </h2>
-          <p>
-            <?php print $fields["field_date"]->content; ?>
-          </p>
+          <?php echo $labels["from"], " ", date($labels["date_format"], $field_date_begining)?>
+          <br>
+          <?php echo $labels["to"], " ", date($labels["date_format"], $field_date_end)?>
         </div>
         <!-- Facilitator -->
         <div class="facilitator">

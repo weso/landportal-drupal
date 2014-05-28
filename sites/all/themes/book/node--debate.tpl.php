@@ -81,6 +81,11 @@
 <?php include_once("template-loader.php");
   get_template("debate-header", "debates", $application_data, $theme_path);
   $labels = get_labels($application_data['languages']);
+  // We conver the field_date of the current node into a UNIX timestamp in order
+  // to show it internationalized depending on the language that the user has
+  // selected.
+  $field_date_begining = strtotime($node->field_date["und"]["0"]["value"]);
+  $field_date_end = strtotime($node->field_date["und"]["0"]["value2"]);
 ?>
 <div class="content main-content container">
   <!-- Breadcrumbs -->
@@ -109,8 +114,9 @@
           <h2 class="section">
             <span><?php echo $labels["date"]; ?></span>
           </h2>
-          <span><?php print $node->field_date["und"]["0"]["value"]; ?></span>
-          <?php print render($content["field_date"]); ?>
+          <?php echo $labels["from"], " ", date($labels["date_format"], $field_date_begining)?>
+          <br>
+          <?php echo $labels["to"], " ", date($labels["date_format"], $field_date_end)?>
         </div>
         <div class="facilitator">
           <h2 class="section">
