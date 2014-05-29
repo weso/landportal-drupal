@@ -19,6 +19,9 @@ function landdebate_content_types_field_default_field_bases() {
       0 => 'node',
     ),
     'field_name' => 'body',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -294,25 +297,6 @@ function landdebate_content_types_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',
-  );
-
-  // Exported field_base: 'field_social_buttons'
-  $field_bases['field_social_buttons'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_social_buttons',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'social_buttons',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'social_buttons',
   );
 
   // Exported field_base: 'field_status'
