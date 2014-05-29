@@ -7,20 +7,47 @@ include_once('language.php');
  */
 function book_theme() {
   $items = array();
-
   $items['book'] = array(
     'path' => drupal_get_path('theme', 'book'),
     'template' => 'custom',
     'variables' => array('mustache_data' => NULL, 'mustache_template' => NULL, 'mustache_navigation' => NULL),
   );
-
   $items['user_login'] = array(
     'render element' => 'form',
     'path' => drupal_get_path('theme', 'book'),
     'template' => 'custom',
     'variables' => array('mustache_data' => NULL, 'mustache_template' => 'login', 'mustache_navigation' => NULL),
   );
-
+  $items['event_node_form'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('theme', 'book'),
+    'template' => 'templates/forms/form--event',
+    'arguments' => array('form' => NULL,),
+  );
+  $items['blog_post_node_form'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('theme', 'book'),
+    'template' => 'templates/forms/form--blog_post',
+    'arguments' => array('form' => NULL,),
+  );
+  $items['debate_node_form'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('theme', 'book'),
+    'template' => 'templates/forms/form--debate',
+    'arguments' => array('form' => NULL,),
+  );
+  $items['news_node_form'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('theme', 'book'),
+    'template' => 'templates/forms/form--news',
+    'arguments' => array('form' => NULL,),
+  );
+  $items['organization_node_form'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('theme', 'book'),
+    'template' => 'templates/forms/form--organization',
+    'arguments' => array('form' => NULL,),
+  );
   return $items;
 }
 
@@ -74,17 +101,20 @@ function book_preprocess_html(&$vars) {
  */
 function get_application_data() {
   $lang = new Language();
+  $languages = $lang->get_languages('en');
   $server_name = $_SERVER['HTTP_HOST'];
   $ajax_files_path = drupal_get_path("module", "landportal_uris") . "/ajax";
+  $book_theme_path = drupal_get_path("theme", "book");
 
   return array(
-      "languages" => $lang->get_languages('en'),
-      "language" => $lang->get_selected_language($languages),
-      "user" => _get_current_user(),
-      "server_name" => $_SERVER["HTTP_HOST"],
-      "api" => "http://{$server_name}/{$ajax_files_path}",
-      "sparql" => "http://156.35.82.103:1300/sparql",
-      "api-widgets" => "http://156.35.82.103/api",
+    "languages" => $languages,
+    "language" => $lang->get_selected_language($languages),
+    "user" => _get_current_user(),
+    "server_name" => $server_name,
+    "api" => "http://{$server_name}/{$ajax_files_path}",
+    "sparql" => "http://156.35.82.103:1300/sparql",
+    "api-widgets" => "http://156.35.82.103/api",
+    "theme_path" => "http://{$server_name}/{$book_theme_path}",
   );
 }
 

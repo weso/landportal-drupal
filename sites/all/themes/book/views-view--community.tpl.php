@@ -85,8 +85,9 @@
           <?php print $exposed; ?>
         </div>
       <?php endif; ?>
-      <div>
-        FACEBOOK WIDGET PLACEHOLDER
+      <div class="facebook-widget">
+        <!-- This is a temporal placeholder and not the real Facebook widget" This is a temporal placeholder and not the real Facebook widget-->
+        <img src="<?php echo "{$theme_path}/static/images/landportal-facebook-image.png"; ?>" alt="This is a temporal placeholder and not the real Facebook widget"></script>
       </div>
     </div> <!-- End column -->
   </div> <!-- End row -->

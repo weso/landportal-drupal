@@ -40,7 +40,7 @@
   </ol>
   <!-- View title -->
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-9">
       <h1 class="country-name">
         <span class="country-name">
           <?php echo $labels["land_blog"]; ?>
@@ -48,6 +48,13 @@
       </h1>
     </div>
   </div>
+  <?php if ($logged_in): ?>
+  <div class="row">
+    <div class="col-sm-12">
+      <button class="btn data-button"><?php echo $labels['create_new_blog_post']; ?></button>
+    </div>
+  </div>
+<?php endif; ?>
   <div class="row">
     <div class="col-sm-12">
       <?php print render($title_prefix); ?>

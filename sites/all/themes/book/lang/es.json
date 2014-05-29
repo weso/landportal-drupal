@@ -185,5 +185,15 @@
   "reply": "Responder",
   "delete": "Eliminar",
   "comment_forbidden": "Log in or register to post comments",
-  "user_comments": "Lo que dicen los usuarios los usuarios"
+  "user_comments": "Lo que dicen los usuarios los usuarios",
+  "create_new_blog_post": "Crear nueva entrada",
+  "body": "Cuerpo",
+  "image": "Imagen",
+  "save": "Guardar",
+  "create_new_event": "Crear nuevo evento",
+  "status": "Estado",
+  "create_new_debate": "Crear nuevo debate",
+  "create_new_news": "Crear nueva noticia",
+  "create_new_organization": "Crear nueva oranizacion",
+  "field_website": "Sitio web"
 }

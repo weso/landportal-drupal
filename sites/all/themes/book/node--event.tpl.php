@@ -118,7 +118,7 @@
         <h2 class="section">
           <span><?php echo $labels["share"]; ?></span>
         </h2>
-        <?php print render($content["field_social_buttons"]); ?>
+        <script src="<?php echo "{$theme_path}/js/share.js"; ?>"></script>
       </div>
     </div>
     <div class="col-sm-9">

@@ -103,11 +103,12 @@
       <div class="image">
         <?php print render($content["field_image"]); ?>
       </div>
+      <!-- Share buttons -->
       <div class="social-buttons">
         <h2 class="section">
           <span><?php echo $labels["share"]; ?></span>
         </h2>
-        <?php print render($content["field_social_buttons"]); ?>
+        <script src="<?php echo "{$theme_path}/js/share.js"; ?>"></script>
       </div>
     </div>
     <div class="col-sm-9">
@@ -130,7 +131,11 @@
       <!-- Comments -->
       <div class="entry-comments">
         <h2 class="section">
-          <span><?php echo $labels["user_comments"]; ?></span>
+          <?php if ($comment_count > 0): ?>
+            <span><?php echo $labels["user_comments"]; ?></span>
+          <?php else: ?>
+            <span><?php echo "CURRENTLY THERE ARE NO COMMENTS"; ?></span>
+          <?php endif; ?>
         </h2>
         <?php
           // Remove the "Add new comment" link on the teaser page or if the comment

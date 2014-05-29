@@ -51,8 +51,8 @@ drush dl date
 drush en -y date_repeat_field #Allows adding date fields to nodes (used in the detabte nodes)
 drush dl link
 drush en -y link #Allows adding link fields to nodes (used in the organization nodes)
-drush dl social_buttons
-drush en -y social_buttons #Shows buttons for sharing nodes in Twitter, Facebook, Google+ and LinkedIn
+#drush dl social_buttons
+#drush en -y social_buttons #Shows buttons for sharing nodes in Twitter, Facebook, Google+ and LinkedIn
 drush dl views
 drush en -y views views_ui #Used for the custom views of the LandDebate
 drush dl calendar
