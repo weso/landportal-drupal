@@ -108,14 +108,14 @@ function landdebate_views_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'blog';
+  $handler->display->display_options['path'] = 'debate/blog';
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed');
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'rss';
   $handler->display->display_options['row_plugin'] = 'node_rss';
-  $handler->display->display_options['path'] = 'blog.xml';
+  $handler->display->display_options['path'] = 'debate/blog.xml';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
     'page' => 'page',
@@ -263,7 +263,14 @@ function landdebate_views_views_default_views() {
     'image_style' => '',
     'image_link' => 'content',
   );
-  $handler->display->display_options['path'] = 'community';
+  $handler->display->display_options['path'] = 'debate/community';
+
+  /* Display: Feed */
+  $handler = $view->new_display('feed', 'Feed', 'feed_1');
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['row_plugin'] = 'node_rss';
+  $handler->display->display_options['path'] = 'debate/community.xml';
   $translatables['community'] = array(
     t('Master'),
     t('Community'),
@@ -282,6 +289,7 @@ function landdebate_views_views_default_views() {
     t('last »'),
     t('Page'),
     t('Image'),
+    t('Feed'),
   );
   $export['community'] = $view;
 
@@ -715,14 +723,14 @@ function landdebate_views_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'events';
+  $handler->display->display_options['path'] = 'debate/events';
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed');
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'rss';
   $handler->display->display_options['row_plugin'] = 'node_rss';
-  $handler->display->display_options['path'] = 'feeds/events.xml';
+  $handler->display->display_options['path'] = 'debate/events.xml';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
     'page' => 'page',
@@ -949,7 +957,14 @@ function landdebate_views_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
-  $handler->display->display_options['path'] = 'debates';
+  $handler->display->display_options['path'] = 'debate/debates';
+
+  /* Display: Feed */
+  $handler = $view->new_display('feed', 'Feed', 'feed_1');
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['style_plugin'] = 'rss';
+  $handler->display->display_options['row_plugin'] = 'node_rss';
+  $handler->display->display_options['path'] = 'debate/debates.xml';
   $translatables['latest_debates'] = array(
     t('Master'),
     t('Latest debates'),
@@ -969,6 +984,7 @@ function landdebate_views_views_default_views() {
     t('Author'),
     t('Block'),
     t('Page'),
+    t('Feed'),
   );
   $export['latest_debates'] = $view;
 
@@ -1049,14 +1065,14 @@ function landdebate_views_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'news';
+  $handler->display->display_options['path'] = 'debate/news';
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed');
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['style_plugin'] = 'rss';
   $handler->display->display_options['row_plugin'] = 'node_rss';
-  $handler->display->display_options['path'] = 'latest-news.xml';
+  $handler->display->display_options['path'] = 'debate/news.xml';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
     'page' => 'page',
