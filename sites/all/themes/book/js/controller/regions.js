@@ -32,7 +32,7 @@ var selectedIndicator = '';
 var selectedYear = null;
 var selectedRegion = document.getElementById('entity-id') ? document.getElementById('entity-id').value : 1;
 
-if (selectedRegion = '')
+if (selectedRegion == '')
 	selectedRegion = 1;
 
 var indicatorSelect = document.getElementById('indicator-select');

@@ -2025,3 +2025,6 @@ div.debate-status a[href$="/closed_debates"] {
 #edit-body-und-0-format, #edit-field-image div .description {
 	display: none;
 }
+
+.add-new-node {
+	margin-bottom: 1em;

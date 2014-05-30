@@ -47,6 +47,14 @@
             </h1>
         </div>
     </div>
+    <?php if ($logged_in): ?>
+      <div class="row add-new-node">
+        <div class="col-sm-9"></div>
+        <div class="col-sm-3">
+          <a href="/node/add/debate"><button class="btn data-button"><?php echo $labels['create_new_debate']; ?></button></a>
+        </div>
+      </div>
+    <?php endif; ?>
     <div class="row">
         <div class="col-sm-9">
             <div class="<?php print $classes; ?>">

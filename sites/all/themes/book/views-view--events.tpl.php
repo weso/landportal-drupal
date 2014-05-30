@@ -49,6 +49,14 @@
       </h1> <!-- End column -->
     </div> <!-- End row -->
   </div>
+  <?php if ($logged_in): ?>
+    <div class="row add-new-node">
+      <div class="col-sm-9"></div>
+      <div class="col-sm-3">
+        <a href="/node/add/event"><button class="btn data-button"><?php echo $labels['create_new_event']; ?></button></a>
+      </div>
+    </div>
+  <?php endif; ?>
   <div class="row">
     <div class="col-sm-12">
       <?php if ($title): ?>
