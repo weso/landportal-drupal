@@ -78,7 +78,7 @@
  * @see template_process()
  */
 ?>
-<?php include_once("template-loader.php");
+<?php require_once(drupal_get_path("theme", "book") ."/template-loader.php");
   get_template("debate-header", "blog", $application_data, $theme_path);
   $labels = get_labels($application_data['languages']);
 ?>
