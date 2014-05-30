@@ -10,81 +10,106 @@
 	<div class="row">
 	  <div class="col-sm-9">
 		  <div class="input-group search dataset-search">
-			<input type="text" class="form-control" placeholder="{{#labels}}{{search}}{{/labels}}" name="srch-term" id="srch-term">
+			<input type="text" class="form-control" placeholder="{{#labels}}{{search}}{{/labels}}" name="srch-term" id="srch-term-ckan">
 				<div class="input-group-btn">
-					<button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+					<button class="btn" type="submit" onclick="loadSearchResults()"><i class="glyphicon glyphicon-search"></i></button>
 				</div>
 		  </div>
-		  <div class="row">
-		  	<div class="col-sm-9 dataset-message">
-			  	{{#labels}}{{no_datasets}}{{/labels}}
-		  	</div>
-		  	<div class="col-sm-3">
-			  	<div class="form-select control-group control-order-by">
-			        <label for="sort-selector">{{#labels}}{{order_by}}{{/labels}}</label>
-			        <select id="sort-selector" class="form-control" disabled="disabled">
-			              <option value="score desc, metadata_modified desc" selected="selected">Relevance</option>
-			              <option value="title_string asc">Name Ascending</option>
-			              <option value="title_string desc">Name Descending</option>
-			              <option value="metadata_modified desc">Last Modified</option>
-			        </select>
-			    </div>
-		  	</div>
-		  </div>
-		  <div class="result-content"></div>
+		  <table id="accordion" class="result-content panel-group table table-striped pages">
+			<tr>
+				<td>
+					<div class="col-sm-9 dataset-message">
+						{{#labels}}{{searching_datasets}}{{/labels}}
+					</div>
+				</td>
+			</tr>
+		  </table>
       </div>
 	  <div class="col-sm-3">
-		  <div class="panel panel-default">
+		  <div id="panel-organizations" class="panel panel-default ckan-filter-panel">
 			  <div class="panel-heading">
 			  	<i class="fa fa-filter fa-lg"></i>
 			  	{{#labels}}{{organizations}}{{/labels}}
-			  	<a href="" class="clear-all-link">{{#labels}}{{clear_all}}{{/labels}}</a>
+			  	<a href="javascript:firstLoad()" class="clear-all-link">{{#labels}}{{clear_all}}{{/labels}}</a>
 			  </div>
-			  <div class="panel-body">
-			    <span class="text-muted">{{#labels}}{{no_organizations}}{{/labels}}</span>
-			  </div>
+		  	  <ul class="list-group">
+				<li class="list-group-item text-muted">{{#labels}}{{no_organizations}}{{/labels}}</li>
+			  </ul>
 	      </div>
-		  <div class="panel panel-default">
+		  <div id="panel-groups" class="panel panel-default ckan-filter-panel">
 			  <div class="panel-heading">
 			  	<i class="fa fa-filter fa-lg"></i>
 			  	{{#labels}}{{groups}}{{/labels}}
-			  	<a href="" class="clear-all-link">{{#labels}}{{clear_all}}{{/labels}}</a>
+			  	<a href="javascript:firstLoad()" class="clear-all-link">{{#labels}}{{clear_all}}{{/labels}}</a>
 			  </div>
-			  <div class="panel-body">
-			    <span class="text-muted">{{#labels}}{{no_groups}}{{/labels}}</span>
-			  </div>
+			  <ul class="list-group">
+				<li class="list-group-item text-muted">{{#labels}}{{no_organizations}}{{/labels}}</li>
+			  </ul>
 	      </div>
-		  <div class="panel panel-default">
+		  <div id="panel-tags" class="panel panel-default ckan-filter-panel">
 			  <div class="panel-heading">
 			  	<i class="fa fa-filter fa-lg"></i>
 			  	{{#labels}}{{tags}}{{/labels}}
-			  	<a href="" class="clear-all-link">{{#labels}}{{clear_all}}{{/labels}}</a>
+			  	<a href="javascript:firstLoad()" class="clear-all-link">{{#labels}}{{clear_all}}{{/labels}}</a>
 			  </div>
-			  <div class="panel-body">
-			    <span class="text-muted">{{#labels}}{{no_tags}}{{/labels}}</span>
-			  </div>
+			  <ul class="list-group">
+				<li class="list-group-item text-muted">{{#labels}}{{no_organizations}}{{/labels}}</li>
+			  </ul>
 	      </div>
-		  <div class="panel panel-default">
+		  <div id="panel-formats" class="panel panel-default ckan-filter-panel">
 			  <div class="panel-heading">
 			  	<i class="fa fa-filter fa-lg"></i>
 			  	{{#labels}}{{formats}}{{/labels}}
-			  	<a href="" class="clear-all-link">{{#labels}}{{clear_all}}{{/labels}}</a>
 			  </div>
-			  <div class="panel-body">
-			    <span class="text-muted">{{#labels}}{{no_formats}}{{/labels}}</span>
-			  </div>
+			  <ul class="list-group">
+				<li class="list-group-item text-muted">{{#labels}}{{no_organizations}}{{/labels}}</li>
+			  </ul>
 	      </div>
-		  <div class="panel panel-default">
+		  <div id="panel-licenses" class="panel panel-default ckan-filter-panel">
 			  <div class="panel-heading">
 			  	<i class="fa fa-filter fa-lg"></i>
 			  	{{#labels}}{{licenses}}{{/labels}}
-			  	<a href="" class="clear-all-link">{{#labels}}{{clear_all}}{{/labels}}</a>
 			  </div>
-			  <div class="panel-body">
-			    <span class="text-muted">{{#labels}}{{no_licenses}}{{/labels}}</span>
-			  </div>
+			  <ul class="list-group">
+				<li class="list-group-item text-muted">{{#labels}}{{no_organizations}}{{/labels}}</li>
+			  </ul>
 	      </div>
 	  </div>
 	</div>
 </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="loading-dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1>{{#labels}}{{searching_datasets}}{{/labels}}</h1>
+				</div>
+				<div class="modal-body">
+					<div class="progress progress-striped active">
+					  <div class="progress-bar"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+						<span class="sr-only">100% Complete</span>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
 {{>footer}}
+

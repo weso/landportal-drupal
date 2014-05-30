@@ -103,7 +103,7 @@
   "organizations": "Organizations",
   "clear_all": "Clear all",
   "no_organizations": "There are no organizations that match this search",
-  "groups": "Grupos",
+  "groups": "Groups",
   "no_groups": "There are no groups that match this search",
   "tags": "Tags",
   "no_tags": "There are no tags that match this search",
@@ -196,5 +196,6 @@
   "create_new_news": "Add new",
   "create_new_organization": "Create new organization",
   "field_website": "Sitio web",
-  "upload": "Subir"
+  "upload": "Subir",
+  "searching_datasets": "Searching for datasets..."
 }
