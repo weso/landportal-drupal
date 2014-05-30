@@ -1,5 +1,5 @@
 <header class="debate-header">
-	{{>topbar}}
+	{{>topbar-header}}
 	<div class="container header-content">
 		<div class="row">
 			<div class="hidden-xs col-sm-8 col-md-9 motto">
@@ -36,7 +36,7 @@
 						</a>
 					{{/blog}}
 					{{^blog}}
-						<a href="/blog" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{blog}}{{/labels}}">
+						<a href="/debate/blog" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{blog}}{{/labels}}">
 							<span>{{#labels}}{{blog}}{{/labels}}</span>
 						</a>
 					{{/blog}}
@@ -47,7 +47,7 @@
 						</a>
 					{{/news}}
 					{{^news}}
-						<a href="/news" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{news}}{{/labels}}">
+						<a href="/debate/news" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{news}}{{/labels}}">
 							<span>{{#labels}}{{news}}{{/labels}}</span>
 						</a>
 					{{/news}}
@@ -58,7 +58,7 @@
 						</a>
 					{{/events}}
 					{{^events}}
-						<a href="/events" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{events}}{{/labels}}">
+						<a href="/debate/events" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{events}}{{/labels}}">
 							<span>{{#labels}}{{events}}{{/labels}}</span>
 						</a>
 					{{/events}}
@@ -69,7 +69,7 @@
 						</a>
 					{{/debates}}
 					{{^debates}}
-						<a href="/debates" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{debates}}{{/labels}}">
+						<a href="/debate/debates" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{debates}}{{/labels}}">
 							<span>{{#labels}}{{debates}}{{/labels}}</span>
 						</a>
 					{{/debates}}
@@ -80,7 +80,7 @@
 						</a>
 					{{/community}}
 					{{^community}}
-						<a href="/community" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{community}}{{/labels}}">
+						<a href="/debate/community" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{community}}{{/labels}}">
 							<span>{{#labels}}{{community}}{{/labels}}</span>
 						</a>
 					{{/community}}

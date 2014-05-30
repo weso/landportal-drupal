@@ -6,6 +6,7 @@
   "title" => $labels["title"],
   "body" => $labels["body"],
   "field_image" => $labels["image"],
+  "field_image_button" => $labels["upload"],
   "submit" => $labels["save"],
   ));
 ?>
@@ -17,7 +18,8 @@
   <!-- Breadcrumbs -->
   <ol class="breadcrumb">
     <li><a href="/"><?php echo $labels["index"]; ?></a></li>
-    <li><a href="/news"><?php echo $labels["news"]; ?></a></li>
+    <li><a href="/debate"><?php echo $labels["land_debate"]; ?></a></li>
+    <li><a href="/debate/news"><?php echo $labels["news"]; ?></a></li>
     <li class="active"><?php echo $labels["create_new_news"]; ?></li>
   </ol>
   <!-- Page title -->

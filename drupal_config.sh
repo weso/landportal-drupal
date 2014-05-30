@@ -29,13 +29,13 @@ drush en -y landportal_uris
 drush en -y unit_testing
 
 # Enable the LandBook modules
-#drush dl -y feeds
-#drush en -y feeds feeds_ui
-#drush dl feeds_sql
-#drush en -y feeds_sql
-#drush en -y landbook_nodes
-#drush en -y landbook_nodes_importers
-#drush en -y landbook_nodes_access
+drush dl -y feeds
+drush en -y feeds feeds_ui
+drush dl feeds_sql
+drush en -y feeds_sql
+drush en -y landbook_nodes
+drush en -y landbook_nodes_importers
+drush en -y landbook_nodes_access
 
 # Disable overlay menus
 drush dis -y overlay
@@ -64,3 +64,6 @@ drush en -y wysiwyg #Displays a WYSIWYG editor for text fields
 drush en -y landdebate_content_types #Includes: debate, news, organizations, blog posts and events
 drush en -y landdebate_permissions #Permissions to edit and create the LandDebate content types
 drush en -y landdebate_views #The custom views created for the LandDebate
+
+## Development modules
+drush dl devel

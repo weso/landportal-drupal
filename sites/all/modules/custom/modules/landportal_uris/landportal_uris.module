@@ -14,28 +14,35 @@ function landportal_uris_menu() {
 	$routes = json_decode($routes, true);
 
 	$items = array();
-	foreach ($routes['routes'] as $route) {
+	foreach ($routes['routes'] as $route):
 		$item = array();
 		$item['title'] = $route['title'];
-		$num_params = count($route['params']);
-		// The page callback depends on the number of parameters that are passed
-		// to the path. For example: a path with 1 parameter will call route_callback_1.
-		$item['page callback'] = '_route_callback_' . $num_params;
-		// The first parameter will always be the name of the path.
-		// This parameter
-		// is not counted to assign the callback.
-		$params = array(
-			$route['name'],
-			$route['navigation'],
-		);
-		foreach ($route['params'] as $param) {
-			array_push($params, $param);
-		}
+    $params = array();
+    // If the route has a "redirect" attribute it will have priority
+    // over the rest of the parameters.  And thus the redirection will
+    // be made
+    if (isset($route["redirect"])):
+      $item["page callback"] = "_route_redirect";
+      array_push($params, $route["redirect"]);
+    else:
+      // The page callback depends on the number of parameters that are passed
+      // to the path. For example: a path with 1 parameter will call route_callback_1.
+      $num_params = count($route['params']);
+	    $item['page callback'] = '_route_callback_' . $num_params;
+      // The first parameter will always be the name of the path.
+      // This parameter
+      // is not counted to assign the callback.
+      array_push($params, $route["name"]);
+      array_push($params, $route["navigation"]);
+      foreach ($route['params'] as $param):
+        array_push($params, $param);
+      endforeach;
+    endif;
 		$item['page arguments'] = $params;
 		// Allows the path to be accessed for all users.
 		$item['access callback'] = TRUE;
 		$items[$route['path']] = $item;
-	}
+	endforeach;
 	return $items;
 }
 
@@ -62,6 +69,16 @@ function _route_callback_1($name, $navigation, $param1) {
     } else {
       return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data, 'mustache_navigation' => $navigation));
     }
+}
+
+
+/**
+ * This function callback makes a redirection to the desired path.
+ *
+ * @param $redirect The path to which the page will be redirected
+ */
+function _route_redirect($redirect) {
+  drupal_goto($redirect);
 }
 
 /**

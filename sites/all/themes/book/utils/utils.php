@@ -20,15 +20,12 @@ function translate_form_titles(&$form, $translations) {
  * in situ.
  */
 function _replace_form_title(&$form, $field_name, $title) {
-  //if ($field_name == "title"):
-  //  $form["title"]["#title"] = $title;
-  //elseif ($field_name == "body"):
   if ($field_name == "body"):
     $form["body"]["und"]["0"]["value"]["#title"] = $title;
-  //elseif ($field_name == "field_image"):
-  //  $form["field_image"]["und"]["0"]["#title"] = $title;
   elseif ($field_name == "submit"):
     $form["actions"]["submit"]["#value"] = $title;
+  elseif ($field_name == "field_image_button"):
+    $form["field_image"]["und"]["0"]["upload_button"]["#value"] = $title;
   else:
     $form[$field_name]["#title"] = $title;
     $form[$field_name]["und"]["#title"] = $title;

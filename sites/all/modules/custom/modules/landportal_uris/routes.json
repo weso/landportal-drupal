@@ -18,6 +18,7 @@
             "path": "e404",
             "name": "e404",
             "title": "Error",
+            "navigation": "",
             "params": []
         },
         {
@@ -43,10 +44,9 @@
         },
         {
             "path": "book",
-            "name": "regions",
-            "title": "Region list",
-            "navigation": "regions",
-            "params": []
+            "name": "book",
+            "title": "Land Book",
+            "redirect": "book/regions"
         },
         {
             "path": "book/regions/%",
@@ -103,6 +103,12 @@
             "title": "LandPortal home",
             "navigation": "home",
             "params": []
+        },
+        {
+          "path": "debate",
+          "name": "debate",
+          "title": "Land Debate",
+          "redirect": "debate/blog"
         }
     ]
 }

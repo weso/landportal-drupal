@@ -91,7 +91,8 @@
   <!-- Breadcrumbs -->
   <ol class="breadcrumb">
     <li><a href="/"><?php echo $labels["index"]; ?></a></li>
-    <li><a href="/debates"><?php echo $labels["debates"]; ?></a></li>
+    <li><a href="/debate"><?php echo $labels["land_debate"]; ?></a></li>
+    <li><a href="/debate/debates"><?php echo $labels["debates"]; ?></a></li>
     <li class="active"><?php echo $title; ?></li>
   </ol>
   <div class="row">

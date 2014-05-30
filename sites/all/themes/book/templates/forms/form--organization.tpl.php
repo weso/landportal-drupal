@@ -6,6 +6,7 @@
   "title" => $labels["title"],
   "body" => $labels["body"],
   "field_image" => $labels["image"],
+  "field_image_button" => $labels["upload"],
   "field_related_topics" => $labels["edit-field-related-topics-tid"],
   "field_related_countries" => $labels["edit-field-related-countries-tid"],
   "field_related_continents" => $labels["edit-field-related-continents-tid"],
@@ -21,7 +22,8 @@
   <!-- Breadcrumbs -->
   <ol class="breadcrumb">
     <li><a href="/"><?php echo $labels["index"]; ?></a></li>
-    <li><a href="/community"><?php echo $labels["community"]; ?></a></li>
+    <li><a href="/debate"><?php echo $labels["land_debate"]; ?></a></li>
+    <li><a href="/debate/community"><?php echo $labels["community"]; ?></a></li>
     <li class="active"><?php echo $labels["create_new_organization"]; ?></li>
   </ol>
   <!-- Page title -->

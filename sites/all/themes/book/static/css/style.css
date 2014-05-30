@@ -2021,3 +2021,7 @@ div.debate-status a[href$="/closed_debates"] {
 .entry-comments h2.title {
 	display: none;
 }
+
+#edit-body-und-0-format, #edit-field-image div .description {
+	display: none;
+}

@@ -7,6 +7,7 @@
   "body" => $labels["body"],
   "field_related_topics" => $labels["edit-field-related-topics-tid"],
   "field_image" => $labels["image"],
+  "field_image_button" => $labels["upload"],
   "submit" => $labels["save"],
   ));
 ?>
@@ -18,7 +19,8 @@
   <!-- Breadcrumbs -->
   <ol class="breadcrumb">
     <li><a href="/"><?php echo $labels["index"]; ?></a></li>
-    <li><a href="/blog"><?php echo $labels["blog"]; ?></a></li>
+    <li><a href="/debate"><?php echo $labels["land_debate"]; ?></a></li>
+    <li><a href="/debate/blog"><?php echo $labels["blog"]; ?></a></li>
     <li class="active"><?php echo $labels["create_new_blog_post"]; ?></li>
   </ol>
   <!-- Page title -->

@@ -90,7 +90,8 @@
   <!-- Breadcrumbs -->
   <ol class="breadcrumb">
     <li><a href="/"><?php echo $labels["index"]; ?></a></li>
-    <li><a href="/events"><?php echo $labels["events"]; ?></a></li>
+    <li><a href="/debate"><?php echo $labels["land_debate"]; ?></a></li>
+    <li><a href="/debate/events"><?php echo $labels["events"]; ?></a></li>
     <li class="active"><?php echo $title; ?></li>
   </ol>
   <!-- Title -->

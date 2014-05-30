@@ -195,5 +195,6 @@
   "create_new_debate": "Crear nuevo debate",
   "create_new_news": "Crear nueva noticia",
   "create_new_organization": "Crear nueva oranizacion",
-  "field_website": "Sitio web"
+  "field_website": "Sitio web",
+  "upload": "Subir"
 }
