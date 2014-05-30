@@ -29,7 +29,7 @@
   <!-- Page title -->
   <div class="row">
     <div class="col-sm-12">
-      <h1 class="country-name">
+      <h1>
         <span class="country-name">
           <?php echo $labels["create_new_organization"]; ?>
         </span>
