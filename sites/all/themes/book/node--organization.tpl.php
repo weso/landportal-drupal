@@ -81,6 +81,11 @@
 <?php include_once("template-loader.php");
   get_template("debate-header", "community", $application_data, $theme_path);
   $labels = get_labels($application_data['languages']);
+  $node_id = $node->nid;
+  // Rules for edition and deletion of content
+  global $user; //The user viewing the page
+  $can_edit = $is_admin;
+  $can_delete = $is_admin;
 ?>
 <div class="content main-content container">
   <!-- Breadcrumbs -->
@@ -104,6 +109,15 @@
     <!-- Left column -->
     <div class="col-sm-3">
       <?php print render($content["field_image"]); ?>
+      <!-- Edition buttons -->
+      <div class="row edition-buttons">
+        <?php if ($can_edit): ?>
+          <a href="<?php echo "/node/$node_id/edit"; ?>"><button class="btn data-button"><?php echo $labels['edit']; ?></button></a>
+        <?php endif; ?>
+        <?php if ($can_delete): ?>
+          <a href="<?php echo "/node/$node_id/delete"; ?>"><button class="btn data-button"><?php echo $labels['delete']; ?></button></a>
+        <?php endif; ?>
+      </div>
     </div>
     <!-- Central column -->
     <div class="col-sm-6">
