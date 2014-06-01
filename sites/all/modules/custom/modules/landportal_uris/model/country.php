@@ -31,11 +31,14 @@ class Country {
 		$cached = $this->get_from_cache($lang, $iso3);
 		if ($cached !== null)
 			return $cached;
-		
+
 		$database = new DataBaseHelper();
 		$connection = $database->open();
 		$datasources = $database->query($connection, "datasources_by_country", array($lang, $iso3));
 		$info = $database->query($connection, "country", array($lang, $iso3));
+		if (!$info):
+			drupal_goto("e404");
+		endif;
 		$countries = $database->query($connection, "countries_without_region", array($lang));
 		$indicators_imploded = "'". implode("','", $this->spiderIndicators) ."','".  implode("','", $this->trafficLigths) ."','".  implode("','", $this->tableIndicators) ."','". implode("','", $this->gaugeIndicators) ."'";
 		$charts = $database->query($connection, "country_chart_indicators", array($lang, $iso3, $indicators_imploded));

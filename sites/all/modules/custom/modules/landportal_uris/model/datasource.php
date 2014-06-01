@@ -20,6 +20,9 @@ class Datasource {
     $database = new DataBaseHelper();
     $connection = $database->open();
     $organization = $database->query($connection, "organization", array($dat_id));
+    if (!$organization):
+      drupal_goto("e404");
+    endif;
     $indicators = $database->query($connection, "indicators_by_organization", array($lang, $dat_id));
     $organizations = $database->query($connection, "organizations", array());
     $database->close($connection);
