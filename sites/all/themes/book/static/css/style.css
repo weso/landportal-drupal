@@ -246,7 +246,6 @@ header.debate-header div.navigation {
 	}
 }
 
-
 header.debate-header div.navigation nav.tabs a:nth-child(1) {
 	background-color: rgba(46, 100, 254, 0.3);
 }
@@ -456,6 +455,10 @@ div.social {
 	padding: 1em 0;
 }
 
+div.social a {
+	color: #fff;
+}
+
 /* News */
 
 div.news {
@@ -508,6 +511,27 @@ div.news div.section {
 
 /* Home */
 
+div.home-piece-of-new {
+	height: 15em;
+	position: relative;
+	background-size: cover;
+}
+
+div.piece-of-new-text {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(20, 20, 20, 0.8);
+	color: #fff;
+	padding: 0.5em 1em;
+	width: 100%;
+}
+
+div.presentation {
+	margin-top: 0.5em;
+	margin-bottom: 0;
+}
+
 ol.breadcrumb-sites span.black {
 	color: #555;
 	margin-right: 0.08em;
@@ -517,23 +541,35 @@ ol.breadcrumb-sites > li + li::before {
 	content: "| ";
 }
 
-div.carousel-caption {
-	top: auto !important;
-	bottom: 0 !important;
-	left: auto !important;
-	right: auto !important;
+img.home-img {
 	width: 100%;
-	text-transform: uppercase;
-	font-family: 'Josefin Sans', sans-serif;
-	letter-spacing: 0.1em;
-	font-size: 3.5em;
-	color: #fff;
-	background-image: linear-gradient(to top,rgba(0,0,0,0.6) 0,rgba(0,0,0,0.0001) 100%);
-	padding-bottom: 0 !important;
 }
 
-ol.carousel-indicators {
-	display: none;
+.home-caption {
+	margin: 0.2em 0 0.5em 0;
+}
+
+.home-caption p {
+	letter-spacing: 0.1em;
+	font-weight: 300;
+	font-size: 1.6em;
+	font-family: 'Source Sans Pro', sans-serif;
+	text-transform: uppercase;
+	background-color: #fff;
+	color: #333;
+	padding: 0em 0.2em;
+	margin-top: 0.2em;
+	margin-bottom: 0.5em;
+}
+
+.home-caption p:nth-child(2) {
+	text-transform: none;
+	font-size: 1.4em;
+	color: #555;
+}
+
+.home-modules {
+	margin-top: 1em;
 }
 
 h2.land-module {
@@ -740,6 +776,10 @@ td.issue {
 	padding-bottom: 1em;
 }
 
+table.graphs {
+	margin-bottom: 0.2em;
+}
+
 table.graphs td {
 	padding: 0.5em 0;
 	border-bottom: 0.1em dotted #ccd0d5;
@@ -788,6 +828,7 @@ button.data-button:hover {
 button.data-button-dark {
 	width: 100%;
 	margin-top: 1em;
+	margin-bottom: 1em;
 	background-color: #2a7085;
 	color: #fff;
 	border-color: #17414e;
@@ -828,11 +869,11 @@ div.socioeconomic-values th.indicatorCode, div.socioeconomic-values td.indicator
     display: none;
 }
 
-div.socioeconomic-values th.countryCode, div.socioeconomic-values td.countryCode {
+div.socioeconomic-values th.regionCode, div.socioeconomic-values td.regionCode {
     display: none;
 }
 
-div.socioeconomic-values th.countryName, div.socioeconomic-values td.countryName {
+div.socioeconomic-values th.regionName, div.socioeconomic-values td.regionName {
     display: none;
 }
 
@@ -859,17 +900,17 @@ i.text-muted {
 /* Maps */
 
 div.map {
-	height: 40em;
+	min-height: 40em;
 	position: relative;
 	text-align: center;
-	margin-bottom: 1em;
+	margin-bottom: 2em;
 }
 
 div.map div.wesCountry-footer {
 	margin-top: 1.3em;
 }
 
-div.map-medium .map-container {
+div.map-medium {
 	height: 18em;
 	margin-top: 0em;
 	margin-bottom: 1em;
@@ -977,13 +1018,39 @@ div.direction-buttons button {
 }
 
 .wesCountry-foot {
-	font-size: 0.9em;
+	font-size: 0.8em;
 	color: #555 !important;
+}
+
+.wesCountry-panel {
+	overflow: hidden !important;
+}
+
+div.chart-selector {
+	margin-bottom: 0;
 }
 
 div.chart-selector::before {
 	top: 40% !important;
 	border-top: 0.1em solid #ddd !important;
+}
+
+div.loading-circle-active {
+  background-color: transparent !important;
+}
+
+div.loading-circle-active div.loading-inner-circle {
+	background-color: #aaa !important;
+}
+
+div.loading-inner-circle {
+  background-color: transparent !important;
+	border: 0.1em solid #aaa !important;
+}
+
+p.chart-source {
+	margin-top: 0.5em;
+	font-size: 0.8em;
 }
 
 /* Countries */
@@ -1068,23 +1135,27 @@ div.continent-countries div {
 
 div.graph, div.graph .region-chart {
 	position: relative;
-	height: 20em;
+	min-height: 20em;
 	margin-bottom: 2em;
-	margin-bottom: 0;
 	text-align: center;
 }
 
 div.graph-small, div.graph-small .region-chart {
 	position: relative;
-	height: 5em;
+	min-height: 5em;
 	margin-bottom: 1em;
 	padding: 0 !important;
 	text-align: center;
 }
 
+div.graph-small .loading {
+	margin-left: -25%;
+	width: 50%;
+}
+
 div.graph-medium, div.graph-medium .region-chart {
 	position: relative;
-	height: 22em;
+	min-height: 22em;
 	margin-bottom: 2em;
 	text-align: center;
 }
@@ -1097,6 +1168,7 @@ div.graph-large, div.graph-large -region-chart {
 	position: relative;
 	min-height: 25em;
 	text-align: center;
+	margin-bottom: 2em;
 }
 
 div.compare-bar, div.compare-legend {
@@ -1491,6 +1563,7 @@ select.topic-indicator-select {
 
 .table img.flag {
 	width: 1.5em;
+	height: 1.5em;
 	margin-right: 1em;
 }
 
@@ -1500,10 +1573,8 @@ h1 span.indicator-name {
 
 /* Loading */
 
-img.loading {
-	position: absolute;
-	top: 30%;
-	z-index: 1000;
+div.loading-circles {
+	height: 6em;
 }
 
 /* Flags */
@@ -1843,6 +1914,7 @@ div.data-source {
 img.source-logo {
 	height: 12em;
 	float: left;
+	margin-right: 1em;
 }
 
 div.source-indicators {

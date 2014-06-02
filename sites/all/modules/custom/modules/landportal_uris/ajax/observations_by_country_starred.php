@@ -21,7 +21,7 @@ function observations_by_country_starred($country1, $country2, $language){
     $json_result = json_encode($result);
     $database->close($connection);
     if (function_exists("apc_store"))
-      apc_store(generate_cache_key($country1, $country2, $language), $json_result);
+      apc_store(generate_cache_key($country1, $country2, $language), $result);
     return $json_result;
   endif;
 }

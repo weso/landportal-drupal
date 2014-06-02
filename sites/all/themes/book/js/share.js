@@ -4,7 +4,7 @@ content = content ? content : document.title;
 
 var url = document.URL;
 
-document.write('<div class="row">');
+document.write('<div class="row share">');
 document.write('	<div class="col-sm-6 text-center">');
 document.write('  	<a id="mail-link" href="mailto:?subject=' + content + '&amp;body=' + content + ' ' + url + '" target="_blank">');
 document.write('  		<i class="fa fa-envelope fa-3x"></i>');
@@ -16,7 +16,7 @@ document.write('			<i class="fa fa-twitter fa-3x"></i>');
 document.write('		</a>');
 document.write('	</div>');
 document.write('</div>');
-document.write('<div class="row">');
+document.write('<div class="row share">');
 document.write('	<div class="col-sm-6 text-center">');
 document.write('  	<a id="facebook-link" href="https://www.facebook.com/dialog/feed?app_id=145634995501895&amp;display=popup&amp;caption=' + content + '&amp;link=' + url + '&amp;redirect_uri=https://developers.facebook.com/tools/explorer" target="_blank">');
 document.write('	  	<i class="fa fa-facebook fa-3x"></i>');

@@ -145,7 +145,8 @@
   "query_examples": "Consultas de ejemplo",
   "all_indicators": "Todos los indicadores",
   "all_countries": "Todos los países",
-  "motto": "Busca, comparte y conéctate",
+  "motto_description_1": "El destino en línea líder para información, recursos, innovación y redes en materia de gestión del suelo.",
+  "motto_description_2": "Mejorando la gestión del suelo para garantizar los derechos sobre la tierra a personas vulnerables y sin tierra.",
   "visit_the": "Visita el",
   "coming_soon": "Próximamente",
   "join_the": "Únete al",
@@ -183,6 +184,7 @@
   "to": "Hasta",
   "edit": "Editar",
   "reply": "Responder",
+  "delete": "Eliminar",
   "comment_forbidden": "Log in or register to post comments",
   "user_comments": "Lo que dicen los usuarios los usuarios",
   "create_new_blog_post": "Crear nueva entrada",
@@ -196,5 +198,10 @@
   "create_new_organization": "Crear nueva oranizacion",
   "field_website": "Sitio web",
   "upload": "Subir",
-  "searching_datasets": "Buscando los conjuntos de datos..."
+  "searching_datasets": "Buscando los conjuntos de datos...",
+  "read_more_about_us": "Conoce más sobre nosotros",
+  "country": "País",
+  "time": "Instante",
+  "tendency": "Tendencia",
+  "world_bank": "Banco Mundial"
 }

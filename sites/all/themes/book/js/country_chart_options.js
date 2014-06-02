@@ -13,7 +13,7 @@ var chartOptions = {
 			"font-size": "0.8em"
 		},
         tablePosition: "below",
-        selectBy: "byTime"
+        selectBy: "byRegion"
 	},
 	"rural-development-1": {
 		container: "#rural-development-1",
@@ -28,8 +28,8 @@ var chartOptions = {
 		legend: {
 			show: false
 		},
-        tablePosition: "below",
-        selectBy: "byTime"
+    tablePosition: "below",
+    selectBy: "byIndicator"
 	},
 	"rural-development-2": {
 		container: "#rural-development-2",
@@ -44,8 +44,8 @@ var chartOptions = {
 		legend: {
 			show: false
 		},
-        tablePosition: "below",
-        selectBy: "byTime"
+    tablePosition: "below",
+    selectBy: "byIndicator"
 	},
 	"rural-development-3": {
 		container: "#rural-development-3",
@@ -60,12 +60,13 @@ var chartOptions = {
 		legend: {
 			show: false
 		},
-        tablePosition: "below",
-        selectBy: "byTime"
+    tablePosition: "below",
+    selectBy: "byIndicator"
 	},
 	"chart-region-bar-comparison": {
 		container: "#chart-region-bar-comparison",
 		chartType: "bar",
+		download: true,
 		margins: [6, 0, 6, 4],
 		groupMargin: 0,
 		barMargin: 2,
@@ -84,12 +85,13 @@ var chartOptions = {
 			show: false
 		},
 		serieColours: ["#1f77b4", "#aec7e8", "#ff7f0e", "#ffbb78", "#2ca02c", "#98df8a", "#d62728", "#ff9896"],
-        tablePosition: "below",
-        selectBy: "byTime"
+    tablePosition: "below",
+    selectBy: "byTime",
+    download: true
 	},
 	"chart-timeline-comparison": {
 		container: "#chart-timeline-comparison",
-		chartType: "line",
+		chartType: ["line", "bar", "area", "polar"],
 		margins: [6, 0, 6, 4],
 		xAxis: {
 			title: "",
@@ -103,15 +105,16 @@ var chartOptions = {
 			title: "",
 		},
 		serieColours: ["#0489B1", "#ff7f0e", "#2b00f5", "#00af10"],
-        selectBy: "byIndicator",
-        vertex: { "show": true },
-        valueOnItem: { show: false },
-        legend: {
-			show: false
+    selectBy: "byIndicator",
+    vertex: { "show": true },
+    valueOnItem: { show: false },
+    legend: {
+		show: false
 		},
 		stroke: {
 			width: 3
-		}
+		},
+		download: true
 	},
 	"chart-timeline-comparison-small": {
 		chartType: "line",
@@ -137,19 +140,23 @@ var chartOptions = {
 	},
 	"chart-correlation-comparison": {
 		container: "#chart-correlation-comparison",
-		margins: [4, 2, 1, 0],
+		chartType: "scatter",
+		margins: [2, 3, 8, 1],
 		xAxis: {
 			"font-family": "'Kite One', sans-serif",
-			"font-size": "14px"
+			"font-size": "12px",
+			"font-colour": "#888"
 		},
 		yAxis: {
 			"font-family": "'Kite One', sans-serif",
-			"font-size": "12px"
+			"font-size": "12px",
+			"font-colour": "#888",
+			"margin": 14
 		},
 		legend: {
 			show: false
 		},
-		serieColours: ["#ff7f0e", "#0489B1", "#2b00f5", "#00af10"]
+		serieColours: ["#d67777", "#ff7f0e", "#0489B1", "#2b00f5", "#00af10"]
 	},
 	"starred-indicator": {
 		container: "",

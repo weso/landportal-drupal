@@ -3,7 +3,8 @@
 <canvas id="canvas" class="hidden"></canvas>
 <div class="content main-content container">
 	<ol class="breadcrumb">
-	  <li><a href="/book/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
+	  <li><a href="/">{{#labels}}{{index}}{{/labels}}</a></li>
+		<li><a href="/book">{{#labels}}{{land_book}}{{/labels}}</a></li>
 	  <li class="active">{{#labels}}{{widgets}}{{/labels}}</li>
 	</ol>
 	<div class="row">
@@ -64,27 +65,6 @@
 						</div>
 					</div>
 					<div id="countries">
-						<div class="country-row">
-							<div class="col-sm-2 delete-row">
-								<label>{{#labels}}{{delete}}{{/labels}}</label>
-								<i class="fa fa-times fa-2x"></i>
-							</div>
-					  	<div class="col-sm-6 country-selection-row">
-								<label for="country">{{#labels}}{{select_country}}{{/labels}}</label>
-								<select class="form-control country-select">
-									{{#selectors}}
-										{{#countries}}
-											<option value="{{iso3}}">{{name}}</option>
-										{{/countries}}
-									{{/selectors}}
-								</select>
-							</div>
-							<div class="col-sm-4 country-selection-row">
-								<label>{{#labels}}{{pick_colour}}{{/labels}}</label>
-								<div class="row palette-empty" row="1">
-								</div>
-							</div>
-						</div>
 					</div>
 
 					<div class="col-sm-12 text-right">

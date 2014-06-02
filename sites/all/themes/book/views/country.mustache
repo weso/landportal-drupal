@@ -8,7 +8,8 @@
 <input type="hidden" id="starred-indicators" value="{{#starred}}{{#indicators}}{{id}},{{/indicators}}{{/starred}}" />
 <div class="content main-content container">
 	<ol class="breadcrumb">
-	  <li><a href="/book/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
+	  <li><a href="/">{{#labels}}{{index}}{{/labels}}</a></li>
+		<li><a href="/book">{{#labels}}{{land_book}}{{/labels}}</a></li>
 	  <li><a href="/book/countries">{{#labels}}{{countries}}{{/labels}}</a></li>
 	  <li>
 	  	<a id="continent-link" href="/book/regions/{{#info}}{{#region}}{{un_code}}{{/region}}{{/info}}">
@@ -77,13 +78,20 @@
 			        <div class="source-graph chart-content">
 				        {{>table}}
 			        </div>
-			        <p class="percentage">{{value}}%</p>
-							<p class="indicator-name">{{indicator}}</p>
-			      </div>
+						</div>
+			      <p class="percentage">{{value}}%</p>
+						<p class="indicator-name">{{indicator}}</p>
 					</div>
 				{{/gaugeIndicators}}
 			{{/charts}}
 	  	</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<p class="chart-source text-right">
+						{{#labels}}{{source}}{{/labels}}: <a href="/book/sources/fao">FAO</a>
+					</p>
+				</div>
+			</div>
 
 		</div>
 	  <div class="col-sm-6 graph-section">
@@ -94,28 +102,20 @@
                     {{>table}}
                 {{/tableIndicators}}
             {{/charts}}
+						<p class="chart-source text-right">
+							{{#labels}}{{source}}{{/labels}}: <a href="/book/sources/worldbank">{{#labels}}{{world_bank}}{{/labels}}</a>
+						</p>
         </div>
-		  <h2 class="section"><span class="indicator-name"></span> <span>{{#labels}}{{for_countries}}{{/labels}}</span></h2>
-		  <div id="mapDiv" class="map-medium indicator-map">
-          		<div class="map-container"></div>
-          		<div class="country-label"></div>
-          </div>
-		  <div id="chart-region-bar-comparison" class="graph-medium no-margin">
-            {{#charts}}
-            	<div class="source-graph chart-content">
-	                {{#employment-agriculture}}
-	                    {{>table}}
-	                {{/employment-agriculture}}
-            	</div>
-            {{/charts}}
-          </div>
-		  <h2 class="section"><span class="indicator-name"></span> <span>{{#labels}}{{across_time}}{{/labels}} <span class="country-name">{{#info}}{{country}}{{/info}}</span></span></h2>
+		  <h2 class="section"><span class="indicator-name"></span><span> </span><span>{{#labels}}{{for_countries}}{{/labels}}</span></h2>
+		  <div id="mapDiv" class="map-medium indicator-map"></div>
+		  <div id="chart-region-bar-comparison" class="graph-medium"></div>
+		  <h2 class="section"><span class="indicator-name"></span><span> </span><span>{{#labels}}{{across_time}}{{/labels}}</span><span> </span><span class="country-name">{{#info}}{{name}}{{/info}}</span></h2>
 		  <div class="row">
 			<div class="col-xs-4">
 				{{#labels}}{{compare_with}}{{/labels}}:
 			</div>
-			<div class="col-xs-8">
-			  <select id="country-comparison" class="form-control">
+			<div class="col-xs-8 compare-bar">
+			  <select id="country-comparing-select" class="form-control">
 			  	{{#selectors}}
 				  	{{#countries}}
 						<option value="{{iso3}}">{{name}}</option>
@@ -124,6 +124,16 @@
 			  </select>
 			</div>
 		  </div>
+			<div class="row compare-legend">
+				<div class="col-xs-6">
+					<div id="compare-legend-circle-1" class="circle"></div>
+					<span id="compare-legend-text-1"></span>
+				</div>
+				<div class="col-xs-6">
+					<div id="compare-legend-circle-2" class="circle"></div>
+					<span id="compare-legend-text-2"></span>
+				</div>
+			</div>
 		  <div id="chart-timeline-comparison" class="graph">
             {{#charts}}
             	<div class="source-graph chart-content">
@@ -171,12 +181,15 @@
 					{{/data-sources}}
 				{{/selectors}}
 		  </select>
-		  <button id="full-data-button" class="btn data-button">
-				{{#labels}}{{full_data}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span>
-			</button>
+			<a href="/book/countries/{{entity-id}}/details">
+			  <button id="full-data-button" class="btn data-button">
+					{{#labels}}{{full_data}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span>
+				</button>
+			</a>
 		  <a href="" class="more-info">{{#labels}}{{more_about_the_indicators}}{{/labels}}</a>
 		  <h2 class="section"><span>{{#labels}}{{specific_country}}{{/labels}}</span></h2>
 		  <select id="country-select" class="form-control">
+				<option disabled="disabled" selected="true">{{#labels}}{{select_a_country}}{{/labels}}</option>
 		  	{{#selectors}}
 			  	{{#countries}}
 					<option value="{{iso3}}">{{name}}</option>
@@ -189,6 +202,8 @@
 			<p class="at-button">{{#labels}}{{at}}{{/labels}} landportal.info</p>
 		  </button>
 		  <button class="btn data-button-dark">{{#labels}}{{land_debates}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span></button>
+			<h2 class="section"><span>{{#labels}}{{share}}{{/labels}}</span></h2>
+			{{>share}}
 	  </div>
 	</div>
 </div>

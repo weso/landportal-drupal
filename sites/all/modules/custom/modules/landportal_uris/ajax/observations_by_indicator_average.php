@@ -6,31 +6,40 @@ $indicator2 = $_GET["indicator2"];
 
 $language = $_GET["language"];
 
-$cached = get_from_cache($indicator1, $indicator2);
-if ($cached !== null)
-  return $cached;
-
-$database = new DataBaseHelper();
-$connection = $database->open();
-
-$regionFilter = ""; // Region Global
-$averages = $database->query($connection, "observations_by_region_avg", array($regionFilter, $indicator1));
-$result1 = compose_data($averages);
-
-$source1 = $database->query($connection, "indicator_source", array($indicator1));
-$source2 = $database->query($connection, "indicator_source", array($indicator2));
-
-$averages = $database->query($connection, "observations_by_region_avg", array($regionFilter, $indicator2));
-$result2 = compose_data($averages);
-
-$database->close($connection);
-
-if (function_exists("apc_store"))
-  apc_store(generate_cache_key($indicator1, $indicator2), $result);
-
 header('Content-Type: application/json');
+echo observations_by_indicator_average($indicator1, $indicator2, $language);
 
-echo json_encode(mergeRegions($indicator1, $result1, $source1, $indicator2, $result2, $source2));
+function observations_by_indicator_average($indicator1, $indicator2, $language) {
+  $cached = get_from_cache($indicator1, $indicator2);
+  if ($cached !== null):
+    return $cached;
+  else:
+    $database = new DataBaseHelper();
+    $connection = $database->open();
+
+    $regionFilter = ""; // Region Global
+    $averages = $database->query($connection, "observations_by_region_avg", array($regionFilter, $indicator1));
+    $result1 = compose_data($averages);
+
+    $source1 = $database->query($connection, "indicator_source", array($indicator1));
+    $source2 = $database->query($connection, "indicator_source", array($indicator2));
+
+    $averages = $database->query($connection, "observations_by_region_avg", array($regionFilter, $indicator2));
+    $result2 = compose_data($averages);
+
+    $database->close($connection);
+    $result = mergeRegions($indicator1, $result1, $source1, $indicator2, $result2, $source2);
+    $json_result = json_encode($result);
+
+    if (function_exists("apc_store"))
+      apc_store(generate_cache_key($indicator1, $indicator2), $json_result);
+    return $json_result;
+  endif;
+}
+
+
+
+
 
 function mergeRegions($indicator1, $indicatorData1, $source1, $indicator2, $indicatorData2, $source2) {
   $times = array_merge($indicatorData1["times"], $indicatorData2["times"]);
@@ -119,5 +128,5 @@ function get_from_cache($indicator1, $indicator2) {
  * @return md5 hash to use as cache-key
  */
 function generate_cache_key($indicator1, $indicator2) {
-  return hash('md5', "observations_by_indicator_avg" . $indicator1 . $indicator2);
+  return hash('md5', "observations_by_region_avg" . $indicator1 . $indicator2);
 }

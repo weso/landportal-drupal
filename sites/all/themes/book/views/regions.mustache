@@ -2,8 +2,9 @@
 <input type="hidden" id="entity-id" value="{{entity-id}}" />
 <div class="content main-content container">
 	<ol class="breadcrumb">
-	  <li><a href="/book/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
-	  <li><a href="/book/regions/global">{{#labels}}{{regions}}{{/labels}}</a></li>
+	  <li><a href="/">{{#labels}}{{index}}{{/labels}}</a></li>
+		<li><a href="/book">{{#labels}}{{land_book}}{{/labels}}</a></li>
+	  <li><a href="/book/regions">{{#labels}}{{regions}}{{/labels}}</a></li>
 	  <li class="active"><span class="region-name"></span></li>
 	</ol>
 	<div class="row">
@@ -14,47 +15,37 @@
 	<div class="row">
 	  <div class="col-sm-9 graph-section">
 		  <h2 class="section"><span class="indicator-name"></span></h2>
-          <div id="mapDiv" class="map">
-          		<div class="map-container"></div>
-          		<div class="country-label"></div>
-          		<img src="{{path}}/static/images/loading.gif" class="loading" alt="" />
-          </div>
-          <div id="timeline"></div>
-		  <h2 class="section"><span class="indicator-name"></span> <span>{{#labels}}{{for_countries}}{{/labels}}</span></h2>
+      <div id="map" class="map"></div>
+		  <h2 class="section"><span class="indicator-name"></span><span> </span><span>{{#labels}}{{for_countries}}{{/labels}}</span></h2>
 		  <div id="chart-region-bar-comparison" class="graph-medium">
-            {{#charts}}
-            	<div class="region-chart region-{{region}}">
-	                {{#employment-agriculture}}
-	                    {{>table}}
-	                {{/employment-agriculture}}
-            	</div>
-            {{/charts}}
-          </div>
-		  <h2 class="section"><span class="indicator-name"></span> <span>{{#labels}}{{across_time}}{{/labels}} <span class="region-name"></span></span></h2>
-		  <div class="row">
-			<div class="col-xs-4">
-				{{#labels}}{{compare_with}}{{/labels}}:
-			</div>
-			<div class="col-xs-8">
-			  <select id="region-comparer" class="form-control">
-			  	{{#selectors}}
-				  	{{#regions}}
-				  		<option value="{{un_code}}">{{name}}</option>
-				  	{{/regions}}
-			  	{{/selectors}}
-			  </select>
-			</div>
+      </div>
+		  <h2 class="section"><span class="indicator-name"></span><span> </span><span>{{#labels}}{{across_time}}{{/labels}}</span><span> </span><span class="region-name"></span></h2>
+		  <div class="row compare-bar">
+				<div class="col-xs-4">
+					{{#labels}}{{compare_with}}{{/labels}}:
+				</div>
+				<div class="col-xs-8">
+				  <select id="region-comparing-select" class="form-control">
+				  	{{#selectors}}
+					  	{{#regions}}
+					  		<option value="{{un_code}}">{{name}}</option>
+					  	{{/regions}}
+				  	{{/selectors}}
+				  </select>
+				</div>
 		  </div>
+			<div class="row compare-legend">
+				<div class="col-xs-6">
+					<div id="compare-legend-circle-1" class="circle"></div>
+					<span id="compare-legend-text-1"></span>
+				</div>
+				<div class="col-xs-6">
+					<div id="compare-legend-circle-2" class="circle"></div>
+					<span id="compare-legend-text-2"></span>
+				</div>
+			</div>
 		  <div id="chart-timeline-comparison" class="graph-large">
-            {{#charts}}
-            	<div class="region-chart region-{{region}}">
-	                {{#employment-timeline}}
-	                    {{>table}}
-	                {{/employment-timeline}}
-            	</div>
-            {{/charts}}
-            <img src="{{path}}/static/images/loading.gif" class="loading" style="display:inline" alt="" />
-          </div>
+      </div>
 	  </div>
 	  <div class="col-sm-3">
 		  <h2 class="section"><span>{{#labels}}{{world_region}}{{/labels}}</span></h2>
@@ -69,7 +60,7 @@
 		  <select id="source-select" multiple="multiple" class="form-control data-sources">
 		  	{{#selectors}}
 			  	{{#data-sources}}
-					<option>{{name}}</option>
+					<option value="{{organization_id}}">{{name}}</option>
 				{{/data-sources}}
 			{{/selectors}}
 		  </select>
@@ -77,9 +68,9 @@
 		   <select id="indicator-select" class="form-control">
 			  	{{#selectors}}
 				  	{{#data-sources}}
-				  		<optgroup label="{{name}}">
+				  		<optgroup label="{{name}}" value={{organization_id}}>
 				  			{{#indicators}}
-								<option>{{id}}</option>
+								<option value="{{id}}">{{name}}</option>
 							{{/indicators}}
 				  		</optgroup>
 					{{/data-sources}}
@@ -88,6 +79,7 @@
 		  <a href="" class="more-info">{{#labels}}{{more_about_the_indicators}}{{/labels}}</a>
 		  <h2 class="section"><span>{{#labels}}{{specific_country}}{{/labels}}</span></h2>
 		  <select id="country-select" class="form-control">
+				<option disabled="disabled" selected="true">{{#labels}}{{select_a_country}}{{/labels}}</option>
 		  	{{#selectors}}
 			  	{{#countries}}
 					<option value="{{iso3}}">{{name}}</option>
@@ -95,6 +87,8 @@
 			{{/selectors}}
 		  </select>
 		  <a href="" class="more-info">{{#labels}}{{more_about_areas_and_countries}}{{/labels}}</a>
+			<h2 class="section"><span>{{#labels}}{{share}}{{/labels}}</span></h2>
+			{{>share}}
 	  </div>
 	</div>
 </div>

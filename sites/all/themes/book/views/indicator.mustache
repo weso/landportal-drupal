@@ -3,7 +3,8 @@
 <input type="hidden" id="path" value="{{path}}" />
 <div class="content main-content container">
 	<ol class="breadcrumb">
-	  <li><a href="/book/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
+	  <li><a href="/">{{#labels}}{{index}}{{/labels}}</a></li>
+		<li><a href="/book">{{#labels}}{{land_book}}{{/labels}}</a></li>
 	  <li><a href="/book/indicators">{{#labels}}{{indicators}}{{/labels}}</a></li>
 	  <li class="active"><span class="indicator-name"></span></li>
 	</ol>
@@ -15,41 +16,14 @@
 	<div class="row">
 	  <div class="col-sm-9 graph-section">
 		  <h1 class="country-name"><span class="indicator-name"></span></h1>
-		  {{#charts}}
-		  		{{#heat-map}}
-		  			{{#years}}
-				  <table class="map-data heat-map year-{{year}} topic-{{topic}}">
-				  	<thead>
-				  		<tr>
-				  			<th>Country</th>
-				  			<th>Value</th>
-				  		</tr>
-				  	</thead>
-				  	<tbody>
-				  		{{#values}}
-						  		<tr>
-						  			<td>{{code}}</td>
-						  			<td>{{value}}</td>
-						  		</tr>
-				  		{{/values}}
-				  	</tbody>
-				  </table>
-				  	{{/years}}
-		  		{{/heat-map}}
-		  {{/charts}}
-          <div id="mapDiv" class="map">
-          		<div class="map-container"></div>
-          		<div class="country-label"></div>
-          		<img src="{{path}}/static/images/loading.gif" class="loading" alt="" />
-          </div>
-          <div id="timeline"></div>
-		  <h2 class="section"><span>{{#labels}}{{evolution_of}}{{/labels}}</span> <span class="indicator-name"></span></h2>
+      <div id="map" class="map"></div>
+		  <h2 class="section"><span>{{#labels}}{{evolution_of}}{{/labels}}</span><span> </span><span class="indicator-name"></span></h2>
 		  <div class="row compare-container">
 			<div class="col-xs-4">
 				{{#labels}}{{compare_with}}{{/labels}}:
 			</div>
 			<div class="col-xs-8">
-			  <select id="chart-timeline-comparison-indicator" class="form-control">
+			  <select id="indicator-comparing-select" class="form-control">
 			  	{{#selectors}}
 				  	{{#topics}}
 				  		<optgroup label="{{translation_name}}">
@@ -62,22 +36,24 @@
 			  </select>
 			</div>
 		  </div>
-		  <div id="chart-timeline-comparison" class="graph-large">
-            {{#charts}}
-            	<div class="indicator-chart">
-	                {{#employment-timeline}}
-	                    {{>table}}
-	                {{/employment-timeline}}
-            	</div>
-            {{/charts}}
-          </div>
+			<div class="row compare-legend">
+				<div class="col-xs-6">
+					<div id="compare-legend-circle-1" class="circle"></div>
+					<span id="compare-legend-text-1"></span>
+				</div>
+				<div class="col-xs-6">
+					<div id="compare-legend-circle-2" class="circle"></div>
+					<span id="compare-legend-text-2"></span>
+				</div>
+			</div>
+		  <div id="chart-timeline-comparison" class="graph-large"></div>
 
 		  <div class="row compare-container">
 			<div class="col-xs-4">
 				{{#labels}}{{correlate_with}}{{/labels}}:
 			</div>
 			<div class="col-xs-8">
-			  <select id="chart-correlate-comparison-indicator" class="form-control">
+			  <select id="indicator-relating-select" class="form-control">
 			  	{{#selectors}}
 				  	{{#topics}}
 				  		<optgroup label="{{translation_name}}">
@@ -90,16 +66,19 @@
 			  </select>
 			</div>
 		  </div>
+
 		  <div id="chart-correlation-comparison" class="graph-large"></div>
-		  <h2 class="section"><span class="indicator-name"></span> <span>{{#labels}}{{at_countries}}{{/labels}}</span></h2>
-		  <div class="table-responsive">
+		  <h2 class="section"><span class="indicator-name"></span><span> </span><span>{{#labels}}{{at_countries}}{{/labels}}</span></h2>
+		  <div id="loading" class="loading-circles"></div>
+			<div class="table-responsive">
 			  <table id="country-values" class="table table-striped sortable">
 				  <thead>
 				  		<tr>
-					  		<th data-sort-type="text">Country</th>
-					  		<th data-sort-type="number">Value</th>
-					  		<th data-sort-type="number">Last update</th>
-					  		<th data-sort-type="text">Tendency</th>
+					  		<th data-sort-type="text">{{#labels}}{{country}}{{/labels}}</th>
+					  		<th data-sort-type="number">{{#labels}}{{time}}{{/labels}}</th>
+								<th data-sort-type="number">{{#labels}}{{value}}{{/labels}}</th>
+					  		<th data-sort-type="number">{{#labels}}{{last_updated}}{{/labels}}</th>
+					  		<th data-sort-type="text">{{#labels}}{{tendency}}{{/labels}}</th>
 				  		</tr>
 				  </thead>
 				  <tbody>
@@ -113,23 +92,25 @@
 		  <select id="topic-select" multiple="multiple" class="form-control data-sources">
 		  	{{#selectors}}
 			  	{{#topics}}
-			  		<option>{{translation_name}}</option>
-				{{/topics}}
-			{{/selectors}}
+			  		<option value="{{id}}">{{translation_name}}</option>
+					{{/topics}}
+				{{/selectors}}
 		  </select>
 		  <h2 class="section"><span>{{#labels}}{{indicator}}{{/labels}}</span></h2>
 		  <!-- all indicator selects -->
 		  <div>
 		  	{{#selectors}}
 			  	{{#topics}}
-			  		<select class="form-control topic-indicator-select data-sources" multiple="multiple">
+			  		<select class="form-control topic-indicator-select data-sources hidden" multiple="multiple">
 			  			{{#indicators}}
-							<option value="{{id}}">{{name}}</option>
-						{{/indicators}}
+								<option value="{{id}}">{{name}}</option>
+							{{/indicators}}
 			  		</select>
-				{{/topics}}
-			{{/selectors}}
+					{{/topics}}
+				{{/selectors}}
 		  </div>
+				<select id="indicator-select" multiple="multiple" class="form-control data-sources">
+				</select>
 		   </select>
 		   <h2 class="section"><span>{{#labels}}{{all_indicators}}{{/labels}}</span></h2>
 		   <select id="all-indicator-select" class="form-control">
@@ -149,6 +130,8 @@
 			{{#labels}}{{consult_the_socieconomic}}{{/labels}}
 		  </button>
 		  <button class="btn data-button-dark">{{#labels}}{{debate_with_others}}{{/labels}}</button>
+			<h2 class="section"><span>{{#labels}}{{share}}{{/labels}}</span></h2>
+			{{>share}}
 	  </div>
 	</div>
 </div>

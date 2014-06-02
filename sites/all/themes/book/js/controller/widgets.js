@@ -1,6 +1,10 @@
-var numberOfYears = 3;
-var colour1 = '#b41739';
-var colour2 = '#4293c6';
+// Constants
+
+var ajaxURL = document.getElementById('api-url').value;
+var apiURL = document.getElementById('api').value;
+var languageCode = document.getElementById('selected-language').value;
+
+var chartType = 'barchart';
 
 var colourSerie = ['#b41739', '#4293c6', '#17c8b6', '#dba40b', '#70148e', '#70148e',
 '#765E07', '#a8bb00', '#d91969', '#006a6c', '#9b967b', '#713147',
@@ -9,17 +13,139 @@ var colourSerie = ['#b41739', '#4293c6', '#17c8b6', '#dba40b', '#70148e', '#7014
 
 var title = document.getElementById('chart-title').innerHTML;
 var description = document.getElementById('chart-description').innerHTML;
-var api_url = document.getElementById('api').value;
 
-/* Indicator selection */
+////////////////////////////////////////////////////////////////////////////////
+//                              COUNTRIES SELECTORS
+////////////////////////////////////////////////////////////////////////////////
 
-document.getElementById('indicator-select').onchange = function() {
+function Handler() {
+	var eventName = "change";
+	var element = this;
+	var handler;
+
+	this.selectedIndex = 0;
+
+	this.options = [];
+
+	this.value = null;
+
+	this.fire = function(obj) {
+		this.options = [ { value: obj } ];
+		this.value = obj;
+
+		if (handler)
+			handler.call(element, obj)
+	}
+
+	this.addEventListener = function(event, hdlr, h) {
+		handler = hdlr;
+	}
+}
+
+var countriesHandler = new Handler();
+var coloursHandler = new Handler();
+
+// General
+
+var countrySelector = new (function() {
+	var addButton = document.getElementById('add-country');
+
+	this.update = function() {
+		update();
+	}
+
+	function update() {
+		var data = getChartData();
+		var countries = data.countries;
+		var colours = data.colours;
+
+		countriesHandler.fire(countries);
+		coloursHandler.fire(colours);
+	}
+});
+
+////////////////////////////////////////////////////////////////////////////////
+//                                PAGE STATE
+////////////////////////////////////////////////////////////////////////////////
+
+wesCountry.stateful.start({
+	init: function(parameters, selectors) {
+		document.getElementById('add-country').onclick = function () {
+			addCountry();
+
+			generateColourPalette();
+
+			renderChart(chartType);
+
+			// Invoke countrySelector
+			countrySelector.update();
+		};
+
+		generateCountryRows(parameters, selectors);
+
+		renderChart(chartType);
+	},
+	urlChanged: function(parameters, selectors) {
+
+	},
+	elements: [
+		{
+			name: "indicator",
+			selector: "#indicator-select",
+			onChange: function(index, value, parameters, selectors) {
+				renderChart(chartType);
+			}
+		},
+		{
+			name: "countries",
+			selector: countriesHandler,
+			onChange: function(index, value, parameters, selectors) {
+
+			}
+		},
+		{
+			name: "colours",
+			selector: coloursHandler,
+			onChange: function(index, value, parameters, selectors) {
+
+			}
+		}
+	]
+});
+
+////////////////////////////////////////////////////////////////////////////////
+//                                AUXILIARY
+////////////////////////////////////////////////////////////////////////////////
+
+/* Country row generation */
+
+function generateCountryRows(parameters, selectors) {
+	var countries = parameters["countries"] != "" ? parameters["countries"].split(",") : [];
+	var colours = parameters["colours"] != "" ? parameters["colours"].split(",") : [];
+
+	var length = countries.length;
+
+	for (var i = 0; i < length; i++) {
+		var country = countries[i];
+		var colour = colours[i] ? colours[i] : colourSerie[0];
+
+		addCountry(country, colours);
+	}
+
+	if (length < 1)
+		addCountry();
+
+	generateColourPalette(colours);
+
 	renderChart(chartType);
-};
+
+	// Invoke countrySelector
+	countrySelector.update();
+}
 
 /* Add country */
 
-document.getElementById('add-country').onclick = function() {
+function addCountry(country, colours) {
 	var content = document.getElementById('row-prototype').innerHTML;
 
 	var div = document.createElement('div');
@@ -28,14 +154,15 @@ document.getElementById('add-country').onclick = function() {
 
 	document.getElementById('countries').appendChild(div);
 
-	generateColourPalette();
+	if (country) {
+		var countrySelect = div.querySelector('select');
 
-	renderChart(chartType);
+		if (countrySelect)
+			countrySelect.value = country;
+	}
 };
 
 /* Chart type buttons */
-
-var chartType = 'barchart';
 
 function selectTypeButton(button) {
 	// Unselect previous selected button
@@ -88,14 +215,6 @@ document.getElementById('label_y').onkeyup = function() {
 	renderChart(chartType, label_x, label_y);
 }
 
-/* Number of years */
-
-var numberOfYearsSelector = document.getElementById('number_years');
-numberOfYearsSelector.onchange = function() {
-	numberOfYears = this.options[this.selectedIndex].value;
-	renderChart(chartType, label_x, label_y);
-}
-
 /* Chart preview */
 
 function getChartData() {
@@ -108,6 +227,10 @@ function getChartData() {
 
 	for (var i = 0; i < countries.length; i++) {
 		var select = countries[i];
+
+		if (select.selectedIndex == -1)
+			continue;
+
 		var country = select.options[select.selectedIndex].value;
 
 		if (countryList != '')
@@ -158,9 +281,12 @@ function callback(data) {
 function renderChart(type, label_x, label_y) {
 	var data = getChartData();
 
+	if (!data.countries)
+		return;
+
 	var format = '&format=jsonp';
 	var parameters = 'indicator=' + data.indicator + '&countries=' + data.countries + '&colours=' + data.colours;
-	var url = api_url + '/graphs/' + chartType + '?' + parameters + format;
+	var url = apiURL + '/graphs/' + chartType + '?' + parameters + format;
 	var script = document.createElement('script');
 	script.src = url;
 	document.body.appendChild(script);
@@ -168,7 +294,7 @@ function renderChart(type, label_x, label_y) {
 	// Code to copy
 	generateScript(url);
 
-	var url = api_url + '/graphs/' + chartType + '?' + parameters;
+	var url = apiURL + '/graphs/' + chartType + '?' + parameters;
 
 	showPermalink(url)
 
@@ -177,77 +303,6 @@ function renderChart(type, label_x, label_y) {
 	generateMailLink(url);
 	generateFacebookLink(url);
 	generateLinkedinLink(url);
-/*
-
-	var options = {
-		sortSeries: true,
-		margins: [10, 10, 10, 1],
-		xAxis: {
-			"font-family": "'Kite One', sans-serif",
-			"font-size": "14px",
-			title: label_x ? label_x : "Years",
-			values: [],
-		},
-		yAxis: {
-			"font-family": "'Kite One', sans-serif",
-			"font-size": "12px",
-			title: label_y ? label_y : "Values"
-		},
-		legend: {
-			"font-family": "'Kite One', sans-serif",
-			"font-size": "14px"
-		},
-		series: [
-		{
-	        name: "Spain",
-	        values: []
-	    },
-	    {
-	    	name: "Italy",
-	     	values: []
-	    }],
-	    serieColours: [colour1, colour2]
-	};
-
-	Math.seedrandom('ESP');
-	for (var i = 0; i < numberOfYears; i++)
-		options.series[0].values.push(random(1, 500));
-
-	Math.seedrandom('ITA');
-	for (var i = 0; i < numberOfYears; i++)
-		options.series[1].values.push(random(1, 500));
-
-	for (var i = 0; i < numberOfYears; i++)
-		options.xAxis.values.push(2014 - numberOfYears + 1 + i)
-
-	var mapDiv = document.getElementById("mapDiv");
-	mapDiv.innerHTML = '';
-
-	options.width = mapDiv.offsetWidth;
-
-	switch(type) {
-		case 'bar':
-			var chart = wesCountry.charts.barChart(options);
-			break;
-		case 'line':
-			var chart = wesCountry.charts.lineChart(options);
-			break;
-		case 'pie':
-			var chart = wesCountry.charts.pieChart(options);
-			break;
-		case 'area':
-			var chart = wesCountry.charts.areaChart(options);
-			break;
-		case 'polar':
-			var chart = wesCountry.charts.polarChart(options);
-			break;
-		case 'scatter':
-			var chart = wesCountry.charts.scatterPlot(options);
-			break;
-	}
-
-	mapDiv.appendChild(chart.render());
-*/
 }
 
 function generateDownloadLinks(chart) {
@@ -261,10 +316,6 @@ function generateDownloadLinks(chart) {
 	document.getElementById('jpg-link').href = 'data:image/jpg;' + canvas.toDataURL("image/jpg");
 	document.getElementById('gif-link').href = 'data:image/gif;' + canvas.toDataURL("image/gif");
 	document.getElementById('svg-link').href = 'data:image/svg+xml;utf8,' + chart.toString();
-}
-
-function random(min, max) {
-	return Math.floor((Math.random() * max) + min);
 }
 
 // Permalink
@@ -322,7 +373,10 @@ function generateLinkedinLink(url) {
 
 // Colours
 
-function generateOneColourPalette(container) {
+function generateOneColourPalette(container, colour) {
+	var chosen = null;
+	var rowChosen = null;
+
 	for (var i = 0; i < colourSerie.length; i++) {
 		var div = document.createElement('div');
 		div.className = i <= 5 ? 'col-xs-2' : 'col-xs-2 plus hidden';
@@ -354,11 +408,14 @@ function generateOneColourPalette(container) {
 			}
 		}
 		else {
+			var elementColour = colourSerie[i]
 			innerDiv.style.backgroundColor = colourSerie[i];
 
+			if ("#" + colour == elementColour)
+				chosen = innerDiv;
+
 			if (i + 1 == container.getAttribute('row')) {
-				innerDiv.innerHTML = '<i class="fa fa-check fa-2x"></i>';
-				innerDiv.className = 'colour colour-selected';
+				rowChosen = innerDiv;
 			}
 
 			innerDiv.onclick = function() {
@@ -373,30 +430,31 @@ function generateOneColourPalette(container) {
 
 				this.className = 'colour colour-selected';
 
-				var row = parent.getAttribute('row');
-
-				switch(row) {
-					case "1":
-						colour1 = window.getComputedStyle(this, null).getPropertyValue("background-color");
-						break;
-					case "2":
-						colour2 = window.getComputedStyle(this, null).getPropertyValue("background-color");
-						break;
-				}
-
 				this.innerHTML = '<i class="fa fa-check fa-2x"></i>';
 
 				renderChart(chartType, label_x, label_y);
+
+				countrySelector.update();
 			}
 		}
 	}
+
+	if (chosen) {
+		chosen.className = 'colour colour-selected';
+		chosen.innerHTML = '<i class="fa fa-check fa-2x"></i>';
+	}
+	else if (rowChosen) {
+		rowChosen.className = 'colour colour-selected';
+		rowChosen.innerHTML = '<i class="fa fa-check fa-2x"></i>';
+	}
 }
 
-function generateColourPalette() {
+function generateColourPalette(colours) {
 	var palettes = document.querySelectorAll('#countries .palette-empty');
 
 	for (var i = 0; i < palettes.length; i++) {
-		generateOneColourPalette(palettes[i])
+		var colour = colours && colours[i] ? colours[i] : null;
+		generateOneColourPalette(palettes[i], colour)
 		palettes[i].className = palettes[i].className.replace('palette-empty', 'palette');
 	}
 
@@ -413,6 +471,9 @@ function generateColourPalette() {
 
 			setNumberToRows();
 			renderChart(chartType);
+
+			// Invoke countrySelector
+			countrySelector.update();
 		}
 
 	var selectors = document.querySelectorAll('select.country-select');
@@ -420,12 +481,9 @@ function generateColourPalette() {
 	for (var i = 0; i < selectors.length; i++)
 		selectors[i].onchange = function() {
 			renderChart(chartType);
+			countrySelector.update();
 		}
 }
-
-generateColourPalette();
-
-renderChart(chartType);
 
 function setNumberToRows() {
 	var palettes = document.querySelectorAll('.palette');
@@ -449,6 +507,6 @@ function rgbToHex(r, g, b) {
 /* Script */
 
 function generateScript(url) {
-	var code = "<script src='" + api_url + "/static/loader.js'></script>\n<script src='" + url + "'></script>";
+	var code = "<script src='" + apiURL + "/static/loader.js'></script>\n<script src='" + url + "'></script>";
 	document.getElementById('copy_code').innerHTML = code;
 }

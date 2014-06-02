@@ -145,7 +145,8 @@
   "query_examples": "Query examples",
   "all_indicators": "All indicators",
   "all_countries": "All countries",
-  "motto": "Find, share and connect",
+  "motto_description_1": "The leading online destination for information, resources, innovations and networking on land issues.",
+  "motto_description_2": "Improving land governance and securing land rights for landlessness and vulnerable people.",
   "visit_the": "Visit the",
   "coming_soon": "Coming soon",
   "join_the": "Join the",
@@ -183,6 +184,7 @@
   "to": "To",
   "edit": "Edit",
   "reply": "Reply",
+  "delete": "Delete",
   "comment_forbidden": "Log in or register to post comments",
   "user_comments": "What the users say",
   "create_new_blog_post": "Create new post",
@@ -196,5 +198,10 @@
   "create_new_organization": "Create new organization",
   "field_website": "Sitio web",
   "upload": "Subir",
-  "searching_datasets": "Searching for datasets..."
+  "searching_datasets": "Searching for datasets...",
+  "read_more_about_us": "Learn more about us",
+  "country": "Country",
+  "time": "Time",
+  "tendency": "Tendency",
+  "world_bank": "World Bank"
 }

@@ -18,7 +18,8 @@ $regionFilter = $region1 == 1 ? "" : "AND regions.un_code = $region1";
 $averages = $database->query($connection, "observations_by_region_avg", array($regionFilter, $indicator));
 $result1 = compose_data($averages);
 
-$region1Name = $database->query($connection, "continent_name", array($language, $region1))[0]["name"];
+$reg1 = $database->query($connection, "continent_name", array($language, $region1));
+$region1Name = $reg1[0]["name"];
 
 $result2 = NULL;
 $region2Name = "";
@@ -28,13 +29,14 @@ if ($region2 != "") {
   $averages = $database->query($connection, "observations_by_region_avg", array($regionFilter, $indicator));
   $result2 = compose_data($averages);
 
-  $region2Name = $database->query($connection, "continent_name", array($language, $region2))[0]["name"];
+  $reg2 = $database->query($connection, "continent_name", array($language, $region2));
+  $region2Name = $reg2[0]["name"];
 }
 
 $database->close($connection);
 
-if (function_exists("apc_store"))
-  apc_store(generate_cache_key($region, $indicator), $result);
+//if (function_exists("apc_store"))
+//  apc_store(generate_cache_key($region, $indicator), $result);
 
 header('Content-Type: application/json');
 

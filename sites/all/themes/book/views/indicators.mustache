@@ -1,7 +1,8 @@
 {{>header}}
 <div class="content main-content container">
 	<ol class="breadcrumb">
-	  <li><a href="/book/regions/global">{{#labels}}{{land_book}}{{/labels}}</a></li>
+		<li><a href="/">{{#labels}}{{index}}{{/labels}}</a></li>
+		<li><a href="/book">{{#labels}}{{land_book}}{{/labels}}</a></li>
 	  <li class="active">{{#labels}}{{indicators}}{{/labels}}</li>
 	</ol>
 	<div class="row countries-container">
@@ -18,7 +19,7 @@
         <div class="col-sm-6 col-lg-6">
             <label for="select-indicator">{{#labels}}{{select_an_indicator}}{{/labels}}:</label>
             <select id="country-select" name="select-indicator">
-            	<option selected="true">{{#labels}}{{select_an_indicator}}{{/labels}}</option>
+            	<option disabled="disabled" selected="true">{{#labels}}{{select_an_indicator}}{{/labels}}</option>
             	{{#indicators}}
             		<option value="{{id}}">{{name}}</option>
                 {{/indicators}}
@@ -39,7 +40,7 @@
 	                <div class="col-sm-8 col-md-6 col-lg-4">
 	                	<div class="marker"></div>
 	                	<span class="indicator-year">{{year}}</span>
-	                	<a href="indicators/{{id}}">
+	                	<a href="indicators/{{id}}?indicator={{id}}">
 	                       	<span class="name">{{name}}</span>
 	                    </a>
 	                </div>
