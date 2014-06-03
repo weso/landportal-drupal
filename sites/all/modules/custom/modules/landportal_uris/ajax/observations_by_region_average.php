@@ -1,4 +1,5 @@
  <?php
+
 include_once("../model/database.php");
 
 $region1 = $_GET["region1"];
@@ -35,7 +36,7 @@ function observations_by_region_average($region1, $region2, $indicator, $languag
     $averages = $database->query($connection, "observations_by_region_avg", array($regionFilter, $indicator));
     $result1 = compose_data($averages);
     $reg1 = $database->query($connection, "continent_name", array($language, $region1));
-    $region1Name = $reg1[0]["name"];
+    $region1Name = utf8_encode($reg1[0]["name"]);
 
     $result2 = NULL;
     $region2Name = "";
@@ -44,7 +45,7 @@ function observations_by_region_average($region1, $region2, $indicator, $languag
       $averages = $database->query($connection, "observations_by_region_avg", array($regionFilter, $indicator));
       $result2 = compose_data($averages);
       $reg2 = $database->query($connection, "continent_name", array($language, $region2));
-      $region2Name = $reg2[0]["name"];
+      $region2Name = utf8_encode($reg2[0]["name"]);
     }
     $database->close($connection);
     $json_result = json_encode(mergeRegions($region1, $region1Name, $result1, $region2, $region2Name, $result2));

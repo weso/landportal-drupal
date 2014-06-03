@@ -88,7 +88,7 @@ function _create_options() {
   $options = new stdClass();
   $lang = new Language();
   $options->language = $lang->get_selected_language();
-  $options->host = 'http://'. $server_name;
+  $options->host = 'http://'. $_SERVER['HTTP_HOST'];
   $options->querystring = $_GET;
   $options->sparql = "http://156.35.82.103:1300/sparql";
   return $options;
