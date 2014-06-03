@@ -16,13 +16,17 @@ var mapLoader = wesCountry.loader.renderChart({
 	cache: true,
 	onChange: function(element, index) {
 		var data = JSON.parse(mapLoader.getData());
-		updateCompareChart(data.by_year[element]);
+		updateCompareChart(data.by_year[element] ? data.by_year[element] : []);
 	},
 	getChartData: function(options, data) {
 		data = JSON.parse(data);
 		options["countries"] = data.all;
 
 		return options;
+	},
+	onCountryClick: function(info) {
+		var indicator = pageStatus.getParameters()['indicator'];
+		window.location.href = String.format('/book/countries/{0}?indicator={1}', info.iso3, indicator);
 	}
 });
 
@@ -63,7 +67,7 @@ var timelineLoader = wesCountry.loader.renderChart(timelineOptions);
 //                                PAGE STATE
 ////////////////////////////////////////////////////////////////////////////////
 
-wesCountry.stateful.start({
+var pageStatus = wesCountry.stateful.start({
 	init: function(parameters, selectors) {
 		// We cannot allow to compare to the same region
 		updateComparingRegionSelector(parameters["region"]);
@@ -92,6 +96,9 @@ wesCountry.stateful.start({
         // Load map
 				loadMap(parameters);
 
+				// Load comparing timeline
+				loadComparingTimeline(parameters);
+
 				// We cannot allow to compare to the same region
 				updateComparingRegionSelector(parameters["region"]);
 
@@ -112,9 +119,22 @@ wesCountry.stateful.start({
 				// When a source is selected then its first indicator is selected
 				var indicatorSelect = document.getElementById('indicator-select');
 
-				var indicatorOption = document.querySelector('#indicator-select optgroup[value="' + value + '"] option:first-child');
+				// Get datasource label of selected indicator
+				var indicator = parameters["indicator"];
+				var selectedIndicatorOption = document.querySelector('#indicator-select option[value="' + indicator + '"]');
+				var selectedIndicatorParentLabel = selectedIndicatorOption && selectedIndicatorOption.parentNode ?
+					selectedIndicatorOption.parentNode.label : "-1";
 
-				if (indicatorOption) {
+				// Get this datasource label
+				var indicatorOption = document.querySelector('#indicator-select optgroup[value="' + value + '"] option:first-child');
+				var indicatorParentLabel = indicatorOption && indicatorOption.parentNode ?
+					indicatorOption.parentNode.label : "-2";
+
+				if (selectedIndicatorParentLabel && indicatorParentLabel && selectedIndicatorParentLabel == indicatorParentLabel) {
+					console.log("Init: source")
+				}
+				// If two labels are different then the indicator is updated
+				else if (indicatorOption) {
 					indicatorSelect.selectedIndex = indicatorOption.index;
 					indicatorSelect.refresh();
 				}
@@ -123,30 +143,21 @@ wesCountry.stateful.start({
 		{
 			name: "indicator",
 			selector: "#indicator-select",
-			onChange: function(index, value, parameters, selectors) {console.log('indicator')
+			onChange: function(index, value, parameters, selectors) {
 				// When an indicator is selected we select the corresponding datasource
 				var source = this.options[this.selectedIndex].parentNode.label;
 
 				var sourceSelect = document.getElementById('source-select');
 
-				for (var i = 0; i < sourceSelect.options.length; i++)
+				for (var i = 0; i < sourceSelect.options.length; i++) {
 					if (sourceSelect.options[i].innerHTML == source) {
 						sourceSelect.selectedIndex = sourceSelect.options[i].index;
 
 						break;
 					}
+				}
 
-				// Load map
-				loadMap(parameters);
-
-				// Load comparing timeline
-				loadComparingTimeline(parameters);
-
-				// Update indicator names in view
-				var texts = document.querySelectorAll('span.indicator-name');
-
-				for (var i = 0; i < texts.length; i++)
-					texts[i].innerHTML = this.options[this.selectedIndex].innerHTML;
+				indicatorChanged(parameters, selectors);
 			}
 		},
 		{
@@ -258,6 +269,22 @@ function updateCompareChart(countries) {
 ////////////////////////////////////////////////////////////////////////////////
 //                                AUXILIARY
 ////////////////////////////////////////////////////////////////////////////////
+
+function indicatorChanged(parameters, selectors) {
+	// Load map
+	loadMap(parameters);
+
+	// Load comparing timeline
+	loadComparingTimeline(parameters);
+
+	// Update indicator names in view
+	var texts = document.querySelectorAll('span.indicator-name');
+
+	var value = selectors["#indicator-select"].options[selectors["#indicator-select"].selectedIndex].innerHTML;
+
+	for (var i = 0; i < texts.length; i++)
+		texts[i].innerHTML = value;
+}
 
 function getSourceFromSelectedIndicator(parameters, selectors) {
 	var indicator = parameters["indicator"];

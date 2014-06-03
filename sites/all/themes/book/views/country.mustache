@@ -12,7 +12,7 @@
 		<li><a href="/book">{{#labels}}{{land_book}}{{/labels}}</a></li>
 	  <li><a href="/book/countries">{{#labels}}{{countries}}{{/labels}}</a></li>
 	  <li>
-	  	<a id="continent-link" href="/book/regions/{{#info}}{{#region}}{{un_code}}{{/region}}{{/info}}">
+	  	<a id="continent-link" href="/book/regions?region={{#info}}{{#region}}{{un_code}}{{/region}}{{/info}}">
 	  		{{#info}}{{#region}}{{name}}{{/region}}{{/info}}
 	  	</a>
 	  </li>

@@ -26,6 +26,10 @@ var mapLoader = wesCountry.loader.renderChart({
 		updateCountryTable(data.by_country);
 
 		return options;
+	},
+	onCountryClick: function(info) {
+		var indicator = pageStatus.getParameters()['indicator'];
+		window.location.href = String.format('/book/countries/{0}?indicator={1}', info.iso3, indicator);
 	}
 });
 
@@ -178,7 +182,7 @@ var countryLoader = wesCountry.loader.render({
 //                                PAGE STATE
 ////////////////////////////////////////////////////////////////////////////////
 
-wesCountry.stateful.start({
+var pageStatus = wesCountry.stateful.start({
 	init: function(parameters, selectors) {
 
 	},
@@ -380,7 +384,8 @@ function getIndicatorsForTopic(index, value, parameters, selectors) {
 }
 
 function setIndicatorName(selector) {
-	var indicatorName = selector.options[selector.selectedIndex].innerHTML;
+	var indicatorName = selector.options[selector.selectedIndex] ?
+		selector.options[selector.selectedIndex].innerHTML : "";
 
 	var texts = document.querySelectorAll('span.indicator-name');
 
