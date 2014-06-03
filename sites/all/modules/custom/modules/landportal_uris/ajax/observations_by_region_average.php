@@ -117,8 +117,8 @@ function compose_data($averages) {
  * Gets a pre-cached result.
  * @return The result or null if it was not cached before.
  */
-function get_from_cache($region1, $region2, $indicator) {
-  $key = generate_cache_key($region1, $region2, $indicator);
+function get_from_cache($region1, $region2, $indicator, $language) {
+  $key = generate_cache_key($region1, $region2, $indicator, $language);
   if (function_exists("apc_exists") && apc_exists($key) !== false)
     return apc_fetch($key);
   return null;
