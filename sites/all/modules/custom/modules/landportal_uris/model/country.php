@@ -1,11 +1,12 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
 include_once("database.php");
 
-/*
 $a = new Country();
-header('Content-Type: application/json');
+//header('Content-Type: application/json');
 echo json_encode($a->get(array(), 'ESP'));
-*/
 
 class Country {
 	private $spiderIndicators = array('INDOECD1', 'INDIPFRI0', 'INDUNDP0');
@@ -25,14 +26,14 @@ class Country {
 	}
 
 	public function get($options, $iso3) {
-		$lang = $options->language;
-		//$lang = "en";
-		$api = $options->host;
+		//$lang = $options->language;
+		$lang = "en";
+		//$api = $options->host;
+		$api = 'http://'. $_SERVER['HTTP_HOST'];
 
 		$cached = $this->get_from_cache($lang, $iso3);
 		if ($cached !== null)
 			return $cached;
-
 		$database = new DataBaseHelper();
 		$connection = $database->open();
 		$datasources = $database->query($connection, "datasources_by_country", array($lang, $iso3));
@@ -212,12 +213,27 @@ class Country {
 				));
 			}
 		}
+		$spider_obs = $this->fill_missing_observations($this->spiderIndicators, $spider_obs);
 		return array(
 			"spider" => $spider_obs,
 			"trafficLights" => $traffic_obs,
 			"tableIndicators" => $table_obs,
 			"gaugeIndicators" => $gauge_obs,
 		);
+	}
+
+	/**
+	 * Fill an array with empty objects until its number of indicators.
+	 */
+	function fill_missing_observations($indicators, $observations) {
+		while (count($observations["observations"]) < count($indicators)) {
+			array_push($observations["observations"], array(
+				"value" => array(
+					"value" => null,
+				),
+			));
+		}
+		return $observations;
 	}
 
 }

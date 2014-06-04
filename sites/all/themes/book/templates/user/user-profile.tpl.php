@@ -38,11 +38,18 @@
 <!-- HEADER -->
 <?php get_template("debate-header", "community", $application_data, $theme_path); ?>
 <!-- CONTENT -->
-<?php $firstname = $user_profile['field_firstname']['#items']['0']['safe_value']; ?>
-<?php $lastname = $user_profile['field_lastname']['#items']['0']['safe_value']; ?>
-<?php $api_token = $user_profile['field_api_token']['#items']['0']['safe_value']; ?>
-<?php $username = $user_profile['field_firstname']['#object']->name; ?>
-<?php $created = $user_profile['field_firstname']['#object']->created; ?>
+<?php
+    $firstname = isset($user_profile['field_firstname']['#items']['0']['safe_value']) ?
+        $user_profile['field_firstname']['#items']['0']['safe_value'] : "";
+    $lastname = isset($user_profile['field_lastname']['#items']['0']['safe_value']) ?
+        $user_profile['field_lastname']['#items']['0']['safe_value'] : "";
+    $api_token = isset($user_profile['field_api_token']['#items']['0']['safe_value']) ?
+        $user_profile['field_api_token']['#items']['0']['safe_value'] : "";
+    $username = isset($user_profile['field_firstname']['#object']->name) ?
+        $user_profile['field_firstname']['#object']->name : "";
+    $created = isset($user_profile['field_firstname']['#object']->created) ?
+        $user_profile['field_firstname']['#object']->created : "";
+?>
 <div class="content main-content container">
     <!-- Breadcrumbs -->
     <ol class="breadcrumb">
