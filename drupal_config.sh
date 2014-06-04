@@ -41,8 +41,8 @@ drush en -y landbook_nodes_access
 drush dis -y overlay
 
 ## LandDebate modules
-#drush dl i18n
-#drush en -y i18n_taxonomy #Allows translating taxonomy terms
+drush dl i18n
+drush en -y i18n_taxonomy #Allows translating taxonomy terms
 drush dl batch_add_terms
 drush en -y batch_add_terms #Allows adding taxonomy terms in batch
 drush dl date
