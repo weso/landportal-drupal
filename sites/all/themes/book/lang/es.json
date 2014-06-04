@@ -203,5 +203,9 @@
   "country": "País",
   "time": "Instante",
   "tendency": "Tendencia",
-  "world_bank": "Banco Mundial"
+  "world_bank": "Banco Mundial",
+  "first_name": "Nombre",
+  "last_name": "Apellidos",
+  "api_access_token": "Clave de acceso al API",
+  "member_since": "Miembro desde"
 }
