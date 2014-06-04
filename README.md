@@ -123,3 +123,17 @@ To edit the options go to the path *admin/config/content/wysiwyg* and for each
 profile choose the editor **markItUp 1.1.14**.  
 After selecting the editor you can  change its options and choose which buttons
 to show.  We suggest enabling all the buttons for the best user experience.
+
+## Configure Twitter and Facebook login
+The HybdridAuth module allows users to sign in with their Facebook or Twitter accounts, 
+in order to configure this module go to the path **admin/config/people/hybridauth**.
+Now, in authentication provider check Facebook and Twitter check box and then go through their settings.
+
+**Twitter**: Follow the link provided and create a new application, you must be signed in. Fill all the gaps and paste the callback URL provided in Drupal. Then, accept developer rules and create Twitter app.
+Finally you must fill the form in Drupal with the API key and API secret provided on API Keys tab.
+
+**Facebook**: Follow the link provided and create a new application, you must be signed in. Fill the gaps for display name, namespace and category. Create the app and fill the captcha. Now, go to settings, click on advanced tab and fill Valid OAuth redirect URIs gap with your site main URL, for example: http://landportal.info. Finally return to basic tab and fill Drupal form with App ID and App Secret. In order to view the App secret you will have to type your password again.
+
+**Note**: Facebook apps are by default in test mode so you must provide and email and then Submit Items for Approval in Status & Review section on left menu.
+
+After all, you have to enable anonymous users permission to login with their Social Media accounts. This is done by checking first check box of Use HybridAuth option on path **admin/people/permissions**
