@@ -203,5 +203,9 @@
   "country": "Country",
   "time": "Time",
   "tendency": "Tendency",
-  "world_bank": "World Bank"
+  "world_bank": "World Bank",
+  "first_name": "Name",
+  "last_name": "Surname",
+  "api_access_token": "API access token",
+  "member_since": "Member since"
 }

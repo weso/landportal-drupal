@@ -43,9 +43,9 @@
           <h2 class="section">
             <span><?php echo $labels["date"]; ?></span>
           </h2>
-          <?php echo $labels["from"], " ", date($labels["date_format"], $field_date_begining)?>
+          <?php echo $labels["from"], " ", date($labels["date_format"], $field_date_begining); ?>
           <br>
-          <?php echo $labels["to"], " ", date($labels["date_format"], $field_date_end)?>
+          <?php echo $labels["to"], " ", date($labels["date_format"], $field_date_end); ?>
         </div>
         <!-- Facilitator -->
         <div class="facilitator">
