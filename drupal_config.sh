@@ -12,8 +12,8 @@ drush dl -y oauth
 
 
 # Enable the custom features
-drush en -y facebook_login
-drush en -y twitter_login
+#drush en -y facebook_login
+#drush en -y twitter_login
 drush en -y landportal_api_auth
 
 
@@ -22,7 +22,7 @@ drush en -y landportal_api_auth
 #drush en -y druser_resource
 #drush en -y session_resource
 
-## LandBook moduñes
+## LandBook modules
 drush en -y landportal_uris
 
 # Enable the Landportal Testing modules
@@ -63,3 +63,8 @@ drush en -y landdebate_views #The custom views created for the LandDebate
 
 ## Development modules
 drush dl devel
+
+## Facebook and Twitter login module
+## HybridAuth library is needed
+drush dl hybridauth
+drush en -y hybridauth
