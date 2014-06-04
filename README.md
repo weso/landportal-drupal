@@ -42,6 +42,22 @@ enable those pages take the following steps:
 The following screenshot shows how the fields should be filled.
 ![Home and error page configuration](readme_images/home_and_error_pages.png)
 
+### Configuring the login redirection
+As stated in the previous section: the *hub* has been designed as the entry point
+to the new LandPortal.  By default Drupal loads the user profile page when an
+user logs into the portal, but we want to override this behaviour and redirect
+the user to the *hub*.  
+Two steps are required to achieve this:
+  1. Go to **admin/config/system/actions**, in the bottom of the page you will
+    see the page creation form.  Choose the  option *redirect to URL* in the
+    dropdown and click the button *Create*.  A new page will load in which you can
+    set the action label (we suggest something readable, for example
+    *"Landportal redirect on login"*), in the url write **home** (the *hub* path).  
+      - The following screenshot shows how the options should look.
+      ![User redirect configuration](readme_images/user_redirection.png)
+  2. Go to **admin/structure/trigger/user** and select the action that we have just
+    created in the *after an used has logged in* option, then click *assign*.
+
 ## Import the *taxonomy terms*
 The *LandDebate* uses 5 different *taxonomies* or vocabularies to classify the
 different contents:  
@@ -125,7 +141,7 @@ After selecting the editor you can  change its options and choose which buttons
 to show.  We suggest enabling all the buttons for the best user experience.
 
 ## Configure Twitter and Facebook login
-The HybdridAuth module allows users to sign in with their Facebook or Twitter accounts, 
+The HybdridAuth module allows users to sign in with their Facebook or Twitter accounts,
 in order to configure this module go to the path **admin/config/people/hybridauth**.
 Now, in authentication provider check Facebook and Twitter check box and then go through their settings.
 
