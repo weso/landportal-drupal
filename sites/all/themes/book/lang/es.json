@@ -207,5 +207,11 @@
   "first_name": "Nombre",
   "last_name": "Apellidos",
   "api_access_token": "Clave de acceso al API",
-  "member_since": "Miembro desde"
+  "member_since": "Miembro desde",
+  "email": "Correo",
+  "no_firstname": "El usuario no tiene nombre",
+  "no_lastname": "El usuario no tiene apellidos",
+  "no_email": "El usuario no tiene email",
+  "no_api_access_token": "El usuario no tiene clave de acceso al API",
+  "no_member-since": "El usuario no tiene fecha de registro"
 }
