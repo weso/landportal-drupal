@@ -25,7 +25,7 @@ The *favicon* is a little icon that shows in the browser tab and in the browser
 bookmark section representing the entire site.  The new LandPortal has a nice
 *favicon* which can be easily enabled:  
   1. Go to **admin/appearance/settings**
-  2. In the section *Logo image settings* uncheck the option *Use default logo*
+  2. In the section *Shortcut icon settings* uncheck the option *Use default logo*
   2. In the *path to custom logo* field write **sites/all/themes/book/favicon.png**
 
 The following screenshot shows how the options shold look:
@@ -127,10 +127,20 @@ same as the configuration for the *events* and *news*, which you can see in the 
 section.
 
 ## Configure the search
+
+### Connect to the *Apache Solr* service
 The new LandPortal uses *Apache solr* to provide a high quality search service.  
 The *Apache solr* configuration can be accessed in **admin/config/search/apachesolr/settings/solr/edit?destination=admin/config/search/apachesolr**.
 In the *Solr server URL* field write **http://localhost:8983/solr/drupal**,
-the URL in which Solr is listening
+the URL in which Solr is listening.
+
+### Set *Apache Solr* as the default search provider
+To configure *Apache Solr* as the default search provider for the new *LandPortal*
+go to **admin/config/search/settings** and in the option *Default search module*
+choose the option *Apache Solr search*.
+
+The settings should look like the following screenshot:
+![Solr as default search provider](readme_images/solr_as_default.png)
 
 ## Configure the WYSIWYG editor options
 The *WYSIWYG* module allows *Drupal* to show a nice text editor component in which
