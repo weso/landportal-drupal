@@ -3,7 +3,7 @@ include_once("database.php");
 
 /*
 $a = new Country();
-header('Content-Type: application/json');
+//header('Content-Type: application/json');
 echo json_encode($a->get(array(), 'ESP'));
 */
 
@@ -38,9 +38,11 @@ class Country {
 		$connection = $database->open();
 		$datasources = $database->query($connection, "datasources_by_country", array($lang, $iso3));
 		$info = $database->query($connection, "country", array($lang, $iso3));
+		
 		if (!$info && function_exists("drupal_goto")) {
 			drupal_goto("e404");
 		}
+		
 		$countries = $database->query($connection, "countries_without_region", array($lang));
 		$indicators_imploded = "'". implode("','", $this->spiderIndicators) ."','".  implode("','", $this->trafficLigths) ."','".  implode("','", $this->tableIndicators) ."','". implode("','", $this->gaugeIndicators) ."'";
 		$charts = $database->query($connection, "country_chart_indicators", array($lang, $iso3, $indicators_imploded));
@@ -75,7 +77,7 @@ class Country {
 			if (!array_key_exists($topic_id, $topics)) {
 				$topics[$topic_id] = array(
 					"id" => $topic_id,
-					"name" => $data[$i]["topic_name"],
+					//"name" => $data[$i]["topic_name"],
 					"indicators" => array()
 				);
 			}
@@ -83,7 +85,7 @@ class Country {
 				"preferable_tendency" => $data[$i]["preferable_tendency"],
 				"last_update" => $data[$i]["last_update"],
 				"topic_id" => $topic_id,
-				"topic_name" => $data[$i]["topic_name"],
+				//"topic_name" => $data[$i]["topic_name"],
 				"starred" => $data[$i]["starred"],
 				"description" => utf8_encode($data[$i]["description"]),
 				"name" => utf8_encode($data[$i]["name"]),
@@ -159,7 +161,7 @@ class Country {
 		return $result;
 	}
 
-	function compose_charts($observations, $country_info) {
+	private function compose_charts($observations, $country_info) {
 		$spider_obs = $this->_create_spider_graph($country_info["name"]);
 		$traffic_obs = array(
 			"observations"=>array()
@@ -196,7 +198,7 @@ class Country {
 			);
 			if (in_array($indicator_id, $this->spiderIndicators)) {
 				$spider_obs[$indicator_id] = $observation;
-			} elseif (in_array($indicator_id, $this->trafficLights)) {
+			} elseif (in_array($indicator_id, $this->trafficLigths)) {
 				array_push($traffic_obs["observations"], $observation);
 			} elseif (in_array($indicator_id, $this->tableIndicators)) {
 				array_push($table_obs["observations"], $observation);
@@ -229,7 +231,7 @@ class Country {
 	 * the country  name and the ref_time.
 	 * @return array with the form indicator_id => observation_object
 	 */
-	function _create_spider_graph($country_name) {
+	private function _create_spider_graph($country_name) {
 		$spider_graph = array();
 		foreach($this->spiderIndicators as $ind_id) {
 			$spider_graph[$ind_id] = array(
