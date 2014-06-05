@@ -1,12 +1,11 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', TRUE);
-ini_set('display_startup_errors', TRUE);
 include_once("database.php");
 
+/*
 $a = new Country();
-//header('Content-Type: application/json');
+header('Content-Type: application/json');
 echo json_encode($a->get(array(), 'ESP'));
+*/
 
 class Country {
 	private $spiderIndicators = array('INDOECD1', 'INDIPFRI0', 'INDUNDP0');
@@ -26,21 +25,22 @@ class Country {
 	}
 
 	public function get($options, $iso3) {
-		//$lang = $options->language;
-		$lang = "en";
-		//$api = $options->host;
-		$api = 'http://'. $_SERVER['HTTP_HOST'];
+		$lang = $options->language;
+		//$lang = "en";
+		$api = $options->host;
+		//$api = 'http://'. $_SERVER['HTTP_HOST'];
 
 		$cached = $this->get_from_cache($lang, $iso3);
 		if ($cached !== null)
 			return $cached;
+
 		$database = new DataBaseHelper();
 		$connection = $database->open();
 		$datasources = $database->query($connection, "datasources_by_country", array($lang, $iso3));
 		$info = $database->query($connection, "country", array($lang, $iso3));
-		if (!$info):
+		if (!$info && function_exists("drupal_goto")) {
 			drupal_goto("e404");
-		endif;
+		}
 		$countries = $database->query($connection, "countries_without_region", array($lang));
 		$indicators_imploded = "'". implode("','", $this->spiderIndicators) ."','".  implode("','", $this->trafficLigths) ."','".  implode("','", $this->tableIndicators) ."','". implode("','", $this->gaugeIndicators) ."'";
 		$charts = $database->query($connection, "country_chart_indicators", array($lang, $iso3, $indicators_imploded));
@@ -53,14 +53,15 @@ class Country {
 
 
 	private function compose_data($datasources, $info, $countries, $charts, $starred) {
+		$country_info = $this->compose_info($info);
 		$result = array();
-		$result["info"] = $this->compose_info($info);
+		$result["info"] = $country_info;
 		$result["selectors"] = array(
 			"data-sources" => $this->compose_datasources($datasources),
 			"countries" => $this->compose_countries($countries)
 		);
 		$result["starred"] = $this->compose_starred($starred);
-		$result["charts"] = $this->compose_charts($charts);
+		$result["charts"] = $this->compose_charts($charts, $country_info);
 		$result["entity-id"] = $result["info"]["iso3"];
 		return $result;
 	}
@@ -158,10 +159,8 @@ class Country {
 		return $result;
 	}
 
-	function compose_charts($observations) {
-		$spider_obs = array(
-			"observations"=>array()
-		);
+	function compose_charts($observations, $country_info) {
+		$spider_obs = $this->_create_spider_graph($country_info["name"]);
 		$traffic_obs = array(
 			"observations"=>array()
 		);
@@ -196,7 +195,7 @@ class Country {
 				)
 			);
 			if (in_array($indicator_id, $this->spiderIndicators)) {
-				array_push($spider_obs["observations"], $observation);
+				$spider_obs[$indicator_id] = $observation;
 			} elseif (in_array($indicator_id, $this->trafficLights)) {
 				array_push($traffic_obs["observations"], $observation);
 			} elseif (in_array($indicator_id, $this->tableIndicators)) {
@@ -213,9 +212,10 @@ class Country {
 				));
 			}
 		}
-		$spider_obs = $this->fill_missing_observations($this->spiderIndicators, $spider_obs);
 		return array(
-			"spider" => $spider_obs,
+			"spider" => array(
+				"observations" => array_values($spider_obs),
+			),
 			"trafficLights" => $traffic_obs,
 			"tableIndicators" => $table_obs,
 			"gaugeIndicators" => $gauge_obs,
@@ -223,17 +223,38 @@ class Country {
 	}
 
 	/**
-	 * Fill an array with empty objects until its number of indicators.
+	 * The spider graph array has to be created in a different way, because we
+	 * always need that the observation number is equal to the indicator number.
+	 * The indicators without observation can be left empty except the indicator id,
+	 * the country  name and the ref_time.
+	 * @return array with the form indicator_id => observation_object
 	 */
-	function fill_missing_observations($indicators, $observations) {
-		while (count($observations["observations"]) < count($indicators)) {
-			array_push($observations["observations"], array(
-				"value" => array(
-					"value" => null,
+	function _create_spider_graph($country_name) {
+		$spider_graph = array();
+		foreach($this->spiderIndicators as $ind_id) {
+			$spider_graph[$ind_id] = array(
+				"country" => array(
+					"faoURI" => "",
+					"iso2" => "",
+					"iso3" => "",
+					"name" => $country_name,
 				),
-			));
+				"indicator" => array(
+					"id" => $ind_id,
+					"name" => "",
+					"description" => "",
+					"last_update" => "",
+					"preferable_tendency" => "",
+					"starred" => "",
+				),
+				"ref_time" => array(
+					"value" => "null",
+				),
+				"value" => array(
+					"value" => "",
+				)
+			);
 		}
-		return $observations;
+		return $spider_graph;
 	}
-
 }
