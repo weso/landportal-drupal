@@ -63,27 +63,38 @@
 * @ingroup themeable
 */
 ?>
+<?php require_once(drupal_get_path("theme", "book") ."/template-loader.php"); ?>
+<?php $labels = get_labels($application_data['languages']); ?>
+
+<?php $is_country = $result['bundle'] == 'landbook_country'; ?>
+<?php $is_indicator = $result['bundle'] == 'landbook_indicator'; ?>
+<?php $node_id = $result['node']->entity_id; ?>
+<?php $node = node_load($node_id); ?>
+
 <div class="row search-result">
     <div class="col-sm-12">
-        <h3 class="text-left"><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h3>
-        <a class="url" href="<?php echo $url; ?>"><?php echo $url; ?></a>
-        <p class="description"><?php echo $snippet; ?></p>
+        <!-- COUNTRY -->
+        <?php if ($is_country): ?>
+            <?php $iso3 = $node->field_id['und'][0]['safe_value']; ?>
+            <?php $flag = "/sites/all/themes/book/static/images/flags/$iso3.png"; ?>
+            <?php $url = "/book/countries/$iso3"; ?>
+            <img src="<?php echo $flag; ?>" class="search-result-flag"/>
+            <h3 class="text-left"><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h3>
+            <a class="url" href="<?php echo $url; ?>"><?php echo $url; ?></a>
+            <p><a class="search-result-label label-country" href="/book/countries"><?php echo $labels['country']; ?></a></p>
+        <!-- INDICATOR -->
+        <?php elseif ($is_indicator): ?>
+            <?php $ind_id = $node->field_id['und'][0]['safe_value']; ?>
+            <?php $url = "/book/indicators/detail?indicator=$ind_id"; ?>
+            <h3 class="text-left"><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h3>
+            <p class="description"><?php echo $snippet; ?></p>
+            <p><a class="search-result-label label-indicator" href="/book/indicators"><?php echo $labels['indicator']; ?></a></p>
+        <!-- OTHER -->
+        <?php else: ?>
+            <?php $url = "/node/$node_id"; ?>
+            <h3 class="text-left"><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h3>
+            <a class="url" href="<?php echo $url; ?>"><?php echo $url; ?></a>
+            <p class="description"><?php echo $snippet; ?></p>
+        <?php endif; ?>
     </div>
 </div>
-<!--
-<li class="<?php print $classes; ?>"<?php print $attributes; ?>>
-<?php print render($title_prefix); ?>
-<h3 class="title"<?php print $title_attributes; ?>>
-<a href="<?php print $url; ?>"><?php print $title; ?></a>
-</h3>
-<?php print render($title_suffix); ?>
-<div class="search-snippet-info">
-<?php if ($snippet): ?>
-<p class="search-snippet"<?php print $content_attributes; ?>><?php print $snippet; ?></p>
-<?php endif; ?>
-<?php if ($info): ?>
-<p class="search-info"><?php print $info; ?></p>
-<?php endif; ?>
-</div>
-</li>
--->

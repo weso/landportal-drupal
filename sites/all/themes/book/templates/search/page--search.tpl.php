@@ -21,12 +21,12 @@
         <div class='search-forms'>
             <form class="search-form" action="/search/site/" method="post" id="search-form" accept-charset="UTF-8">
                 <div class="input-group search site-search">
-                    <input id="edit-keys" name="keys" value="<?php echo htmlspecialchars($search_terms); ?>" type="text" class="form-control" placeholder="{{#labels}}{{search}}{{/labels}}">
+                    <input id="edit-keys" name="keys" value="<?php echo htmlspecialchars($search_terms); ?>" type="text" class="form-control" placeholder="<?php echo $labels['search']; ?>">
                     <div class="input-group-btn">
                         <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                     </div>
                 </div>
-                <input type="hidden" name="get" value="[]">
+                <input type="hidden" name="form_token" value="IabUpQ1BgsCKvkRK1u5di2yBw0J8GAOLsetmTzFCQyI">
                 <input type="hidden" name="form_build_id" value="form-QuQXQvEeNVWHMYgpC0NDa-VnGRqqoeS683QFCjxt3og">
                 <input type="hidden" name="form_id" value="apachesolr_search_custom_page_search_form">
             </form>
