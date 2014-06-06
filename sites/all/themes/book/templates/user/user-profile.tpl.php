@@ -33,6 +33,11 @@
 * @ingroup themeable
 */
 ?>
+<!--
+<pre>
+    <?php print_r($user_profile); ?>
+</pre>
+-->
 <?php require_once(drupal_get_path("theme", "book") ."/template-loader.php"); ?>
 <?php $labels = get_labels($application_data['languages']); ?>
 <!-- HEADER -->
@@ -49,6 +54,8 @@
         $user_profile['field_firstname']['#object']->name : "";
     $created = isset($user_profile['field_firstname']['#object']->created) ?
         $user_profile['field_firstname']['#object']->created : "";
+    $email = isset($user_profile['field_firstname']['#object']->mail) ?
+        $user_profile['field_firstname']['#object']->mail : "";
 ?>
 <div class="content main-content container">
     <!-- Breadcrumbs -->
@@ -68,19 +75,43 @@
             </h1>
             <div class="user-firstname">
                 <h2><?php echo $labels['first_name']; ?></h2>
-                <p><?php echo $firstname; ?></p>
+                <?php if ($firstname !== ""): ?>
+                    <p><?php echo $firstname; ?></p>
+                <?php else: ?>
+                    <p><?php $labels['no_firstname']; ?></p>
+                <?php endif; ?>
             </div>
             <div class="user-lastname">
                 <h2><?php echo $labels['last_name']; ?></h2>
-                <p><?php echo $lastname; ?></p>
+                <?php if ($lastname !== ""): ?>
+                    <p><?php echo $lastname; ?></p>
+                <?php else: ?>
+                    <p><?php $labels['no_lastname']; ?></p>
+                <?php endif; ?>
+            </div>
+            <div class="user-email">
+                <h2><?php echo $labels['email']; ?></h2>
+                <?php if ($email !== ""): ?>
+                    <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
+                <?php else: ?>
+                    <p><?php $labels['no_email']; ?></p>
+                <?php endif; ?>
             </div>
             <div class="user-api-token">
                 <h2><?php echo $labels['api_access_token']; ?></h2>
-                <p><?php echo $api_token; ?></p>
+                <?php if ($api_token !== ""): ?>
+                    <pre><?php echo $api_token; ?></pre>
+                <?php else: ?>
+                    <p><?php $labels['no_api_access_token']; ?></p>
+                <?php endif; ?>
             </div>
             <div class="user-member-since">
                 <h2><?php echo $labels['member_since']; ?></h2>
-                <p><?php echo date($labels["date_format"], $created); ?></p>
+                <?php if ($created !== ""): ?>
+                    <p><?php echo date($labels["date_format"], $created); ?></p>
+                <?php else: ?>
+                    <p><?php $labels['no_member-since']; ?></p>
+                <?php endif; ?>
             </div>
         </div>
         <!-- User picture -->
