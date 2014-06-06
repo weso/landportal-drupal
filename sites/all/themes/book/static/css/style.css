@@ -2156,3 +2156,22 @@ div.debate-status a[href$="/closed_debates"] {
 .add-new-node {
 	margin-bottom: 1em;
 }
+
+/* SEARCH */
+
+.site-search {
+	border: 0.1em solid #888;
+}
+
+.search-result h3 {
+	font-size: 1.7em;
+	margin-bottom: 0.2em;
+}
+
+.search-result .url {
+	color: #006621;
+}
+
+.search-result .description {
+	margin-top: 0.5em;
+}

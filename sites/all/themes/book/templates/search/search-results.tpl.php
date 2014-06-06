@@ -23,12 +23,6 @@
 */
 ?>
 <?php if ($search_results): ?>
-    <h2><?php echo "RESULTADOS DE LA BUSQUEDA";?></h2>
-    <ol class="search-results <?php print $module; ?>-results">
-        <?php print $search_results; ?>
-    </ol>
+    <?php print $search_results; ?>
     <?php print $pager; ?>
-<?php else : ?>
-    <h2><?php echo "NO HAY RESULTADOS";?></h2>
-    <?php print search_help('search#noresults', drupal_help_arg()); ?>
 <?php endif; ?>
