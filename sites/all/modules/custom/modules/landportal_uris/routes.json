@@ -29,11 +29,11 @@
             "params": []
         },
         {
-            "path": "book/indicators/%",
+            "path": "book/indicators/detail",
             "name": "indicator",
             "title": "Indicator",
             "navigation": "indicators",
-            "params": [2]
+            "params": []
         },
         {
             "path": "book/regions",
@@ -105,10 +105,10 @@
             "params": []
         },
         {
-          "path": "debate",
-          "name": "debate",
-          "title": "Land Debate",
-          "redirect": "debate/blog"
+            "path": "debate",
+            "name": "debate",
+            "title": "Land Debate",
+            "redirect": "debate/blog"
         }
     ]
 }
