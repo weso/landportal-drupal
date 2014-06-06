@@ -8,8 +8,8 @@ class Indicator {
 		$result = $indicators->get($options);
 		return array(
 			"selectors" => array(
-					"topics" => $result["topics"],
-					"indicators"=> $result["indicators"]
+				"topics" => $result["topics"],
+				"indicators"=> $result["indicators"]
 			)
 		);
 	}

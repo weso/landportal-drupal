@@ -1,18 +1,28 @@
 <?php
 
+/**
+ * Implements hook_init.  Used to redirect to the corresponding page in the
+ * LandBook when searching for the LandBook nodes.
+ *
+ * We used hook_init instead hook_page_view because the latest is also called
+ * when the nodes are indexed for search and breaks the index.
+ */
 function landbook_nodes_access_init() {
     $node = menu_get_object();
-    //arg(2) allows us to ignore node/###/edit, etc
-    if (!empty($node->type) && !arg(2)){
-        //Our field_id (for example 'ESP') is stored here by Drupal
-        $landbook_id = $node->field_id["und"][0]["value"];
-        switch ($node->type) {
+    if (isset($node->type)):
+        $landbook_id = $node->field_id['und'][0]['value'];
+        switch ($node->type):
             case "landbook_country":
-                drupal_goto("countries/" . $landbook_id);  
+                drupal_goto("book/countries/$landbook_id");
                 break;
             case "landbook_indicator":
-                drupal_goto("indicators/" . $landbook_id);  
+                // The second parameter is required to send the querystring properly
+                drupal_goto('book/indicators/detail', array(
+                    'query' => array(
+                        'indicator' => $landbook_id,
+                    )
+                ));
                 break;
-        }
-    }
+        endswitch;
+    endif;
 }
