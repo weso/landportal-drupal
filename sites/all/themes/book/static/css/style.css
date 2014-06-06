@@ -2163,6 +2163,11 @@ div.debate-status a[href$="/closed_debates"] {
 	border: 0.1em solid #888;
 }
 
+.search-result {
+	margin-bottom: 0.7em;
+	margin-top: 0.5em;
+}
+
 .search-result h3 {
 	font-size: 1.7em;
 	margin-bottom: 0.2em;
@@ -2174,4 +2179,30 @@ div.debate-status a[href$="/closed_debates"] {
 
 .search-result .description {
 	margin-top: 0.5em;
+}
+
+.search-result .search-result-flag {
+	float: left;
+	margin-right: 1em;
+	margin-top: 0.3em;
+	width: 1.6em;
+}
+
+.search-result .search-result-label {
+	display: inline-block;
+	padding: 0.2em 0.4em 0.1em 0.4em;
+	background-color: #aaa;
+	color: #fff;
+	font-size: 0.7em;
+	border-radius: 0.5em;
+	margin-top: 0.2em;
+	text-transform: uppercase;
+}
+
+.search-result .label-country {
+	background-color: #04b431;
+}
+
+.search-result .label-indicator {
+	background-color: #04b431;
 }

@@ -215,7 +215,7 @@
   "no_api_access_token": "The user does not have API access token",
   "no_member-since": "The user does not have register date",
   "search_results": "Search results",
-  "no_search_results_0": "Your search did not yeld any result",
+  "no_search_results_0": "Your search did not yield any result",
   "no_search_results_1": "Check if your spelling is correct, or try removing filters",
   "no_search_results_2": "Remove quotes around phrases to match each word individually: \"blue drop\" will match less than blue drop",
   "no_search_results_3": "You can require or exclude terms using + and -: big +blue drop will require a match on blue while big blue -drop will exclude results that contain drop"
