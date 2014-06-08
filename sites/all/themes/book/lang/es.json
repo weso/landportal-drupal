@@ -219,5 +219,9 @@
   "no_search_results_1": "Comprueba si has escrito correctamente o prueba a eliminar filtros",
   "no_search_results_2": "Elimina las frases entrecomilladas para buscar cada palabra individualmente: \"casa azul\" encontrará menos resultados que casa azul",
   "no_search_results_3": "You can require or exclude terms using + and -: big +blue drop will require a match on blue while big blue -drop will exclude results that contain drop",
-  "no_search_results_3": "Puedes requerir o excluir términos usando + y -: casa +azul requiere que los resultados tengan el término azul, por otra parte casa -azul excluye los resultados que contengan azul"
+  "no_search_results_3": "Puedes requerir o excluir términos usando + y -: casa +azul requiere que los resultados tengan el término azul, por otra parte casa -azul excluye los resultados que contengan azul",
+  "blog_post": "Entrada de blog",
+  "debate": "Debate",
+  "event": "Evento",
+  "organization": "Organización"
 }

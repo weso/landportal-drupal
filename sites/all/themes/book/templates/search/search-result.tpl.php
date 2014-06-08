@@ -65,11 +65,18 @@
 ?>
 <?php require_once(drupal_get_path("theme", "book") ."/template-loader.php"); ?>
 <?php $labels = get_labels($application_data['languages']); ?>
-
-<?php $is_country = $result['bundle'] == 'landbook_country'; ?>
-<?php $is_indicator = $result['bundle'] == 'landbook_indicator'; ?>
+<!-- Load the node correspondant to the search result. -->
 <?php $node_id = $result['node']->entity_id; ?>
 <?php $node = node_load($node_id); ?>
+<!-- Check of what type is the search result -->
+<?php $is_country = $result['bundle'] === 'landbook_country'; ?>
+<?php $is_indicator = $result['bundle'] === 'landbook_indicator'; ?>
+<?php $is_blog_post = $result['bundle'] === 'blog_post'; ?>
+<?php $is_debate = $result['bundle'] === 'debate'; ?>
+<?php $is_event = $result['bundle'] === 'event'; ?>
+<?php $is_news = $result['bundle'] === 'news'; ?>
+<?php $is_organization = $result['bundle'] === 'organization'; ?>
+
 
 <div class="row search-result">
     <div class="col-sm-12">
@@ -95,6 +102,17 @@
             <h3 class="text-left"><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h3>
             <a class="url" href="<?php echo $url; ?>"><?php echo $url; ?></a>
             <p class="description"><?php echo $snippet; ?></p>
+            <?php if ($is_blog_post): ?>
+                <p><a class="search-result-label label-blog-post" href="/debate/blog"><?php echo $labels['blog_post']; ?></a></p>
+            <?php elseif ($is_debate): ?>
+                <p><a class="search-result-label label-debate" href="/debate/debates"><?php echo $labels['debate']; ?></a></p>
+            <?php elseif ($is_event): ?>
+                <p><a class="search-result-label label-event" href="/debate/events"><?php echo $labels['event']; ?></a></p>
+            <?php elseif ($is_news): ?>
+                <p><a class="search-result-label label-news" href="/debate/news"><?php echo $labels['news']; ?></a></p>
+            <?php elseif ($is_organization): ?>
+                <p><a class="search-result-label label-organization" href="/debate/organizations"><?php echo $labels['organization']; ?></a></p>
+            <?php endif; ?>
         <?php endif; ?>
     </div>
 </div>
