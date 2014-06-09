@@ -128,7 +128,7 @@
           <h2 class="section">
             <span><?php echo $labels["facilitated_by"]; ?></span>
           </h2>
-          <!-- <?php print render($user_picture); ?> -->
+          <?php print theme('user_picture', array('account' =>user_load($uid))); ?>
           <?php echo render($name); ?>
         </div>
         <div class="social-buttons">

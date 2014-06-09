@@ -1,4 +1,5 @@
 <?php
+
 /**
 * @file
 * Default theme implementation to present all user profile data.
@@ -35,6 +36,7 @@
 ?>
 <?php require_once(drupal_get_path("theme", "book") ."/template-loader.php"); ?>
 <?php $labels = get_labels($application_data['languages']); ?>
+
 <?php $firstname = isset($user_profile['field_firstname']['#items']['0']['safe_value']) ?
         $user_profile['field_firstname']['#items']['0']['safe_value'] : ""; ?>
 <?php $lastname = isset($user_profile['field_lastname']['#items']['0']['safe_value']) ?
@@ -116,6 +118,7 @@
         </div>
         <!-- User picture -->
         <div class="col-sm-3">
+            <?php print theme('user_picture', array('account' =>user_load_by_name($username))); ?>
         </div>
     </div>
 </div>
