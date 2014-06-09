@@ -36,3 +36,4 @@ features[user_permission][] = edit own news content
 features[user_permission][] = edit own organization content
 features[user_permission][] = view field_status
 features[user_permission][] = view own field_status
+features[user_role][] = authenticated user with acces to the API

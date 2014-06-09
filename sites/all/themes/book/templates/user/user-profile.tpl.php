@@ -33,30 +33,28 @@
 * @ingroup themeable
 */
 ?>
-<!--
-<pre>
-    <?php print_r($user_profile); ?>
-</pre>
--->
 <?php require_once(drupal_get_path("theme", "book") ."/template-loader.php"); ?>
 <?php $labels = get_labels($application_data['languages']); ?>
+<?php $firstname = isset($user_profile['field_firstname']['#items']['0']['safe_value']) ?
+        $user_profile['field_firstname']['#items']['0']['safe_value'] : ""; ?>
+<?php $lastname = isset($user_profile['field_lastname']['#items']['0']['safe_value']) ?
+        $user_profile['field_lastname']['#items']['0']['safe_value'] : ""; ?>
+<?php $api_token = isset($user_profile['field_api_token']['#items']['0']['safe_value']) ?
+        $user_profile['field_api_token']['#items']['0']['safe_value'] : ""; ?>
+<?php $username = isset($user_profile['field_firstname']['#object']->name) ?
+        $user_profile['field_firstname']['#object']->name : ""; ?>
+<?php $created = isset($user_profile['field_firstname']['#object']->created) ?
+        $user_profile['field_firstname']['#object']->created : ""; ?>
+<?php $email = isset($user_profile['field_firstname']['#object']->mail) ?
+        $user_profile['field_firstname']['#object']->mail : ""; ?>
+<?php $can_access_api = isset($user_profile['field_api_token']) ?
+        in_array('authenticated user with acces to the API', $user_profile['field_firstname']['#object']->roles)
+        : false; ?>
+
 <!-- HEADER -->
 <?php get_template("debate-header", "community", $application_data, $theme_path); ?>
+
 <!-- CONTENT -->
-<?php
-    $firstname = isset($user_profile['field_firstname']['#items']['0']['safe_value']) ?
-        $user_profile['field_firstname']['#items']['0']['safe_value'] : "";
-    $lastname = isset($user_profile['field_lastname']['#items']['0']['safe_value']) ?
-        $user_profile['field_lastname']['#items']['0']['safe_value'] : "";
-    $api_token = isset($user_profile['field_api_token']['#items']['0']['safe_value']) ?
-        $user_profile['field_api_token']['#items']['0']['safe_value'] : "";
-    $username = isset($user_profile['field_firstname']['#object']->name) ?
-        $user_profile['field_firstname']['#object']->name : "";
-    $created = isset($user_profile['field_firstname']['#object']->created) ?
-        $user_profile['field_firstname']['#object']->created : "";
-    $email = isset($user_profile['field_firstname']['#object']->mail) ?
-        $user_profile['field_firstname']['#object']->mail : "";
-?>
 <div class="content main-content container">
     <!-- Breadcrumbs -->
     <ol class="breadcrumb">
@@ -97,6 +95,7 @@
                     <p><?php $labels['no_email']; ?></p>
                 <?php endif; ?>
             </div>
+            <?php if ($can_access_api): ?>
             <div class="user-api-token">
                 <h2><?php echo $labels['api_access_token']; ?></h2>
                 <?php if ($api_token !== ""): ?>
@@ -105,6 +104,7 @@
                     <p><?php $labels['no_api_access_token']; ?></p>
                 <?php endif; ?>
             </div>
+            <?php endif; ?>
             <div class="user-member-since">
                 <h2><?php echo $labels['member_since']; ?></h2>
                 <?php if ($created !== ""): ?>
@@ -119,5 +119,6 @@
         </div>
     </div>
 </div>
+
 <!-- FOOTER -->
 <?php get_template("footer", "events", $application_data, $theme_path); ?>
