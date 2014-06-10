@@ -222,5 +222,6 @@
   "blog_post": "Blog post",
   "debate": "Debate",
   "event": "Event",
-  "organization": "Organization"
+  "organization": "Organization",
+  "content_tagged_with": "Content tagged with"
 }
