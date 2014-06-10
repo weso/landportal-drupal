@@ -1,43 +1,27 @@
 <?php
 
 /**
- * @file
- * Shows opened and coming debates, closed debates and recent comments.
- *
- * Variables available:
- * - $classes_array: An array of classes determined in
- *   template_preprocess_views_view(). Default classes are:
- *     .view
- *     .view-[css_name]
- *     .view-id-[view_name]
- *     .view-display-id-[display_name]
- *     .view-dom-id-[dom_id]
- * - $classes: A string version of $classes_array for use in the class attribute
- * - $css_name: A css-safe version of the view name.
- * - $css_class: The user-specified classes names, if any
- * - $header: The view header
- * - $footer: The view footer
- * - $rows: The results of the view query, if any
- * - $empty: The empty text to display if the view is empty
- * - $pager: The pager next/prev links to display, if any
- * - $exposed: Exposed widget form/info to display
- * - $feed_icon: Feed icon to display, if any
- * - $more: A link to view more, if any
- *
- * @ingroup views_templates
+ * This view shows the latest debates calling automatically the template
+ * 'views-view-fields--latest-debates-page' for rendering each entry.
+ * Older deabtes are only shown with title and date.
  */
 
 ?>
-<?php include_once("template-loader.php");
-    get_template("debate-header", "debates", $application_data, $theme_path);
-    $labels = get_labels($application_data['languages']);
-?>
+<?php require_once(drupal_get_path("theme", "book") ."/template-loader.php"); ?>
+<?php $labels = get_labels($application_data['languages']); ?>
+
+<?php get_template("debate-header", "debates", $application_data, $theme_path); ?>
 <div class="content main-content container">
-    <ol class="breadcrumb">
-        <li><a href="/"><?php echo $labels["index"]; ?></a></li>
-        <li><a href="/debate"><?php echo $labels["land_debate"]; ?></a></li>
-        <li class="active"><?php echo $labels["debates"]; ?></li>
-    </ol>
+    <div class="row">
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li><a href="/"><?php echo $labels["index"]; ?></a></li>
+                <li><a href="/debate"><?php echo $labels["land_debate"]; ?></a></li>
+                <li class="active"><?php echo $labels["debates"]; ?></li>
+            </ol>
+        </div>
+        <a href="/debate/debates.xml"><i class="fa fa-rss-square fa-lg" title="<?php echo $labels['rss']; ?>"></i><?php echo $labels['rss']; ?></a>
+    </div>
     <div class="row">
         <div class="col-sm-12">
             <h1>

@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @file
- * Default simple view template to display a list of rows.
+ * This view renders the two most recent events side by side.
  *
- * @ingroup views_templates
+ * This view calls automatically the 'views-view-fields--events' template for
+ * rendering each event information.
  */
 ?>
 <?php if (!empty($title)): ?>

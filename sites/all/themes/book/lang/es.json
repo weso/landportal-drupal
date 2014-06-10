@@ -186,7 +186,7 @@
   "reply": "Responder",
   "delete": "Eliminar",
   "comment_forbidden": "Log in or register to post comments",
-  "user_comments": "Lo que dicen los usuarios los usuarios",
+  "user_comments": "Lo que dicen los usuarios",
   "create_new_blog_post": "Crear nueva entrada",
   "body": "Cuerpo",
   "image": "Imagen",
@@ -224,5 +224,6 @@
   "debate": "Debate",
   "event": "Evento",
   "organization": "Organización",
-  "content_tagged_with": "Contenido etiquetado con"
+  "content_tagged_with": "Contenido etiquetado con",
+  "rss": "RSS"
 }

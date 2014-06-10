@@ -1,6 +1,9 @@
 <?php
 /**
- * Prints 9 community organizations in a grid of size 3x3.
+ * This template shows 9 community organizations in a grid of size 3x3.
+ *
+ * It calls automatically the template 'views-view-fields-community' for rendering
+ * each template.
  */
 ?>
 
