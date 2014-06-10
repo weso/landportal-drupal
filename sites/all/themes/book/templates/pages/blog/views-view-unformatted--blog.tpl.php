@@ -1,10 +1,12 @@
 <?php
 
 /**
- * @file
- * Default simple view template to display a list of rows.
+ * This view renders the blog post structure for the LandPortal because the
+ * first blog entry must be displayed in a different way than the second and
+ * third entries.
  *
- * @ingroup views_templates
+ * This view calls automatically the template 'views-view-fields--blog' for each
+ * entry.
  */
 ?>
 <?php if (!empty($title)): ?>

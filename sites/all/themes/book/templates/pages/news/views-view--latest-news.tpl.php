@@ -1,37 +1,18 @@
 <?php
 
 /**
- * @file
- * LandDebate news template.
- *
- * Variables available:
- * - $classes_array: An array of classes determined in
- *   template_preprocess_views_view(). Default classes are:
- *     .view
- *     .view-[css_name]
- *     .view-id-[view_name]
- *     .view-display-id-[display_name]
- *     .view-dom-id-[dom_id]
- * - $classes: A string version of $classes_array for use in the class attribute
- * - $css_name: A css-safe version of the view name.
- * - $css_class: The user-specified classes names, if any
- * - $header: The view header
- * - $footer: The view footer
- * - $rows: The results of the view query, if any
- * - $empty: The empty text to display if the view is empty
- * - $pager: The pager next/prev links to display, if any
- * - $exposed: Exposed widget form/info to display
- * - $feed_icon: Feed icon to display, if any
- * - $more: A link to view more, if any
- *
- * @ingroup views_templates
+ * This view renders the latest news added to the LandPortal and a Twitter widget
+ * on the right side.  Older news are shown in the bottom with only post date
+ * and title.
  */
 ?>
-<!-- Highlights the corresponding tab in the header -->
-<?php include_once("template-loader.php");
-  get_template("debate-header", "news", $application_data, $theme_path);
-  $labels = get_labels($application_data['languages']);
-?>
+<?php require_once(drupal_get_path("theme", "book") ."/template-loader.php"); ?>
+<?php $labels = get_labels($application_data['languages']); ?>
+
+<!-- HEADER -->
+<?php get_template("debate-header", "news", $application_data, $theme_path); ?>
+
+<!-- CONTENT -->
 <div class="content main-content container">
   <!-- Breadcrumbs -->
   <ol class="breadcrumb">
@@ -39,6 +20,8 @@
     <li><a href="/debate"><?php echo $labels["land_debate"]; ?></a></li>
     <li class="active"><?php echo $labels["news"]; ?></li>
   </ol>
+  <!-- RSS icon -->
+  <a href="/debate/news.xml"><i class="fa fa-rss-square fa-lg" title="<?php echo $labels['rss']; ?>"></i><?php echo $labels['rss']; ?></a>
   <!-- View title -->
   <div class="row">
     <div class="col-sm-12">
@@ -49,6 +32,7 @@
       </h1>
     </div>
   </div>
+  <!-- Content creation (only if the user is logged in) -->
   <?php if ($logged_in): ?>
     <div class="row add-new-node">
       <div class="col-sm-9"></div>
@@ -135,4 +119,6 @@
     <?php endif; ?>
   </div> <!-- End row -->
 </div>
+
+<!-- FOOTER -->
 <?php get_template("footer", "news", $application_data, $theme_path); ?>

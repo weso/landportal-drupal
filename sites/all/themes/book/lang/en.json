@@ -223,5 +223,6 @@
   "debate": "Debate",
   "event": "Event",
   "organization": "Organization",
-  "content_tagged_with": "Content tagged with"
+  "content_tagged_with": "Content tagged with",
+  "rss": "RSS"
 }
