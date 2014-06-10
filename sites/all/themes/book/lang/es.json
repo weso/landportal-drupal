@@ -223,5 +223,6 @@
   "blog_post": "Entrada de blog",
   "debate": "Debate",
   "event": "Evento",
-  "organization": "Organización"
+  "organization": "Organización",
+  "content_tagged_with": "Contenido etiquetado con"
 }
