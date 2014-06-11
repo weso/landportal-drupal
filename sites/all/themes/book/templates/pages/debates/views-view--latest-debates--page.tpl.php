@@ -20,7 +20,17 @@
                 <li class="active"><?php echo $labels["debates"]; ?></li>
             </ol>
         </div>
-        <a href="/debate/debates.xml"><i class="fa fa-rss-square fa-lg" title="<?php echo $labels['rss']; ?>"></i><?php echo $labels['rss']; ?></a>
+    </div>
+    <!-- RSS icon -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="text-right rss-button">
+                  <a href="/debate/debates.xml">
+                    <span class="rss-text"><?php echo $labels['rss']; ?></span>
+                    <i class="fa fa-rss-square fa-lg" title="<?php echo $labels['rss']; ?>"></i>
+                  </a>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-sm-12">
