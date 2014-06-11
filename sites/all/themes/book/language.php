@@ -58,7 +58,7 @@ class Language {
   public function get_selected_language() {
     $languages = $this->get_languages('en');
     foreach ($languages as $lang) {
-      if ($lang['selected'] === true) {
+      if (isset($lang['selected']) /*&& $lang['selected'] === true*/) {
         return $lang['code'];
       }
     }
