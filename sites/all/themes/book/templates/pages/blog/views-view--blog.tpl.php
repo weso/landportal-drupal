@@ -20,7 +20,17 @@
     <li><a href="/debate"><?php echo $labels["land_debate"]; ?></a></li>
     <li class="active"><?php echo $labels["land_blog"]; ?></li>
   </ol>
-  <a href="/debate/blog.xml"><i class="fa fa-rss-square fa-lg" title="<?php echo $labels['rss']; ?>"></i><?php echo $labels['rss']; ?></a>
+  <!-- RSS icon -->
+  <div class="row">
+      <div class="col-sm-12">
+          <div class="text-right rss-button">
+                <a href="/debate/blog.xml">
+                  <span class="rss-text"><?php echo $labels['rss']; ?></span>
+                  <i class="fa fa-rss-square fa-lg" title="<?php echo $labels['rss']; ?>"></i>
+                </a>
+          </div>
+      </div>
+  </div>
   <!-- View title -->
   <div class="row">
     <div class="col-sm-12">

@@ -2206,3 +2206,13 @@ div.debate-status a[href$="/closed_debates"] {
 .search-result .label-indicator {
 	background-color: #04b431;
 }
+
+/* RSS */
+
+.rss-button .rss-text {
+	margin-right: 0.1em;
+}
+
+.rss-button i {
+	color: #FF6600;
+}
