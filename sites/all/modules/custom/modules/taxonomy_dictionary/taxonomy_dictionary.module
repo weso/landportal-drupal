@@ -1,0 +1,47 @@
+<?php
+require_once(drupal_get_path('module', 'landportal_uris') .'/database/database_helper.php');
+
+/**
+ * Implements hook_taxonomy_term_insert.
+ *
+ * This hook is used to intercept the creation of a new taxonomy term and store its TID 
+ * in the LandPortal database.  The TID is required to link the country view with the
+ * corresponding taxonomy term.
+ */
+function taxonomy_dictionary_taxonomy_term_insert($term) {
+    if (isset($term->vocabulary_machine_name)
+        && $term->vocabulary_machine_name === 'regions') {
+    $db = new DataBaseHelper();
+    $db->open();
+    $country_id = _get_country_id($db, $term->name);
+    _set_taxonomy_id($db, $country_id, $term->tid);
+    $db->close();
+    }
+}
+
+/**
+ * Return the ID of a country.
+ *
+ * @param $database The connection to the LandPortal database.
+ * @param $name The name of the country.
+ */
+function _get_country_id($database, $name) {
+    $query = "select region_id from regionTranslations where name = '{0}'";
+    $result = $database->direct_query($query, array($name));
+    if ($result) {
+        return $result[0]['region_id'];
+    } else {
+        return null;
+    }
+}
+
+/**
+ * Set the taxonomy_id value for a country in the LandPortal database.
+ *
+ * @param $database The connection to the LandPortal database.
+ * @param $country_id The ID of the country to make the update.
+ * @param $taxonomy_id The TID of the associated term in Drupal.
+ */
+function _set_taxonomy_id($database, $country_id, $taxonomy_id) {
+    $database->execute_statement("update countries set taxonomy_id = $taxonomy_id where id = $country_id");
+}

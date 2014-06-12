@@ -43,8 +43,10 @@ drush dis -y overlay
 ## LandDebate modules
 drush dl i18n
 drush en -y i18n_taxonomy #Allows translating taxonomy terms
-drush dl batch_add_terms
-drush en -y batch_add_terms #Allows adding taxonomy terms in batch
+#drush dl batch_add_terms
+#drush en -y batch_add_terms #Allows adding taxonomy terms in batch
+drush dl taxonomy_csv
+drush en -y taxonomy_csv
 drush dl date
 drush en -y date_repeat_field #Allows adding date fields to nodes (used in the detabte nodes)
 drush dl link
