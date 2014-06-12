@@ -46,7 +46,7 @@ drush en -y i18n_taxonomy #Allows translating taxonomy terms
 #drush dl batch_add_terms
 #drush en -y batch_add_terms #Allows adding taxonomy terms in batch
 drush dl taxonomy_csv
-drush en -y taxonomy_csv
+drush en -y taxonomy_csv #Allows importing taxonomy terms and taxonomy terms translation
 drush dl date
 drush en -y date_repeat_field #Allows adding date fields to nodes (used in the detabte nodes)
 drush dl link
@@ -62,6 +62,7 @@ drush en -y wysiwyg #Displays a WYSIWYG editor for text fields
 drush en -y landdebate_content_types #Includes: debate, news, organizations, blog posts and events
 drush en -y landdebate_permissions #Permissions to edit and create the LandDebate content types
 drush en -y landdebate_views #The custom views created for the LandDebate
+drush en -y landportal_user #Fields and roles for the LandPortal user
 
 ## Development modules
 drush dl devel
