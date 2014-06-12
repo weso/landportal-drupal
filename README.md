@@ -72,15 +72,18 @@ must be imported in a manual way (the import process only needs to be done once)
 
 The following steps explain how to import the taxonomy terms:
   1. Go to **admin/structure/taxonomy**
-  2. Click the button *batch add terms* for the **Continents** taxonomy.  
-  3. Paste the [taxonomy terms](https://github.com/weso/landportal-drupal/blob/develop/taxonomy_terms/continents.txt)
-    into the text box, and check the *check for duplicates* option.
-  4. Repeat the steps with the **[countries](https://github.com/weso/landportal-drupal/blob/develop/taxonomy_terms/countries.txt)**, **[topics](https://github.com/weso/landportal-drupal/blob/develop/taxonomy_terms/topics.txt)**, **[debate status](https://github.com/weso/landportal-drupal/blob/develop/taxonomy_terms/debate_status.txt)**, **[regions](https://github.com/weso/landportal-drupal/blob/develop/taxonomy_terms/regions.txt)**, **[languages](https://github.com/weso/landportal-drupal/blob/develop/taxonomy_terms/languages.txt)**
+  2. Click the button *CSV IMPORT* in the right upper side.  
+  3. Choose **Translation** as the type of import. In the *list of languages* field put the following text **und, es, fr**.
+  4. Paste the [taxonomy terms](https://github.com/weso/landportal-drupal/blob/develop/taxonomy_terms/continents.csv)
+    into the text box called *terms to import*.  
+  5. In the *vocabulary choice* field select the **Continents** taxonomy.  
+  6. Repeat the steps with the **[countries](https://github.com/weso/landportal-drupal/blob/develop/taxonomy_terms/countries.csv)**, **[topics](https://github.com/weso/landportal-drupal/blob/develop/taxonomy_terms/topics.csv)**, **[debate status](https://github.com/weso/landportal-drupal/blob/develop/taxonomy_terms/debate_status.csv)**, **[regions](https://github.com/weso/landportal-drupal/blob/develop/taxonomy_terms/regions.csv)**, **[languages](https://github.com/weso/landportal-drupal/blob/develop/taxonomy_terms/languages.csv)**. Don't forget to select the corresponding taxonomy in each case.
 
-(*Forget the "Tags" taxonomy, it is automatically created by Drupal.*)
+(*Forget the "Tags" taxonomy, it is automatically created by Drupal. You can delete it if you want.*)
 
-The following screenshot shows how the import should look.
+The following screenshots show how the import should look.
 ![Taxonomy import](readme_images/taxonomy_import.png)
+![Taxonomy import](readme_images/taxonomy_import2.png)
 
 ## Configure the content types
 Drupal creates two content types called *Article* and *Basic page* that will not
