@@ -50,7 +50,7 @@
 <?php $email = isset($user_profile['field_firstname']['#object']->mail) ?
         $user_profile['field_firstname']['#object']->mail : ""; ?>
 <?php $can_access_api = isset($user_profile['field_api_token']) ?
-        in_array('authenticated user with acces to the API', $user_profile['field_firstname']['#object']->roles)
+        in_array('access API', $user_profile['field_firstname']['#object']->roles)
         : false; ?>
 
 <!-- HEADER -->
@@ -66,13 +66,17 @@
         <li class="active"><?php echo $username; ?></li>
     </ol>
     <div class="row">
-        <!-- User data -->
-        <div class="col-sm-9">
+        <div class="col-sm-12">
             <h1>
                 <span class="country-name">
                     <?php echo $username; ?>
                 </span>
             </h1>
+        </div>
+    </div>
+    <div class="row">
+        <!-- User data -->
+        <div class="col-sm-9">
             <div class="user-firstname">
                 <h2><?php echo $labels['first_name']; ?></h2>
                 <?php if ($firstname !== ""): ?>
@@ -118,7 +122,23 @@
         </div>
         <!-- User picture -->
         <div class="col-sm-3">
-            <?php print theme('user_picture', array('account' =>user_load_by_name($username))); ?>
+            <div class="row user-image">
+                <div class="col-sm-12">
+                    <?php print theme('user_picture', array('account' =>user_load_by_name($username))); ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <?php $user_profile['field_related_countries']['#title'] = $labels['edit-field-related-countries-tid']; ?>
+                    <?php print render($user_profile['field_related_countries']); ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <?php $user_profile['field_related_continents']['#title'] = $labels['edit-field-related-continents-tid']; ?>
+                    <?php print render($user_profile['field_related_continents']); ?>
+                </div>
+            </div>
         </div>
     </div>
 </div>
