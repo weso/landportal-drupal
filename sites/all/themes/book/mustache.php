@@ -20,7 +20,7 @@ function render_mustache($mustache_data, $mustache_template, $mustache_navigatio
  */
 function get_labels($languages) {
 	foreach ($languages as $lang) {
-		if ($lang['selected'] === true) {
+		if (isset($lang['selected'])/* && lang['selected'] === true*/) {
 			$selected = $lang['code'];
 			break;
 		}
