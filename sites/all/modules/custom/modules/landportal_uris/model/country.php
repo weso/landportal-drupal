@@ -1,11 +1,11 @@
 <?php
 include_once("database.php");
 
-/*
-$a = new Country();
+
+//$a = new Country();
 //header('Content-Type: application/json');
-echo json_encode($a->get(array(), 'ESP'));
-*/
+//echo json_encode($a->get(array(), 'ESP'));
+
 
 class Country {
 	private $spiderIndicators = array('INDOECD1', 'INDIPFRI0', 'INDUNDP0');
@@ -137,6 +137,7 @@ class Country {
 			"faoURI" => utf8_encode($data[0]["faoURI"]),
 			"iso2" => $data[0]["iso2"],
 			"iso3" => $data[0]["iso3"],
+			'taxonomy_id' => $data[0]['taxonomy_id'],
 			"region" => array(
 				"un_code" => $data[0]["un_code"],
 				"id" => $data[0]["region_id"],
