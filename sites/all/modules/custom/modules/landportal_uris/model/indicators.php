@@ -1,5 +1,5 @@
 <?php
-include_once("database.php");
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
 
 class Indicators {
 	public function get_from_cache($lang) {
@@ -23,9 +23,9 @@ class Indicators {
 			return $cached;
 
 		$database = new DataBaseHelper();
-		$connection = $database->open();
-		$topics = $database->query($connection, "topics", array($lang));
-		$database->close($connection);
+		$database->open();
+		$topics = $database->query("topics", array($lang));
+		$database->close();
 		$result = $this->compose_data($topics);
 		apc_store($this->generate_cache_key($lang), $result);
 		return $result;
