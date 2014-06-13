@@ -1,34 +1,28 @@
 <?php
 require_once(dirname(__FILE__) .'/../database/database_helper.php');
+require_once(dirname(__FILE__) .'/../cache/cache_helper.php');
+
 
 class Countries {
-	public function get_from_cache($lang) {
-		$key = $this->generate_cache_key($lang);
-		if (apc_exists($key) !== false)
-			return apc_fetch($key);
-		return null;
-	}
-
-	private function generate_cache_key($lang) {
-		return hash('md5', "countries" . $lang);
-	}
-
 	public function get($options) {
-
 		$lang = $options->language;
 		$api = $options->host;
+		$cache = new CacheHelper('countries', array(
+			$lang,
+		));
 
-		$cached = $this->get_from_cache($lang);
-		if ($cached !== null)
+		$cached = $cache->get();
+		if ($cached !== null) {
 			return $cached;
-
-		$database = new DataBaseHelper();
-		$database->open();
-		$countries = $database->query("countries", array($lang));
-		$database->close();
-		$result = $this->compose_data($countries);
-		apc_store($this->generate_cache_key($lang), $result);
-		return $result;
+		} else {
+			$database = new DataBaseHelper();
+			$database->open();
+			$countries = $database->query("countries", array($lang));
+			$database->close();
+			$result = $this->compose_data($countries);
+			$cache->store($result);
+			return $result;
+		}
 	}
 
 	private function compose_data($data) {
