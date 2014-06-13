@@ -1,5 +1,5 @@
 <?php
-include_once("database.php");
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
 /*
 $dat = new Datasources();
 header('Content-Type: application/json');
@@ -16,9 +16,9 @@ class Datasources {
       return $cached;
 
     $database = new DataBaseHelper();
-    $connection = $database->open();
-    $datasources = $database->query($connection, "organizations", array());
-    $database->close($connection);
+    $database->open();
+    $datasources = $database->query("organizations", array());
+    $database->close();
     $result = $this->compose_data($datasources);
     apc_store($this->generate_cache_key(), $result);
     return $result;

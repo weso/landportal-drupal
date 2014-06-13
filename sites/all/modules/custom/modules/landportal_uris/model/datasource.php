@@ -1,5 +1,5 @@
 <?php
-include_once("database.php");
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
 /*
 header('Content-Type: application/json');
 $adfas= new Datasource();
@@ -18,14 +18,15 @@ class Datasource {
       return $cached;
 
     $database = new DataBaseHelper();
-    $connection = $database->open();
-    $organization = $database->query($connection, "organization", array($dat_id));
+    $database->open();
+    $safe_datasource_id = $database->escape($dat_id);
+    $organization = $database->query("organization", array($safe_datasource_id));
     if (!$organization):
       drupal_goto("e404");
     endif;
-    $indicators = $database->query($connection, "indicators_by_organization", array($lang, $dat_id));
-    $organizations = $database->query($connection, "organizations", array());
-    $database->close($connection);
+    $indicators = $database->query("indicators_by_organization", array($lang, $safe_datasource_id));
+    $organizations = $database->query("organizations", array());
+    $database->close();
     $result = $this->compose_data($organization, $indicators, $organizations);
     apc_store($this->generate_cache_key($lang, $dat_id), $result);
     return $result;
