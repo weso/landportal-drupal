@@ -1,30 +1,41 @@
  <?php
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
 require_once(dirname(__FILE__) .'/../database/database_helper.php');
+require_once(dirname(__FILE__) .'/../cache/cache_helper.php');
 
 $region = $_GET["region"];
 $indicator = $_GET["indicator"];
 $language = $_GET["language"];
 
 setlocale(LC_ALL, $language);
-
-$cached = get_from_cache($language, $indicator, $language);
-if ($cached !== null)
-  return $cached;
-
-$database = new DataBaseHelper();
-$database->open();
-$region = $database->escape($region);
-$indicator = $database->escape($indicator);
-$regionFilter = $region == 1 ? "" : "regions.un_code = $region AND";
-$observations = $database->query("observations_by_region", array($language, $regionFilter, $indicator));
-$database->close();
-$result = compose_data($observations);
-
-if (function_exists("apc_store"))
-  apc_store(generate_cache_key($region, $indicator, $language), $result);
-
 header('Content-Type: application/json');
-echo json_encode($result);
+echo observations_by_region($region, $indicator, $language);
+
+
+
+function observations_by_region($region, $indicator, $language) {
+    $cache = new CacheHelper('observations_by_region', array(
+        $region,
+        $indicator,
+        $language
+    ));
+    $cached = $cache->get();
+    if ($cached !== null) {
+        return $cached;
+    }
+    $database = new DataBaseHelper();
+    $database->open();
+    $region = $database->escape($region);
+    $indicator = $database->escape($indicator);
+    $regionFilter = $region == 1 ? "" : "regions.un_code = $region AND";
+    $observations = $database->query("observations_by_region", array($language, $regionFilter, $indicator));
+    $database->close();
+    $result = json_encode(compose_data($observations));
+    $cache->store($result);
+    return $result;
+}
 
 function compose_data($observations) {
   $all_observations = array();
@@ -93,15 +104,4 @@ function compose_data($observations) {
               "by_country" => array_values($observations_by_country),
               "organization_id" => $organization_id,
               "organization_name" => $organization_name);
-}
-
-function get_from_cache($region, $indicator, $language) {
-  $key = generate_cache_key($region, $indicator, $language);
-  if (function_exists("apc_exists") && apc_exists($key) !== false)
-    return apc_fetch($key);
-  return null;
-}
-
-function generate_cache_key($region, $indicator, $language) {
-  return hash('md5', "observations_by_region" . $region . $indicator . $language);
 }

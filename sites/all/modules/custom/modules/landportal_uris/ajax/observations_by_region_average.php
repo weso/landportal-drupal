@@ -1,5 +1,9 @@
  <?php
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
 require_once(dirname(__FILE__) .'/../database/database_helper.php');
+require_once(dirname(__FILE__) .'/../cache/cache_helper.php');
 
 $region1 = $_GET["region1"];
 $region2 = isset($_GET["region2"]) ? $_GET["region2"] : "";
@@ -24,7 +28,13 @@ echo observations_by_region_average($region1, $region2, $indicator, $language);
  *    the compairson.
  */
 function observations_by_region_average($region1, $region2, $indicator, $language) {
-    $cached = get_from_cache($region1, $region2, $indicator, $language);
+    $cache = new CacheHelper("observations_by_region_avg", array(
+      $region1,
+      $region2,
+      $indicator,
+      $language,
+    ));
+    $cached = $cache->get();
     if ($cached !== null) {
         return $cached;
     }
@@ -51,11 +61,9 @@ function observations_by_region_average($region1, $region2, $indicator, $languag
       $region2Name = utf8_encode($reg2[0]["name"]);
     }
     $database->close();
-    $json_result = json_encode(mergeRegions($region1, $region1Name, $result1, $region2, $region2Name, $result2));
-    if (function_exists("apc_store")) {
-      apc_store(generate_cache_key($region1, $region2, $indicator, $language), $json_result);
-    }
-    return $json_result;
+    $result = json_encode(mergeRegions($region1, $region1Name, $result1, $region2, $region2Name, $result2));
+    $cache->store($result);
+    return $result;
 }
 
 function mergeRegions($region1, $region1Name, $regionData1, $region2, $region2Name, $regionData2) {
