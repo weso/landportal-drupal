@@ -1,5 +1,6 @@
 <?php
-include_once("database.php");
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
+
 
 class Regions {
 	public function get_from_cache($lang) {
@@ -22,11 +23,11 @@ class Regions {
 			return $cached;
 
 		$database = new DataBaseHelper();
-		$connection = $database->open();
-		$regions = $database->query($connection, "continents", array($lang));
-		$datasources = $database->query($connection, "datasources", array($lang));
-		$countries = $database->query($connection, "countries", array($lang));
-		$database->close($connection);
+		$database->open();
+		$regions = $database->query("continents", array($lang));
+		$datasources = $database->query("datasources", array($lang));
+		$countries = $database->query("countries", array($lang));
+		$database->close();
 		$result = $this->compose_data($regions, $datasources, $countries);
 		apc_store($this->generate_cache_key($lang), $result);
 		return $result;
