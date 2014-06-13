@@ -43,5 +43,6 @@ function _get_country_id($database, $name) {
  * @param $taxonomy_id The TID of the associated term in Drupal.
  */
 function _set_taxonomy_id($database, $country_id, $taxonomy_id) {
-    $database->execute_statement("update countries set taxonomy_id = $taxonomy_id where id = $country_id");
+    $query = "update countries set taxonomy_id = {0} where id = {1}";
+    $database->direct_execute_statement($query, array($taxonomy_id, $country_id));
 }
