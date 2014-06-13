@@ -74,9 +74,9 @@ class DataBaseHelper {
    * this file is being called directly or by Drupal it must use a different route.
    */
   private function get_queries_file() {
-    $file = file_get_contents('../queries.json');
+    $file = file_get_contents('../database/queries.json');
     if (empty($file))
-      return file_get_contents(drupal_get_path("module", "landportal_uris")  .'/queries.json');
+      return file_get_contents(drupal_get_path("module", "landportal_uris")  .'/database/queries.json');
     else
       return $file;
   }
