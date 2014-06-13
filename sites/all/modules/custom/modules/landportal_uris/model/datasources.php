@@ -1,10 +1,7 @@
 <?php
 require_once(dirname(__FILE__) .'/../database/database_helper.php');
-/*
-$dat = new Datasources();
-header('Content-Type: application/json');
-echo json_encode($dat->get(array()));
-*/
+
+
 class Datasources {
 
   public function get($options) {
