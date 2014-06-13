@@ -1,5 +1,5 @@
  <?php
-include_once("../model/database.php");
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
 
 $region = $_GET["region"];
 $indicator = $_GET["indicator"];
@@ -12,10 +12,12 @@ if ($cached !== null)
   return $cached;
 
 $database = new DataBaseHelper();
-$connection = $database->open();
+$database->open();
+$region = $database->escape($region);
+$indicator = $database->escape($indicator);
 $regionFilter = $region == 1 ? "" : "regions.un_code = $region AND";
-$observations = $database->query($connection, "observations_by_region", array($language, $regionFilter, $indicator));
-$database->close($connection);
+$observations = $database->query("observations_by_region", array($language, $regionFilter, $indicator));
+$database->close();
 $result = compose_data($observations);
 
 if (function_exists("apc_store"))

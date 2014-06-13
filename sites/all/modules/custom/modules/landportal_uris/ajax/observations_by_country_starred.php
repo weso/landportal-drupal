@@ -1,6 +1,6 @@
  <?php
-require_once("../model/database.php");
-require_once("../helpers/observations_by_country_indicator.php");
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
+require_once(dirname(__FILE__) ."/../helpers/observations_by_country_indicator.php");
 
 $country1 = $_GET["country1"];
 $country2 = $_GET["country2"];
@@ -15,19 +15,19 @@ function observations_by_country_starred($country1, $country2, $language){
     return $cached;
   else:
     $database = new DataBaseHelper();
-    $connection = $database->open();
-    $starred = _get_starred_indicators($database, $connection, $language);
-    $result = _get_observations_by_starred($country1, $country2, $starred, $language, $connection, $database);
+    $database->open();
+    $starred = _get_starred_indicators($database, $language);
+    $result = _get_observations_by_starred($country1, $country2, $starred, $language, $database);
     $json_result = json_encode($result);
-    $database->close($connection);
+    $database->close();
     if (function_exists("apc_store"))
       apc_store(generate_cache_key($country1, $country2, $language), $result);
     return $json_result;
   endif;
 }
 
-function _get_starred_indicators($database, $connection, $language) {
-  $indicators = $database->query($connection, "starred_indicators", array($language));
+function _get_starred_indicators($database, $language) {
+  $indicators = $database->query("starred_indicators", array($language));
   $result = array();
   for ($i = 0; $i < count($indicators); $i++):
     array_push($result, $indicators[$i]["id"]);
@@ -36,12 +36,11 @@ function _get_starred_indicators($database, $connection, $language) {
 }
 
 
-function _get_observations_by_starred($country1, $country2, $starred, $language,
-    $connection, $database) {
+function _get_observations_by_starred($country1, $country2, $starred, $language, $database) {
   $result = array();
   foreach ($starred as $ind):
     $observations = get_observations_by_country_indicator($country1, $country2,
-        $ind, $language, $connection, $database);
+        $ind, $language, $database);
     $result[$ind] = $observations;
   endforeach;
   return $result;

@@ -1,5 +1,5 @@
 <?php
-require_once("../model/database.php");
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
 
 /**
  * Returns observations given two countries and one indicator.
@@ -7,56 +7,59 @@ require_once("../model/database.php");
  * @param $country2
  * @param $indicator
  * @param $language
- * @param $connection Database connection to use for the queries
  */
 function get_observations_by_country_indicator($country1, $country2, $indicator,
-    $language, $connection, $database) {
-  $observations1 = $database->query($connection, "observations_by_country",
-    array($language, $country1, $indicator));
-  $result1 = _composeData($observations1);
-  $observations2 = $database->query($connection, "observations_by_country",
-    array($language, $country2, $indicator));
-  $result2 = _composeData($observations2);
-  return _mergeCountries($country1, $result1, $country2, $result2);
+        $language, $database) {
+    $observations1 = $database->query("observations_by_country",
+        array(
+            $language,
+            $country1,
+            $indicator
+        )
+    );
+    $result1 = _composeData($observations1);
+    $observations2 = $database->query("observations_by_country",
+        array(
+            $language,
+            $country2,
+            $indicator
+            )
+    );
+    $result2 = _composeData($observations2);
+    return _mergeCountries($country1, $result1, $country2, $result2);
 }
 
 
 function _mergeCountries($country1, $countryData1, $country2, $countryData2) {
- $times = array_merge($countryData1["times"], $countryData2["times"]);
+    $times = array_merge($countryData1["times"], $countryData2["times"]);
+    $org_id = $countryData1["org_id"] ? $countryData1["org_id"] : $countryData2["org_id"];
+    $org_name = $countryData1["org_name"] ? $countryData1["org_name"] : $countryData2["org_name"];
+    $times = array_values(array_unique($times));
+    asort($times);
+    $series = array($country1 => array("name" => $countryData1["name"], "values" => array()));
+    $data = $countryData1["result"];
 
+    for ($i = 0; $i < count($times); $i++) {
+        $time = $times[$i];
+        $value = isset($data[$time]) ? $data[$time]["value"] : NULL;
+        array_push($series[$country1]["values"], $value);
+    }
 
- $org_id = $countryData1["org_id"] ? $countryData1["org_id"] : $countryData2["org_id"];
- $org_name = $countryData1["org_name"] ? $countryData1["org_name"] : $countryData2["org_name"];
+    $series[$country2] = array("name" => $countryData2["name"], "values" => array());
+    $data = $countryData2["result"];
 
- $times = array_values(array_unique($times));
- asort($times);
+    for ($i = 0; $i < count($times); $i++) {
+        $time = $times[$i];
+        $value = isset($data[$time]) ? $data[$time]["value"] : NULL;
+        array_push($series[$country2]["values"], $value);
+    }
 
- $series = array($country1 => array("name" => $countryData1["name"], "values" => array()));
-
- $data = $countryData1["result"];
-
- for ($i = 0; $i < count($times); $i++) {
-   $time = $times[$i];
-
-   $value = isset($data[$time]) ? $data[$time]["value"] : NULL;
-
-   array_push($series[$country1]["values"], $value);
- }
-
- $series[$country2] = array("name" => $countryData2["name"], "values" => array());
-
- $data = $countryData2["result"];
-
- for ($i = 0; $i < count($times); $i++) {
-   $time = $times[$i];
-
-   $value = isset($data[$time]) ? $data[$time]["value"] : NULL;
-
-   array_push($series[$country2]["values"], $value);
- }
-
- return array("series" => $series, "times" => array_values($times),
-     "organization_id" => $org_id, "organization_name" => $org_name);
+    return array(
+        "series" => $series,
+        "times" => array_values($times),
+        "organization_id" => $org_id,
+        "organization_name" => $org_name
+    );
 }
 
 function _composeData($observations) {

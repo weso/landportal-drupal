@@ -1,5 +1,5 @@
  <?php
-include_once("../model/database.php");
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
 
 $indicator1 = $_GET["indicator1"];
 $indicator2 = $_GET["indicator2"];
@@ -9,25 +9,28 @@ $language = $_GET["language"];
 header('Content-Type: application/json');
 echo observations_by_indicator_average($indicator1, $indicator2, $language);
 
+
+
 function observations_by_indicator_average($indicator1, $indicator2, $language) {
   $cached = get_from_cache($indicator1, $indicator2);
   if ($cached !== null):
     return $cached;
   else:
     $database = new DataBaseHelper();
-    $connection = $database->open();
+    $database->open();
 
     $regionFilter = ""; // Region Global
-    $averages = $database->query($connection, "observations_by_region_avg", array($regionFilter, $indicator1));
+    $averages = $database->query("observations_by_region_avg", array($regionFilter, $indicator1));
     $result1 = compose_data($averages);
 
-    $source1 = $database->query($connection, "indicator_source", array($indicator1));
-    $source2 = $database->query($connection, "indicator_source", array($indicator2));
 
-    $averages = $database->query($connection, "observations_by_region_avg", array($regionFilter, $indicator2));
+    $source1 = $database->query("indicator_source", array($database->escape($indicator1)));
+    $source2 = $database->query("indicator_source", array($database->escape($indicator2)));
+
+    $averages = $database->query("observations_by_region_avg", array($regionFilter, $database->escape($indicator2)));
     $result2 = compose_data($averages);
 
-    $database->close($connection);
+    $database->close();
     $result = mergeRegions($indicator1, $result1, $source1, $indicator2, $result2, $source2);
     $json_result = json_encode($result);
 
