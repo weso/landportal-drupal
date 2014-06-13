@@ -1,5 +1,5 @@
 <?php
-include_once("database.php");
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
 
 class Widgets {
 
@@ -12,10 +12,10 @@ class Widgets {
 			return $cached;
 
 		$database = new DataBaseHelper();
-		$connection = $database->open();
-		$datasources = $database->query($connection, "datasources", array($lang));
-		$countries = $database->query($connection, "countries_without_region", array($lang));
-		$database->close($connection);
+		$database->open();
+		$datasources = $database->query("datasources", array($lang));
+		$countries = $database->query("countries_without_region", array($lang));
+		$database->close();
 		$result = $this->compose_data($datasources, $countries);
 		apc_store($this->generate_cache_key($lang), $result);
 		return $result;
