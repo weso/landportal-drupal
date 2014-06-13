@@ -1,35 +1,32 @@
 <?php
-include_once("database.php");
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
+require_once(dirname(__FILE__) .'/../cache/cache_helper.php');
+
+
 
 class Regions {
-	public function get_from_cache($lang) {
-		$key = $this->generate_cache_key($lang);
-		if (apc_exists($key) !== false)
-			return apc_fetch($key);
-		return null;
-	}
-
-	private function generate_cache_key($lang) {
-		return hash('md5', "regions" . $lang);
-	}
 
 	public function get($options, $region) {
 		$lang = $options->language;
 		$api = $options->host;
 
-		$cached = $this->get_from_cache($lang);
-		if ($cached !== null)
+		$cache = new CacheHelper('regions', array(
+			$lang,
+		));
+		$cached = $cache->get();
+		if ($cached !== null) {
 			return $cached;
-
-		$database = new DataBaseHelper();
-		$connection = $database->open();
-		$regions = $database->query($connection, "continents", array($lang));
-		$datasources = $database->query($connection, "datasources", array($lang));
-		$countries = $database->query($connection, "countries", array($lang));
-		$database->close($connection);
-		$result = $this->compose_data($regions, $datasources, $countries);
-		apc_store($this->generate_cache_key($lang), $result);
-		return $result;
+		} else {
+			$database = new DataBaseHelper();
+			$database->open();
+			$regions = $database->query("continents", array($lang));
+			$datasources = $database->query("datasources", array($lang));
+			$countries = $database->query("countries", array($lang));
+			$database->close();
+			$result = $this->compose_data($regions, $datasources, $countries);
+			$cache->store($rseult);
+			return $result;
+		}
 	}
 
 	private function compose_data($regions, $datasources, $countries) {

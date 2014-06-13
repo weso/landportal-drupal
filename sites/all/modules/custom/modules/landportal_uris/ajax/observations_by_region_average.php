@@ -1,6 +1,9 @@
  <?php
-
-include_once("../model/database.php");
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
+require_once(dirname(__FILE__) .'/../cache/cache_helper.php');
 
 $region1 = $_GET["region1"];
 $region2 = isset($_GET["region2"]) ? $_GET["region2"] : "";
@@ -25,34 +28,42 @@ echo observations_by_region_average($region1, $region2, $indicator, $language);
  *    the compairson.
  */
 function observations_by_region_average($region1, $region2, $indicator, $language) {
-    $cached = get_from_cache($region1, $region2, $indicator, $language);
+    $cache = new CacheHelper("observations_by_region_avg", array(
+      $region1,
+      $region2,
+      $indicator,
+      $language,
+    ));
+    $cached = $cache->get();
     if ($cached !== null) {
         return $cached;
     }
     $database = new DataBaseHelper();
-    $connection = $database->open();
+    $database->open();
+
+    $region1 = $database->escape($region1);
+    $region2 = $database->escape($region2);
+    $indicator = $database->escape($indicator);
 
     $regionFilter = $region1 == 1 ? "" : "AND regions.un_code = $region1";
-    $averages = $database->query($connection, "observations_by_region_avg", array($regionFilter, $indicator));
+    $averages = $database->query("observations_by_region_avg", array($regionFilter, $indicator));
     $result1 = compose_data($averages);
-    $reg1 = $database->query($connection, "continent_name", array($language, $region1));
+    $reg1 = $database->query("continent_name", array($language, $region1));
     $region1Name = utf8_encode($reg1[0]["name"]);
 
     $result2 = NULL;
     $region2Name = "";
     if ($region2 != "") {
       $regionFilter = $region2 == 1 ? "" : "AND regions.un_code = $region2";
-      $averages = $database->query($connection, "observations_by_region_avg", array($regionFilter, $indicator));
+      $averages = $database->query("observations_by_region_avg", array($regionFilter, $indicator));
       $result2 = compose_data($averages);
-      $reg2 = $database->query($connection, "continent_name", array($language, $region2));
+      $reg2 = $database->query("continent_name", array($language, $region2));
       $region2Name = utf8_encode($reg2[0]["name"]);
     }
-    $database->close($connection);
-    $json_result = json_encode(mergeRegions($region1, $region1Name, $result1, $region2, $region2Name, $result2));
-    if (function_exists("apc_store")) {
-      apc_store(generate_cache_key($region1, $region2, $indicator, $language), $json_result);
-    }
-    return $json_result;
+    $database->close();
+    $result = json_encode(mergeRegions($region1, $region1Name, $result1, $region2, $region2Name, $result2));
+    $cache->store($result);
+    return $result;
 }
 
 function mergeRegions($region1, $region1Name, $regionData1, $region2, $region2Name, $regionData2) {

@@ -1,15 +1,8 @@
 <?php
-include_once("database.php");
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
+require_once(dirname(__FILE__) .'/../cache/cache_helper.php');
 
-/*
-$det = new Details();
-header('Content-Type: application/json');
-echo json_encode($det->get(array(), 'ESP'));
-*/
 
-/**
- * Details for a certain country.
- */
 class Details {
 
   /**
@@ -20,35 +13,27 @@ class Details {
    */
   public function get($options, $iso3) {
     $lang = $options->language;
-    //$lang = 'en';
     $api = $options->host;
 
-    $cached = $this->get_from_cache($lang, $iso3);
-    if ($cached !== null)
+    $cache = new CacheHelper('country_details', array(
+      $iso3,
+      $lang,
+    ));
+    $cached = $cache->get();
+    if ($cached !== null) {
       return $cached;
-
-    $database = new DataBaseHelper();
-    $connection = $database->open();
-
-    $info = $database->query($connection, "country", array($lang, $iso3));
-    $countries = $database->query($connection, "countries_without_region", array($lang));
-    $topics = $database->query($connection, "topics_and_indicators_by_region", array($lang, $iso3));
-
-    $database->close($connection);
-    $result = $this->compose_data($info, $countries, $topics);
-    apc_store($this->generate_cache_key($lang, $iso3), $result);
-    return $result;
-  }
-
-  private function get_from_cache($lang, $iso3) {
-    $key = $this->generate_cache_key($lang, $iso3);
-    if (apc_exists($key) !== false)
-      return apc_fetch($key);
-    return null;
-  }
-
-  private function generate_cache_key($lang, $iso3) {
-    return hash('md5', "country_details" . $lang . $iso3);
+    } else {
+      $database = new DataBaseHelper();
+      $database->open();
+      $iso3 = $database->escape($iso3);
+      $info = $database->query("country", array($lang, $iso3));
+      $countries = $database->query("countries_without_region", array($lang));
+      $topics = $database->query("topics_and_indicators_by_region", array($lang, $iso3));
+      $database->close();
+      $result = $this->compose_data($info, $countries, $topics);
+      $cache->store($result);
+      return $result;
+    }
   }
 
   private function compose_data($info, $countries, $topics) {

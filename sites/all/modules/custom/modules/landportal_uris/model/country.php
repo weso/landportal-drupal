@@ -1,10 +1,6 @@
 <?php
-include_once("database.php");
-
-
-//$a = new Country();
-//header('Content-Type: application/json');
-//echo json_encode($a->get(array(), 'ESP'));
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
+require_once(dirname(__FILE__) .'/../cache/cache_helper.php');
 
 
 class Country {
@@ -13,44 +9,37 @@ class Country {
 	private $tableIndicators = array('INDWB10', 'INDWB9', 'INDWB6', 'INDWB13', 'INDWB12', 'INDWB14', 'INDWB11');
 	private $gaugeIndicators = array("INDFAOSTAT5", "INDFAOSTAT6" , "INDFAOSTAT7");
 
-	public function get_from_cache($lang, $iso3) {
-		$key = $this->generate_cache_key($lang, $iso3);
-		if (apc_exists($key) !== false)
-			return apc_fetch($key);
-		return null;
-	}
-
-	private function generate_cache_key($lang, $iso3) {
-		return hash('md5', "country" . $lang . $iso3);
-	}
-
 	public function get($options, $iso3) {
 		$lang = $options->language;
-		//$lang = "en";
 		$api = $options->host;
-		//$api = 'http://'. $_SERVER['HTTP_HOST'];
 
-		$cached = $this->get_from_cache($lang, $iso3);
-		if ($cached !== null)
+		$cache = new CacheHelper('country', array(
+			$iso3,
+			$lang,
+		));
+		$cached = $cache->get();
+		if ($cached !== null) {
 			return $cached;
-
-		$database = new DataBaseHelper();
-		$connection = $database->open();
-		$datasources = $database->query($connection, "datasources_by_country", array($lang, $iso3));
-		$info = $database->query($connection, "country", array($lang, $iso3));
-		
-		if (!$info && function_exists("drupal_goto")) {
-			drupal_goto("e404");
+		} else {
+			$database = new DataBaseHelper();
+			$database->open();
+			$safe_iso3 = $database->escape($iso3);
+			$datasources = $database->query("datasources_by_country", array($lang, $safe_iso3));
+			$info = $database->query("country", array($lang, $safe_iso3));
+			
+			if (!$info && function_exists("drupal_goto")) {
+				drupal_goto("e404");
+			}
+			
+			$countries = $database->query("countries_without_region", array($lang));
+			$indicators_imploded = "'". implode("','", $this->spiderIndicators) ."','".  implode("','", $this->trafficLigths) ."','".  implode("','", $this->tableIndicators) ."','". implode("','", $this->gaugeIndicators) ."'";
+			$charts = $database->query("country_chart_indicators", array($lang, $iso3, $indicators_imploded));
+			$starred = $database->query("starred_indicators", array($lang));
+			$database->close();
+			$result = $this->compose_data($datasources, $info, $countries, $charts, $starred);
+			$cache->store($result);
+			return $result;
 		}
-		
-		$countries = $database->query($connection, "countries_without_region", array($lang));
-		$indicators_imploded = "'". implode("','", $this->spiderIndicators) ."','".  implode("','", $this->trafficLigths) ."','".  implode("','", $this->tableIndicators) ."','". implode("','", $this->gaugeIndicators) ."'";
-		$charts = $database->query($connection, "country_chart_indicators", array($lang, $iso3, $indicators_imploded));
-		$starred = $database->query($connection, "starred_indicators", array($lang));
-		$database->close($connection);
-		$result = $this->compose_data($datasources, $info, $countries, $charts, $starred);
-		apc_store($this->generate_cache_key($lang, $iso3), $result);
-		return $result;
 	}
 
 

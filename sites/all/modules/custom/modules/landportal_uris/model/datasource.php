@@ -1,45 +1,36 @@
 <?php
-include_once("database.php");
-/*
-header('Content-Type: application/json');
-$adfas= new Datasource();
-echo json_encode($adfas->get(array(), "undp"));
-*/
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
+require_once(dirname(__FILE__) .'/../cache/cache_helper.php');
+
 
 class Datasource {
 
   public function get($options, $dat_id) {
     $lang = $options->language;
-    //$lang = 'en';
     $api = $options->host;
 
-    $cached = $this->get_from_cache($lang, $dat_id);
-    if ($cached !== null)
+    $cache = new CacheHelper('datasource', array(
+      $dat_id,
+      $lang,
+    ));
+    $cached = $cache->get();
+    if ($cached !== null) {
       return $cached;
-
-    $database = new DataBaseHelper();
-    $connection = $database->open();
-    $organization = $database->query($connection, "organization", array($dat_id));
-    if (!$organization):
-      drupal_goto("e404");
-    endif;
-    $indicators = $database->query($connection, "indicators_by_organization", array($lang, $dat_id));
-    $organizations = $database->query($connection, "organizations", array());
-    $database->close($connection);
-    $result = $this->compose_data($organization, $indicators, $organizations);
-    apc_store($this->generate_cache_key($lang, $dat_id), $result);
-    return $result;
-  }
-
-  public function get_from_cache($lang, $dat_id) {
-    $key = $this->generate_cache_key($lang, $dat_id);
-    if (apc_exists($key) !== false)
-      return apc_fetch($key);
-    return null;
-  }
-
-  private function generate_cache_key($lang, $dat_id) {
-    return hash('md5', "datasource" . $lang . $dat_id);
+    } else {
+      $database = new DataBaseHelper();
+      $database->open();
+      $safe_datasource_id = $database->escape($dat_id);
+      $organization = $database->query("organization", array($safe_datasource_id));
+      if (!$organization) {
+        drupal_goto("e404");
+      }
+      $indicators = $database->query("indicators_by_organization", array($lang, $safe_datasource_id));
+      $organizations = $database->query("organizations", array());
+      $database->close();
+      $result = $this->compose_data($organization, $indicators, $organizations);
+      $cache->store($result);
+      return $result;
+    }
   }
 
   private function compose_data($organization, $indicators, $organizations) {

@@ -1,38 +1,29 @@
 <?php
-include_once("database.php");
-/*
-$dat = new Datasources();
-header('Content-Type: application/json');
-echo json_encode($dat->get(array()));
-*/
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
+require_once(dirname(__FILE__) .'/../cache/cache_helper.php');
+
+
 class Datasources {
 
   public function get($options) {
     $lang = $options->language;
     $api = $options->host;
 
-    $cached = $this->get_from_cache($lang);
-    if ($cached !== null)
+    $cache = new CacheHelper('datasources', array(
+      $lang,
+    ));
+    $cached = $cache->get();
+    if ($cached !== null) {
       return $cached;
-
-    $database = new DataBaseHelper();
-    $connection = $database->open();
-    $datasources = $database->query($connection, "organizations", array());
-    $database->close($connection);
-    $result = $this->compose_data($datasources);
-    apc_store($this->generate_cache_key(), $result);
-    return $result;
-  }
-
-  public function get_from_cache() {
-    $key = $this->generate_cache_key();
-    if (apc_exists($key) !== false)
-      return apc_fetch($key);
-    return null;
-  }
-
-  private function generate_cache_key() {
-    return hash('md5', "datasources");
+    } else {
+      $database = new DataBaseHelper();
+      $database->open();
+      $datasources = $database->query("organizations", array());
+      $database->close();
+      $result = $this->compose_data($datasources);
+      $cache->store($result);
+      return $result;
+    }
   }
 
   private function compose_data($datasources) {

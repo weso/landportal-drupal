@@ -1,6 +1,5 @@
 <?php
-include_once("database.php");
-include_once("indicators.php");
+require_once(dirname(__FILE__) ."/indicators.php");
 
 class Indicator {
 	public function get($options) {

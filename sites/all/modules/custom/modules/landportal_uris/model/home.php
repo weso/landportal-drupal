@@ -2,6 +2,6 @@
 
 class Home {
     public function get($options) {
-        return array();
+        return "";
     }
 }
