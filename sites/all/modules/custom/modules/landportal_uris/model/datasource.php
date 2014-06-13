@@ -1,16 +1,11 @@
 <?php
 require_once(dirname(__FILE__) .'/../database/database_helper.php');
-/*
-header('Content-Type: application/json');
-$adfas= new Datasource();
-echo json_encode($adfas->get(array(), "undp"));
-*/
+
 
 class Datasource {
 
   public function get($options, $dat_id) {
     $lang = $options->language;
-    //$lang = 'en';
     $api = $options->host;
 
     $cached = $this->get_from_cache($lang, $dat_id);

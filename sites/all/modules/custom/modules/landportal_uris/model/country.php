@@ -2,11 +2,6 @@
 require_once(dirname(__FILE__) .'/../database/database_helper.php');
 
 
-//$a = new Country();
-//header('Content-Type: application/json');
-//echo json_encode($a->get(array(), 'ESP'));
-
-
 class Country {
 	private $spiderIndicators = array('INDOECD1', 'INDIPFRI0', 'INDUNDP0');
 	private $trafficLigths = array('INDOECD1', 'INDOECD8', 'INDOECD10', 'INDOECD9', 'INDOECD11');
@@ -26,9 +21,7 @@ class Country {
 
 	public function get($options, $iso3) {
 		$lang = $options->language;
-		//$lang = "en";
 		$api = $options->host;
-		//$api = 'http://'. $_SERVER['HTTP_HOST'];
 
 		$cached = $this->get_from_cache($lang, $iso3);
 		if ($cached !== null)
