@@ -57,6 +57,8 @@ drush dl calendar
 drush en -y calendar #Used for displaying the event calendar
 drush dl wysiwyg
 drush en -y wysiwyg #Displays a WYSIWYG editor for text fields
+drush dl role_export
+drush en -y role_export #Allows exporting and importing user roles
 
 ## LandDebate structure
 drush en -y landdebate_content_types #Includes: debate, news, organizations, blog posts and events
