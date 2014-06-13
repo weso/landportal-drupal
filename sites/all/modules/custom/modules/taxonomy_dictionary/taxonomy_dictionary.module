@@ -11,7 +11,7 @@ require_once(drupal_get_path('module', 'landportal_uris') .'/database/database_h
 function taxonomy_dictionary_taxonomy_term_insert($term) {
     if (isset($term->vocabulary_machine_name)
         && $term->vocabulary_machine_name === 'regions') {
-    $db = new DataBaseHelper();
+    $db = new DataBase();
     $db->open();
     $country_id = _get_country_id($db, $term->name);
     _set_taxonomy_id($db, $country_id, $term->tid);

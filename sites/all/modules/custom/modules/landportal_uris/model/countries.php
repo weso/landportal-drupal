@@ -1,5 +1,5 @@
 <?php
-include_once("database.php");
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
 
 class Countries {
 	public function get_from_cache($lang) {
@@ -23,9 +23,9 @@ class Countries {
 			return $cached;
 
 		$database = new DataBaseHelper();
-		$connection = $database->open();
-		$countries = $database->query($connection, "countries", array($lang));
-		$database->close($connection);
+		$database->open();
+		$countries = $database->query("countries", array($lang));
+		$database->close();
 		$result = $this->compose_data($countries);
 		apc_store($this->generate_cache_key($lang), $result);
 		return $result;

@@ -1,5 +1,5 @@
 <?php
-include_once("database.php");
+require_once(dirname(__FILE__) .'/../database/database_helper.php');
 
 
 //$a = new Country();
@@ -35,19 +35,20 @@ class Country {
 			return $cached;
 
 		$database = new DataBaseHelper();
-		$connection = $database->open();
-		$datasources = $database->query($connection, "datasources_by_country", array($lang, $iso3));
-		$info = $database->query($connection, "country", array($lang, $iso3));
+		$database->open();
+		$safe_iso3 = $database->escape($iso3);
+		$datasources = $database->query("datasources_by_country", array($lang, $safe_iso3));
+		$info = $database->query("country", array($lang, $safe_iso3));
 		
 		if (!$info && function_exists("drupal_goto")) {
 			drupal_goto("e404");
 		}
 		
-		$countries = $database->query($connection, "countries_without_region", array($lang));
+		$countries = $database->query("countries_without_region", array($lang));
 		$indicators_imploded = "'". implode("','", $this->spiderIndicators) ."','".  implode("','", $this->trafficLigths) ."','".  implode("','", $this->tableIndicators) ."','". implode("','", $this->gaugeIndicators) ."'";
-		$charts = $database->query($connection, "country_chart_indicators", array($lang, $iso3, $indicators_imploded));
-		$starred = $database->query($connection, "starred_indicators", array($lang));
-		$database->close($connection);
+		$charts = $database->query("country_chart_indicators", array($lang, $iso3, $indicators_imploded));
+		$starred = $database->query("starred_indicators", array($lang));
+		$database->close();
 		$result = $this->compose_data($datasources, $info, $countries, $charts, $starred);
 		apc_store($this->generate_cache_key($lang, $iso3), $result);
 		return $result;

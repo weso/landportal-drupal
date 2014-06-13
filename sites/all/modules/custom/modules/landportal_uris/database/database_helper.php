@@ -98,6 +98,14 @@ class DataBaseHelper {
     }
 
     /**
+     * Escapes an string.  Use this function to make parameters given by the user safe
+     * before sending them to the database. 
+     */
+    public function escape($string) {
+        return $this->mysql->escape_string($string);
+    }
+
+    /**
      * Transforms the result of a query in an array.
      *
      * @param $result Result as returned from the database query
