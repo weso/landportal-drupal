@@ -1240,6 +1240,7 @@ div.login-wrap {
 	box-shadow: 0 0.1em 0.1em #666;
 	border: 0.1em solid #ccc;
 	margin-top: 3em;
+	margin-bottom: 2em;
 }
 
 div.login-wrap .bar {
@@ -1290,7 +1291,7 @@ h3 {
 	margin-bottom: 1.5em;
 }
 
-.sign-in-button {
+.sign-in-button, #edit-submit {
 	width: 100%;
 	font-size: 1.4em;
 	padding: 0.5em 0;
@@ -2215,4 +2216,20 @@ div.debate-status a[href$="/closed_debates"] {
 
 .rss-button i {
 	color: #FF6600;
+}
+
+
+/* LOGIN */
+
+.landbook-register-wrapper .description {
+	color: #333;
+	font-size: 1.1em;
+}
+
+.landbook-register-wrapper input {
+	width: 100%;
+}
+
+.landbook-register-wrapper #edit-actions {
+	margin-top: 2.5em;
 }

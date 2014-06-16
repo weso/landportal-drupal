@@ -224,5 +224,9 @@
   "event": "Event",
   "organization": "Organization",
   "content_tagged_with": "Content tagged with",
-  "rss": "RSS"
+  "rss": "RSS",
+  "username": "Username",
+  "username_restrictions": "Spaces are allowed; punctuation is not allowed except for periods, hyphens, apostrophes, and underscores",
+  "email_restrictions": "A valid e-mail address. All e-mails from the system will be sent to this address. The e-mail address is not made public and will only be used if you wish to receive a new password or wish to receive certain news or notifications by e-mail",
+  "new_registration": "Register"
 }

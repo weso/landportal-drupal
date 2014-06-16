@@ -10,6 +10,16 @@ function render_mustache($mustache_data, $mustache_template, $mustache_navigatio
 	echo $template->render($data);
 }
 
+function render_partial($mustache_data, $mustache_template, $mustache_navigation, $application_data, $theme_path) {
+	$mustache = get_mustache('views/partials', 'views/partials');
+	// The template to use comes from the model.
+	$template = $mustache->loadTemplate($mustache_template);
+	// The basic data to render the template comes from the model.
+	$data = get_template_data($mustache_data, $mustache_template, $mustache_navigation, $application_data, $theme_path);
+	//Render the selected template with the required data.
+	echo $template->render($data);
+}
+
 
 /**
  * Get the labels for the specified language.

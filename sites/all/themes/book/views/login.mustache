@@ -1,55 +1,23 @@
 <div class="container login-outer">
     <div class="">
         <div class="main login-wrap">
-        	<div class="bar">
-        		<img src="{{path}}/static/images/header/logo.png" alt="landportal.info" />
-        		<div class="selected-language">
-					{{#application}}
-						{{#languages}}
-							{{#selected}}
-								<span class="language">{{code}}</span>
-							{{/selected}}
-							{{^selected}}
-								<a href="?language={{code}}" title="{{language}}" class="language">{{code}}</a>
-							{{/selected}}
-						{{/languages}}
-					{{/application}}
-				</div>
-        	</div>
-        	<div class="login-header">
-        		<div class="login-inner">
-	        		<div class="motto">
-		        		{{#labels}}{{join-us}}{{/labels}}
-	        		</div>
-	        		<div class="description">
-	        			{{#labels}}{{login-description}}{{/labels}}
-	        		</div>
-        		</div>
-	        	<div class="tabs">
-	    			<div class="tab selected">
-	        			<span>{{#labels}}{{login}}{{/labels}}</span>
-	    			</div>
-	    			<div class="tab">
-	        			<a href="#">{{#labels}}{{signup}}{{/labels}}</a>
-	    			</div>
-	        	</div>
-        	</div>
+        	{{>login-header}}
         	<div class="login-inner">
 	            <div class="row">
 	                <div class="col-xs-6 col-sm-6 col-md-6">
 	                    <a href="#" class="btn btn-lg btn-primary btn-block"><i class="fa fa-facebook fa-lg"></i> Facebook</a>
 	                </div>
-	
+
 	                <div class="col-xs-6 col-sm-6 col-md-6">
 	                    <a href="#" class="btn btn-lg btn-info btn-block"><i class="fa fa-twitter fa-lg"></i> Twitter</a>
 	                </div>
 	            </div>
-	
+
 	            <div class="login-or">
 	                <hr class="hr-or">
 	                <span class="span-or">{{#labels}}{{or}}{{/labels}}</span>
 	            </div>
-	
+
 	            <form role="form" action="/user/login" method="post" accept-charset="UTF-8">
 	            	<input type="hidden" name="form_build_id" value="form-GWgHvBznatdAeorFtFJSX4Z3FT0nfLEpl8ctAslPz6g">
 	            	<input type="hidden" name="form_id" value="user_login">
@@ -57,16 +25,16 @@
 	            	<label>{{#labels}}{{user}}{{/labels}}</label>
 	            	<div class="input-group login-input">
 	                	<span class="input-group-addon login-box"><i class="glyphicon glyphicon-user"></i></span>
-	                    <input type="text" name="name" class="form-control" placeholder="{{#labels}}{{enter-user}}{{/labels}}">                                        
+	                    <input type="text" name="name" class="form-control" placeholder="{{#labels}}{{enter-user}}{{/labels}}">
 	                </div>
-	                
-	                <a class="pull-right" href="#">{{#labels}}{{forgot-password}}{{/labels}}</a> 
+
+	                <a class="pull-right" href="#">{{#labels}}{{forgot-password}}{{/labels}}</a>
 	                <label>{{#labels}}{{password}}{{/labels}}</label>
 	            	<div class="input-group login-input">
 	                	<span class="input-group-addon login-box"><i class="fa fa-unlock-alt fa-lg"></i></span>
-	                    <input type="password" name="pass" class="form-control" placeholder="{{#labels}}{{enter-password}}{{/labels}}">                                        
+	                    <input type="password" name="pass" class="form-control" placeholder="{{#labels}}{{enter-password}}{{/labels}}">
 	                </div>
-	
+
 	                <button type="submit" class="btn btn btn-success sign-in-button">{{#labels}}{{signin}}{{/labels}}</button>
 	            </form>
         	</div>
