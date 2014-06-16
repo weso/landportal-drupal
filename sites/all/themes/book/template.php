@@ -23,6 +23,11 @@ function book_theme() {
     'path' => drupal_get_path('theme', 'book') .'/templates',
     'template' => 'user/user-register-form',
   );
+  $items['user_pass'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('theme', 'book') .'/templates',
+    'template' => 'user/user-password',
+  );
   $items['event_node_form'] = array(
     'render element' => 'form',
     'path' => drupal_get_path('theme', 'book'),
