@@ -31,11 +31,13 @@
             <span><?php echo $labels["facilitated_by"]; ?></span>
           </h2>
           <?php $facilitator_id = $fields["uid"]->raw; ?>
-          <?php print theme('user_picture', array('account' =>user_load($facilitator_id))); ?>
-          <a href="/user/<?php echo $facilitator_id; ?>" class="user"><?php
-              $user_fields = user_load(intval($facilitator_id));
-              print $user_fields->name;
-          ?></a>
+          <div>
+            <?php print theme('user_picture', array('account' =>user_load($facilitator_id))); ?>
+            <a href="/user/<?php echo $facilitator_id; ?>" class="user"><?php
+                $user_fields = user_load(intval($facilitator_id));
+                print $user_fields->name;
+            ?></a>
+          </div>
         </div>
     </div>
     <div class="col-sm-9">

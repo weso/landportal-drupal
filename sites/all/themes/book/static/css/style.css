@@ -2233,3 +2233,16 @@ div.debate-status a[href$="/closed_debates"] {
 .landbook-register-wrapper #edit-actions {
 	margin-top: 2.5em;
 }
+
+
+/* USER PICTURES IN DEBATE*/
+.facilitator img {
+	width: 2em;
+	margin-right: 0.5em;
+	float: left;
+}
+
+.facilitator a{
+	margin-top: 0.5em;
+	display: inline-block;
+}

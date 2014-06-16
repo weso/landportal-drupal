@@ -58,8 +58,13 @@
           <h2 class="section">
             <span><?php echo $labels["facilitated_by"]; ?></span>
           </h2>
-          <?php print theme('user_picture', array('account' =>user_load($uid))); ?>
-          <?php echo render($name); ?>
+          <div>
+            <?php print theme('user_picture', array('account' =>user_load($uid))); ?>
+            <a href="/user/<?php echo $uid; ?>" class="user"><?php
+                $user_fields = user_load(intval($uid));
+                print $user_fields->name;
+            ?></a>
+          </div>
         </div>
         <div class="social-buttons">
           <h2 class="section">
