@@ -16,7 +16,12 @@ function book_theme() {
     'render element' => 'form',
     'path' => drupal_get_path('theme', 'book'),
     'template' => 'custom',
-    'variables' => array('mustache_data' => NULL, 'mustache_template' => 'login', 'mustache_navigation' => NULL),
+    'variables' => array('mustache_data' => NULL, 'mustache_template' => 'login', 'mustache_navigation' => 'login'),
+  );
+  $items['user_register_form'] = array(
+    'render element' => 'form',
+    'path' => drupal_get_path('theme', 'book') .'/templates',
+    'template' => 'user/user-register-form',
   );
   $items['event_node_form'] = array(
     'render element' => 'form',

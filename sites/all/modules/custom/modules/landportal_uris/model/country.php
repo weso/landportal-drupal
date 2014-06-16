@@ -2,6 +2,11 @@
 require_once(dirname(__FILE__) .'/../database/database_helper.php');
 require_once(dirname(__FILE__) .'/../cache/cache_helper.php');
 
+/*
+$a = new Country();
+header('Content-Type: application/json');
+echo json_encode($a->get(array(), 'ESP'));
+*/
 
 class Country {
 	private $spiderIndicators = array('INDOECD1', 'INDIPFRI0', 'INDUNDP0');
@@ -11,7 +16,9 @@ class Country {
 
 	public function get($options, $iso3) {
 		$lang = $options->language;
+		//$lang = "en";
 		$api = $options->host;
+		//$api = 'http://'. $_SERVER['HTTP_HOST'];
 
 		$cache = new CacheHelper('country', array(
 			$iso3,
@@ -26,11 +33,11 @@ class Country {
 			$safe_iso3 = $database->escape($iso3);
 			$datasources = $database->query("datasources_by_country", array($lang, $safe_iso3));
 			$info = $database->query("country", array($lang, $safe_iso3));
-			
+
 			if (!$info && function_exists("drupal_goto")) {
 				drupal_goto("e404");
 			}
-			
+
 			$countries = $database->query("countries_without_region", array($lang));
 			$indicators_imploded = "'". implode("','", $this->spiderIndicators) ."','".  implode("','", $this->trafficLigths) ."','".  implode("','", $this->tableIndicators) ."','". implode("','", $this->gaugeIndicators) ."'";
 			$charts = $database->query("country_chart_indicators", array($lang, $iso3, $indicators_imploded));
