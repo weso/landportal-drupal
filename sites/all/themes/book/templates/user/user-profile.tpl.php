@@ -34,6 +34,8 @@
 * @ingroup themeable
 */
 ?>
+
+
 <?php require_once(drupal_get_path("theme", "book") ."/template-loader.php"); ?>
 <?php $labels = get_labels($application_data['languages']); ?>
 
@@ -52,6 +54,8 @@
 <?php $can_access_api = isset($user_profile['field_api_token']) ?
         in_array('access API', $user_profile['field_firstname']['#object']->roles)
         : false; ?>
+<?php $viewed_uid = $user_profile['field_firstname']['#object']->uid; ?>
+<?php $can_edit = ($user->uid == $viewed_uid) || $is_admin; ?>
 
 <!-- HEADER -->
 <?php get_template("debate-header", "community", $application_data, $theme_path); ?>
@@ -122,6 +126,13 @@
         </div>
         <!-- User picture -->
         <div class="col-sm-3">
+            <?php if($can_edit): ?>
+                <div class="user-profile-edit-button">
+                    <a href="/user/<?php echo $viewed_uid;?>/edit">
+                        <button class="btn data-button"><?php echo $labels['edit']; ?></button>
+                    </a>
+                </div>
+            <?php endif; ?>
             <div class="row user-image">
                 <div class="col-sm-12">
                     <?php print theme('user_picture', array('account' =>user_load_by_name($username))); ?>
