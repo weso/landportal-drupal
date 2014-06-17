@@ -1,7 +1,8 @@
 <input type="hidden" id="path" value="{{path}}" />
 <input type="hidden" id="api-url" value="{{#application}}{{api}}{{/application}}" />
 <input type="hidden" id="selected-language" value="{{#application}}{{language}}{{/application}}" />
-<div class="bar">
+{{>topbar-mobile}}
+<div class="bar hidden-xs">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-7 col-sm-4 logo">

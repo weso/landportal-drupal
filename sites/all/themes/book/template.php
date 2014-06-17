@@ -123,7 +123,7 @@ function get_application_data() {
     "server_name" => $server_name,
     "api" => "http://{$server_name}/{$ajax_files_path}",
     "sparql" => "http://156.35.82.103:1300/sparql",
-    "api-widgets" => "http://156.35.82.103/api",
+    "api-widgets" => "http://5.9.221.11/api",
     "theme_path" => "http://{$server_name}/{$book_theme_path}",
   );
 }

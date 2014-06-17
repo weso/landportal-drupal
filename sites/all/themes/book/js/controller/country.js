@@ -330,8 +330,37 @@ function showFixedCharts() {
 				continue;
 
 			options.container = containerName;
-			options.series = observations[selectBy][0].series;
-			options.xAxis.values = observations.times;
+
+			if (element == "main-index-rankings") {
+				var length = observations[selectBy].length;
+
+				var names = [];
+				var values = [];
+
+				for (var i = 0; i < length; i++) {
+					var name = observations[selectBy][i].name;
+					var value = observations[selectBy][i].series;
+
+					value = value[0] ? value[0].values : null;
+					value = value[0] ? value[0] : null;
+
+					names.push(name);
+					values.push(value);
+				}
+
+				options.series = [
+					{
+						name: "",
+						values: values
+					}
+				];
+
+				options.xAxis.values = names;
+			}
+			else {
+				options.series = observations[selectBy][0].series;
+				options.xAxis.values = observations.times;
+			}
 
 			options.width = container.parentNode.offsetWidth;
 			options.height = container.parentNode.offsetHeight;

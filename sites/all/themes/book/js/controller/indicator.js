@@ -33,6 +33,46 @@ var mapLoader = wesCountry.loader.renderChart({
 	}
 });
 
+// Ranking loader
+/*
+var rankingOptions = chartOptions['chart-ranking'];
+rankingOptions.cache = true;
+rankingOptions.getChartData = function(options, data) {
+		data = JSON.parse(data);
+
+		options.series = data.all_countries;
+		options.foot = getDatasourceLink(data.organization_id, data.organization_name);
+
+		// Legend
+		var legendElements = options.getLegendElements(options);
+		var length = legendElements.length;
+		var legend = document.getElementById("ranking-legend");
+		legend.innerHTML = "";
+
+		for (var i = 0; i < length; i++) {
+			var element = legendElements[i];
+			var name = element.name;
+			var colour = options.getElementColour(options, element, i);
+
+			var div = document.createElement("div");
+			div.className = "col-xs-2";
+			legend.appendChild(div);
+
+			var circle = document.createElement("div");
+			circle.className = "circle";
+			circle.style.backgroundColor = colour;
+			div.appendChild(circle);
+
+			var span = document.createElement("span");
+			span.innerHTML = name;
+			div.appendChild(span);
+		}
+
+		return options;
+};
+
+var rankingLoader = wesCountry.loader.renderChart(rankingOptions);
+*/
 // Timeline loader
 
 var timelineOptions = chartOptions['chart-timeline-comparison'];
@@ -229,6 +269,9 @@ var pageStatus = wesCountry.stateful.start({
 				// Load map
 				loadMap(parameters);
 
+				// Load ranking
+				//loadRanking(parameters);
+
 				// Update comparing selectors
 				updateComparingIndicatorSelectors(parameters, selectors);
 			}
@@ -252,6 +295,9 @@ var pageStatus = wesCountry.stateful.start({
 
 				// Load map
 				loadMap(parameters);
+
+				// Load ranking
+				//loadRanking(parameters);
 
 				// Update comparing selectors
 				updateComparingIndicatorSelectors(parameters, selectors);
@@ -290,6 +336,19 @@ function loadMap(parameters) {
 	countryLoader.show();
 
 	mapLoader.load({
+		url: ajaxURL + '/observations_by_region.php',
+		parameters: String.format("region={0}&indicator={1}&language={2}",
+															region, indicator, languageCode)
+	});
+}
+
+// Refresh ranking
+
+function loadRanking(parameters) {
+	var region = 1; // Global
+	var indicator = parameters["indicator"];
+
+	rankingLoader.load({
 		url: ajaxURL + '/observations_by_region.php',
 		parameters: String.format("region={0}&indicator={1}&language={2}",
 															region, indicator, languageCode)
@@ -467,7 +526,7 @@ function updateCountryTable(countryList) {
 		flag.src = path + '/static/images/flags/' + code.toUpperCase() + ".png";
 		flag.className = "flag";
 		flag.onerror = function() {
-			this.src = path + '/static/images/flags/no-flag.png'
+			this.src = path + '/static/images/flags/NO-FLAG.png'
 		}
 
 		td.appendChild(flag);

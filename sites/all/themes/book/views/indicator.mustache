@@ -17,6 +17,32 @@
 	  <div class="col-sm-9 graph-section">
 		  <h1 class="country-name"><span class="indicator-name"></span></h1>
       <div id="map" class="map"></div>
+			<!--
+			<h2 class="section"><span>{{#labels}}{{world_ranking}}{{/labels}}</span><span> </span><span class="indicator-name"></span></h2>
+			<div id="ranking-legend" class="row compare-legend">
+				<div class="col-xs-2">
+					<div class="circle"></div>
+					<span></span>
+				</div>
+				<div class="col-xs-2">
+					<div class="circle"></div>
+					<span></span>
+				</div>
+				<div class="col-xs-2">
+					<div class="circle"></div>
+					<span></span>
+				</div>
+				<div class="col-xs-2">
+					<div class="circle"></div>
+					<span></span>
+				</div>
+				<div class="col-xs-2">
+					<div class="circle"></div>
+					<span></span>
+				</div>
+			</div>
+			<div id="chart-ranking" class="graph-huge"></div>
+		-->
 		  <h2 class="section"><span>{{#labels}}{{evolution_of}}{{/labels}}</span><span> </span><span class="indicator-name"></span></h2>
 		  <div class="row compare-container">
 			<div class="col-xs-4">
@@ -124,10 +150,10 @@
 				{{/topics}}
 			{{/selectors}}
 		   </select>
-		  <a href="" class="more-info">{{#labels}}{{more_about_the_indicators}}{{/labels}}</a>
+		  <a href="/book/indicators" class="more-info">{{#labels}}{{more_about_the_indicators}}{{/labels}}</a>
 
-		  <button class="btn data-button">
-			{{#labels}}{{consult_the_socieconomic}}{{/labels}}
+		  <button class="btn data-button-coming">
+			{{#labels}}{{{consult_the_socieconomic}}}{{/labels}}
 		  </button>
 		  <button class="btn data-button-dark">{{#labels}}{{debate_with_others}}{{/labels}}</button>
 			<h2 class="section"><span>{{#labels}}{{share}}{{/labels}}</span></h2>

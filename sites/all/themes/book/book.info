@@ -11,6 +11,7 @@ stylesheets[all][] = static/css/wesCountry.min.css
 
 scripts[] = js/libraries/bootstrap.min.js
 scripts[] = js/libraries/jquery-2.1.0.min.js
+scripts[] = js/util.js
 scripts[] = js/libraries/wesCountry.min.js
 scripts[] = js/libraries/seedrandom.min.js
 scripts[] = js/libraries/StackBlur.js
@@ -18,4 +19,3 @@ scripts[] = js/libraries/canvg.js
 scripts[] = js/libraries/rgbcolor.js
 scripts[] = js/country_chart_options.js
 scripts[] = js/language.js
-scripts[] = js/util.js

@@ -243,7 +243,8 @@ function updateCompareChart(countries) {
 			'name': observation.countryName,
 			'values': [
 				observation.value
-			]
+			],
+			'time': observation.time
 		};
 
 		options.series.push(serie);

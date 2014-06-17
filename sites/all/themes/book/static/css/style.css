@@ -3,6 +3,10 @@
 /* @screen-md-min 992px */
 /* @screen-lg-min 1200px */
 
+.no-margin {
+	margin: 0 !important;
+}
+
 html, body {
 	margin: 0;
 	padding: 0;
@@ -32,6 +36,21 @@ h2 {
 
 /* Header Book */
 
+.mobile-top {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.mobile-top button {
+	margin-top: 0.5em;
+	margin-bottom: 0.2em;
+}
+
+.navbar {
+	background-image: none !important;
+	background-color: #fff !important;
+}
+
 header.book-header {
 	background-color: rgba(86, 131, 9, 0.8);
 	background-image: url('../images/header/grass-small.png');
@@ -56,11 +75,25 @@ header.book-header .bar {
 
 div.motto {
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 3em;
+	margin-top: 2.1em;
+	font-size: 1.8em;
 	letter-spacing: 0.1em;
 	color: #fff;
 	font-weight: 300;
 	text-shadow: 0 0.04em 0 #444;
+}
+
+@media (min-width: 768px) {
+	div.motto {
+		margin-top: 0;
+		font-size: 2.5em;
+	}
+}
+
+@media (min-width: 992px) {
+	div.motto {
+		font-size: 3em;
+	}
 }
 
 div.description {
@@ -297,6 +330,10 @@ div.logo {
 	display: table
 }
 
+div.logo a, div.logo a:hover {
+	color: #8fcd1f;
+}
+
 div.logo span.site {
 	float: left;
 	display: inline-block;
@@ -331,6 +368,12 @@ img.logo {
 	img.logo {
 		width: auto;
 	}
+}
+
+img.logo-mobile {
+	height: 100%;
+	margin-left: 1em;
+	margin-top: 0.5em;
 }
 
 /* Search box */
@@ -542,7 +585,14 @@ ol.breadcrumb-sites > li + li::before {
 }
 
 img.home-img {
-	width: 100%;
+	height: 18em;
+}
+
+@media (min-width: 768px) {
+	img.home-img {
+		width: 100%;
+		height: auto;
+	}
 }
 
 .home-caption {
@@ -611,6 +661,10 @@ p.module-description {
 
 div.middle-module {
 
+}
+
+a.module-link {
+	color: #333;
 }
 
 /* Country */
@@ -832,6 +886,15 @@ button.data-button-dark {
 	background-color: #2a7085;
 	color: #fff;
 	border-color: #17414e;
+}
+
+button.data-button-coming {
+	color: #888;
+	width: 100%;
+}
+
+button.data-button-coming:hover {
+	color: #888;
 }
 
 button.data-button-dark:hover {
@@ -1171,6 +1234,13 @@ div.graph-large, div.graph-large -region-chart {
 	margin-bottom: 2em;
 }
 
+div.graph-huge, div.graph-huge -region-chart {
+	position: relative;
+	min-height: 40em;
+	text-align: center;
+	margin-bottom: 2em;
+}
+
 div.compare-bar, div.compare-legend {
 	margin-bottom: 1em;
 }
@@ -1274,7 +1344,7 @@ div.login-wrap .selected-language {
 	left: 50%;
 	top: -2px;
 	margin-left: -25px;
-	background-color: #fafafa;
+	background-color: #fff;
 	width: 50px;
 	text-align: center;
 }
@@ -1291,7 +1361,7 @@ h3 {
 	margin-bottom: 1.5em;
 }
 
-.sign-in-button, #edit-submit {
+.sign-in-button {
 	width: 100%;
 	font-size: 1.4em;
 	padding: 0.5em 0;
@@ -1510,6 +1580,10 @@ div.delete-row i {
 	color: #b41739;
 	margin: 0 auto;
 	display: block;
+}
+
+p.permalink {
+	word-break: break-all;
 }
 
 /* Indicators */
@@ -2158,6 +2232,75 @@ div.debate-status a[href$="/closed_debates"] {
 	margin-bottom: 1em;
 }
 
+/* Tooltip */
+
+.wesCountry-tooltip {
+	padding-top: 0.3em;
+	padding-bottom: 0.5em;
+}
+
+.wesCountry-tooltip img {
+	float: left;
+	width: 2.5em;
+	height: 2.5em;
+	margin-top: 0.3em;
+	margin-right: 1em;
+}
+
+.wesCountry-tooltip .tooltip-header {
+	overflow: auto;
+	padding-bottom: 0.5em;
+	border-bottom: 0.1em solid #aaa;
+	margin-bottom: 0.5em;
+}
+
+.wesCountry-tooltip .tooltip-header .title {
+	padding: 0 2.8em;
+}
+
+.wesCountry-tooltip .tooltip-header .title .countryName {
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.wesCountry-tooltip .tooltip-header .title .continentName {
+	color: #555;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+.wesCountry-tooltip p {
+	margin: 0;
+	text-align: center;
+}
+
+.wesCountry-tooltip .tooltip-body {
+	min-width: 18em;
+}
+
+.wesCountry-tooltip p.time {
+	float: right;
+	padding: 0.7em 0.2em;
+	background-color: #ccc;
+	color: #333;
+	font-size: 0.9em;
+}
+
+.wesCountry-tooltip p.ranking {
+	float: left;
+	text-align: center;
+	min-width: 2.8em;
+	padding: 0.7em 0.2em;
+	background-color: #ccc;
+	color: #333;
+	font-size: 0.9em;
+}
+
+.wesCountry-tooltip p.value {
+	font-size: 1.2em;
+	padding-top: 0.4em;
+}
+
 /* SEARCH */
 
 .site-search {
@@ -2218,7 +2361,6 @@ div.debate-status a[href$="/closed_debates"] {
 	color: #FF6600;
 }
 
-
 /* LOGIN */
 
 .landbook-register-wrapper .description {
@@ -2236,6 +2378,7 @@ div.debate-status a[href$="/closed_debates"] {
 
 
 /* USER PICTURES IN DEBATE*/
+
 .facilitator img {
 	width: 2em;
 	margin-right: 0.5em;

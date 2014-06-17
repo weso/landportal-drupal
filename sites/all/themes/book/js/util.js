@@ -1,4 +1,82 @@
 var util = new (function() {
+	this.tooltipRegion = function(info) {
+		info.pos = info["data-time"];
+		util.tooltipIndicator(info);
+	},
+	this.tooltipIndicator = function(info) {
+		var path = document.getElementById('path').value;
+
+		var code = info.serie;
+		var value = info.value == null || info.value == "null" ? null : info.value;
+		var name = info["data-name"];
+
+		var time = info["pos"] ? info["pos"] : "-";
+
+		var tooltipHeader = String.format('<div class="tooltip-header">{0}</div>',
+			name);
+
+		var tooltipBody = String.format('<div class="tooltip-body"><p class="time">{0}</p><p class="value">{1}</p></div>',
+			time, value);
+
+		var text = String.format("{0}{1}", tooltipHeader, value != null ? tooltipBody : "");
+
+		wesCountry.charts.showTooltip(text);
+	}
+
+	this.tooltipWidgets = function(info) {
+		var path = document.getElementById('path').value;
+
+		var code = info.id;
+		var value = info.value == null || info.value == "null" ? null : info.value;
+		var name = info["data-name"];
+
+		var language = document.getElementById('selected-language').value;
+
+		var continent = info["data-region"];
+
+		if (continent)
+			continent = language && language != "" ? continent[language] : continent["en"];
+
+		var time = info.pos;
+
+		var flagSrc = path + '/static/images/flags/' + code.toUpperCase() + ".png";
+
+		var tooltipHeader = String.format('<div class="tooltip-header"><img src="{0}" /><div class="title"><p class="countryName">{1}</p><p class="continentName">{2}</p></div></div>',
+			flagSrc, name, continent);
+
+		var tooltipBody = String.format('<div class="tooltip-body"><p class="time">{0}</p><p class="value">{1}</p></div>',
+			time, value);
+
+		var text = String.format("{0}{1}", tooltipHeader, value != null ? tooltipBody : "");
+
+		wesCountry.charts.showTooltip(text);
+	}
+
+	this.tooltipRanking = function(info) {
+		var path = document.getElementById('path').value;
+
+		var code = info.serie;
+		var value = info.value == null || info.value == "null" ? null : info.value;
+		var name = info["data-countryName"];
+		var continent = info["data-continent_name"];
+		var time = info["data-time"] ? info["data-time"] : "-";
+		var ranking = info["data-ranking"] ? info["data-ranking"] : "";
+
+		var flagSrc = path + '/static/images/flags/' + code.toUpperCase() + ".png";
+
+		var tooltipHeader = String.format('<div class="tooltip-header"><img src="{0}" /><div class="title"><p class="countryName">{1}</p><p class="continentName">{2}</p></div></div>',
+			flagSrc, name, continent);
+
+		var tooltipBody = String.format('<div class="tooltip-body"><p class="time">{0}</p><p class="ranking">{1}</p><p class="value">{2}</p></div>',
+			time, ranking, value);
+
+		var text = String.format("{0}{1}", tooltipHeader, value != null ? tooltipBody : "");
+
+		wesCountry.charts.showTooltip(text);
+	}
+
+	// Share
+
 	this.generateShareLinks = function (url, description) {
 		generateTwitterLink(url, description);
 		generateMailLink(url, description);

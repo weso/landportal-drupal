@@ -14,6 +14,9 @@ var colourSerie = ['#b41739', '#4293c6', '#17c8b6', '#dba40b', '#70148e', '#7014
 var title = document.getElementById('chart-title').innerHTML;
 var description = document.getElementById('chart-description').innerHTML;
 
+var label_x = 'Years';
+var label_y = 'Values';
+
 ////////////////////////////////////////////////////////////////////////////////
 //                              COUNTRIES SELECTORS
 ////////////////////////////////////////////////////////////////////////////////
@@ -75,7 +78,7 @@ wesCountry.stateful.start({
 
 			generateColourPalette();
 
-			renderChart(chartType);
+			renderChart(chartType, label_x, label_y);
 
 			// Invoke countrySelector
 			countrySelector.update();
@@ -83,7 +86,7 @@ wesCountry.stateful.start({
 
 		generateCountryRows(parameters, selectors);
 
-		renderChart(chartType);
+		renderChart(chartType, label_x, label_y);
 	},
 	urlChanged: function(parameters, selectors) {
 
@@ -93,7 +96,7 @@ wesCountry.stateful.start({
 			name: "indicator",
 			selector: "#indicator-select",
 			onChange: function(index, value, parameters, selectors) {
-				renderChart(chartType);
+				renderChart(chartType, label_x, label_y);
 			}
 		},
 		{
@@ -137,7 +140,7 @@ function generateCountryRows(parameters, selectors) {
 
 	generateColourPalette(colours);
 
-	renderChart(chartType);
+	renderChart(chartType, label_x, label_y);
 
 	// Invoke countrySelector
 	countrySelector.update();
@@ -182,7 +185,7 @@ function selectTypeButton(button) {
 
 	chartType = button.getAttribute('chart-type');
 
-	renderChart(chartType);
+	renderChart(chartType, label_x, label_y);
 }
 
 var typeButtons = document.querySelectorAll('.widget-chart-button:not(.disabled)');
@@ -195,15 +198,16 @@ for (var i = 0; i < typeButtons.length; i++)
 /* Chart descriptions */
 
 document.getElementById('title').onkeyup = function() {
-	document.getElementById('chart-title').innerHTML = this.value;
+	title = this.value;
+	document.getElementById('chart-title').innerHTML = title
+	renderChart(chartType, label_x, label_y);
 }
 
 document.getElementById('description').onkeyup = function() {
-	document.getElementById('chart-description').innerHTML = this.value;
+	description = this.value;
+	document.getElementById('chart-description').innerHTML = description;
+	renderChart(chartType, label_x, label_y);
 }
-
-var label_x = 'Years';
-var label_y = 'Values';
 
 document.getElementById('label_x').onkeyup = function() {
 	label_x = this.value;
@@ -266,6 +270,9 @@ function callback(data) {
 	data.container = '#mapDiv';
 	data.width = container.offsetWidth;
 	data.height = container.offsetHeight;
+	data.events =  {
+		onmouseover: util.tooltipWidgets
+	}
 
 	var chart = null;
 
@@ -285,7 +292,15 @@ function renderChart(type, label_x, label_y) {
 		return;
 
 	var format = '&format=jsonp';
-	var parameters = 'indicator=' + data.indicator + '&countries=' + data.countries + '&colours=' + data.colours;
+	var parameters = 'indicator=' + data.indicator + '&countries=' + data.countries
+		+ '&colours=' + data.colours + '&xTag=' + label_x + '&yTag=' + label_y;
+
+	if (title != "")
+		parameters += "&title=" + title;
+
+	if (description != "")
+		parameters += "&description=" + description;
+
 	var url = apiURL + '/graphs/' + chartType + '?' + parameters + format;
 	var script = document.createElement('script');
 	script.src = url;
@@ -470,7 +485,7 @@ function generateColourPalette(colours) {
 			parent.removeChild(div);
 
 			setNumberToRows();
-			renderChart(chartType);
+			renderChart(chartType, label_x, label_y);
 
 			// Invoke countrySelector
 			countrySelector.update();
@@ -480,7 +495,7 @@ function generateColourPalette(colours) {
 
 	for (var i = 0; i < selectors.length; i++)
 		selectors[i].onchange = function() {
-			renderChart(chartType);
+			renderChart(chartType, label_x, label_y);
 			countrySelector.update();
 		}
 }

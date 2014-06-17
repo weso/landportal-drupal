@@ -11,7 +11,7 @@ class Widgets {
 		$api = $options->host;
 
 		$cache = new CacheHelper('widgets', array(
-			$lang;
+			$lang,
 		));
 		$cached = $cache->get();
 		if ($cached !== null) {

@@ -33,8 +33,6 @@
 	  	  <div id="world-map" class="world-map"></div>
 	  	  <h2 class="section"><span>{{#labels}}{{country_map}}{{/labels}}</span></h2>
 	  	  <div id="country-map" class="country-map"></div>
-	  	  <!--
-		  <iframe class="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl={{#application}}{{language}}{{/application}}&amp;geocode=&amp;q={{#info}}{{country}}{{/info}}&amp;aq=&amp;ie=UTF8&amp;hq=&amp;hnear={{#info}}{{country}}{{/info}}&amp;t=m&amp;z=4&amp;output=embed"></iframe> -->
 		  <h2 class="section"><span>{{#labels}}{{main_index_rankings}}{{/labels}}</span></h2>
 		  <div id="main-index-rankings" class="graph">
             {{#charts}}
@@ -186,7 +184,7 @@
 					{{#labels}}{{full_data}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span>
 				</button>
 			</a>
-		  <a href="" class="more-info">{{#labels}}{{more_about_the_indicators}}{{/labels}}</a>
+		  <a href="/book/indicators" class="more-info">{{#labels}}{{more_about_the_indicators}}{{/labels}}</a>
 		  <h2 class="section"><span>{{#labels}}{{specific_country}}{{/labels}}</span></h2>
 		  <select id="country-select" class="form-control">
 				<option disabled="disabled" selected="true">{{#labels}}{{select_a_country}}{{/labels}}</option>
@@ -196,12 +194,14 @@
 				{{/countries}}
 			{{/selectors}}
 		  </select>
-		  <a href="" class="more-info">{{#labels}}{{more_about_areas_and_countries}}{{/labels}}</a>
+		  <a href="/book/countries" class="more-info">{{#labels}}{{more_about_areas_and_countries}}{{/labels}}</a>
 		  <button class="btn data-button">
-			{{#labels}}{{more_resources}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span>
+			{{#labels}}{{consult_library}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span>
 			<p class="at-button">{{#labels}}{{at}}{{/labels}} landportal.info</p>
 		  </button>
-		  <button class="btn data-button-dark">{{#labels}}{{land_debates}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span></button>
+		  <a href="/taxonomy/term/{{#info}}{{taxonomy_id}}{{/info}}">
+				<button class="btn data-button-dark">{{#labels}}{{land_debates}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span></button>
+			</a>
 			<h2 class="section"><span>{{#labels}}{{share}}{{/labels}}</span></h2>
 			{{>share}}
 	  </div>
