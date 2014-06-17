@@ -42,3 +42,5 @@ sites/all/modules/*
 
 # Ignore backup files created by some text editors
 *~
+
+!sites/all/modules/custom/modules/landportal_uris/cache
