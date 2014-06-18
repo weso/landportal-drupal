@@ -13,7 +13,8 @@ class Home {
         	$count++;
         	array_push($result, array(
         		"image" => $item["image"],
-        		"text" => $item["text"][$language]
+        		"text" => $item["text"][$language],
+                "url" => $item["url"]
     		));
     		if ($count == 4) {
     			break;

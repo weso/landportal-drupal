@@ -16,9 +16,11 @@
   </div>
 </div>
 {{#carousel}}
-    <div class="col-sm-3 home-piece-of-new" style="background-image: url({{path}}/static/images/carousel/{{image}});">
-        <div class="piece-of-new-text">{{text}}</div>
-    </div>
+    <a href="{{url}}">
+      <div class="col-sm-3 home-piece-of-new" style="background-image: url({{path}}/static/images/carousel/{{image}});">
+          <div class="piece-of-new-text">{{text}}</div>
+      </div>
+    </a>
 {{/carousel}}
 	<div class="content main-content container home-modules">
 		<div class="row text-center">

@@ -5,7 +5,7 @@ require_once(dirname(__FILE__) .'/../cache/cache_helper.php');
 /*
 $a = new Country();
 header('Content-Type: application/json');
-echo json_encode($a->get(array(), 'ESP'));
+echo json_encode($a->get(array(), 'BWA'));
 */
 
 class Country {
