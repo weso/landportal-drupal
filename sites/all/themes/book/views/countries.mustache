@@ -19,7 +19,7 @@
     <div class="row countries-container">
         <div class="col-sm-6 col-lg-4">
             <label for="select-country">{{#labels}}{{select_a_country}}{{/labels}}:</label>
-            <select id="country-select" name="select-country">
+            <select id="country-select" class="countries-country-select" name="select-country">
             	<option selected="true">{{#labels}}{{select_a_country}}{{/labels}}</option>
     			{{#countries}}
     				<option value="{{iso3}}" {{^data}}disabled="disabled"{{/data}}>{{name}}</option>

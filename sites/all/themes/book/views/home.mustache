@@ -1,32 +1,25 @@
 <header class="main-header">{{>topbar-home}}</header>
 
-<img src="{{path}}/static/images/carousel/first.jpg" class="home-img" alt="">
+<div class="home-img-wrapper">
+  <img src="{{path}}/static/images/carousel/first.jpg" class="home-img" alt="">
+</div>
 
-<div class="row home-caption">
-  <div class="col-sm-12">
-    <p>{{#labels}}{{motto_description_1}}{{/labels}}</p>
-    <p>
-      {{#labels}}{{motto_description_2}}{{/labels}}
-      <a href="/about">{{#labels}}{{read_more_about_us}}{{/labels}}</a>
-    </p>
+<div class="container">
+  <div class="row home-caption">
+    <div class="col-sm-12">
+      <p>{{#labels}}{{motto_description_1}}{{/labels}}</p>
+      <p>
+        {{#labels}}{{motto_description_2}}{{/labels}}
+        <a href="/about">{{#labels}}{{read_more_about_us}}{{/labels}}</a>
+      </p>
+    </div>
   </div>
 </div>
 {{#carousel}}
-  <div class="col-sm-3 home-piece-of-new" style="background-image: url({{path}}/static/images/carousel/{{image}});">
-    <div class="piece-of-new-text">{{text}}</div>
-  </div>
+    <div class="col-sm-3 home-piece-of-new" style="background-image: url({{path}}/static/images/carousel/{{image}});">
+        <div class="piece-of-new-text">{{text}}</div>
+    </div>
 {{/carousel}}
-<!--
-<div class="col-sm-3 home-piece-of-new" style="background-image: url({{path}}/static/images/carousel/people.jpg);">
-  <div class="piece-of-new-text">Innovative tools and approaches for securing women's land rights</div>
-</div>
-<div class="col-sm-3 home-piece-of-new" style="background-image: url({{path}}/static/images/carousel/poor.jpg);">
-  <div class="piece-of-new-text">World’s poorest need land rights to cope with climate change</div>
-</div>
-<div class="col-sm-3 home-piece-of-new" style="background-image: url({{path}}/static/images/carousel/forest.jpg);">
-  <div class="piece-of-new-text">Forest Tenure Shifts to Communities as Governments Stay Dominant</div>
-</div>
--->
 	<div class="content main-content container home-modules">
 		<div class="row text-center">
 			<div class="col-sm-4">

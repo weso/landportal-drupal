@@ -18,7 +18,7 @@
     <div class="row countries-container">
         <div class="col-sm-6 col-lg-6">
             <label for="select-indicator">{{#labels}}{{select_an_indicator}}{{/labels}}:</label>
-            <select id="country-select" name="select-indicator">
+            <select id="country-select" class="indicators-indicator-select" name="select-indicator">
             	<option disabled="disabled" selected="true">{{#labels}}{{select_an_indicator}}{{/labels}}</option>
             	{{#indicators}}
             		<option value="{{id}}">{{name}}</option>

@@ -104,10 +104,10 @@
 							{{#labels}}{{source}}{{/labels}}: <a href="/book/sources/worldbank">{{#labels}}{{world_bank}}{{/labels}}</a>
 						</p>
         </div>
-		  <h2 class="section"><span class="indicator-name"></span><span> </span><span>{{#labels}}{{for_countries}}{{/labels}}</span></h2>
+		  <h2 class="section section-name"><span class="indicator-name"></span><span> </span><span>{{#labels}}{{for_countries}}{{/labels}}</span></h2>
 		  <div id="mapDiv" class="map-medium indicator-map"></div>
 		  <div id="chart-region-bar-comparison" class="graph-medium"></div>
-		  <h2 class="section"><span class="indicator-name"></span><span> </span><span>{{#labels}}{{across_time}}{{/labels}}</span><span> </span><span class="country-name">{{#info}}{{name}}{{/info}}</span></h2>
+		  <h2 class="section section-name"><span class="indicator-name"></span><span> </span><span>{{#labels}}{{across_time}}{{/labels}}</span><span> </span><span class="country-name">{{#info}}{{name}}{{/info}}</span></h2>
 		  <div class="row">
 			<div class="col-xs-4">
 				{{#labels}}{{compare_with}}{{/labels}}:
@@ -147,7 +147,7 @@
 					<h2 class="section"><span>{{name}}</span></h2>
 					<div class="row evolutions">
 						{{#indicators}}
-				  		<div class="col-xs-3 no-signature">
+				  		<div class="col-xs-6 col-md-3 no-signature">
 				  			<div id="starred_{{id}}" class="graph-small"></div>
 								<p class="indicator-name">{{name}}</p>
 				  		</div>

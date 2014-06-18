@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: 3em;
+	font-size: 2.5em;
 	font-weight: normal;
 	color: #333;
 	padding-bottom: 0.2em;
@@ -190,7 +190,7 @@ div.navigation a:last-child {
 	border-right: none;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 768px) {
 	div.navigation a {
 		width: 25%;
 	}
@@ -314,11 +314,19 @@ header.debate-header div.navigation nav.tabs a:nth-child(8) {
 /* Breadcrumb */
 
 .breadcrumb {
-	margin-bottom: 0.2em;
+	margin-bottom: 1em;
 	background-color: #fff;
 	padding-top: 0.5em !important;
 	padding-bottom: 0.5em !important;
 	padding-left: 0;
+	font-size: 0.8em;
+}
+
+@media (min-width: 768px) {
+	.breadcrumb {
+		font-size: 1em;
+		margin-bottom: 0.2em;
+	}
 }
 
 /* Logo */
@@ -339,7 +347,7 @@ div.logo span.site {
 	display: inline-block;
 	padding-top: 0.3em;
 	padding-left: 0.3em;
-    text-transform: lowercase;
+  text-transform: lowercase;
 }
 
 div.logo span.site strong {
@@ -410,7 +418,22 @@ footer.inverted .breadcrumb {
 
 footer.inverted .breadcrumb a {
 	color: #333;
-	font-size: 0.9em;
+}
+
+@media (min-width: 768px) {
+	footer.inverted .breadcrumb a {
+		font-size: 0.9em;
+	}
+}
+
+@media (max-width: 768px) {
+	footer .breadcrumb li {
+		width: 100%;
+	}
+
+	footer .breadcrumb > li + li::before {
+		content: none;
+	}
 }
 
 footer ul.map {
@@ -495,7 +518,8 @@ footer.signature {
 div.social {
 	text-align: right;
 	font-size: 0.6em;
-	padding: 1em 0;
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
 
 div.social a {
@@ -564,10 +588,11 @@ div.piece-of-new-text {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	background-color: rgba(20, 20, 20, 0.8);
+	background-color: rgba(20, 20, 20, 0.6);
 	color: #fff;
 	padding: 0.5em 1em;
 	width: 100%;
+	min-height: 5em;
 }
 
 div.presentation {
@@ -582,6 +607,10 @@ ol.breadcrumb-sites span.black {
 
 ol.breadcrumb-sites > li + li::before {
 	content: "| ";
+}
+
+.home-img-wrapper {
+	overflow: hidden;
 }
 
 img.home-img {
@@ -632,6 +661,7 @@ h3.module-motto {
 	text-transform: uppercase;
 	color: #777;
 	margin-bottom: 1em;
+	height: 2em;
 }
 
 span.landbook {
@@ -649,7 +679,18 @@ span.landlibrary {
 p.module-description {
 	text-align: justify;
 	font-size: 1em;
-	min-height: 8em;
+}
+
+@media (min-width: 768px) {
+	p.module-description {
+		min-height: 12em;
+	}
+}
+
+@media (min-width: 1200px) {
+	p.module-description {
+		min-height: 8em;
+	}
 }
 
 .btn-default {
@@ -659,8 +700,11 @@ p.module-description {
 	color: #444;
 }
 
-div.middle-module {
-
+@media (max-width: 767px) {
+	div.middle-module {
+		margin-top: 4em;
+		margin-bottom: 4em;
+	}
 }
 
 a.module-link {
@@ -692,6 +736,24 @@ div.world-map {
 	margin-bottom: 1em;
 }
 
+@media (min-width: 480px) {
+	div.world-map {
+		height: 18em;
+	}
+}
+
+@media (min-width: 640px) {
+	div.world-map {
+		height: 24em;
+	}
+}
+
+@media (min-width: 768px) {
+	div.world-map {
+		height: 12em;
+	}
+}
+
 div.country-map {
 	height: 14em;
 	margin: 0 0.1em 2em 0.1em;
@@ -715,30 +777,37 @@ h1.country-name {
 	position: relative;
 	margin-top: 0;
 	margin-bottom: 0.5em;
+	font-size: 1.7em;
 }
 
-h1.country-name:before {
-    border-top: 0.05em solid #555;
-    content: "";
-    margin: 0 auto;
-    position: absolute;
-    top: 60%;
-    width: 100%;
-    z-index: -1;
-}
+@media (min-width: 768px) {
+	h1.country-name {
+		font-size: 2.5em;
+	}
 
-h1.country-name span {
-	background-color: #fff;
-	padding: 0 0.5em;
-	margin-left: 0.5em;
-}
+	h1.country-name:before {
+	    border-top: 0.05em solid #555;
+	    content: "";
+	    margin: 0 auto;
+	    position: absolute;
+	    top: 60%;
+	    width: 100%;
+	    z-index: -1;
+	}
 
-h1.country-name span.no-margin {
-	margin: 0 !important;
-}
+	h1.country-name span {
+		background-color: #fff;
+		padding: 0 0.5em;
+		margin-left: 0.5em;
+	}
 
-h1.country-name span.flag {
-	padding: 0 0.5em 0 0 !important;
+	h1.country-name span.no-margin {
+		margin: 0 !important;
+	}
+
+	h1.country-name span.flag {
+		padding: 0 0.5em 0 0 !important;
+	}
 }
 
 h2.section {
@@ -746,19 +815,23 @@ h2.section {
 	color: #666;
 	text-transform: uppercase;
 	font-size: 0.9em;
+	margin-bottom: 2em;
+}
+
+h2.section {
 	text-align: center;
 	margin-bottom: 1.5em;
 }
 
 h2.section:before {
-    border-top: 0.1em solid #ccc;
-    content: "";
-    margin: 0 auto;
-    position: absolute;
-    top: 70%;
-    left: 0;
-    width: 100%;
-    z-index: -1;
+		border-top: 0.1em solid #ccc;
+		content: "";
+		margin: 0 auto;
+		position: absolute;
+		top: 70%;
+		left: 0;
+		width: 100%;
+		z-index: -1;
 }
 
 h2.section span {
@@ -772,6 +845,37 @@ h2.section span:first-child {
 
 h2.section span:last-child {
 	padding-right: 1em;
+}
+
+@media (max-width: 768px) {
+	h2.section-name {
+		text-align: left;
+		margin-bottom: 2em;
+	}
+
+	h2.section-name:before {
+	    border-top: none;
+	    content: "";
+	    margin: auto;
+	    position: relative;
+	    top: 70%;
+	    left: 0;
+	    width: auto;
+	    z-index: -1;
+	}
+
+	h2.section-name span {
+		background-color: transparent;
+		padding: 0;
+	}
+
+	h2.section-name span:first-child {
+		padding-left: 0;
+	}
+
+	h2.section-name span:last-child {
+		padding-right: 0;
+	}
 }
 
 iframe.map {
@@ -949,11 +1053,24 @@ p.percentage {
 	color: #888;
 }
 
+@media (min-width: 768px) {
+	p.percentage {
+		font-size: 1.2em;
+	}
+}
+
+@media (min-width: 992px) {
+	p.percentage {
+		font-size: 1.4em;
+	}
+}
+
 p.indicator-name {
 	font-size: 0.7em;
 	font-style: italic;
 	color: #333;
 	text-align: left;
+	min-height: 5em;
 }
 
 i.text-muted {
@@ -963,10 +1080,44 @@ i.text-muted {
 /* Maps */
 
 div.map {
-	min-height: 40em;
+	min-height: 20em;
 	position: relative;
 	text-align: center;
 	margin-bottom: 2em;
+}
+
+div.wesCountry-map .buttons {
+	display: none;
+}
+
+@media (min-width: 480px) {
+	div.map {
+		min-height: 30em;
+	}
+}
+
+@media (min-width: 768px) {
+	div.wesCountry-map .buttons {
+		display: block;
+	}
+}
+
+@media (min-width: 992px) {
+	div.map {
+		min-height: 40em;
+	}
+}
+
+@media (max-width: 1199px) {
+	p.wesCountry-foot {
+		width: 100% !important;
+		margin-bottom: 1em !important;
+	}
+
+	div.graph-medium, div.graph-large, div.map {
+		padding-bottom: 1.5em;
+		border-bottom: 0.1em solid #ccc;
+	}
 }
 
 div.map div.wesCountry-footer {
@@ -1146,6 +1297,12 @@ p.chart-source {
     margin-right: 0.4em;
 }
 
+select.countries-country-select, select.indicators-indicator-select {
+	width: 100%;
+	font-size: 1.2em;
+	margin-bottom: 0.5em;
+}
+
 h1.country-name {
 	cursor: pointer;
 
@@ -1190,8 +1347,9 @@ div.continent-countries {
 	padding-bottom: 2em;
 }
 
-div.continent-countries div {
+div.continent-countries > div {
 	margin-bottom: 0.7em;
+	overflow: hidden;
 }
 
 /* Graphs */
@@ -1586,6 +1744,10 @@ p.permalink {
 	word-break: break-all;
 }
 
+div.share-widget {
+	margin-bottom: 0.5em;
+}
+
 /* Indicators */
 
 div.marker {
@@ -1955,6 +2117,12 @@ div.loading-circles {
 
 /* Data sources */
 
+@media (min-width: 768px) {
+	h1.datasource-name {
+		font-size: 2em;
+	}
+}
+
 div.data-sources {
 	margin-top: 2em;
 }
@@ -2299,93 +2467,4 @@ div.debate-status a[href$="/closed_debates"] {
 .wesCountry-tooltip p.value {
 	font-size: 1.2em;
 	padding-top: 0.4em;
-}
-
-/* SEARCH */
-
-.site-search {
-	border: 0.1em solid #888;
-}
-
-.search-result {
-	margin-bottom: 0.7em;
-	margin-top: 0.5em;
-}
-
-.search-result h3 {
-	font-size: 1.7em;
-	margin-bottom: 0.2em;
-}
-
-.search-result .url {
-	color: #006621;
-}
-
-.search-result .description {
-	margin-top: 0.5em;
-}
-
-.search-result .search-result-flag {
-	float: left;
-	margin-right: 1em;
-	margin-top: 0.3em;
-	width: 1.6em;
-}
-
-.search-result .search-result-label {
-	display: inline-block;
-	padding: 0.2em 0.4em 0.1em 0.4em;
-	background-color: #aaa;
-	color: #fff;
-	font-size: 0.7em;
-	border-radius: 0.5em;
-	margin-top: 0.2em;
-	text-transform: uppercase;
-}
-
-.search-result .label-country {
-	background-color: #04b431;
-}
-
-.search-result .label-indicator {
-	background-color: #04b431;
-}
-
-/* RSS */
-
-.rss-button .rss-text {
-	margin-right: 0.1em;
-}
-
-.rss-button i {
-	color: #FF6600;
-}
-
-/* LOGIN */
-
-.landbook-register-wrapper .description {
-	color: #333;
-	font-size: 1.1em;
-}
-
-.landbook-register-wrapper input {
-	width: 100%;
-}
-
-.landbook-register-wrapper #edit-actions {
-	margin-top: 2.5em;
-}
-
-
-/* USER PICTURES IN DEBATE*/
-
-.facilitator img {
-	width: 2em;
-	margin-right: 0.5em;
-	float: left;
-}
-
-.facilitator a{
-	margin-top: 0.5em;
-	display: inline-block;
 }
