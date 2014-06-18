@@ -3,9 +3,9 @@
 * This is the default view for showing the comments in the debate views.
 */
 ?>
-<?php include_once("template-loader.php");
-  $labels = get_labels($application_data['languages']);
-?>
+<?php require_once(drupal_get_path("theme", "book") ."/template-loader.php"); ?>
+<?php $labels = get_labels($application_data['languages']); ?>
+
 <div class="row">
   <div class="col-sm-12">
     <!-- Comment title -->
