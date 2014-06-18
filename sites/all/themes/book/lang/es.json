@@ -232,5 +232,9 @@
   "username_restrictions": "Los espacios están permitidos. Los signos de puntuación o están permitidos (excepto puntos, guiones, apóstrofes y guines bajos)",
   "email_restrictions": "Una dirección de correo válida. Todos los correos del sistema serán enviados a ésta dirección. La dirección de correo electrónico no se hará pública y sólo se utilizará para recibir una nueva constraseña y algunas notificaciones del sistema.",
   "new_registration": "Registrarse",
-  "request_password": "Pedir nueva contraseña"
+  "request_password": "Pedir nueva contraseña",
+  "new_password": "Nueva contraseña",
+  "repeat_password": "Repite la contraseña",
+  "strength_password": "Calidad de la contraseña",
+  "update_profile": "Actualizar perfil"
 }
