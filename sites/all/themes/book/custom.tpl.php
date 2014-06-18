@@ -1,5 +1,5 @@
 <?php
-include("mustache.php");
+require_once("mustache.php");
 
 /*
 At this point THE FOLLOWING VARIABLES ARE AVAILABLE (from template.php::book_preprocess)
