@@ -11,9 +11,12 @@
     </p>
   </div>
 </div>
-<div class="col-sm-3 home-piece-of-new" style="background-image: url({{path}}/static/images/carousel/ethiopia.png);">
-  <div class="piece-of-new-text">Ethiopia: Land, Water Grabs Devastate Communities</div>
-</div>
+{{#carousel}}
+  <div class="col-sm-3 home-piece-of-new" style="background-image: url({{path}}/static/images/carousel/{{image}});">
+    <div class="piece-of-new-text">{{text}}</div>
+  </div>
+{{/carousel}}
+<!--
 <div class="col-sm-3 home-piece-of-new" style="background-image: url({{path}}/static/images/carousel/people.jpg);">
   <div class="piece-of-new-text">Innovative tools and approaches for securing women's land rights</div>
 </div>
@@ -23,7 +26,7 @@
 <div class="col-sm-3 home-piece-of-new" style="background-image: url({{path}}/static/images/carousel/forest.jpg);">
   <div class="piece-of-new-text">Forest Tenure Shifts to Communities as Governments Stay Dominant</div>
 </div>
-
+-->
 	<div class="content main-content container home-modules">
 		<div class="row text-center">
 			<div class="col-sm-4">
