@@ -16,10 +16,14 @@
 <?php global $user;?>
 <?php $can_edit = $is_admin || ($logged_in && $user->uid === $uid); ?>
 <?php $can_delete = $is_admin; ?>
-<?php $field_date = strtotime($node->field_date["und"]["0"]["value"]); ?>
+<?php $field_date_begining = strtotime($node->field_date["und"]["0"]["value"]); ?>
+<?php $field_date_end = strtotime($node->field_date["und"]["0"]["value2"]); ?>
 
 <!-- FULL VIEW -->
 <?php if ($view_mode === 'full'): ?>
+<pre>
+  <?php print_r($node); ?>
+</pre>
 <?php get_template("debate-header", "events", $application_data, $theme_path); ?>
 <div class="content main-content container">
   <!-- Breadcrumbs -->
@@ -48,7 +52,13 @@
         <h2 class="section">
           <span><?php echo $labels["date"]; ?></span>
         </h2>
-        <?php echo date($labels["date_format"], $field_date); ?>
+        <?php if ($field_date_begining == $field_date_end): ?>
+          <?php echo $labels["on"], " ", date($labels["date_format"], $field_date_begining)?>
+        <?php else: ?>
+          <?php echo $labels["from"], " ", date($labels["date_format"], $field_date_begining)?>
+          <br>
+          <?php echo $labels["to"], " ", date($labels["date_format"], $field_date_end)?>
+        <?php endif;?>
       </div>
       <div class="social-buttons">
         <h2 class="section">
