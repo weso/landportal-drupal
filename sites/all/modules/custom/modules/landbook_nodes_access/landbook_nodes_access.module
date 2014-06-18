@@ -10,12 +10,13 @@
 function landbook_nodes_access_init() {
     $node = menu_get_object();
     if (isset($node->type)):
-        $landbook_id = $node->field_id['und'][0]['value'];
         switch ($node->type):
             case "landbook_country":
+                $landbook_id = $node->field_id['und'][0]['value'];
                 drupal_goto("book/countries/$landbook_id");
                 break;
             case "landbook_indicator":
+                $landbook_id = $node->field_id['und'][0]['value'];
                 // The second parameter is required to send the querystring properly
                 drupal_goto('book/indicators/detail', array(
                     'query' => array(
