@@ -21,9 +21,6 @@
 
 <!-- FULL VIEW -->
 <?php if ($view_mode === 'full'): ?>
-<pre>
-  <?php print_r($node); ?>
-</pre>
 <?php get_template("debate-header", "events", $application_data, $theme_path); ?>
 <div class="content main-content container">
   <!-- Breadcrumbs -->
