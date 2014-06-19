@@ -26,7 +26,9 @@ web.config
 authorize.php
 cron.php
 index.php
+!/sites/all/libraries/hybridauth/hybridauth/index.php
 install.php
+!/sites/all/libraries/hybridauth/hybridauth/install.php
 update.php
 xmlrpc.php
 /includes
