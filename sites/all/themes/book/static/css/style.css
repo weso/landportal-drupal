@@ -2468,3 +2468,92 @@ div.debate-status a[href$="/closed_debates"] {
 	font-size: 1.2em;
 	padding-top: 0.4em;
 }
+
+/* SEARCH */
+
+.site-search {
+	border: 0.1em solid #888;
+}
+
+.search-result {
+	margin-bottom: 0.7em;
+	margin-top: 0.5em;
+}
+
+.search-result h3 {
+	font-size: 1.7em;
+	margin-bottom: 0.2em;
+}
+
+.search-result .url {
+	color: #006621;
+}
+
+.search-result .description {
+	margin-top: 0.5em;
+}
+
+.search-result .search-result-flag {
+	float: left;
+	margin-right: 1em;
+	margin-top: 0.3em;
+	width: 1.6em;
+}
+
+.search-result .search-result-label {
+	display: inline-block;
+	padding: 0.2em 0.4em 0.1em 0.4em;
+	background-color: #aaa;
+	color: #fff;
+	font-size: 0.7em;
+	border-radius: 0.5em;
+	margin-top: 0.2em;
+	text-transform: uppercase;
+}
+
+.search-result .label-country {
+	background-color: #04b431;
+}
+
+.search-result .label-indicator {
+	background-color: #04b431;
+}
+
+/* RSS */
+
+.rss-button .rss-text {
+	margin-right: 0.1em;
+}
+
+.rss-button i {
+	color: #FF6600;
+}
+
+/* LOGIN */
+
+.landbook-register-wrapper .description {
+	color: #333;
+	font-size: 1.1em;
+}
+
+.landbook-register-wrapper input {
+	width: 100%;
+}
+
+.landbook-register-wrapper #edit-actions {
+	margin-top: 2.5em;
+}
+
+
+/* USER PICTURES IN DEBATE*/
+
+.facilitator img {
+	width: 2em;
+	margin-right: 0.5em;
+	float: left;
+}
+
+.facilitator a{
+	margin-top: 0.5em;
+	display: inline-block;
+}
