@@ -5,12 +5,12 @@ require_once(dirname(__FILE__) .'/../cache/cache_helper.php');
 /*
 $a = new Country();
 header('Content-Type: application/json');
-echo json_encode($a->get(array(), 'BWA'));
+echo json_encode($a->get(array(), 'AGO'));
 */
 
 class Country {
 	private $spiderIndicators = array('INDOECD1', 'INDIPFRI0', 'INDUNDP0');
-	private $trafficLigths = array('INDOECD1', 'INDOECD8', 'INDOECD10', 'INDOECD9', 'INDOECD11');
+	private $trafficLights = array('INDOECD1', 'INDOECD8', 'INDOECD10', 'INDOECD9', 'INDOECD11');
 	private $tableIndicators = array('INDWB10', 'INDWB9', 'INDWB6', 'INDWB13', 'INDWB12', 'INDWB14', 'INDWB11');
 	private $gaugeIndicators = array("INDFAOSTAT5", "INDFAOSTAT6" , "INDFAOSTAT7");
 
@@ -24,6 +24,7 @@ class Country {
 			$iso3,
 			$lang,
 		));
+		//$cached = null;
 		$cached = $cache->get();
 		if ($cached !== null) {
 			return $cached;
@@ -39,18 +40,21 @@ class Country {
 			}
 
 			$countries = $database->query("countries_without_region", array($lang));
-			$indicators_imploded = "'". implode("','", $this->spiderIndicators) ."','".  implode("','", $this->trafficLigths) ."','".  implode("','", $this->tableIndicators) ."','". implode("','", $this->gaugeIndicators) ."'";
+			$indicators_imploded = "'". implode("','", $this->spiderIndicators) ."','".  implode("','", $this->tableIndicators) ."','". implode("','", $this->gaugeIndicators) ."'";
 			$charts = $database->query("country_chart_indicators", array($lang, $iso3, $indicators_imploded));
 			$starred = $database->query("starred_indicators", array($lang));
+
+			$traffic_data = $this->_compose_traffic($database, $this->trafficLights, $safe_iso3, $lang);
+
+			$result = $this->compose_data($datasources, $info, $countries, $charts, $starred, $traffic_data);
 			$database->close();
-			$result = $this->compose_data($datasources, $info, $countries, $charts, $starred);
 			$cache->store($result);
 			return $result;
 		}
 	}
 
 
-	private function compose_data($datasources, $info, $countries, $charts, $starred) {
+	private function compose_data($datasources, $info, $countries, $charts, $starred, $traffic_data) {
 		$country_info = $this->compose_info($info);
 		$result = array();
 		$result["info"] = $country_info;
@@ -60,6 +64,7 @@ class Country {
 		);
 		$result["starred"] = $this->compose_starred($starred);
 		$result["charts"] = $this->compose_charts($charts, $country_info);
+		$result['charts']['trafficLights'] = array_values($traffic_data);
 		$result["entity-id"] = $result["info"]["iso3"];
 		return $result;
 	}
@@ -160,9 +165,6 @@ class Country {
 
 	private function compose_charts($observations, $country_info) {
 		$spider_obs = $this->_create_spider_graph($country_info["name"]);
-		$traffic_obs = array(
-			"observations"=>array()
-		);
 		$table_obs = array(
 			"observations"=>array()
 		);
@@ -195,8 +197,6 @@ class Country {
 			);
 			if (in_array($indicator_id, $this->spiderIndicators)) {
 				$spider_obs[$indicator_id] = $observation;
-			} elseif (in_array($indicator_id, $this->trafficLigths)) {
-				array_push($traffic_obs["observations"], $observation);
 			} elseif (in_array($indicator_id, $this->tableIndicators)) {
 				array_push($table_obs["observations"], $observation);
 			} elseif (in_array($indicator_id, $this->gaugeIndicators)) {
@@ -215,7 +215,6 @@ class Country {
 			"spider" => array(
 				"observations" => array_values($spider_obs),
 			),
-			"trafficLights" => $traffic_obs,
 			"tableIndicators" => $table_obs,
 			"gaugeIndicators" => $gauge_obs,
 		);
@@ -256,4 +255,41 @@ class Country {
 		}
 		return $spider_graph;
 	}
+
+
+	private function _compose_traffic($database, $trafficLights, $iso3, $lang) {
+		$result = array();
+		foreach ($trafficLights as $ind_id) {
+			$pref_tendency = $database->query('pref_tendency_indicator', array($ind_id));
+			$pref_tendency = isset($pref_tendency[0]) ? $pref_tendency[0]['preferable_tendency'] : null;
+			$last_obs = $database->query('last_observation_not_null_by_country_and_indicator', array($iso3, $ind_id));
+			$last_obs = isset($last_obs[0]) ? $last_obs[0]['value'] : null;
+			$average = $database->query('indicator_average', array($ind_id));
+			$average = isset($average[0]) ? $average[0]['avg'] : null;
+			array_push($result, array(
+				'indicator' => $ind = $database->query('indicator_name', array($lang, $ind_id)),
+				'value' => $last_obs,
+				'average' => $average,
+				'light' => $this->_calculate_light($pref_tendency, $last_obs, $average)
+			));
+		}
+		return $result;
+	}
+
+
+	private function _calculate_light($tendency, $value, $average) {
+		if ($tendency == null || $value == null || $average == null) {
+			return 'none';
+		}
+		if ($value == $average) {
+			return 'same';
+		}
+		if ($tendency == 'increase') {
+			return $value > $average ? 'good' : 'bad';
+		}
+		if ($tendency == 'decrease') {
+			return $value < $average ? 'good' : 'bad';
+		}
+	}
+
 }

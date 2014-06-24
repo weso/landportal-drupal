@@ -904,7 +904,7 @@ td div.circle {
 	float: right;
 }
 
-div.green {
+div.good {
 	background-color: #00af10;
 	width: 100%;
 	height: 100%;
@@ -912,7 +912,7 @@ div.green {
 	box-shadow: inset 0.1em 0.1em 0.2em #317060;
 }
 
-div.red {
+div.bad {
 	background-color: #ff0002;
 	width: 100%;
 	height: 100%;
@@ -920,12 +920,20 @@ div.red {
 	box-shadow: inset 0.1em 0.1em 0.2em #713232;
 }
 
-div.yellow {
+div.same {
 	background-color: #ffb902;
 	width: 100%;
 	height: 100%;
 	border-radius: 50%;
 	box-shadow: inset 0.1em 0.1em 0.2em #b8b832;
+}
+
+div.none {
+	background-color: #ccc;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	box-shadow: inset 0.1em 0.1em 0.2em #999;
 }
 
 td.issue {

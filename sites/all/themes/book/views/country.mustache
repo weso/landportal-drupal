@@ -50,20 +50,17 @@
 		  <table>
 		  	{{#charts}}
 		  		{{#trafficLights}}
-		  			{{#observations}}
-		  				<tr>
-							<td class="issue">
-								{{#indicator}}{{name}}{{/indicator}}
-							</td>
-							<td>
-								<div class="circle"><div class="green"></div></div>
-							</td>
+		  				<tr
+							 class="{{^light}}text-muted{{/light}}"
+							>
+								<td class="issue">
+									{{#indicator}}{{name}}{{/indicator}}
+								</td>
+								<td>
+									<div class="circle"><div class="{{light}}"></div></div>
+								</td>
 		  				</tr>
-		  			{{/observations}}
-		  			{{^observations}}
-		  				<div class="text-center text-muted">{{#labels}}{{no_data_available}}{{/labels}}</div>
-		  			{{/observations}}
-		  		{{/trafficLights}}
+					{{/trafficLights}}
 		  	{{/charts}}
 		  </table>
 
