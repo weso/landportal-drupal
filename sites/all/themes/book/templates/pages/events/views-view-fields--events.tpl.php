@@ -20,14 +20,19 @@
     <header>
       <!-- Author and date -->
       <div class="user date">
-        <?php echo $labels["written_by"]; ?>
-        <?php $author_id = $fields["uid"]->raw; ?>
-        <a href="/user/<?php echo $author_id; ?>" class="user"><?php
-          $user_fields = user_load(intval($author_id));
-          print $user_fields->name;
-        ?></a>
-        <?php echo $labels["on"], " ", $fields["created"]->content; ?>
-      </div>
+            <?php echo $labels["written_by"]; ?>
+            <a href="/user/<?php echo $uid; ?>" class="user">
+                <?php $user_fields = user_load(intval($fields['uid']->raw)); ?>
+                <?php if (isset ($user_fields->field_firstname)): ?>
+                    <?php echo $user_fields->field_firstname['und'][0]['safe_value']; ?>
+                    <?php echo ' '; ?>
+                    <?php echo $user_fields->field_lastname['und'][0]['safe_value']; ?>
+                <?php else: ?>
+                    <?php echo $user_fields->name; ?>
+                <?php endif; ?>
+            </a>
+          <?php echo $labels["on"], " ", date($labels["date_format"], $created); ?>
+        </div>
       <!-- Related topics -->
       <div class="topics">
         <?php print $fields["field_related_topics"]->content; ?>
