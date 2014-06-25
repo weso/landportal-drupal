@@ -65,8 +65,17 @@
       <header class="entry-header">
         <!-- Author and date -->
         <div class="user date">
-          <?php echo $labels["written_by"]; ?>
-          <?php echo render($name); ?>
+            <?php echo $labels["written_by"]; ?>
+            <a href="/user/<?php echo $uid; ?>" class="user">
+                <?php $user_fields = user_load(intval($uid)); ?>
+                <?php if (isset ($user_fields->field_firstname)): ?>
+                    <?php echo $user_fields->field_firstname['und'][0]['safe_value']; ?>
+                    <?php echo ' '; ?>
+                    <?php echo $user_fields->field_lastname['und'][0]['safe_value']; ?>
+                <?php else: ?>
+                    <?php echo $user_fields->name; ?>
+                <?php endif; ?>
+            </a>
           <?php echo $labels["on"], " ", date($labels["date_format"], $created); ?>
         </div>
       </header>
