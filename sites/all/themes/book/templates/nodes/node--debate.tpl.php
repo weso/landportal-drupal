@@ -19,6 +19,7 @@
 <?php $field_date_begining = strtotime($node->field_date["und"]["0"]["value"]); ?>
 <?php $field_date_end = strtotime($node->field_date["und"]["0"]["value2"]); ?>
 
+
 <!-- FULL VIEW -->
 <?php if ($view_mode === 'full'): ?>
 <?php get_template("debate-header", "debates", $application_data, $theme_path); ?>
@@ -60,10 +61,16 @@
           </h2>
           <div>
             <?php print theme('user_picture', array('account' =>user_load($uid))); ?>
-            <a href="/user/<?php echo $uid; ?>" class="user"><?php
-                $user_fields = user_load(intval($uid));
-                print $user_fields->name;
-            ?></a>
+            <a href="/user/<?php echo $uid; ?>" class="user">
+                <?php $user_fields = user_load(intval($uid)); ?>
+                <?php if (isset ($user_fields->field_firstname)): ?>
+                    <?php echo $user_fields->field_firstname['und'][0]['safe_value']; ?>
+                    <?php echo ' '; ?>
+                    <?php echo $user_fields->field_lastname['und'][0]['safe_value']; ?>
+                <?php else: ?>
+                    <?php echo $user_fields->name; ?>
+                <?php endif; ?>
+            </a>
           </div>
         </div>
         <div class="social-buttons">
