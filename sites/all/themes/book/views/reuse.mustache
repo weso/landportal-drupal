@@ -45,27 +45,27 @@
 			</div>
 			<h2 class="section"><span>{{#labels}}{{query_examples}}{{/labels}}</span></h2>
 			<h3 class="example">{{#labels}}{{all_indicators}}{{/labels}}</h3>
-			<pre class="prettyprint lang-sql">PREFIX lp: &lt;http://purl.org/landportal/ontology/landlibrary#&gt;
+			<pre class="prettyprint lang-sql">{{namespace}}
 
 SELECT ?ind WHERE {
 	?ind a lp:Indicator .
 }</pre>
 			<form>
-				<input type="hidden" name="default-graph-uri" value="PREFIX lp: <http://purl.org/landportal/ontology/landlibrary#>" />
-				<input type="hidden" name="query" value="SELECT ?in WHERE { ?ind a lp:Indicator . }" />
+				<input type="hidden" name="default-graph-uri" value="{{namespace}}" />
+				<input type="hidden" name="query" value="SELECT ?ind WHERE { ?ind a lp:Indicator . }" />
 				<input type="hidden" name="format" value="json" />
 				<button class="btn data-button">
 					{{#labels}}{{test_query}}{{/labels}}
 				</button>
 			</form>
 			<h3 class="example">{{#labels}}{{all_countries}}{{/labels}}</h3>
-			<pre class="prettyprint lang-sql">PREFIX lp: &lt;http://purl.org/landportal/ontology/landlibrary#&gt;
+			<pre class="prettyprint lang-sql">{{namespace}}
 
 SELECT ?cou WHERE {
 	?cou a lp:Country .
 }</pre>
 <form>
-	<input type="hidden" name="default-graph-uri" value="PREFIX lp: <http://purl.org/landportal/ontology/landlibrary#>" />
+	<input type="hidden" name="default-graph-uri" value="{{namespace}}" />
 	<input type="hidden" name="query" value="SELECT ?cou WHERE { ?cou a lp:Country . }" />
 	<input type="hidden" name="format" value="json" />
 	<button class="btn data-button">

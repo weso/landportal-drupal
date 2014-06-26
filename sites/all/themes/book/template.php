@@ -1,6 +1,6 @@
 <?php
 
-include_once('language.php');
+require_once('language.php');
 
 /**
  * Implements hook_theme()
@@ -127,8 +127,8 @@ function get_application_data() {
     "user" => _get_current_user(),
     "server_name" => $server_name,
     "api" => "http://{$server_name}/{$ajax_files_path}",
-    "sparql" => "http://156.35.82.103:1300/sparql",
-    "api-widgets" => "http://5.9.221.11/api",
+    "sparql" => "http://{$server_name}/sparql",
+    "api-widgets" => "http://{$server_name}/api",
     "theme_path" => "http://{$server_name}/{$book_theme_path}",
   );
 }
