@@ -44,8 +44,7 @@ class CkanClient
 	 * @var		string
 	 * @since	Version 0.1.0
 	 */
-	//DO NOT FORGET TO CHANGE THIS URL TO OUR SERVER
-	private $base_url = 'http://ckan.net/api/%d/';
+	private $base_url = 'http://5.9.221.11/data/api/%d/';
 
 	/**
 	 * Internal cURL object.

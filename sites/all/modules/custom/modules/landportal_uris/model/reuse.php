@@ -8,7 +8,7 @@ class Reuse {
 		$sparql = $options->sparql;
 		$querystring = $options->querystring;
 
-		$namespace = isset($querystring['default-graph-uri']) ? $querystring['default-graph-uri'] : 'http://book.landportal.org';
+		$namespace = isset($querystring['default-graph-uri']) ? $querystring['default-graph-uri'] : 'http://book.landportal.org/';
 		$query = isset($querystring['query']) ? $querystring['query'] : '';
 		$format = isset($querystring['format']) ? $querystring['format'] : '';
 

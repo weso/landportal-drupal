@@ -15,15 +15,9 @@
 					<button class="btn" type="submit" onclick="loadSearchResults()"><i class="glyphicon glyphicon-search"></i></button>
 				</div>
 		  </div>
-		  <table id="accordion" class="result-content panel-group table table-striped pages">
-			<tr>
-				<td>
-					<div class="col-sm-9 dataset-message">
-						{{#labels}}{{searching_datasets}}{{/labels}}
-					</div>
-				</td>
-			</tr>
-		  </table>
+		  <div id="panel-datasets" class="panel panel-default">
+				{{#labels}}{{searching_datasets}}{{/labels}}
+		  </div>
       </div>
 	  <div class="col-sm-3">
 		  <div id="panel-organizations" class="panel panel-default ckan-filter-panel">

@@ -1,3 +1,5 @@
+var ckanURL = 'http://5.9.221.11/data/';
+
 $( document ).ajaxStart(function() {
 	showLoading();
 });
@@ -46,7 +48,7 @@ function loadSearchResults() {
 }
 
 function formatContent(packages, fullMode) {
-	$("#accordion").empty();		
+	$("#panel-datasets").empty();		
 	organizations = {};
 	organizations_ids = {};
 	groups = {};
@@ -63,11 +65,7 @@ function formatContent(packages, fullMode) {
 	}
 	
 	$.each(datasets, function(index, dataset) {
-		$datasetRow = $("<tr>");
-		$datasetCol = $("<td>");
-		$datasetCol.append(formatDatasetResult(dataset, index));
-		$datasetRow.append($datasetCol);
-		$("#accordion").append($datasetRow);
+		$("#panel-datasets").append(formatDatasetResult(dataset, index));
 		if(fullMode) {
 			extractDatasetOrganizations(dataset, organizations, organizations_ids);
 			extractDatasetGroups(dataset, groups, groups_ids);
@@ -97,7 +95,7 @@ function formatContent(packages, fullMode) {
 	formatFormats(formats);
 	formatLicenses(licenses);
 	
-	//wesCountry.table.pages.apply();
+	wesCountry.table.pages.apply();
 }
 
 function extractDatasetOrganizations(dataset, organizations, organizations_ids) {
@@ -108,7 +106,7 @@ function extractDatasetOrganizations(dataset, organizations, organizations_ids) 
 			organizations[organization]++;
 		} else {
 			organizations[organization] = 1;
-			organizations_ids[organization] = dataset.organization.id;
+			organizations_ids[organization] = dataset.organization.name;
 		}
 	}
 }
@@ -122,7 +120,7 @@ function extractDatasetGroups(dataset, groups, groups_ids) {
 				groups[groupTitle]++;
 			} else {
 				groups[groupTitle] = 1;
-				groups_ids[groupTitle] = group.id;
+				groups_ids[groupTitle] = group.name;
 			}
 		});
 	}
@@ -137,7 +135,7 @@ function extractDatasetTags(dataset, tags, tags_ids) {
 				tags[tagTitle]++;
 			} else {
 				tags[tagTitle] = 1;
-				tags_ids[tagTitle] = tag.id;
+				tags_ids[tagTitle] = tag.name;
 			}
 		});
 	}
@@ -180,8 +178,10 @@ function formatOrganizations(organizations, organizations_ids) {
 		counter=0;
 		
 		$.each(organizations, function(organizationName, appearances) {
-			organizationRow = $("<li>", {id: organizations_ids[organizationName], class: "list-group-item clickable", onclick: "getOrganizationPackages('" + organizations_ids[organizationName] + "')"});
-			organizationRow.html(organizationName + " (" + appearances + ")");
+			organizationLink = $("<a>", {href: ckanURL + "organization/" + organizations_ids[organizationName]});
+			organizationRow = $("<li>", {class: "list-group-item"});
+			organizationLink.html(organizationName + " (" + appearances + ")");
+			organizationRow.append(organizationLink);
 			organizationsPanel.append(organizationRow);
 			counter++;
 		});	
@@ -201,8 +201,10 @@ function formatGroups(groups, groups_ids) {
 		
 		counter = 0;
 		$.each(groups, function(groupName, appearances) {
-			groupRow = $("<li>", {id: groups_ids[groupName], class: "list-group-item clickable", onclick: "getGroupPackages('" + groups_ids[groupName] + "')"});
-			groupRow.html(groupName + " (" + appearances + ")");
+			groupLink = $("<a>", {href: ckanURL + "group/" + groups_ids[groupName]});
+			groupRow = $("<li>", {class: "list-group-item"});
+			groupLink.html(groupName + " (" + appearances + ")");
+			groupRow.append(groupLink);
 			groupsPanel.append(groupRow);
 			counter++;
 		});	
@@ -221,8 +223,10 @@ function formatTags(tags, tags_ids) {
 		tagsPanel.empty();
 		counter = 0;
 		$.each(tags, function(tagName, appearances) {
-			tagRow = $("<li>", {id: tags_ids[tagName], class: "list-group-item clickable", onclick: "getTagPackages('" + tags_ids[tagName] + "')"});
-			tagRow.html(tagName + " (" + appearances + ")");
+			tagLink = $("<a>", {href: ckanURL + "tag/" + tags_ids[tagName]});
+			tagRow = $("<li>", {class: "list-group-item"});
+			tagLink.html(tagName + " (" + appearances + ")");
+			tagRow.append(tagLink);
 			tagsPanel.append(tagRow);
 			counter++;
 		});
@@ -241,8 +245,10 @@ function formatFormats(formats) {
 		formatsPanel.empty();
 		counter = 0;
 		$.each(formats, function(formatName, appearances) {
+			formatLink = $("<a>", {href: ckanURL + "dataset?res_format=" + formatName})
 			formatRow = $("<li>", {class: "list-group-item"});
-			formatRow.html(formatName + " (" + appearances + ")");
+			formatLink.html(formatName + " (" + appearances + ")");
+			formatRow.append(formatLink);
 			formatsPanel.append(formatRow);
 			counter++;
 		});	
@@ -260,8 +266,10 @@ function formatLicenses(licenses) {
 		licensesPanel.empty();
 		counter = 0;
 		$.each(licenses, function(licenseName, appearances) {
+			licenseLink = $("<a>", {href: ckanURL + "dataset?license_title=" + licenseName})
 			licenseRow = $("<li>", {class: "list-group-item"});
-			licenseRow.html(licenseName + " (" + appearances + ")");
+			licenseLink.html(licenseName + " (" + appearances + ")");
+			licenseRow.append(licenseLink);
 			licensesPanel.append(licenseRow);
 			counter++;
 		});	
@@ -288,12 +296,74 @@ function expandPanel(panel) {
 	
 }
 
+function showElement(elementId) {
+	$("#" + elementId).removeClass("hidden");
+}
+
+function hideElement(elementId) {
+	$("#" + elementId).addClass("hidden");
+}
+
+function formatDatasetResult(dataset, index){
+	$packagePanel = $("<li>", {class: "list-group-item", 
+							   onmouseover: "showElement( 'package" + index+"');",
+							   onmouseout: "hideElement( 'package" + index+"');"});
+	$packageTitle = $("<a>", {href: ckanURL + "dataset/" + dataset.name});
+	$packageTitle.html(dataset.title);
+	$packagePanel.hover(function() {
+						$("#" + elementId).toggleClass("hidden");
+						alert("Hey!");
+						},
+						function() {
+						$("#" + elementId).toggleClass("hidden");
+						});
+	
+	$packageResourcesNumber = $("<span>", {class: "package-resources"});
+	$packageResourcesNumber.html("(" + dataset.num_resources + ")");
+	$packagePanel.append($packageTitle);
+	$packagePanel.append($packageResourcesNumber);
+	
+	$collapsableDiv = $("<div>", {id: "package" + index, class: "hidden"});
+	
+	$packagePanelBody = $("<div>", {class: "panel-body"});
+	$packageDescription = $("<p>", {class: "package-description"});
+	$packageDescription.html(dataset.notes);
+	
+	$packageFormats = $("<div>", {class: "package-formats"});
+	
+	$packagePanelBody.append($packageDescription);
+	
+	if(typeof dataset.resources != 'undefined') {
+		$.each(dataset.resources, function(index, resource) {
+			$resourceDiv = $("<div>", {class: "package-resource"});
+			$resourceLink = $("<a>", {href: resource.url});
+			$resourceLink.html(resource.name);
+			
+			$formatLabelLink = $("<a>", {href: resource.url});
+			$formatLabel = $("<span>", {class: "label label-primary ckan-resource-url"});
+			$formatLabel.html(resource.format);
+			$formatLabelLink.append($formatLabel);
+			$resourceDiv.append($formatLabelLink);
+			$resourceDiv.append($resourceLink);
+			$packageFormats.append($resourceDiv);
+		});
+		$packagePanelBody.append($packageFormats);
+	}
+	
+	$collapsableDiv.append($packagePanelBody);
+	$packagePanel.append($collapsableDiv);
+	
+	return $packagePanel;
+}
+
+/* Collapsabe code, replaced by simple lists */
+/*
 function formatDatasetResult(dataset, index){
 	$packagePanel = $("<div>", {class: "panel panel-default"});
 	
 	$packageHeading = $("<div>", {class: "panel-heading"});
 	$packagePanelTitle = $("<h4>", {class : "panel-title"});
-	$packageTitle = $("<a>", {href: "#package" + index});
+	$packageTitle = $("<a>", {href: ckanURL + "dataset/" + dataset.name});
 	$packageTitle.attr("data-toggle", "collapse");
 	$packageTitle.attr("data-parent", "#accordion"); 
 	$packageTitle.html(dataset.title);
@@ -336,7 +406,7 @@ function formatDatasetResult(dataset, index){
 	$packagePanel.append($collapsableDiv);
 	
 	return $packagePanel;
-}
+}*/
 
 function getFullPackages(limit, offset, callback) {
 	if(typeof(limit)==='undefined') limit = false;

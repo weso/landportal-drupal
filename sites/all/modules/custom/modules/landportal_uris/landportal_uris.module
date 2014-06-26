@@ -1,6 +1,6 @@
 <?php
 
-include(drupal_get_path('theme', 'book').'/language.php');
+require_once(drupal_get_path('theme', 'book').'/language.php');
 
 /**
  * Implements hook_menu().
@@ -90,7 +90,7 @@ function _create_options() {
   $options->language = $lang->get_selected_language();
   $options->host = 'http://'. $_SERVER['HTTP_HOST'];
   $options->querystring = $_GET;
-  $options->sparql = "http://156.35.82.103:1300/sparql";
+  $options->sparql = 'http://'. $_SERVER['HTTP_HOST'] .'/sparql';
   return $options;
 }
 
