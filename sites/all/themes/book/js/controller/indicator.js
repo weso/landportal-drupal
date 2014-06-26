@@ -30,7 +30,8 @@ var mapLoader = wesCountry.loader.renderChart({
 	onCountryClick: function(info) {
 		var indicator = pageStatus.getParameters()['indicator'];
 		window.location.href = String.format('/book/countries/{0}?indicator={1}', info.iso3, indicator);
-	}
+	},
+	onCountryOver: util.mapOnCountryOver
 });
 
 // Ranking loader

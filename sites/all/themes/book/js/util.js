@@ -1,4 +1,26 @@
 var util = new (function() {
+	this.mapOnCountryOver =  function(info, visor) {
+    if (visor) {
+        visor.innerHTML = '';
+
+				var field = "name";
+
+				if (languageCode == "es")
+					field = "nombre"
+				else if (languageCode == "fr")
+					field = "nom"
+
+        var name = document.createElement('span');
+        name.innerHTML = info[field];
+        name.className = 'name';
+        visor.appendChild(name);
+
+        var value = document.createElement('span');
+        value.innerHTML = info.value;
+        value.className = 'value';
+        visor.appendChild(value);
+      }
+    },
 	this.tooltipRegion = function(info) {
 		info.pos = info["data-time"];
 		util.tooltipIndicator(info);

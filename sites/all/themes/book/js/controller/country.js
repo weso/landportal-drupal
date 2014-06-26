@@ -399,7 +399,8 @@ function drawCountryWorldMaps() {
 		],
 		onCountryClick: function(info) {
 			window.location.href = '/book/countries/' + info.iso3;
-		}
+		},
+		onCountryOver: util.mapOnCountryOver
 	});
 
 	var map = wesCountry.maps.createMap({
@@ -422,7 +423,8 @@ function drawCountryWorldMaps() {
 		],
 		onCountryClick: function(info) {
 			window.location.href = '/book/countries/' + info.iso3;
-		}
+		},
+		onCountryOver: util.mapOnCountryOver
 	});
 
 	map.zoomToCountry(country.code);
@@ -623,9 +625,16 @@ function selectCountry(e, info) {
 	className += ' selected-country';
 	e.setAttributeNS(null, 'class', className);
 
+	var field = "name";
+
+	if (languageCode == "es")
+		field = "nombre"
+	else if (languageCode == "fr")
+		field = "nom"
+
 	showCountryInfo({
 		id: info.iso3,
-		name: info.nombre,
+		name: info[field],
 		value: info.value
 	});
 

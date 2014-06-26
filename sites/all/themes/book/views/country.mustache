@@ -44,6 +44,17 @@
 											{{/observations}}
 	                {{/spider}}
             	</div>
+							<ul class="spider-legend">
+								{{#spider}}
+									{{#observations}}
+										<li>
+											{{#indicator}}
+												<span class="spider-legen-id">{{id}}</span>: {{name}}
+											{{/indicator}}
+										</li>
+									{{/observations}}
+								{{/spider}}
+							</ul>
             {{/charts}}
           </div>
 		  <h2 class="section"><span>{{#labels}}{{gender_issues}}{{/labels}}</span></h2>
