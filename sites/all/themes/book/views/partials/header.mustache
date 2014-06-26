@@ -91,16 +91,16 @@
 						</a>
 					{{/widgets}}
 					<!-- Data -->
-					{{#data}}
+					{{#reuse}}
 						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{data}}{{/labels}}" class="selected">
 							<span>{{#labels}}{{data}}{{/labels}}</span>
 						</a>
-					{{/data}}
-					{{^data}}
+					{{/reuse}}
+					{{^reuse}}
 						<a href="/book/reuse" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{data}}{{/labels}}">
 							<span>{{#labels}}{{data}}{{/labels}}</span>
 						</a>
-					{{/data}}
+					{{/reuse}}
 				{{/navigation}}
 			{{/application}}
 		</nav>

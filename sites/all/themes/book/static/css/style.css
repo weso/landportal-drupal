@@ -2667,3 +2667,8 @@ div.debate-status a[href$="/closed_debates"] {
 	margin-top: 0.5em;
 	display: inline-block;
 }
+
+.user-image {
+	width: 100%;
+	margin-bottom: 1em;
+}

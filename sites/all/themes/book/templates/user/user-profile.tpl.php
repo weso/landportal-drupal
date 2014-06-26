@@ -80,7 +80,7 @@
     </div>
     <div class="row">
         <!-- User data -->
-        <div class="col-sm-9">
+        <div class="col-sm-10">
             <div class="user-firstname">
                 <h2><?php echo $labels['first_name']; ?></h2>
                 <?php if ($firstname !== ""): ?>
@@ -125,14 +125,7 @@
             </div>
         </div>
         <!-- User picture -->
-        <div class="col-sm-3">
-            <?php if($can_edit): ?>
-                <div class="user-profile-edit-button">
-                    <a href="/user/<?php echo $viewed_uid;?>/edit">
-                        <button class="btn data-button"><?php echo $labels['edit']; ?></button>
-                    </a>
-                </div>
-            <?php endif; ?>
+        <div class="col-sm-2">
             <div class="row user-image">
                 <div class="col-sm-12">
                     <?php print theme('user_picture', array('account' =>user_load_by_name($username))); ?>
@@ -150,6 +143,13 @@
                     <?php print render($user_profile['field_related_continents']); ?>
                 </div>
             </div>
+            <?php if($can_edit): ?>
+                <div class="user-profile-edit-button">
+                    <a href="/user/<?php echo $viewed_uid;?>/edit">
+                        <button class="btn data-button"><?php echo $labels['edit']; ?></button>
+                    </a>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>
