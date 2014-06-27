@@ -109,6 +109,22 @@ function book_preprocess_html(&$vars) {
 
 
 /**
+ * Implements template_preprocess_user_profile.  This function makes available
+ * the UID of the viewed user in the user profile view.
+ */
+function book_preprocess_user_profile(&$variables) {
+    $account = $variables['elements']['#account'];
+    // Add the UID into the user profile as a variable
+    $variables['user_id'] = $account->uid;
+    // Helpful $user_profile variable for templates.
+    foreach (element_children($variables['elements']) as $key) {
+        $variables['user_profile'][$key] = $variables['elements'][$key];
+    }
+    // Preprocess fields.
+    field_attach_preprocess('user', $account, $variables['elements'], $variables);
+}
+
+/**
  * Get the application data required by all the templates.
  *
  * @return a list of the available and selected langauges and the current user name (if

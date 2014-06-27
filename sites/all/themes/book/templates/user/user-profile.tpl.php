@@ -1,61 +1,16 @@
-<?php
-
-/**
-* @file
-* Default theme implementation to present all user profile data.
-*
-* This template is used when viewing a registered member's profile page,
-* e.g., example.com/user/123. 123 being the users ID.
-*
-* Use render($user_profile) to print all profile items, or print a subset
-* such as render($user_profile['user_picture']). Always call
-* render($user_profile) at the end in order to print all remaining items. If
-* the item is a category, it will contain all its profile items. By default,
-* $user_profile['summary'] is provided, which contains data on the user's
-* history. Other data can be included by modules. $user_profile['user_picture']
-* is available for showing the account picture.
-*
-* Available variables:
-* - $user_profile: An array of profile items. Use render() to print them.
-* - Field variables: for each field instance attached to the user a
-* corresponding variable is defined; e.g., $account->field_example has a
-* variable $field_example defined. When needing to access a field's raw
-* values, developers/themers are strongly encouraged to use these
-* variables. Otherwise they will have to explicitly specify the desired
-* field language, e.g. $account->field_example['en'], thus overriding any
-* language negotiation rule that was previously applied.
-*
-* @see user-profile-category.tpl.php
-* Where the html is handled for the group.
-* @see user-profile-item.tpl.php
-* Where the html is handled for each item in the group.
-* @see template_preprocess_user_profile()
-*
-* @ingroup themeable
-*/
-?>
-
-
 <?php require_once(drupal_get_path("theme", "book") ."/template-loader.php"); ?>
 <?php $labels = get_labels($application_data['languages']); ?>
 
-<?php $firstname = isset($user_profile['field_firstname']['#items']['0']['safe_value']) ?
-        $user_profile['field_firstname']['#items']['0']['safe_value'] : ""; ?>
-<?php $lastname = isset($user_profile['field_lastname']['#items']['0']['safe_value']) ?
-        $user_profile['field_lastname']['#items']['0']['safe_value'] : ""; ?>
-<?php $api_token = isset($user_profile['field_api_token']['#items']['0']['safe_value']) ?
-        $user_profile['field_api_token']['#items']['0']['safe_value'] : ""; ?>
-<?php $username = isset($user_profile['field_firstname']['#object']->name) ?
-        $user_profile['field_firstname']['#object']->name : ""; ?>
-<?php $created = isset($user_profile['field_firstname']['#object']->created) ?
-        $user_profile['field_firstname']['#object']->created : ""; ?>
-<?php $email = isset($user_profile['field_firstname']['#object']->mail) ?
-        $user_profile['field_firstname']['#object']->mail : ""; ?>
-<?php $can_access_api = isset($user_profile['field_api_token']) ?
-        in_array('access API', $user_profile['field_firstname']['#object']->roles)
-        : false; ?>
-<?php $viewed_uid = $user_profile['field_firstname']['#object']->uid; ?>
-<?php $can_edit = ($user->uid == $viewed_uid) || $is_admin; ?>
+<?php
+    // The variable $user_id is inserted using the template_preprocess_user_profile
+    // function in template.php.
+    $viewed_user = user_load($user_id);
+    $firstname = $viewed_user->field_firstname['und'][0]['safe_value'];
+    $lastname = $viewed_user->field_lastname['und'][0]['safe_value'];
+    $api_token = $viewed_user->field_api_token['und'][0]['safe_value'];
+    $can_access_api = in_array('access API', $viewed_user->roles);
+    $can_edit = ($user->uid == $viewed_user->uid) || $is_admin;
+?>
 
 <!-- HEADER -->
 <?php get_template("debate-header", "community", $application_data, $theme_path); ?>
@@ -67,13 +22,13 @@
         <li><a href="/"><?php echo $labels["index"]; ?></a></li>
         <li><a href="/debate"><?php echo $labels["land_debate"]; ?></a></li>
         <li><a href="/debate/community"><?php echo $labels["community"]; ?></a></li>
-        <li class="active"><?php echo $username; ?></li>
+        <li class="active"><?php echo $viewed_user->name; ?></li>
     </ol>
     <div class="row">
         <div class="col-sm-12">
             <h1>
                 <span class="country-name">
-                    <?php echo $username; ?>
+                    <?php echo $viewed_user->name; ?>
                 </span>
             </h1>
         </div>
@@ -100,7 +55,7 @@
             <div class="user-email">
                 <h2><?php echo $labels['email']; ?></h2>
                 <?php if ($email !== ""): ?>
-                    <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
+                    <a href="mailto:<?php echo $viewed_user->mail; ?>"><?php echo $viewed_user->mail; ?></a>
                 <?php else: ?>
                     <p><?php $labels['no_email']; ?></p>
                 <?php endif; ?>
@@ -128,7 +83,7 @@
         <div class="col-sm-2">
             <div class="row user-image">
                 <div class="col-sm-12">
-                    <?php print theme('user_picture', array('account' =>user_load_by_name($username))); ?>
+                    <?php print theme('user_picture', array('account' =>user_load_by_name($viewed_user->name))); ?>
                 </div>
             </div>
             <div class="row">
@@ -145,7 +100,7 @@
             </div>
             <?php if($can_edit): ?>
                 <div class="user-profile-edit-button">
-                    <a href="/user/<?php echo $viewed_uid;?>/edit">
+                    <a href="/user/<?php echo $viewed_user->uid;?>/edit">
                         <button class="btn data-button"><?php echo $labels['edit']; ?></button>
                     </a>
                 </div>
