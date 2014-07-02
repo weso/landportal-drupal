@@ -243,5 +243,6 @@
   "new_password": "New password",
   "repeat_password": "Repeat password",
   "strength_password": "Password strength",
-  "update_profile": "Update profile"
+  "update_profile": "Update profile",
+  "logout": "Log out"
 }

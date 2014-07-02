@@ -9,7 +9,8 @@
     $lastname = $viewed_user->field_lastname['und'][0]['safe_value'];
     $api_token = $viewed_user->field_api_token['und'][0]['safe_value'];
     $can_access_api = in_array('access API', $viewed_user->roles);
-    $can_edit = ($user->uid == $viewed_user->uid) || $is_admin;
+    $is_own_profile = $user->uid == $viewed_user->uid;
+    $can_edit = $is_own_profile || $is_admin;
 ?>
 
 <!-- HEADER -->
@@ -102,6 +103,13 @@
                 <div class="user-profile-edit-button">
                     <a href="/user/<?php echo $viewed_user->uid;?>/edit">
                         <button class="btn data-button"><?php echo $labels['edit']; ?></button>
+                    </a>
+                </div>
+            <?php endif; ?>
+            <?php if($is_own_profile): ?>
+                <div class="user-profile-edit-button">
+                    <a href="/user/logout">
+                        <button class="btn data-button"><?php echo $labels['logout']; ?></button>
                     </a>
                 </div>
             <?php endif; ?>

@@ -243,5 +243,6 @@
   "new_password": "Nouveau mot de passe",
   "repeat_password": "Saisir de nouveau le mot de passe",
   "strength_password": "Fiabilité du mot de passe",
-  "update_profile": "Mettre à jour profil"
+  "update_profile": "Mettre à jour profil",
+  "logout": "Déconnecter"
 }

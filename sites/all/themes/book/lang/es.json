@@ -153,7 +153,7 @@
   "fao_country_with_undp_obs": "URL de la página en el portal de la FAO de todos los países que tienen alguna observación de una orgnización cuyo nombre en inglés es 'UNDP: United Nations Development Programme'",
   "obs_INDUNDP0_recent" : "País, año y valor de todas las observaciones de 2010 en adelante que tengan INDUNDP0 como indicador",
     "all_countries": "Todos los países",
-    "motto_description_1": "El primero destino en línea para información, recursos, innovación y contactos en materia de gestión del suelo.",
+    "motto_description_1": "El primer destino en línea para información, recursos, innovación y contactos en materia de gestión del suelo.",
     "motto_description_2": "Mejorando la gestión del suelo para garantizar los derechos sobre la tierra a personas vulnerables y sin tierra.",
     "visit_the": "Visita el",
     "coming_soon": "Próximamente",
@@ -243,5 +243,6 @@
     "new_password": "Nueva contraseña",
     "repeat_password": "Repite la contraseña",
     "strength_password": "Calidad de la contraseña",
-    "update_profile": "Actualizar perfil"
+    "update_profile": "Actualizar perfil",
+    "logout": "Cerrar sesión"
 }
