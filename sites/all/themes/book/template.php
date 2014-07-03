@@ -124,6 +124,7 @@ function book_preprocess_user_profile(&$variables) {
     field_attach_preprocess('user', $account, $variables['elements'], $variables);
 }
 
+
 /**
  * Get the application data required by all the templates.
  *
