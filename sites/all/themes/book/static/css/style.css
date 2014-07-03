@@ -2672,3 +2672,10 @@ div.debate-status a[href$="/closed_debates"] {
 	width: 100%;
 	margin-bottom: 1em;
 }
+
+
+/* EVENTS CALENDAR */
+div .date-heading h3 a {
+	position: absolute;
+	left: 1em;
+}
