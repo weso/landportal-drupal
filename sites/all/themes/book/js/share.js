@@ -2,6 +2,9 @@ h1 = document.querySelector('h1');
 var content = h1 ? h1.textContent : "";
 content = content ? content : document.title;
 
+//Trim the spaces before and after the comment
+content = content.trim();
+
 var url = document.URL;
 
 document.write('<div class="row share">');
