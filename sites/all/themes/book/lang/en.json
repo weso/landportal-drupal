@@ -244,5 +244,8 @@
   "repeat_password": "Repeat password",
   "strength_password": "Password strength",
   "update_profile": "Update profile",
-  "logout": "Log out"
+  "logout": "Log out",
+  "open": "Open",
+  "coming_soon": "Coming soon",
+  "closed": "Closed"
 }

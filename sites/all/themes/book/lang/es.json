@@ -244,5 +244,8 @@
     "repeat_password": "Repite la contraseña",
     "strength_password": "Calidad de la contraseña",
     "update_profile": "Actualizar perfil",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "open": "Abierto",
+    "coming_soon": "Próximamente",
+    "closed": "Cerrado"
 }

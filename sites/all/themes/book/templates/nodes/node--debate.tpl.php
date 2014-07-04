@@ -10,6 +10,7 @@
  *    a snippet of the content and a smapll label indicanting that it is a debate.
  */
 ?>
+
 <?php require_once(drupal_get_path("theme", "book") ."/template-loader.php"); ?>
 <?php $labels = get_labels($application_data['languages']); ?>
 <?php $node_id = $node->nid; ?>
@@ -18,6 +19,14 @@
 <?php $can_delete = $is_admin; ?>
 <?php $field_date_begining = strtotime($node->field_date["und"]["0"]["value"]); ?>
 <?php $field_date_end = strtotime($node->field_date["und"]["0"]["value2"]); ?>
+<?php 
+  // Translate the debate status
+  $status = $content['field_status'][0]['#title'];
+  $status = strtolower($status);
+  $status = str_replace(' ', '_', $status);
+  ?>
+
+
 
 
 <!-- FULL VIEW -->
@@ -46,7 +55,9 @@
         <div class="image">
           <?php print render($content["field_image"]); ?>
         </div>
-        <div class="debate-status"><?php print render($content["field_status"]); ?></div>
+        <div class="debate-status">
+          <span><?php echo $labels[$status]; ?></span>
+        </div>
         <div class="event-date">
           <h2 class="section">
             <span><?php echo $labels["date"]; ?></span>

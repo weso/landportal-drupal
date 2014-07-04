@@ -244,5 +244,8 @@
   "repeat_password": "Saisir de nouveau le mot de passe",
   "strength_password": "Fiabilité du mot de passe",
   "update_profile": "Mettre à jour profil",
-  "logout": "Déconnecter"
+  "logout": "Déconnecter",
+  "open": "Ouvert",
+  "coming_soon": "À venir",
+  "closed": "Fermé"
 }

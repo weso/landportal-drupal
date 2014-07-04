@@ -2292,7 +2292,7 @@ div.debate-status {
 	border-radius: .25em;
 }
 
-div.debate-status a {
+div.debate-status span {
 	background-color: #428bca;
 	display: inline-block;
 	width: 100%;
@@ -2302,19 +2302,6 @@ div.debate-status a {
 	vertical-align: baseline;
 	border-radius: .25em;
 	padding: 0.5em 0;
-}
-
-div.debate-status a[href$="/open_debates"] {
-	background-color: #01DF3A;
-}
-
-div.debate-status a[href$="/coming_debates"] {
-	background-color: #fff;
-	color: #333;
-}
-
-div.debate-status a[href$="/closed_debates"] {
-	background-color: #FE2E2E;
 }
 
 .debate-entry h3, .blog-entry h3, .news-entry h3, .events-entry h3 {
