@@ -166,3 +166,6 @@ Finally you must fill the form in Drupal with the API key and API secret provide
 **Note**: Facebook apps are by default in test mode so you must provide and email and then Submit Items for Approval in Status & Review section on left menu.
 
 After all, you have to enable anonymous users permission to login with their Social Media accounts. This is done by checking first check box of Use HybridAuth option on path **admin/people/permissions**
+
+##Configure Google Analytics
+Go to **admin/config/system/googleanalytics** and fill Web Property ID with your own ID. More customization could be done in this page.

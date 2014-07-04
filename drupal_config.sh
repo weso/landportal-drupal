@@ -73,3 +73,7 @@ drush dl devel
 ## HybridAuth library is needed
 drush dl hybridauth
 drush en -y hybridauth
+
+#Google Analytics
+drush dl google_analytics
+drush en -y google_analytics
