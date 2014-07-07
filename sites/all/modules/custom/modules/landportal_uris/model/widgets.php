@@ -71,7 +71,7 @@ class Widgets {
 		for ($i = 0; $i < count($data); $i++) {
 			$country = array(
 				"id" => $data[$i]["id"],
-				"name" => $data[$i]["country_name"],
+				"name" => utf8_encode($data[$i]["country_name"]),
 				"faoURI" => utf8_encode($data[$i]["faoURI"]),
 				"iso2" => $data[$i]["iso2"],
 				"iso3" => $data[$i]["iso3"],

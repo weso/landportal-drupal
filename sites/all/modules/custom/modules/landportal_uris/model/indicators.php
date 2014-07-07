@@ -20,14 +20,15 @@ class Indicators {
 			$database = new DataBaseHelper();
 			$database->open();
 			$topics = $database->query("topics", array($lang));
+			$indicators = $database->query("indicators", array($lang));
 			$database->close();
-			$result = $this->compose_data($topics);
+			$result = $this->compose_data($topics, $indicators);
 			$cache->store($result);
 			return $result;
 		}
 	}
 
-	private function compose_data($data) {
+	private function compose_data($data, $inds) {
 		$topics = array();
 		$indicators = array();
 
@@ -49,8 +50,18 @@ class Indicators {
 				"name" => utf8_encode($data[$i]["indicator_name"]),
 				"description" => utf8_encode($data[$i]["indicator_description"])
 			);
-			array_push($indicators, $indicator);
 			array_push($topics[$topic_id]["indicators"], $indicator);
+		}
+
+		for ($i = 0; $i < count($inds); $i++) {
+			array_push($indicators, array(
+				"id" => $inds[$i]["indicator_id"],
+				"preferable_tendency" => $inds[$i]["preferable_tendency"],
+				"last_update" => $inds[$i]["last_update"],
+				"starred" => $inds[$i]["starred"],
+				"name" => utf8_encode($inds[$i]["indicator_name"]),
+				"description" => utf8_encode($inds[$i]["indicator_description"])
+			));
 		}
 		return array("topics" => array_values($topics), "indicators" => $indicators);
 	}

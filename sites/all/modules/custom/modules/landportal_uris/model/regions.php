@@ -21,7 +21,7 @@ class Regions {
 			$database->open();
 			$regions = $database->query("continents", array($lang));
 			$datasources = $database->query("datasources", array($lang));
-			$countries = $database->query("countries", array($lang));
+			$countries = $database->query("countries_without_region", array($lang));
 			$database->close();
 			$result = $this->compose_data($regions, $datasources, $countries);
 			$cache->store($rseult);
