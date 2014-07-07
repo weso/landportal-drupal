@@ -96,7 +96,7 @@
         <div class="col-sm-12">
             <?php $url = "/node/$node_id"; ?>
             <h3 class="text-left"><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h3>
-            <a class="url" href="<?php echo $url; ?>"><?php echo $url; ?></a>
+            <a class="url" href="<?php echo $url; ?>"><?php echo "http://".$_SERVER['HTTP_HOST'].$url; ?></a>
             <p class="description"><?php echo substr($body, 0, 300), ' ...'; ?></p>
             <p><a class="search-result-label label-news" href="/debate/news"><?php echo $labels['news']; ?></a></p>
         </div>

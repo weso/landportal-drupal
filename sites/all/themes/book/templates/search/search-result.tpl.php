@@ -76,6 +76,7 @@
 <?php $is_event = $result['bundle'] === 'event'; ?>
 <?php $is_news = $result['bundle'] === 'news'; ?>
 <?php $is_organization = $result['bundle'] === 'organization'; ?>
+<?php $url_prefix = "http://".$_SERVER['HTTP_HOST']; ?>
 
 
 <div class="row search-result">
@@ -84,7 +85,7 @@
         <?php if ($is_country): ?>
             <?php $iso3 = $node->field_id['und'][0]['safe_value']; ?>
             <?php $flag = "/sites/all/themes/book/static/images/flags/$iso3.png"; ?>
-            <?php $url = "/book/countries/$iso3"; ?>
+            <?php $url = "$url_prefix/book/countries/$iso3"; ?>
             <img src="<?php echo $flag; ?>" class="search-result-flag"/>
             <h3 class="text-left"><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h3>
             <a class="url" href="<?php echo $url; ?>"><?php echo $url; ?></a>
@@ -92,13 +93,13 @@
         <!-- INDICATOR -->
         <?php elseif ($is_indicator): ?>
             <?php $ind_id = $node->field_id['und'][0]['safe_value']; ?>
-            <?php $url = "/book/indicators/detail?indicator=$ind_id"; ?>
+            <?php $url = "$url_prefix/book/indicators/detail?indicator=$ind_id"; ?>
             <h3 class="text-left"><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h3>
             <p class="description"><?php echo $snippet; ?></p>
             <p><a class="search-result-label label-indicator" href="/book/indicators"><?php echo $labels['indicator']; ?></a></p>
         <!-- OTHER -->
         <?php else: ?>
-            <?php $url = "/node/$node_id"; ?>
+            <?php $url = "$url_prefix/node/$node_id"; ?>
             <h3 class="text-left"><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h3>
             <a class="url" href="<?php echo $url; ?>"><?php echo $url; ?></a>
             <p class="description"><?php echo $snippet; ?></p>
