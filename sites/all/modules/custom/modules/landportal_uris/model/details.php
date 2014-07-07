@@ -64,7 +64,7 @@ class Details {
         "description" => utf8_encode($data[$i]["indicator_description"]),
         "value" => number_format((float)$data[$i]["value"], 2, '.', ''),
         "ref_time_value" => $data[$i]["ref_time_value"],
-        "organization_name" => $data[$i]["organization_name"],
+        "source" => $data[$i]["organization_name"],
         "organization_id" => $data[$i]["organization_id"],
       );
       array_push($result[$topic_id]["indicators"], $indicator);
