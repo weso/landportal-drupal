@@ -41,12 +41,13 @@ class Country {
 
 			$countries = $database->query("countries_without_region", array($lang));
 			$indicators_imploded = "'". implode("','", $this->spiderIndicators) ."','".  implode("','", $this->tableIndicators) ."','". implode("','", $this->gaugeIndicators) ."'";
+			$chart_indicators = $database->query("indicators_by_ids", array($lang, $indicators_imploded));
 			$charts = $database->query("country_chart_indicators", array($lang, $iso3, $indicators_imploded));
 			$starred = $database->query("starred_indicators", array($lang));
 
 			$traffic_data = $this->_compose_traffic($database, $this->trafficLights, $safe_iso3, $lang);
 
-			$result = $this->compose_data($datasources, $info, $countries, $charts, $starred, $traffic_data);
+			$result = $this->compose_data($datasources, $info, $countries, $charts, $starred, $traffic_data, $chart_indicators);
 			$database->close();
 			$cache->store($result);
 			return $result;
@@ -54,7 +55,7 @@ class Country {
 	}
 
 
-	private function compose_data($datasources, $info, $countries, $charts, $starred, $traffic_data) {
+	private function compose_data($datasources, $info, $countries, $charts, $starred, $traffic_data, $chart_indicators) {
 		$country_info = $this->compose_info($info);
 		$result = array();
 		$result["info"] = $country_info;
@@ -63,7 +64,7 @@ class Country {
 			"countries" => $this->compose_countries($countries)
 		);
 		$result["starred"] = $this->compose_starred($starred);
-		$result["charts"] = $this->compose_charts($charts, $country_info);
+		$result["charts"] = $this->compose_charts($charts, $country_info, $chart_indicators);
 		$result['charts']['trafficLights'] = array_values($traffic_data);
 		$result["entity-id"] = $result["info"]["iso3"];
 		return $result;
@@ -163,8 +164,8 @@ class Country {
 		return $result;
 	}
 
-	private function compose_charts($observations, $country_info) {
-		$spider_obs = $this->_create_spider_graph($country_info["name"]);
+	private function compose_charts($observations, $country_info, $chart_indicators) {
+		$spider_obs = $this->_create_spider_graph($country_info["name"], $chart_indicators);
 		$table_obs = array(
 			"observations"=>array()
 		);
@@ -227,7 +228,11 @@ class Country {
 	 * the country  name and the ref_time.
 	 * @return array with the form indicator_id => observation_object
 	 */
-	private function _create_spider_graph($country_name) {
+	private function _create_spider_graph($country_name, $chart_indicators) {
+		$indicators = array();
+		for ($i = 0; $i < count($chart_indicators); $i++) {
+			$indicators[$chart_indicators[$i]["id"]] = $chart_indicators[$i]["name"];
+		}
 		$spider_graph = array();
 		foreach($this->spiderIndicators as $ind_id) {
 			$spider_graph[$ind_id] = array(
@@ -239,7 +244,7 @@ class Country {
 				),
 				"indicator" => array(
 					"id" => $ind_id,
-					"name" => "",
+					"name" => $indicators[$ind_id],
 					"description" => "",
 					"last_update" => "",
 					"preferable_tendency" => "",
