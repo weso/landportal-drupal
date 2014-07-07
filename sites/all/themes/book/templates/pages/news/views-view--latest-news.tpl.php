@@ -101,7 +101,7 @@
     </div>
     <!-- Twitter timeline -->
     <div class="col-sm-3">
-      <a class="twitter-timeline" href="https://twitter.com/search?q=%23landportal" data-widget-id="470981258374180864"><?php echo $labels["tweets_related"], " ", $node->field_hashtag["und"]["0"]["value"]; ?></a>
+      <a class="twitter-timeline" href="https://twitter.com/search?q=%23landportal" data-widget-id="470981258374180864"></a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
   </div> <!-- End row -->
