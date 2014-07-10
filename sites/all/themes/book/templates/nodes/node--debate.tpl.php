@@ -147,16 +147,24 @@
 
 <!-- RESUMED VIEW -->
 <?php else: ?>
-<?php $body = $node->body['und'][0]['value']; ?>
-<div class=' container'>
-    <div class="row search-result">
-        <div class="col-sm-12">
-            <?php $url = "/node/$node_id"; ?>
-            <h3 class="text-left"><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h3>
-            <a class="url" href="<?php echo $url; ?>"><?php echo "http://".$_SERVER['HTTP_HOST'].$url; ?></a>
-            <p class="description"><?php echo substr($body, 0, 300), ' ...'; ?></p>
-            <p><a class="search-result-label label-debate" href="/debate/debates"><?php echo $labels['debate']; ?></a></p>
+  <?php $body = $node->body['und'][0]['value']; ?>
+  <?php //The container div is only needed for the taxonomy view.
+        //When the node is loaded from the user-profile
+        //view this container is nod needed.
+  ?>
+    <?php if ($view_mode !== 'user-profile'): ?>
+      <div class=' container'>
+    <?php endif; ?>
+        <div class="row search-result">
+            <div class="col-sm-12">
+                <?php $url = "/node/$node_id"; ?>
+                <h3 class="text-left"><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h3>
+                <a class="url" href="<?php echo $url; ?>"><?php echo "http://".$_SERVER['HTTP_HOST'].$url; ?></a>
+                <p class="description"><?php echo substr($body, 0, 300), ' ...'; ?></p>
+                <p><a class="search-result-label label-debate" href="/debate/debates"><?php echo $labels['debate']; ?></a></p>
+            </div>
         </div>
-    </div>
-</div>
+    <?php if ($view_mode === 'full'): ?>
+      </div>
+    <?php endif; ?>
 <?php endif; ?>

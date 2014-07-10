@@ -11,6 +11,12 @@
     $can_access_api = in_array('access API', $viewed_user->roles);
     $is_own_profile = $user->uid == $viewed_user->uid;
     $can_edit = $is_own_profile || $is_admin;
+    $query = new EntityFieldQuery;
+    $created_node_nids = $query
+      ->entityCondition('entity_type', 'node')
+      ->propertyCondition('status', 1)
+      ->propertyCondition('uid', $user_id)
+      ->execute();
 ?>
 
 <!-- HEADER -->
@@ -78,6 +84,14 @@
                 <?php else: ?>
                     <p><?php $labels['no_member-since']; ?></p>
                 <?php endif; ?>
+            </div>
+            <div class="user-created-content">
+            <h2><?php echo $labels['user_created_content']; ?></h2>
+                <?php
+                    foreach ($created_node_nids["node"] as $node) {
+                        echo drupal_render(node_view(node_load($node->nid), 'user-profile'));
+                    }
+                ?>
             </div>
         </div>
         <!-- User picture -->

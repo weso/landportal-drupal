@@ -247,5 +247,6 @@
     "logout": "Cerrar sesión",
     "open": "Abierto",
     "coming_soon": "Próximamente",
-    "closed": "Cerrado"
+    "closed": "Cerrado",
+    "user_created_content": "Contenido creado"
 }

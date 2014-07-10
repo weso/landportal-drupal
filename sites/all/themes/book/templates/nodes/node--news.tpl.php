@@ -91,7 +91,11 @@
 <!-- RESUMED VIEW -->
 <?php else: ?>
 <?php $body = $node->body['und'][0]['value']; ?>
+
+<!-- See node-debate.tpl.php for an explanation -->
+<?php if ($view_mode !== 'user-profile'): ?>
 <div class=' container'>
+<?php endif; ?>
     <div class="row search-result">
         <div class="col-sm-12">
             <?php $url = "/node/$node_id"; ?>
@@ -101,5 +105,8 @@
             <p><a class="search-result-label label-news" href="/debate/news"><?php echo $labels['news']; ?></a></p>
         </div>
     </div>
+    <?php if ($view_mode !== 'user-profile'): ?>
 </div>
+<?php endif; ?>
+
 <?php endif; ?>
