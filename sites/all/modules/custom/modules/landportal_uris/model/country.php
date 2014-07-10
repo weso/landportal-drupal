@@ -286,6 +286,14 @@ class Country {
 		if ($tendency == null || $value == null || $average == null) {
 			return 'none';
 		}
+		if ($value > 0.5) {
+			return "good";
+		} else if ($value == 0.5) {
+			return "same";
+		} else {
+			return "bad";
+		}
+		/*
 		if ($value == $average) {
 			return 'same';
 		}
@@ -295,6 +303,7 @@ class Country {
 		if ($tendency == 'decrease') {
 			return $value < $average ? 'good' : 'bad';
 		}
+		*/
 	}
 
 }
