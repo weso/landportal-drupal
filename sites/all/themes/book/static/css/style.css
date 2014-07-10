@@ -2293,15 +2293,29 @@ div.debate-status {
 }
 
 div.debate-status span {
-	background-color: #428bca;
+	/*background-color: #428bca;*/
 	display: inline-block;
 	width: 100%;
-	color: #fff;
 	text-align: center;
 	white-space: nowrap;
 	vertical-align: baseline;
 	border-radius: .25em;
 	padding: 0.5em 0;
+}
+
+div.debate-status.open {
+	background-color: #01DF3A;
+	color: #fff;
+}
+
+div.debate-status.coming_soon {
+	background-color: #fff;
+	color: #000;
+}
+
+div.debate-status.closed {
+	background-color: #FE2E2E;
+	color: #fff;
 }
 
 .debate-entry h3, .blog-entry h3, .news-entry h3, .events-entry h3 {
