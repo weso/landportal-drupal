@@ -250,5 +250,7 @@
   "closed": "Closed",
   "user_created_content": "Created content",
   "edit-field_geographical_focus-tid": "Geographical focus",
-  "edit-field_interests-tid": "Interests"
+  "edit-field_interests-tid": "Interests",
+  "drupal_text_field_help": "Les adresses de pages web et de courriels sont transformées en liens automatiquement.<br>Étiquettes de HTML autorisés: &lt;a&gt; &lt;em&gt; &lt;strong&gt; &lt;cite&gt; &lt;blockquote&gt; &lt;code&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; &lt;dl&gt; &lt;dt&gt; &lt;dd&gt;.<br>Les lignes et les paragraphes vont automatiquement.",
+  "help": "Help"
 }

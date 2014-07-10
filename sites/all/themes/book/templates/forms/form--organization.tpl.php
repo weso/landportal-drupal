@@ -53,6 +53,10 @@
   </div>
   <div class="row">
     <!-- Form -->
+    <div class="drupal-form-help text-center">
+      <h4><?php echo $labels['help']; ?></h4>
+      <?php echo $labels['drupal_text_field_help']; ?>
+    </div>
     <div class="col-sm-12">
       <?php print drupal_render_children($form); ?>
     </div>

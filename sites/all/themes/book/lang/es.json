@@ -250,5 +250,7 @@
     "closed": "Cerrado",
     "user_created_content": "Contenido creado",
     "edit-field_geographical_focus-tid": "Foco geográfico",
-    "edit-field_interests-tid": "Intereses"
+    "edit-field_interests-tid": "Intereses",
+  "drupal_text_field_help": "Las URLs y direcciones de e-mail se transforman en enlaces automáticamente.<br>Etiquetas HTML permitidas: &lt;a&gt; &lt;em&gt; &lt;strong&gt; &lt;cite&gt; &lt;blockquote&gt; &lt;code&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; &lt;dl&gt; &lt;dt&gt; &lt;dd&gt;.<br>Las líneas y los párrafos introducen saltos de línea automáticamente.",
+  "help": "Ayuda"
 }

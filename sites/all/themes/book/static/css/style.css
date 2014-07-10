@@ -2690,3 +2690,10 @@ div.user-created-content {
 div.user-created-content h3 {
 	font-size: 130%;
 }
+
+/* FORMS HELP */
+div.drupal-form-help {
+	font-size: 80%;
+	color: #BBB;
+	margin-bottom: 2em;
+}
