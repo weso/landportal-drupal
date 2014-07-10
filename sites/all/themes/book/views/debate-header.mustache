@@ -24,17 +24,17 @@
 					<a href="/home" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{index}}{{/labels}}">
 						<span>{{#labels}}{{index}}{{/labels}}</span>
 					</a>
-					<!-- Blog -->
-					{{#blog}}
-						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{blog}}{{/labels}}" class="selected">
-							<span>{{#labels}}{{blog}}{{/labels}}</span>
+					<!-- Debates -->
+					{{#debates}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{debates}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{debates}}{{/labels}}</span>
 						</a>
-					{{/blog}}
-					{{^blog}}
-						<a href="/debate/blog" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{blog}}{{/labels}}">
-							<span>{{#labels}}{{blog}}{{/labels}}</span>
+					{{/debates}}
+					{{^debates}}
+						<a href="/debate/debates" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{debates}}{{/labels}}">
+							<span>{{#labels}}{{debates}}{{/labels}}</span>
 						</a>
-					{{/blog}}
+					{{/debates}}
 					<!-- News -->
 					{{#news}}
 						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{news}}{{/labels}}" class="selected">
@@ -57,17 +57,17 @@
 							<span>{{#labels}}{{events}}{{/labels}}</span>
 						</a>
 					{{/events}}
-					<!-- Debates -->
-					{{#debates}}
-						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{debates}}{{/labels}}" class="selected">
-							<span>{{#labels}}{{debates}}{{/labels}}</span>
+					<!-- Blog -->
+					{{#blog}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{blog}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{blog}}{{/labels}}</span>
 						</a>
-					{{/debates}}
-					{{^debates}}
-						<a href="/debate/debates" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{debates}}{{/labels}}">
-							<span>{{#labels}}{{debates}}{{/labels}}</span>
+					{{/blog}}
+					{{^blog}}
+						<a href="/debate/blog" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{blog}}{{/labels}}">
+							<span>{{#labels}}{{blog}}{{/labels}}</span>
 						</a>
-					{{/debates}}
+					{{/blog}}
 					<!-- Community -->
 					{{#community}}
 						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{community}}{{/labels}}" class="selected">
