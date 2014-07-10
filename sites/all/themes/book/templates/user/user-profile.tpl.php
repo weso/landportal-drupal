@@ -103,14 +103,14 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <?php $user_profile['field_related_countries']['#title'] = $labels['edit-field-related-countries-tid']; ?>
-                    <?php print render($user_profile['field_related_countries']); ?>
+                    <?php $user_profile['field_geographical_focus']['#title'] = $labels['edit-field_geographical_focus-tid']; ?>
+                    <?php print render($user_profile['field_geographical_focus']); ?>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <?php $user_profile['field_related_continents']['#title'] = $labels['edit-field-related-continents-tid']; ?>
-                    <?php print render($user_profile['field_related_continents']); ?>
+                    <?php $user_profile['field_interests']['#title'] = $labels['edit-field_interests-tid']; ?>
+                    <?php print render($user_profile['field_interests']); ?>
                 </div>
             </div>
             <?php if($can_edit): ?>

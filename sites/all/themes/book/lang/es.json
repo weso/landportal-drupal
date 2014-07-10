@@ -248,5 +248,7 @@
     "open": "Abierto",
     "coming_soon": "Próximamente",
     "closed": "Cerrado",
-    "user_created_content": "Contenido creado"
+    "user_created_content": "Contenido creado",
+    "edit-field_geographical_focus-tid": "Foco geográfico",
+    "edit-field_interests-tid": "Intereses"
 }

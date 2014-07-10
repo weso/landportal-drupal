@@ -24,8 +24,8 @@
 	$form['field_lastname']['und']['#title'] = $labels['last_name'];
 	$form['field_lastname']['und']['0']['#title'] = $labels['last_name'];
 	$form['field_lastname']['und']['0']['value']['#title'] = $labels['last_name'];
-	$form['field_related_continents']['und']['#title'] = $labels['edit-field-related-continents-tid'];
-	$form['field_related_countries']['und']['#title'] = $labels['edit-field-related-countries-tid'];
+	$form['field_geographical_focus']['und']['#title'] = $labels['edit-field_geographical_focus-tid'];
+	$form['field_interests']['und']['#title'] = $labels['edit-field_interests-tid'];
 	$form['picture']['picture_upload']['#title'] = $labels['image'];
 	unset($form['picture']['picture_upload']['#description']);
 	unset($form['picture']['#title']);

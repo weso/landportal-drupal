@@ -15,9 +15,9 @@
 <?php $form['field_lastname']['und']['#title'] = $labels['last_name']; ?>
 <?php $form['field_lastname']['und']['0']['#title'] = $labels['last_name']; ?>
 <?php $form['field_lastname']['und']['0']['value']['#title'] = $labels['last_name']; ?>
-<!-- COUNTRIES AND CONTINENTS TRANSLATIONS -->
-<?php $form['field_related_continents']['und']['#title'] = $labels['edit-field-related-continents-tid']; ?>
-<?php $form['field_related_countries']['und']['#title'] = $labels['edit-field-related-countries-tid']; ?>
+<!-- REGIONS AND INTERESTS -->
+<?php $form['field_geographical_focus']['und']['#title'] = $labels['edit-field_geographical_focus-tid']; ?>
+<?php $form['field_interests']['und']['#title'] = $labels['edit-field_interests-tid']; ?>
 <!-- SUBMIT BUTTON TRANSLATIONS -->
 <?php $form['actions']['submit']['#value'] = $labels['new_registration']; ?>
 <?php $form['actions']['submit']['#attributes'] = array('class' => array('btn btn btn-success sign-in-button')); ?>
