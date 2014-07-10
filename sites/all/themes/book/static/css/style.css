@@ -2666,3 +2666,13 @@ div .date-heading h3 a {
 	position: absolute;
 	left: 1em;
 }
+
+/* USER-CREATED-CONTENT IN USER PROFILE */
+
+div.user-created-content {
+	margin-top: 3em;
+}
+
+div.user-created-content h3 {
+	font-size: 130%;
+}
