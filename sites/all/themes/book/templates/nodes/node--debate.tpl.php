@@ -55,8 +55,8 @@
         <div class="image">
           <?php print render($content["field_image"]); ?>
         </div>
-        <div class="debate-status">
-          <span><?php echo $labels[$status]; ?></span>
+        <div class="debate-status <?php echo $status; ?>">
+          <span><?php print $labels[$status]; ?></span>
         </div>
         <div class="event-date">
           <h2 class="section">

@@ -22,7 +22,7 @@
         <!-- Image -->
         <?php print $fields["field_image"]->content; ?>
         <!-- Debate status -->
-        <div class="debate-status">
+        <div class="debate-status <?php echo $status; ?>">
           <span><?php print $labels[$status]; ?></span>
         </div>
         <!-- Date -->
