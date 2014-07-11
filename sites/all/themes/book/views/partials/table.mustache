@@ -1,0 +1,26 @@
+<div class="table-responsive">
+	<table class="graphs table table-striped">
+	    <thead>
+	        <tr>
+	            <th class="regionCode">Country code</th>
+	            <th class="regionName">Country name</th>
+	            <th class="indicatorCode">Indicator code</th>
+	            <th class="indicatorName">Indicator name</th>
+	            <th class="value">Value</th>
+	            <th class="time">Year</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        {{#observations}}
+	        <tr>
+	            <td class="regionCode">{{#country}}{{code}}{{/country}}</td>
+	            <td class="regionName">{{#country}}{{name}}{{/country}}</td>
+	            <td class="indicatorCode">{{#indicator}}{{id}}{{/indicator}}</td>
+	            <td class="indicatorName">{{#indicator}}{{name}}{{/indicator}}</td>
+	            <td class="value">{{#value}}{{value}}{{/value}}</td>
+	            <td class="time">{{#ref_time}}{{value}}{{/ref_time}}</td>
+	        </tr>
+	        {{/observations}}
+	    </tbody>
+	</table>
+</div>

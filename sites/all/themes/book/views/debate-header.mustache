@@ -1,0 +1,86 @@
+<header class="debate-header">
+	{{>topbar-header}}
+	<div class="container header-content">
+		<div class="row">
+			<div class="col-sm-8 col-md-9 motto">
+				{{#labels}}{{debate_motto}}{{/labels}}
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-3">
+				{{>search}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 description">
+				{{#labels}}{{debate_description}}{{/labels}}
+			</div>
+		</div>
+	</div>
+	<!-- Navigation -->
+	<div class="navigation">
+		<nav class="tabs">
+			{{#application}}
+				{{#navigation}}
+					<!-- Home -->
+					<a href="/home" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{index}}{{/labels}}">
+						<span>{{#labels}}{{index}}{{/labels}}</span>
+					</a>
+					<!-- Debates -->
+					{{#debates}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{debates}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{debates}}{{/labels}}</span>
+						</a>
+					{{/debates}}
+					{{^debates}}
+						<a href="/debate/debates" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{debates}}{{/labels}}">
+							<span>{{#labels}}{{debates}}{{/labels}}</span>
+						</a>
+					{{/debates}}
+					<!-- News -->
+					{{#news}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{news}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{news}}{{/labels}}</span>
+						</a>
+					{{/news}}
+					{{^news}}
+						<a href="/debate/news" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{news}}{{/labels}}">
+							<span>{{#labels}}{{news}}{{/labels}}</span>
+						</a>
+					{{/news}}
+					<!-- Events -->
+					{{#events}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{events}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{events}}{{/labels}}</span>
+						</a>
+					{{/events}}
+					{{^events}}
+						<a href="/debate/events" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{events}}{{/labels}}">
+							<span>{{#labels}}{{events}}{{/labels}}</span>
+						</a>
+					{{/events}}
+					<!-- Blog -->
+					{{#blog}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{blog}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{blog}}{{/labels}}</span>
+						</a>
+					{{/blog}}
+					{{^blog}}
+						<a href="/debate/blog" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{blog}}{{/labels}}">
+							<span>{{#labels}}{{blog}}{{/labels}}</span>
+						</a>
+					{{/blog}}
+					<!-- Community -->
+					{{#community}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{community}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{community}}{{/labels}}</span>
+						</a>
+					{{/community}}
+					{{^community}}
+						<a href="/debate/community" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{community}}{{/labels}}">
+							<span>{{#labels}}{{community}}{{/labels}}</span>
+						</a>
+					{{/community}}
+				{{/navigation}}
+			{{/application}}
+		</nav>
+	</div>
+</header>

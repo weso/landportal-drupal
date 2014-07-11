@@ -1,0 +1,2699 @@
+/* @screen-xs-min 480px */
+/* @screen-sm-min 768px */
+/* @screen-md-min 992px */
+/* @screen-lg-min 1200px */
+
+.no-margin {
+	margin: 0 !important;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+body {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'News Cycle', sans-serif;
+	margin-top: 0;
+}
+
+h1 {
+	font-size: 2.5em;
+	font-weight: normal;
+	color: #333;
+	padding-bottom: 0.2em;
+}
+
+h2 {
+	font-size: 1.2em;
+	font-weight: normal;
+}
+
+/* Header Book */
+
+.mobile-top {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.mobile-top button {
+	margin-top: 0.5em;
+	margin-bottom: 0.2em;
+}
+
+.navbar {
+	background-image: none !important;
+	background-color: #fff !important;
+}
+
+header.book-header {
+	background-color: rgba(86, 131, 9, 0.8);
+	background-image: url('../images/header/grass-small.png');
+	background-size: cover;
+}
+
+header.book-header .bar {
+	background-color: #fff;
+	padding-top: 0.3em;
+	padding-bottom: 0.1em;
+}
+
+@media (min-width: 768px) {
+	header.book-header {
+		background-image: url('../images/header/grass-medium.png');
+	}
+}
+
+.header-content {
+	padding-top: 0.5em;
+}
+
+div.motto {
+	font-family: 'Source Sans Pro', sans-serif;
+	margin-top: 2.1em;
+	font-size: 1.8em;
+	letter-spacing: 0.1em;
+	color: #fff;
+	font-weight: 300;
+	text-shadow: 0 0.04em 0 #444;
+}
+
+@media (min-width: 768px) {
+	div.motto {
+		margin-top: 0;
+		font-size: 2.5em;
+	}
+}
+
+@media (min-width: 992px) {
+	div.motto {
+		font-size: 3em;
+	}
+}
+
+div.description {
+	color: #eee;
+	padding-top: 0.5em;
+	padding-bottom: 0.1em;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 1.3em;
+	font-weight: 300;
+	letter-spacing: 0.1em;
+}
+
+a.login {
+	float: right;
+	margin-left: 1em;
+}
+
+a.login i {
+	margin-right: 0.3em;
+}
+
+div.selected-language {
+	width: intrinsic;
+	float: right;
+	margin-right: 1em;
+}
+
+div.selected-language .language {
+	padding: 0 0.5em;
+	border-left: 0.1em solid #ccc;
+	float: left;
+}
+
+div.selected-language span.language {
+	color: #999;
+}
+
+div.selected-language .language:first-child {
+	border-left: none;
+}
+
+div.header-selectors {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	float: right;
+}
+
+/* Header Debate */
+
+header.debate-header {
+	background-color: rgba(8, 75, 138, 0.8);
+	background-image: url('../images/header/pebbles-small.png');
+	background-size: cover;
+}
+
+header.debate-header .bar {
+	background-color: #fff;
+	padding-top: 0.3em;
+	padding-bottom: 0.1em;
+}
+
+@media (min-width: 768px) {
+	header.debate-header {
+		background-image: url('../images/header/pebbles-medium.png');
+	}
+}
+
+/* Navigation book */
+
+header.book-header div.navigation {
+	margin-top: 1em;
+	overflow: auto;
+	background-color: rgba(130,180,130, 0.70);
+}
+
+div.navigation a {
+	display: inline-block;
+	text-decoration: none;
+	width: 100%;
+	text-align: center;
+	padding: 1.3em 0;
+	margin: 0;
+	float: left;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	font-weight: 100;
+	font-size: 1em;
+	border-right: 0.1em solid rgba(255, 255, 255, 0.6);
+	border-bottom: 0.8em solid none;
+}
+
+div.navigation a:last-child {
+	border-right: none;
+}
+
+@media (min-width: 768px) {
+	div.navigation a {
+		width: 25%;
+	}
+}
+
+@media (min-width: 1200px) {
+	div.navigation a {
+		width: 12.5%;
+	}
+}
+
+header.book-header div.navigation nav.tabs a:nth-child(1) {
+	background-color: rgba(95, 131, 87, 0.3);
+}
+
+header.book-header div.navigation nav.tabs a:nth-child(2) {
+	background-color: rgba(79, 162, 46, 0.3);
+}
+
+header.book-header div.navigation nav.tabs a:nth-child(3) {
+	background-color: rgba(54, 98, 98, 0.3);
+}
+
+header.book-header div.navigation nav.tabs a:nth-child(4) {
+	background-color: rgba(95, 131, 87, 0.3);
+}
+
+header.book-header div.navigation nav.tabs a:nth-child(5) {
+	background-color: rgba(79, 162, 46, 0.3);
+}
+
+header.book-header div.navigation nav.tabs a:nth-child(6) {
+	background-color: rgba(54, 98, 98, 0.3);
+}
+
+header.book-header div.navigation nav.tabs a:nth-child(7) {
+	background-color: rgba(95, 131, 87, 0.3);
+}
+
+header.book-header div.navigation nav.tabs a:nth-child(8) {
+	background-color: rgba(79, 162, 46, 0.3);
+}
+
+div.navigation a.selected {
+	border-bottom: 0.8em solid #f1db11 !important;
+	padding-bottom: 0.5em !important;
+}
+
+div.navigation a.selected span {
+	border-bottom: 0.1em solid #fff;
+}
+
+div.navigation nav.tabs a:not(.selected):hover {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+div.top-navigation {
+	text-align: right;
+	padding-bottom: 0.3em;
+}
+
+div.top-navigation ol.breadcrumb {
+	background-color: transparent;
+	padding-left: 0;
+	padding-right: 0;
+	margin-bottom: 0;
+}
+
+/* Navigation debate */
+
+header.debate-header div.navigation {
+	margin-top: 1em;
+	overflow: auto;
+	background-color: rgba(10, 104, 172, 0.3);
+}
+
+@media (min-width: 480px) {
+	header.debate-header div.navigation a {
+		width: 33.33%;
+	}
+}
+
+@media (min-width: 1200px) {
+	header.debate-header div.navigation a {
+		width: 16.66%;
+	}
+}
+
+header.debate-header div.navigation nav.tabs a:nth-child(1) {
+	background-color: rgba(46, 100, 254, 0.3);
+}
+
+header.debate-header div.navigation nav.tabs a:nth-child(2) {
+	background-color: rgba(1, 169, 219, 0.3);
+}
+
+header.debate-header div.navigation nav.tabs a:nth-child(3) {
+	background-color: rgba(10, 104, 172, 0.3);
+}
+
+header.debate-header div.navigation nav.tabs a:nth-child(4) {
+	background-color: rgba(46, 100, 254, 0.3);
+}
+
+header.debate-header div.navigation nav.tabs a:nth-child(5) {
+	background-color: rgba(1, 169, 219, 0.3);
+}
+
+header.debate-header div.navigation nav.tabs a:nth-child(6) {
+	background-color: rgba(10, 104, 172, 0.3);
+}
+
+header.debate-header div.navigation nav.tabs a:nth-child(7) {
+	background-color: rgba(46, 100, 254, 0.3);
+}
+
+header.debate-header div.navigation nav.tabs a:nth-child(8) {
+	background-color: rgba(1, 169, 219, 0.3);
+}
+
+/* Breadcrumb */
+
+.breadcrumb {
+	margin-bottom: 1em;
+	background-color: #fff;
+	padding-top: 0.5em !important;
+	padding-bottom: 0.5em !important;
+	padding-left: 0;
+	font-size: 0.8em;
+}
+
+@media (min-width: 768px) {
+	.breadcrumb {
+		font-size: 1em;
+		margin-bottom: 0.2em;
+	}
+}
+
+/* Logo */
+
+div.logo {
+	color: #8fcd1f;
+	font-size: 1.3em;
+	vertical-align: bottom;
+	display: table
+}
+
+div.logo a, div.logo a:hover {
+	color: #8fcd1f;
+}
+
+div.logo span.site {
+	float: left;
+	display: inline-block;
+	padding-top: 0.3em;
+	padding-left: 0.3em;
+  text-transform: lowercase;
+}
+
+div.logo span.site strong {
+    font-weight: normal;
+    color: #555;
+}
+
+div.logo span.separator {
+	color: #bbb;
+}
+
+div.logo i {
+	margin-left: 0.2em;
+}
+
+div.logo i.fa-book {
+	color: #684c3e;
+}
+
+img.logo {
+	width: 100%;
+	float: left;
+}
+
+@media (min-width: 480px) {
+	img.logo {
+		width: auto;
+	}
+}
+
+img.logo-mobile {
+	height: 100%;
+	margin-left: 1em;
+	margin-top: 0.5em;
+}
+
+/* Search box */
+
+div.search {
+	margin-top: 0.5em;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+div.search div.input-group-btn button {
+	background-color: transparent;
+	color: #666;
+}
+
+div.search input {
+	border: none;
+	background-color: transparent;
+}
+
+/* Footer */
+
+footer {
+	overflow: auto;
+}
+
+footer.inverted {
+	border-top: 0.1em solid #aaa;
+	padding-top: 1em;
+}
+
+footer.inverted .breadcrumb {
+	padding-top: 1.2em;
+}
+
+footer.inverted .breadcrumb a {
+	color: #333;
+}
+
+@media (min-width: 768px) {
+	footer.inverted .breadcrumb a {
+		font-size: 0.9em;
+	}
+}
+
+@media (max-width: 768px) {
+	footer .breadcrumb li {
+		width: 100%;
+	}
+
+	footer .breadcrumb > li + li::before {
+		content: none;
+	}
+}
+
+footer ul.map {
+	background-color: #fff;
+	overflow: auto;
+	padding-top: 1.5em;
+}
+
+footer.inverted ul.map {
+	background-color: #694c3e;
+}
+
+footer ul {
+	padding: 0;
+	margin: 0;
+}
+
+footer > ul {
+	padding: 0;
+	font-size: 0.9em;
+	margin: 0;
+}
+
+footer li {
+	list-style: none;
+	color: #333;
+}
+
+footer.inverted li {
+	color: #fff;
+}
+
+footer > ul > li {
+	padding: 0.5em 0.5em 0.5em 0em;
+}
+
+footer > ul > li > ul {
+	height: 18em;
+	margin-top: 1em;
+}
+
+footer > ul > li > ul > li {
+	margin-top: 0.3em;
+}
+
+footer span.section {
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-family: 'News Cycle', sans-serif;
+	font-size: 1.3em;
+}
+
+@media (min-width: 768px) {
+	footer > ul > li {
+		width: 20%;
+		float: left;
+	}
+}
+
+footer div.circle {
+	background-color: #694c3e;
+	width: 4em;
+	height: 4em;
+	padding: 0.6em 0.2em 0.2em 0.2em;
+	border-radius: 2em;
+	text-align: center;
+	display: inline-block;
+	color: #333;
+}
+
+footer.inverted div.circle {
+	background-color: #333;
+	color: #fff;
+}
+
+footer.signature {
+	color: #333;
+	padding: 1em 1em 2em 1em;
+	font-size: 0.8em;
+}
+
+div.social {
+	text-align: right;
+	font-size: 0.6em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+div.social a {
+	color: #fff;
+}
+
+/* News */
+
+div.news {
+	padding-top: 2em;
+	padding-bottom: 2em;
+	border-bottom: 0.1em solid #ddd;
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-size: 0.9em;
+}
+
+div.news p {
+	margin-top: 0.5em;
+}
+
+div.news span.account {
+	color: #888;
+}
+
+div.news div {
+	word-break: break-word;
+}
+
+div.news img {
+	width: 100%;
+}
+
+div.news p.by {
+	color: #888;
+}
+
+div.news div.titles {
+	margin-bottom: 1.5em;
+	margin-top: 1em;
+	color: #888;
+}
+
+div.news p.date {
+	color: #888;
+}
+
+div.news div.left-bordered {
+	border-left: 0.1em dotted #ccc;
+}
+
+div.news div.section {
+	margin-bottom: 1em;
+}
+
+/* Content */
+
+/* Home */
+
+div.home-piece-of-new {
+	height: 15em;
+	position: relative;
+	background-size: cover;
+}
+
+div.piece-of-new-text {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(20, 20, 20, 0.6);
+	color: #fff;
+	padding: 0.5em 1em;
+	width: 100%;
+	min-height: 5em;
+}
+
+div.presentation {
+	margin-top: 0.5em;
+	margin-bottom: 0;
+}
+
+ol.breadcrumb-sites span.black {
+	color: #555;
+	margin-right: 0.08em;
+}
+
+ol.breadcrumb-sites > li + li::before {
+	content: "| ";
+}
+
+.home-img-wrapper {
+	overflow: hidden;
+}
+
+img.home-img {
+	height: 18em;
+}
+
+@media (min-width: 768px) {
+	img.home-img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+.home-caption {
+	margin: 0.2em 0 0.5em 0;
+}
+
+.home-caption p {
+	letter-spacing: 0.1em;
+	font-weight: 300;
+	font-size: 1.6em;
+	font-family: 'Source Sans Pro', sans-serif;
+	text-transform: uppercase;
+	background-color: #fff;
+	color: #333;
+	padding: 0em 0.2em;
+	margin-top: 0.2em;
+	margin-bottom: 0.5em;
+}
+
+.home-caption p:nth-child(2) {
+	text-transform: none;
+	font-size: 1.4em;
+	color: #555;
+}
+
+.home-modules {
+	margin-top: 1em;
+}
+
+h2.land-module {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 2.5em;
+	margin-top: 0.5em;
+}
+
+h3.module-motto {
+	text-transform: uppercase;
+	color: #777;
+	margin-bottom: 1em;
+	height: 2em;
+}
+
+span.landbook {
+	color: #8fcd1f;
+}
+
+span.landdebate {
+	color: #0165C3;
+}
+
+span.landlibrary {
+	color: #E3AB03;
+}
+
+p.module-description {
+	text-align: justify;
+	font-size: 1em;
+}
+
+@media (min-width: 768px) {
+	p.module-description {
+		min-height: 12em;
+	}
+}
+
+@media (min-width: 1200px) {
+	p.module-description {
+		min-height: 8em;
+	}
+}
+
+.btn-default {
+	background: #fff !important;
+	width: 100%;
+	font-size: 1.3em;
+	color: #444;
+}
+
+@media (max-width: 767px) {
+	div.middle-module {
+		margin-top: 4em;
+		margin-bottom: 4em;
+	}
+}
+
+a.module-link {
+	color: #333;
+}
+
+/* Country */
+
+.no-signature .wesCountry .signature {
+	display: none;
+}
+
+img.flag {
+	border: 0.03em solid #ccc;
+	width: 0.9em;
+	height: 0.9em;
+	background-color: #fff;
+	vertical-align: top;
+	margin-top: 0.25em;
+}
+
+span.flag img.flag {
+	margin-right: 0.2em;
+}
+
+ul.spider-legend {
+	list-style: none;
+	text-align: left;
+	padding: 0;
+	font-size: 0.8em;
+	color: #333;
+	margin-top: 1em;
+}
+
+span.spider-legen-id {
+	font-weight: 500;
+}
+
+div.world-map {
+	height: 12em;
+	margin-top: 0.4em;
+	margin-bottom: 1em;
+}
+
+@media (min-width: 480px) {
+	div.world-map {
+		height: 18em;
+	}
+}
+
+@media (min-width: 640px) {
+	div.world-map {
+		height: 24em;
+	}
+}
+
+@media (min-width: 768px) {
+	div.world-map {
+		height: 12em;
+	}
+}
+
+div.country-map {
+	height: 14em;
+	margin: 0 0.1em 2em 0.1em;
+}
+/*
+div.country-map svg {
+	border: 0.1em solid #f5f5f5;
+}*/
+
+div.world-map .land {
+	stroke: none;
+	fill: #e8e8e8;
+}
+
+div.main-content {
+	margin-top: 0.3em;
+	margin-bottom: 3em;
+}
+
+h1.country-name {
+	position: relative;
+	margin-top: 0;
+	margin-bottom: 0.5em;
+	font-size: 1.7em;
+}
+
+@media (min-width: 768px) {
+	h1.country-name {
+		font-size: 2.5em;
+	}
+
+	h1.country-name:before {
+	    border-top: 0.05em solid #555;
+	    content: "";
+	    margin: 0 auto;
+	    position: absolute;
+	    top: 60%;
+	    width: 100%;
+	    z-index: -1;
+	}
+
+	h1.country-name span {
+		background-color: #fff;
+		padding: 0 0.5em;
+		margin-left: 0.5em;
+	}
+
+	h1.country-name span.no-margin {
+		margin: 0 !important;
+	}
+
+	h1.country-name span.flag {
+		padding: 0 0.5em 0 0 !important;
+	}
+}
+
+h2.section {
+	position: relative;
+	color: #666;
+	text-transform: uppercase;
+	font-size: 0.9em;
+	margin-bottom: 2em;
+}
+
+h2.section {
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+
+h2.section:before {
+		border-top: 0.1em solid #ccc;
+		content: "";
+		margin: 0 auto;
+		position: absolute;
+		top: 70%;
+		left: 0;
+		width: 100%;
+		z-index: -1;
+}
+
+h2.section span {
+	background-color: #fff;
+	padding: 0;
+}
+
+h2.section span:first-child {
+	padding-left: 1em;
+}
+
+h2.section span:last-child {
+	padding-right: 1em;
+}
+
+@media (max-width: 768px) {
+	h2.section-name {
+		text-align: left;
+		margin-bottom: 2em;
+	}
+
+	h2.section-name:before {
+	    border-top: none;
+	    content: "";
+	    margin: auto;
+	    position: relative;
+	    top: 70%;
+	    left: 0;
+	    width: auto;
+	    z-index: -1;
+	}
+
+	h2.section-name span {
+		background-color: transparent;
+		padding: 0;
+	}
+
+	h2.section-name span:first-child {
+		padding-left: 0;
+	}
+
+	h2.section-name span:last-child {
+		padding-right: 0;
+	}
+}
+
+iframe.map {
+	width: 100%;
+	height: 17em;
+	border: none !important;
+	margin-bottom: 2em;
+	margin-top: 0.5em;
+}
+
+div.evolutions {
+	margin: 0 !important;
+}
+
+table {
+	width: 100%;
+	margin-bottom: 2em;
+}
+
+td div.circle {
+	border: 0.1em solid #bbb;
+	width: 1.7em;
+	height: 1.7em;
+	border-radius: 50%;
+	padding: 0.25em;
+	float: right;
+}
+
+div.good {
+	background-color: #00af10;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	box-shadow: inset 0.1em 0.1em 0.2em #317060;
+}
+
+div.bad {
+	background-color: #ff0002;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	box-shadow: inset 0.1em 0.1em 0.2em #713232;
+}
+
+div.same {
+	background-color: #ffb902;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	box-shadow: inset 0.1em 0.1em 0.2em #b8b832;
+}
+
+div.none {
+	background-color: #ccc;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	box-shadow: inset 0.1em 0.1em 0.2em #999;
+}
+
+td.issue {
+	font-size: 0.8em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+table.graphs {
+	margin-bottom: 0.2em;
+}
+
+table.graphs td {
+	padding: 0.5em 0;
+	border-bottom: 0.1em dotted #ccd0d5;
+	color: #333;
+	font-style: italic;
+}
+
+table.graphs td.year {
+	text-align: right;
+}
+
+table.graphs tr:nth-child(even) {
+
+}
+
+select.country-selector {
+	height: 1.5em;
+}
+
+div#employment-timeline {
+	margin-top: 1em;
+}
+
+select.data-sources {
+	width: 100%;
+	border-color: #ccc;
+	border-style: solid;
+	height: 8em;
+	font-size: 1.1em;
+	margin-bottom: 1em;
+}
+
+button.data-button {
+	width: 100%;
+	margin-top: 1em;
+	background-color: #01A9DB;
+	color: #fff;
+	border-color: #2a7085;
+}
+
+button.data-button:hover {
+	background-color: #2a7085;
+	color: #fff;
+}
+
+button.data-button-dark {
+	width: 100%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	background-color: #2a7085;
+	color: #fff;
+	border-color: #17414e;
+}
+
+button.data-button-coming {
+	color: #888;
+	width: 100%;
+}
+
+button.data-button-coming:hover {
+	color: #888;
+}
+
+button.data-button-dark:hover {
+	background-color: #17414e;
+	color: #fff;
+}
+
+a.more-info {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+p.at-button {
+	margin-bottom: 0;
+	font-style: italic;
+	font-size: 0.9em;
+}
+
+div.lead {
+	font-size: 0.9em;
+	text-transform: uppercase;
+	font-style: italic;
+	margin-top: 2em;
+	color: #666;
+}
+
+div.socioeconomic-values table.graphs {
+    display: table !important;
+}
+
+div.socioeconomic-values th.indicatorCode, div.socioeconomic-values td.indicatorCode {
+    display: none;
+}
+
+div.socioeconomic-values th.regionCode, div.socioeconomic-values td.regionCode {
+    display: none;
+}
+
+div.socioeconomic-values th.regionName, div.socioeconomic-values td.regionName {
+    display: none;
+}
+
+div.indicator-map .selected-country, div.indicator-map .selected-country g, div.indicator-map .selected-country path {
+	fill: #FFBF00 !important;
+}
+
+p.percentage {
+	font-size: 1.4em;
+	color: #888;
+}
+
+@media (min-width: 768px) {
+	p.percentage {
+		font-size: 1.2em;
+	}
+}
+
+@media (min-width: 992px) {
+	p.percentage {
+		font-size: 1.4em;
+	}
+}
+
+p.indicator-name {
+	font-size: 0.7em;
+	font-style: italic;
+	color: #333;
+	text-align: left;
+	min-height: 5em;
+}
+
+i.text-muted {
+	color: #ccc !important;
+}
+
+/* Maps */
+
+div.map {
+	min-height: 20em;
+	position: relative;
+	text-align: center;
+	margin-bottom: 2em;
+}
+
+div.wesCountry-map .buttons {
+	display: none;
+}
+
+@media (min-width: 480px) {
+	div.map {
+		min-height: 30em;
+	}
+}
+
+@media (min-width: 768px) {
+	div.wesCountry-map .buttons {
+		display: block;
+	}
+}
+
+@media (min-width: 992px) {
+	div.map {
+		min-height: 40em;
+	}
+}
+
+@media (max-width: 1199px) {
+	p.wesCountry-foot {
+		width: 100% !important;
+		margin-bottom: 1em !important;
+	}
+
+	div.graph-medium, div.graph-large, div.map {
+		padding-bottom: 1.5em;
+		border-bottom: 0.1em solid #ccc;
+	}
+}
+
+div.map div.wesCountry-footer {
+	margin-top: 1.3em;
+}
+
+div.map-medium {
+	height: 18em;
+	margin-top: 0em;
+	margin-bottom: 1em;
+	padding-bottom: 4em;
+	position: relative;
+}
+
+div.country-label {
+	display: none;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 1em 0;
+	text-align: center;
+	font-size: 1.4em;
+	letter-spacing: 0.1em;
+	color: #333;
+	font-family: 'News Cycle', sans-serif;
+}
+
+table.map-data {
+	display: none;
+}
+
+div.direction-buttons {
+	width: 5em !important;
+	height: 5em !important;
+	margin-top: 3em !important;
+}
+
+div.direction-buttons {
+	margin-bottom: 2em !important;
+}
+
+div.direction-buttons button {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+div.direction-buttons .button-up {
+	padding-bottom: 0.2em !important;
+}
+
+div.direction-buttons .button-left {
+	padding-left: 0.5em !important;
+}
+
+div.direction-buttons .button-right {
+	padding-right: 0.5em !important;
+}
+
+div.visor {
+	bottom: 0 !important;
+	color: #333 !important;
+	height: 2em !important;
+	padding: 0.1em 0 0.2em 0 !important;
+	background-color: transparent !important;
+}
+
+div.visor img.country-flag {
+	vertical-align: middle;
+	width: 1.6em;
+	height: 1.6em;
+	margin-right: 1em;
+	border: 0.05em solid #ccc;
+}
+
+div.visor .left {
+	float: left;
+	margin-left: 2em;
+}
+
+div.visor .value {
+	float: right;
+	margin-right: 2em;
+}
+
+div.buttons {
+	bottom: 2em;
+}
+
+div.zoom-buttons button {
+	margin: 1em auto !important;
+}
+
+div.direction-buttons button {
+	margin: 0 !important;
+	padding: 0 !important;
+	font-size: 0.8em !important;
+	font-family: monospace !important;
+	line-height: normal !important;
+}
+
+/* Charts */
+
+.graphs {
+    display: none;
+}
+
+.indicatorSelector, .chartSelector, .seriesSelector {
+    display: none;
+}
+
+.wesCountry-foot {
+	font-size: 0.8em;
+	color: #555 !important;
+}
+
+.wesCountry-panel {
+	overflow: hidden !important;
+}
+
+div.chart-selector {
+	margin-bottom: 0;
+}
+
+div.chart-selector::before {
+	top: 40% !important;
+	border-top: 0.1em solid #ddd !important;
+}
+
+div.loading-circle-active {
+  background-color: transparent !important;
+}
+
+div.loading-circle-active div.loading-inner-circle {
+	background-color: #aaa !important;
+}
+
+div.loading-inner-circle {
+  background-color: transparent !important;
+	border: 0.1em solid #aaa !important;
+}
+
+p.chart-source {
+	margin-top: 0.5em;
+	font-size: 0.8em;
+}
+
+/* Countries */
+
+.countries h1 {
+    margin-top: 0.4em;
+    margin-bottom: 0em;
+}
+
+.continents {
+    border-top: 0.1em solid #ccc;
+    margin-top: 1em;
+}
+
+.countries img.flag {
+    width: 2em;
+    height: 2em;
+    margin-top: 0;
+    margin-right: 1em;
+    border: 0.1em solid #ccc;
+    vertical-align: middle;
+    background-size: 100%;
+}
+
+.countries span.name {
+
+}
+
+.countries-container input[type=checkbox] {
+    margin-right: 0.4em;
+}
+
+select.countries-country-select, select.indicators-indicator-select {
+	width: 100%;
+	font-size: 1.2em;
+	margin-bottom: 0.5em;
+}
+
+h1.country-name {
+	cursor: pointer;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+h1.country-name span.down {
+	padding: 0 0 0 0.3em;
+    position: absolute;
+	right: 0;
+}
+
+.countries-container label {
+    font-weight: normal;
+}
+
+.countries-container ul {
+    margin-bottom: 1em;
+    padding: 0.4em 0;
+    list-style: none;
+    border-bottom: 0.1em solid #eee;
+    border-top: 0.1em solid #eee;
+}
+
+.countries-container li:first-child {
+    margin-bottom: 0.6em;
+}
+
+.countries-container p {
+    margin: 1em 0;
+}
+
+div.continent-countries {
+	display: none;
+	overflow: auto;
+	padding-top: 1em;
+	padding-bottom: 2em;
+}
+
+div.continent-countries > div {
+	margin-bottom: 0.7em;
+	overflow: hidden;
+}
+
+/* Graphs */
+
+div.graph, div.graph .region-chart {
+	position: relative;
+	min-height: 20em;
+	margin-bottom: 2em;
+	text-align: center;
+}
+
+div.graph-small, div.graph-small .region-chart {
+	position: relative;
+	min-height: 5em;
+	margin-bottom: 1em;
+	padding: 0 !important;
+	text-align: center;
+}
+
+div.graph-small .loading {
+	margin-left: -25%;
+	width: 50%;
+}
+
+div.graph-medium, div.graph-medium .region-chart {
+	position: relative;
+	min-height: 22em;
+	margin-bottom: 2em;
+	text-align: center;
+}
+
+div.graph-medium.no-margin {
+	margin-bottom: 0 !important;
+}
+
+div.graph-large, div.graph-large -region-chart {
+	position: relative;
+	min-height: 25em;
+	text-align: center;
+	margin-bottom: 2em;
+}
+
+div.graph-huge, div.graph-huge -region-chart {
+	position: relative;
+	min-height: 40em;
+	text-align: center;
+	margin-bottom: 2em;
+}
+
+div.compare-bar, div.compare-legend {
+	margin-bottom: 1em;
+}
+
+div.compare-legend div.circle {
+	width: 1.3em;
+	height: 1.3em;
+	border-radius: 50%;
+	background-color: #ccc;
+	float: left;
+	margin-right: 1em;
+}
+
+/* 404 */
+
+div.e404 {
+	margin-top: 2em;
+	margin-bottom: 2em;
+	text-align: center;
+}
+
+div.e404 p.error {
+	font-size: 2.5em;
+	color: #444;
+}
+
+div.e404 p.description {
+	font-size: 1.5em;
+	color: #888;
+	margin-top: 1em;
+}
+
+.compass {
+	text-align: center;
+}
+
+.compass div.compass-back {
+	background-image: url('../images/compass_back.png');
+	display: inline-block;
+	width: intrinsic;
+	margin: 0 auto;
+}
+
+.compass img {
+	display: block;
+}
+
+/* Timeline */
+
+div.timeline {
+	margin-bottom: 3em;
+}
+
+/* Login */
+
+div.login-outer {
+	background-color: #fafafa;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+div.login-wrap {
+	background-color: #fff;
+	padding: 0;
+	box-shadow: 0 0.1em 0.1em #666;
+	border: 0.1em solid #ccc;
+	margin-top: 3em;
+	margin-bottom: 2em;
+}
+
+div.login-wrap .bar {
+	padding: 0.5em 2em;
+}
+
+div.login-wrap .selected-language {
+	margin-right: 0;
+	font-size: 1.1em;
+	padding-top: 0.3em;
+}
+
+.main {
+	max-width: 40em;
+	margin: 0 auto;
+}
+
+.login-or {
+	position: relative;
+	font-size: 18px;
+	color: #aaa;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.span-or {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: -2px;
+	margin-left: -25px;
+	background-color: #fff;
+	width: 50px;
+	text-align: center;
+}
+
+.hr-or {
+	background-color: #cdcdcd;
+	height: 1px;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+h3 {
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+
+.sign-in-button {
+	width: 100%;
+	font-size: 1.4em;
+	padding: 0.5em 0;
+}
+
+span.login-box {
+	background-color: #fff;
+	padding-left: 0.8em;
+	padding-right: 0.8em;
+}
+
+div.login-input {
+	margin-bottom: 1.5em;
+}
+
+div.login-header {
+	background-color: rgba(86, 131, 9, 0.8);
+	background-image: url('../images/header/grass-small.png');
+	background-size: cover;
+}
+
+div.login-header .login-bar {
+	padding: 0.2em 0.5em;
+}
+
+div.login-inner {
+	padding: 2em;
+}
+
+.login-header div.login-inner {
+	padding-top: 0.6em;
+	padding-bottom: 0.6em;
+}
+
+div.login-wrap .tabs {
+	overflow: auto;
+	background-color: rgba(130,180,130, 0.70);
+}
+
+div.login-wrap .tab {
+	float: left;
+	width: 50%;
+	text-align: center;
+	text-transform: uppercase;
+	color: #fff;
+	letter-spacing: 0.1em;
+}
+
+div.login-wrap .tab a {
+	color: #fff;
+}
+
+div.login-wrap .tab:nth-child(1) {
+	background-color: rgba(95, 131, 87, 0.3);
+	border-right: 0.1em solid #fff;
+}
+
+div.login-wrap .tab:nth-child(2) {
+	background-color: rgba(79, 162, 46, 0.3);
+}
+
+div.login-wrap .tab a, div.login-wrap .tab span {
+	display: inline-block;
+	width: 100%;
+	padding: 1.2em 0 1.2em 0;
+}
+
+div.login-wrap .tab span {
+	padding-bottom: 0 !important;
+}
+
+div.login-wrap .tab.selected {
+	padding-bottom: 0.4em !important;
+	border-bottom: 0.8em solid #f1db11;
+}
+
+div.login-wrap .tab a:not(.selected):hover {
+	background-color: rgba(10, 10, 10, 0.4);
+	text-decoration: none;
+}
+
+/* Regions */
+
+.socioeconomic-values table.graphs:nth-child(2) {
+	display: none !important;
+}
+
+/* Widgets */
+
+div.chart-type-texts span {
+	font-size: 0.8em;
+	margin-top: 2em;
+}
+
+div.disabled span {
+	color: #888;
+}
+
+div.chart-type-texts {
+	margin-bottom: 2em;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+form.widget-description input, form.widget-description textarea {
+	margin-bottom: 1em;
+}
+
+h2.country-form-title {
+	margin-top: 1.5em;
+}
+
+div.colour {
+	width: 2em;
+	height: 2em;
+	text-align: center;
+	color: #fff;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+div.colour-plus {
+	width: 2em;
+	height: 2em;
+	text-align: center;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.colour-first {
+	background-color: #b41739;
+}
+
+.colour-second {
+	background-color: #4293c6;
+}
+
+.colour-third {
+	background-color: #17c8b6;
+}
+
+.colour-forth {
+	background-color: #dba40b;
+}
+
+.colour-fifth {
+	background-color: #70148e;
+}
+
+.graph-section button {
+	margin-top: 2em;
+}
+
+div.image-format a {
+	display: inline-block;
+	font-size: 1.3em;
+	margin-top: 0.6em;
+}
+
+div.widget-chart-button {
+	padding-bottom: 0.2em;
+	border: 0.1em solid #fff;
+}
+
+div.widget-chart-button:hover {
+	border: 0.1em solid #ccc;
+	background-color: #f5f5f5;
+	border-radius: 0.3em;
+}
+
+div.widget-chart-button div {
+	height: 4.5em;
+	padding-top: 0.5em;
+}
+
+div.widget-button-selected {
+	border: 0.1em solid #ccc;
+	border-radius: 0.3em;
+	color: #2b3a77;
+}
+
+div.widget-button-selected:hover {
+	background-color: #fff;
+}
+
+div.country-selection-row {
+	margin-bottom: 1em;
+}
+
+p.chart-title {
+	font-weight: bold;
+}
+
+div.palette {
+
+}
+
+div.palette div {
+	margin-bottom: 0.5em;
+}
+
+div.delete-row {
+	text-align: center;
+	color: #888;
+}
+
+div.delete-row i {
+	color: #b41739;
+	margin: 0 auto;
+	display: block;
+}
+
+p.permalink {
+	word-break: break-all;
+}
+
+div.share-widget {
+	margin-bottom: 0.5em;
+}
+
+/* Indicators */
+
+div.marker {
+	float: left;
+	width: 1em;
+	height: 2.7em;
+	border-left: 0.3em solid #000;
+	margin-right: 1em;
+}
+
+span.indicator-year {
+	float: right;
+	color: #254e87;
+}
+
+a.clear-all-link {
+	float: right;
+}
+
+div.dataset-search {
+	border: 0.1em solid #ccc;
+	margin-bottom: 1em;
+}
+
+div.dataset-search input {
+	font-size: 1.5em;
+}
+
+div.dataset-search i {
+	font-size: 1.1em;
+}
+
+div.dataset-message {
+	font-size: 1.4em;
+	margin-top: 0.5em;
+}
+
+div.result-content {
+	margin-top: 2em;
+	border-bottom: 0.1em dotted #ccc;
+}
+
+div.compare-container {
+	margin: 2em 0 2em 0;
+}
+
+select.topic-indicator-select {
+	/*display: none;*/
+}
+
+.table img.flag {
+	width: 1.5em;
+	height: 1.5em;
+	margin-right: 1em;
+}
+
+h1 span.indicator-name {
+	font-size: 0.5em;
+}
+
+/* Loading */
+
+div.loading-circles {
+	height: 6em;
+}
+
+/* Flags */
+/* GENERATED BY HTTP://RESPONSIVE-CSS.SPRITEGEN.COM RESPONSIVE CSS SPRITE GENERATOR */
+
+.flag-ABW, .flag-AFG, .flag-AGO, .flag-AIA, .flag-ALB,
+.flag-AND, .flag-ARE, .flag-ARG, .flag-ARM, .flag-ASM,
+.flag-ATA, .flag-ATC, .flag-ATF, .flag-ATG, .flag-AUS,
+.flag-AUT, .flag-AZE, .flag-BDI, .flag-BEL, .flag-BEN,
+.flag-BES, .flag-BFA, .flag-BGD, .flag-BGR, .flag-BHR,
+.flag-BHS, .flag-BIH, .flag-BLM, .flag-BLR, .flag-BLZ,
+.flag-BMU, .flag-BOL, .flag-BRA, .flag-BRB, .flag-BRN,
+.flag-BTN, .flag-BWA, .flag-CAF, .flag-CAN, .flag-CHE,
+.flag-CHL, .flag-CHN, .flag-CIV, .flag-CMR, .flag-COD,
+.flag-COG, .flag-COK, .flag-COL, .flag-COM, .flag-CPV,
+.flag-CRI, .flag-CUB, .flag-CUW, .flag-CYM, .flag-CYN,
+.flag-CYP, .flag-CZE, .flag-DEU, .flag-DJI, .flag-DMA,
+.flag-DNK, .flag-DOM, .flag-DZA, .flag-ECU, .flag-EGY,
+.flag-ERI, .flag-ESP, .flag-EST, .flag-ETH, .flag-FIN,
+.flag-FJI, .flag-FLK, .flag-FRA, .flag-FRO, .flag-FSM,
+.flag-GAB, .flag-GBR, .flag-GEO, .flag-GGY, .flag-GHA,
+.flag-GIB, .flag-GIN, .flag-GLP, .flag-GMB, .flag-GNB,
+.flag-GNQ, .flag-GRC, .flag-GRD, .flag-GRL, .flag-GTM,
+.flag-GUF, .flag-GUM, .flag-GUY, .flag-HMD, .flag-HND,
+.flag-HRV, .flag-HTI, .flag-HUN, .flag-IDN, .flag-IMN,
+.flag-IND, .flag-IOA, .flag-IOT, .flag-IRL, .flag-IRN,
+.flag-IRQ, .flag-ISL, .flag-ISR, .flag-ITA, .flag-JAM,
+.flag-JEY, .flag-JOR, .flag-JPN, .flag-KAS, .flag-KAZ,
+.flag-KEN, .flag-KGZ, .flag-KHM, .flag-KIR, .flag-KNA,
+.flag-KOR, .flag-KOS, .flag-KWT, .flag-LAO, .flag-LBN,
+.flag-LBR, .flag-LBY, .flag-LCA, .flag-LIE, .flag-LKA,
+.flag-LSO, .flag-LTU, .flag-LUX, .flag-LVA, .flag-MAF,
+.flag-MAR, .flag-MCO, .flag-MDA, .flag-MDG, .flag-MDV,
+.flag-MEX, .flag-MHL, .flag-MKD, .flag-MLI, .flag-MLT,
+.flag-MMR, .flag-MNE, .flag-MNG, .flag-MNP, .flag-MOZ,
+.flag-MRT, .flag-MSR, .flag-MUS, .flag-MWI, .flag-MYS,
+.flag-NAM, .flag-NCL, .flag-NER, .flag-NFK, .flag-NGA,
+.flag-NIC, .flag-NIU, .flag-NLD, .flag-NOR, .flag-NPL,
+.flag-NRU, .flag-NZL, .flag-OMN, .flag-PAK, .flag-PAN,
+.flag-PCN, .flag-PER, .flag-PHL, .flag-PLW, .flag-PNG,
+.flag-POL, .flag-PRI, .flag-PRK, .flag-PRT, .flag-PRY,
+.flag-PSX, .flag-PYF, .flag-QAT, .flag-ROU, .flag-RUS,
+.flag-RWA, .flag-SAH, .flag-SAU, .flag-SDN, .flag-SEN,
+.flag-SGP, .flag-SGS, .flag-SHN, .flag-SLB, .flag-SLE,
+.flag-SLV, .flag-SMR, .flag-SOM, .flag-SPM, .flag-SRB,
+.flag-SSD, .flag-STP, .flag-SUR, .flag-SVK, .flag-SVN,
+.flag-SWE, .flag-SWZ, .flag-SXM, .flag-SYC, .flag-SYR,
+.flag-TCA, .flag-TCD, .flag-TGO, .flag-THA, .flag-TJK,
+.flag-TKL, .flag-TKM, .flag-TLS, .flag-TON, .flag-TTO,
+.flag-TUN, .flag-TUR, .flag-TWN, .flag-TZA, .flag-UGA,
+.flag-UKR, .flag-URY, .flag-USA, .flag-UZB, .flag-VAT,
+.flag-VCT, .flag-VEN, .flag-VGB, .flag-VIR, .flag-VNM,
+.flag-VUT, .flag-WLF, .flag-WSM, .flag-YEM, .flag-ZAF,
+.flag-ZMB, .flag-ZWE, .flag-NO-FLAG {
+	max-width: 100%;
+	background-size: 100%;
+	background-image: url('../images/flags.png');
+}
+
+.flag-ABW { background-position: 0 0%; background-size: 100%; }
+.flag-AFG { background-position: 0 0.413223%; background-size: 100%; }
+.flag-AGO { background-position: 0 0.826446%; background-size: 100%; }
+.flag-AIA { background-position: 0 1.239669%; background-size: 100%; }
+.flag-ALB { background-position: 0 1.652893%; background-size: 100%; }
+.flag-AND { background-position: 0 2.066116%; background-size: 100%; }
+.flag-ARE { background-position: 0 2.479339%; background-size: 100%; }
+.flag-ARG { background-position: 0 2.892562%; background-size: 100%; }
+.flag-ARM { background-position: 0 3.305785%; background-size: 100%; }
+.flag-ASM { background-position: 0 3.719008%; background-size: 100%; }
+.flag-ATA { background-position: 0 4.132231%; background-size: 100%; }
+.flag-ATC { background-position: 0 4.545455%; background-size: 100%; }
+.flag-ATF { background-position: 0 4.958678%; background-size: 100%; }
+.flag-ATG { background-position: 0 5.371901%; background-size: 100%; }
+.flag-AUS { background-position: 0 5.785124%; background-size: 100%; }
+.flag-AUT { background-position: 0 6.198347%; background-size: 100%; }
+.flag-AZE { background-position: 0 6.61157%; background-size: 100%; }
+.flag-BDI { background-position: 0 7.024793%; background-size: 100%; }
+.flag-BEL { background-position: 0 7.438017%; background-size: 100%; }
+.flag-BEN { background-position: 0 7.85124%; background-size: 100%; }
+.flag-BES { background-position: 0 8.264463%; background-size: 100%; }
+.flag-BFA { background-position: 0 8.677686%; background-size: 100%; }
+.flag-BGD { background-position: 0 9.090909%; background-size: 100%; }
+.flag-BGR { background-position: 0 9.504132%; background-size: 100%; }
+.flag-BHR { background-position: 0 9.917355%; background-size: 100%; }
+.flag-BHS { background-position: 0 10.330579%; background-size: 100%; }
+.flag-BIH { background-position: 0 10.743802%; background-size: 100%; }
+.flag-BLM { background-position: 0 11.157025%; background-size: 100%; }
+.flag-BLR { background-position: 0 11.570248%; background-size: 100%; }
+.flag-BLZ { background-position: 0 11.983471%; background-size: 100%; }
+.flag-BMU { background-position: 0 12.396694%; background-size: 100%; }
+.flag-BOL { background-position: 0 12.809917%; background-size: 100%; }
+.flag-BRA { background-position: 0 13.22314%; background-size: 100%; }
+.flag-BRB { background-position: 0 13.636364%; background-size: 100%; }
+.flag-BRN { background-position: 0 14.049587%; background-size: 100%; }
+.flag-BTN { background-position: 0 14.46281%; background-size: 100%; }
+.flag-BWA { background-position: 0 14.876033%; background-size: 100%; }
+.flag-CAF { background-position: 0 15.289256%; background-size: 100%; }
+.flag-CAN { background-position: 0 15.702479%; background-size: 100%; }
+.flag-CHE { background-position: 0 16.115702%; background-size: 100%; }
+.flag-CHL { background-position: 0 16.528926%; background-size: 100%; }
+.flag-CHN { background-position: 0 16.942149%; background-size: 100%; }
+.flag-CIV { background-position: 0 17.355372%; background-size: 100%; }
+.flag-CMR { background-position: 0 17.768595%; background-size: 100%; }
+.flag-COD { background-position: 0 18.181818%; background-size: 100%; }
+.flag-COG { background-position: 0 18.595041%; background-size: 100%; }
+.flag-COK { background-position: 0 19.008264%; background-size: 100%; }
+.flag-COL { background-position: 0 19.421488%; background-size: 100%; }
+.flag-COM { background-position: 0 19.834711%; background-size: 100%; }
+.flag-CPV { background-position: 0 20.247934%; background-size: 100%; }
+.flag-CRI { background-position: 0 20.661157%; background-size: 100%; }
+.flag-CUB { background-position: 0 21.07438%; background-size: 100%; }
+.flag-CUW { background-position: 0 21.487603%; background-size: 100%; }
+.flag-CYM { background-position: 0 21.900826%; background-size: 100%; }
+.flag-CYN { background-position: 0 22.31405%; background-size: 100%; }
+.flag-CYP { background-position: 0 22.727273%; background-size: 100%; }
+.flag-CZE { background-position: 0 23.140496%; background-size: 100%; }
+.flag-DEU { background-position: 0 23.553719%; background-size: 100%; }
+.flag-DJI { background-position: 0 23.966942%; background-size: 100%; }
+.flag-DMA { background-position: 0 24.380165%; background-size: 100%; }
+.flag-DNK { background-position: 0 24.793388%; background-size: 100%; }
+.flag-DOM { background-position: 0 25.206612%; background-size: 100%; }
+.flag-DZA { background-position: 0 25.619835%; background-size: 100%; }
+.flag-ECU { background-position: 0 26.033058%; background-size: 100%; }
+.flag-EGY { background-position: 0 26.446281%; background-size: 100%; }
+.flag-ERI { background-position: 0 26.859504%; background-size: 100%; }
+.flag-ESP { background-position: 0 27.272727%; background-size: 100%; }
+.flag-EST { background-position: 0 27.68595%; background-size: 100%; }
+.flag-ETH { background-position: 0 28.099174%; background-size: 100%; }
+.flag-FIN { background-position: 0 28.512397%; background-size: 100%; }
+.flag-FJI { background-position: 0 28.92562%; background-size: 100%; }
+.flag-FLK { background-position: 0 29.338843%; background-size: 100%; }
+.flag-FRA { background-position: 0 29.752066%; background-size: 100%; }
+.flag-FRO { background-position: 0 30.165289%; background-size: 100%; }
+.flag-FSM { background-position: 0 30.578512%; background-size: 100%; }
+.flag-GAB { background-position: 0 30.991736%; background-size: 100%; }
+.flag-GBR { background-position: 0 31.404959%; background-size: 100%; }
+.flag-GEO { background-position: 0 31.818182%; background-size: 100%; }
+.flag-GGY { background-position: 0 32.231405%; background-size: 100%; }
+.flag-GHA { background-position: 0 32.644628%; background-size: 100%; }
+.flag-GIB { background-position: 0 33.057851%; background-size: 100%; }
+.flag-GIN { background-position: 0 33.471074%; background-size: 100%; }
+.flag-GLP { background-position: 0 33.884298%; background-size: 100%; }
+.flag-GMB { background-position: 0 34.297521%; background-size: 100%; }
+.flag-GNB { background-position: 0 34.710744%; background-size: 100%; }
+.flag-GNQ { background-position: 0 35.123967%; background-size: 100%; }
+.flag-GRC { background-position: 0 35.53719%; background-size: 100%; }
+.flag-GRD { background-position: 0 35.950413%; background-size: 100%; }
+.flag-GRL { background-position: 0 36.363636%; background-size: 100%; }
+.flag-GTM { background-position: 0 36.77686%; background-size: 100%; }
+.flag-GUF { background-position: 0 37.190083%; background-size: 100%; }
+.flag-GUM { background-position: 0 37.603306%; background-size: 100%; }
+.flag-GUY { background-position: 0 38.016529%; background-size: 100%; }
+.flag-HMD { background-position: 0 38.429752%; background-size: 100%; }
+.flag-HND { background-position: 0 38.842975%; background-size: 100%; }
+.flag-HRV { background-position: 0 39.256198%; background-size: 100%; }
+.flag-HTI { background-position: 0 39.669421%; background-size: 100%; }
+.flag-HUN { background-position: 0 40.082645%; background-size: 100%; }
+.flag-IDN { background-position: 0 40.495868%; background-size: 100%; }
+.flag-IMN { background-position: 0 40.909091%; background-size: 100%; }
+.flag-IND { background-position: 0 41.322314%; background-size: 100%; }
+.flag-IOA { background-position: 0 41.735537%; background-size: 100%; }
+.flag-IOT { background-position: 0 42.14876%; background-size: 100%; }
+.flag-IRL { background-position: 0 42.561983%; background-size: 100%; }
+.flag-IRN { background-position: 0 42.975207%; background-size: 100%; }
+.flag-IRQ { background-position: 0 43.38843%; background-size: 100%; }
+.flag-ISL { background-position: 0 43.801653%; background-size: 100%; }
+.flag-ISR { background-position: 0 44.214876%; background-size: 100%; }
+.flag-ITA { background-position: 0 44.628099%; background-size: 100%; }
+.flag-JAM { background-position: 0 45.041322%; background-size: 100%; }
+.flag-JEY { background-position: 0 45.454545%; background-size: 100%; }
+.flag-JOR { background-position: 0 45.867769%; background-size: 100%; }
+.flag-JPN { background-position: 0 46.280992%; background-size: 100%; }
+.flag-KAS { background-position: 0 46.694215%; background-size: 100%; }
+.flag-KAZ { background-position: 0 47.107438%; background-size: 100%; }
+.flag-KEN { background-position: 0 47.520661%; background-size: 100%; }
+.flag-KGZ { background-position: 0 47.933884%; background-size: 100%; }
+.flag-KHM { background-position: 0 48.347107%; background-size: 100%; }
+.flag-KIR { background-position: 0 48.760331%; background-size: 100%; }
+.flag-KNA { background-position: 0 49.173554%; background-size: 100%; }
+.flag-KOR { background-position: 0 49.586777%; background-size: 100%; }
+.flag-KOS { background-position: 0 50%; background-size: 100%; }
+.flag-KWT { background-position: 0 50.413223%; background-size: 100%; }
+.flag-LAO { background-position: 0 50.826446%; background-size: 100%; }
+.flag-LBN { background-position: 0 51.239669%; background-size: 100%; }
+.flag-LBR { background-position: 0 51.652893%; background-size: 100%; }
+.flag-LBY { background-position: 0 52.066116%; background-size: 100%; }
+.flag-LCA { background-position: 0 52.479339%; background-size: 100%; }
+.flag-LIE { background-position: 0 52.892562%; background-size: 100%; }
+.flag-LKA { background-position: 0 53.305785%; background-size: 100%; }
+.flag-LSO { background-position: 0 53.719008%; background-size: 100%; }
+.flag-LTU { background-position: 0 54.132231%; background-size: 100%; }
+.flag-LUX { background-position: 0 54.545455%; background-size: 100%; }
+.flag-LVA { background-position: 0 54.958678%; background-size: 100%; }
+.flag-MAF { background-position: 0 55.371901%; background-size: 100%; }
+.flag-MAR { background-position: 0 55.785124%; background-size: 100%; }
+.flag-MCO { background-position: 0 56.198347%; background-size: 100%; }
+.flag-MDA { background-position: 0 56.61157%; background-size: 100%; }
+.flag-MDG { background-position: 0 57.024793%; background-size: 100%; }
+.flag-MDV { background-position: 0 57.438017%; background-size: 100%; }
+.flag-MEX { background-position: 0 57.85124%; background-size: 100%; }
+.flag-MHL { background-position: 0 58.264463%; background-size: 100%; }
+.flag-MKD { background-position: 0 58.677686%; background-size: 100%; }
+.flag-MLI { background-position: 0 59.090909%; background-size: 100%; }
+.flag-MLT { background-position: 0 59.504132%; background-size: 100%; }
+.flag-MMR { background-position: 0 59.917355%; background-size: 100%; }
+.flag-MNE { background-position: 0 60.330579%; background-size: 100%; }
+.flag-MNG { background-position: 0 60.743802%; background-size: 100%; }
+.flag-MNP { background-position: 0 61.157025%; background-size: 100%; }
+.flag-MOZ { background-position: 0 61.570248%; background-size: 100%; }
+.flag-MRT { background-position: 0 61.983471%; background-size: 100%; }
+.flag-MSR { background-position: 0 62.396694%; background-size: 100%; }
+.flag-MUS { background-position: 0 62.809917%; background-size: 100%; }
+.flag-MWI { background-position: 0 63.22314%; background-size: 100%; }
+.flag-MYS { background-position: 0 63.636364%; background-size: 100%; }
+.flag-NAM { background-position: 0 64.049587%; background-size: 100%; }
+.flag-NCL { background-position: 0 64.46281%; background-size: 100%; }
+.flag-NER { background-position: 0 64.876033%; background-size: 100%; }
+.flag-NFK { background-position: 0 65.289256%; background-size: 100%; }
+.flag-NGA { background-position: 0 65.702479%; background-size: 100%; }
+.flag-NIC { background-position: 0 66.115702%; background-size: 100%; }
+.flag-NIU { background-position: 0 66.528926%; background-size: 100%; }
+.flag-NLD { background-position: 0 66.942149%; background-size: 100%; }
+.flag-NOR { background-position: 0 67.355372%; background-size: 100%; }
+.flag-NPL { background-position: 0 67.768595%; background-size: 100%; }
+.flag-NRU { background-position: 0 68.181818%; background-size: 100%; }
+.flag-NZL { background-position: 0 68.595041%; background-size: 100%; }
+.flag-OMN { background-position: 0 69.008264%; background-size: 100%; }
+.flag-PAK { background-position: 0 69.421488%; background-size: 100%; }
+.flag-PAN { background-position: 0 69.834711%; background-size: 100%; }
+.flag-PCN { background-position: 0 70.247934%; background-size: 100%; }
+.flag-PER { background-position: 0 70.661157%; background-size: 100%; }
+.flag-PHL { background-position: 0 71.07438%; background-size: 100%; }
+.flag-PLW { background-position: 0 71.487603%; background-size: 100%; }
+.flag-PNG { background-position: 0 71.900826%; background-size: 100%; }
+.flag-POL { background-position: 0 72.31405%; background-size: 100%; }
+.flag-PRI { background-position: 0 72.727273%; background-size: 100%; }
+.flag-PRK { background-position: 0 73.140496%; background-size: 100%; }
+.flag-PRT { background-position: 0 73.553719%; background-size: 100%; }
+.flag-PRY { background-position: 0 73.966942%; background-size: 100%; }
+.flag-PSX { background-position: 0 74.380165%; background-size: 100%; }
+.flag-PYF { background-position: 0 74.793388%; background-size: 100%; }
+.flag-QAT { background-position: 0 75.206612%; background-size: 100%; }
+.flag-ROU { background-position: 0 75.619835%; background-size: 100%; }
+.flag-RUS { background-position: 0 76.033058%; background-size: 100%; }
+.flag-RWA { background-position: 0 76.446281%; background-size: 100%; }
+.flag-SAH { background-position: 0 76.859504%; background-size: 100%; }
+.flag-SAU { background-position: 0 77.272727%; background-size: 100%; }
+.flag-SDN { background-position: 0 77.68595%; background-size: 100%; }
+.flag-SEN { background-position: 0 78.099174%; background-size: 100%; }
+.flag-SGP { background-position: 0 78.512397%; background-size: 100%; }
+.flag-SGS { background-position: 0 78.92562%; background-size: 100%; }
+.flag-SHN { background-position: 0 79.338843%; background-size: 100%; }
+.flag-SLB { background-position: 0 79.752066%; background-size: 100%; }
+.flag-SLE { background-position: 0 80.165289%; background-size: 100%; }
+.flag-SLV { background-position: 0 80.578512%; background-size: 100%; }
+.flag-SMR { background-position: 0 80.991736%; background-size: 100%; }
+.flag-SOM { background-position: 0 81.404959%; background-size: 100%; }
+.flag-SPM { background-position: 0 81.818182%; background-size: 100%; }
+.flag-SRB { background-position: 0 82.231405%; background-size: 100%; }
+.flag-SSD { background-position: 0 82.644628%; background-size: 100%; }
+.flag-STP { background-position: 0 83.057851%; background-size: 100%; }
+.flag-SUR { background-position: 0 83.471074%; background-size: 100%; }
+.flag-SVK { background-position: 0 83.884298%; background-size: 100%; }
+.flag-SVN { background-position: 0 84.297521%; background-size: 100%; }
+.flag-SWE { background-position: 0 84.710744%; background-size: 100%; }
+.flag-SWZ { background-position: 0 85.123967%; background-size: 100%; }
+.flag-SXM { background-position: 0 85.53719%; background-size: 100%; }
+.flag-SYC { background-position: 0 85.950413%; background-size: 100%; }
+.flag-SYR { background-position: 0 86.363636%; background-size: 100%; }
+.flag-TCA { background-position: 0 86.77686%; background-size: 100%; }
+.flag-TCD { background-position: 0 87.190083%; background-size: 100%; }
+.flag-TGO { background-position: 0 87.603306%; background-size: 100%; }
+.flag-THA { background-position: 0 88.016529%; background-size: 100%; }
+.flag-TJK { background-position: 0 88.429752%; background-size: 100%; }
+.flag-TKL { background-position: 0 88.842975%; background-size: 100%; }
+.flag-TKM { background-position: 0 89.256198%; background-size: 100%; }
+.flag-TLS { background-position: 0 89.669421%; background-size: 100%; }
+.flag-TON { background-position: 0 90.082645%; background-size: 100%; }
+.flag-TTO { background-position: 0 90.495868%; background-size: 100%; }
+.flag-TUN { background-position: 0 90.909091%; background-size: 100%; }
+.flag-TUR { background-position: 0 91.322314%; background-size: 100%; }
+.flag-TWN { background-position: 0 91.735537%; background-size: 100%; }
+.flag-TZA { background-position: 0 92.14876%; background-size: 100%; }
+.flag-UGA { background-position: 0 92.561983%; background-size: 100%; }
+.flag-UKR { background-position: 0 92.975207%; background-size: 100%; }
+.flag-URY { background-position: 0 93.38843%; background-size: 100%; }
+.flag-USA { background-position: 0 93.801653%; background-size: 100%; }
+.flag-UZB { background-position: 0 94.214876%; background-size: 100%; }
+.flag-VAT { background-position: 0 94.628099%; background-size: 100%; }
+.flag-VCT { background-position: 0 95.041322%; background-size: 100%; }
+.flag-VEN { background-position: 0 95.454545%; background-size: 100%; }
+.flag-VGB { background-position: 0 95.867769%; background-size: 100%; }
+.flag-VIR { background-position: 0 96.280992%; background-size: 100%; }
+.flag-VNM { background-position: 0 96.694215%; background-size: 100%; }
+.flag-VUT { background-position: 0 97.107438%; background-size: 100%; }
+.flag-WLF { background-position: 0 97.520661%; background-size: 100%; }
+.flag-WSM { background-position: 0 97.933884%; background-size: 100%; }
+.flag-YEM { background-position: 0 98.347107%; background-size: 100%; }
+.flag-ZAF { background-position: 0 98.760331%; background-size: 100%; }
+.flag-ZMB { background-position: 0 99.173554%; background-size: 100%; }
+.flag-ZWE { background-position: 0 99.586777%; background-size: 100%; }
+.flag-no-flag { background-position: 0 100%; background-size: 100%; }
+
+/* Data sources */
+
+@media (min-width: 768px) {
+	h1.datasource-name {
+		font-size: 2em;
+	}
+}
+
+div.data-sources {
+	margin-top: 2em;
+}
+
+.data-source-link {
+	margin-bottom: 2em;
+	text-align: center;
+	min-height: 20em;
+}
+
+.data-source-link img {
+	width: 70%;
+	display: block;
+	margin: 1em auto;
+}
+
+/* Data source */
+
+ul.indicator-list {
+	list-style: none;
+	padding: 0;
+}
+
+ul.indicator-list li {
+	margin-bottom: 2em;
+}
+
+div.data-source {
+	margin-top: 1em;
+}
+
+img.source-logo {
+	height: 12em;
+	float: left;
+	margin-right: 1em;
+}
+
+div.source-indicators {
+	clear: both;
+}
+
+div.source-indicators h3 {
+	text-align: left;
+	margin-top: 2em;
+	margin-bottom: 1em;
+}
+
+/* Data reuse */
+
+textarea.query {
+	height: 12em;
+}
+
+div.query-result {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+div.query-result-html {
+	margin-top: 2em;
+}
+
+div.query-result-html th {
+	text-align: center;
+	background-color: #ccc;
+	color: #333;
+}
+
+pre {
+	padding: 1em !important;
+	border: 0.1em dotted #ccc !important;
+	background-color: #f0f0f0 !important;
+}
+
+h3.example {
+	text-align: left;
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+
+table.sparql {
+	border: 0.1em dotted #ccc !important;
+}
+
+table.sparql td, table.sparql th {
+	padding: 0.5em 1em;
+}
+
+table.sparql tr:nth-child(odd) {
+	background-color: #f5f5f5 !important;
+}
+
+/* Share */
+
+div.share div {
+	margin-bottom: 1.5em;
+}
+
+/* Ckan view */
+.ckan-filter-panel li {
+	display: none;
+}
+
+.ckan-filter-panel li:nth-child(-n+5) {
+	display: block;
+}
+
+.ckan-filter-pane i {
+	margin-left: -1em;
+}
+
+.ckan-resource-url {
+	margin-right: 1em;
+}
+.package-resource {
+	margin-bottom: 1em;
+}
+
+li.clickable:hover {
+	color: white;
+	background-color: #428bca;
+}
+
+.clickable:hover {
+	cursor: hand;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.active-filter:hover {
+	background-color: #FF8080 !important;
+	color: #333;
+}
+
+/* Debates */
+
+.debate-entry, .blog-entry, .news-entry, .events-entry {
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+	margin-right: 2em;
+	border-bottom: 0.1em dotted #ccc;
+}
+
+div.debate-status {
+	border: 0.1em solid #ccc;
+	border-radius: .25em;
+}
+
+div.debate-status span {
+	/*background-color: #428bca;*/
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+	padding: 0.5em 0;
+}
+
+div.debate-status.open {
+	background-color: #01DF3A;
+	color: #fff;
+}
+
+div.debate-status.coming_soon {
+	background-color: #fff;
+	color: #000;
+}
+
+div.debate-status.closed {
+	background-color: #FE2E2E;
+	color: #fff;
+}
+
+.debate-entry h3, .blog-entry h3, .news-entry h3, .events-entry h3 {
+	text-align: left;
+}
+
+.debate-entry img, .blog-entry img, .news-entry img, .events-entry  img, .node-view img {
+	width: 100%;
+	height: auto;
+}
+
+.debate-entry .topics, .blog-entry .topics, .events-entry .topics, .node-view .topics {
+	color: #fff;
+}
+
+.debate-entry .topics a, .blog-entry .topics a, .events-entry .topics a, .node-view .topics a {
+	background-color: #428bca;
+	display: inline-block;
+	padding: .1em .6em;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+	margin-bottom: 0.4em;
+}
+
+.debate-entry .read-more, .blog-entry .read-more, .news-entry .read-more, .events-entry .read-more {
+	text-align: right;
+}
+
+.second-and-third img {
+	max-height: 10em;
+	width: 100%;
+}
+
+.topics .field-item {
+	width: auto;
+	float: left;
+	margin-right: 0.5em;
+}
+
+.body {
+	clear: both;
+}
+
+.view-filters input {
+	width: 100%;
+}
+
+.social-buttons, .event-date, .debate-status, .entry-header-entry {
+	margin-top: 1em;
+}
+
+.social-botton {
+	width: 50%;
+	display: block;
+	float: left;
+}
+
+.event-date p {
+	font-size: 0.8em;
+}
+
+.related-region div, .entry-language div {
+	display: inline;
+}
+
+.entry-header {
+	margin-bottom: 3em;
+	font-size: 0.9em;
+}
+
+.entry-header h2 {
+	font-size: 1em;
+}
+
+.entry-header > div {
+	clear: both;
+}
+
+.entry-comments {
+	margin-top: 2em;
+}
+
+.entry-comments div {
+	margin-bottom: 0.5em;
+}
+
+.comment-author, .comment-links {
+	font-size: 0.9em;
+	margin-bottom: 0.5em;
+}
+
+.entry-comments h2.title {
+	display: none;
+}
+
+#edit-body-und-0-format, #edit-field-image div .description {
+	display: none;
+}
+
+.add-new-node {
+	margin-bottom: 1em;
+}
+
+/* Tooltip */
+
+.wesCountry-tooltip {
+	padding-top: 0.3em;
+	padding-bottom: 0.5em;
+}
+
+.wesCountry-tooltip img {
+	float: left;
+	width: 2.5em;
+	height: 2.5em;
+	margin-top: 0.3em;
+	margin-right: 1em;
+}
+
+.wesCountry-tooltip .tooltip-header {
+	overflow: auto;
+	padding-bottom: 0.5em;
+	border-bottom: 0.1em solid #aaa;
+	margin-bottom: 0.5em;
+}
+
+.wesCountry-tooltip .tooltip-header .title {
+	padding: 0 2.8em;
+}
+
+.wesCountry-tooltip .tooltip-header .title .countryName {
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.wesCountry-tooltip .tooltip-header .title .continentName {
+	color: #555;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+.wesCountry-tooltip p {
+	margin: 0;
+	text-align: center;
+}
+
+.wesCountry-tooltip .tooltip-body {
+	min-width: 18em;
+}
+
+.wesCountry-tooltip p.time {
+	float: right;
+	padding: 0.7em 0.2em;
+	background-color: #ccc;
+	color: #333;
+	font-size: 0.9em;
+}
+
+.wesCountry-tooltip p.ranking {
+	float: left;
+	text-align: center;
+	min-width: 2.8em;
+	padding: 0.7em 0.2em;
+	background-color: #ccc;
+	color: #333;
+	font-size: 0.9em;
+}
+
+.wesCountry-tooltip p.value {
+	font-size: 1.2em;
+	padding-top: 0.4em;
+}
+
+/* SEARCH */
+
+.site-search {
+	border: 0.1em solid #888;
+}
+
+.search-result {
+	margin-bottom: 0.7em;
+	margin-top: 0.5em;
+}
+
+.search-result h3 {
+	font-size: 1.7em;
+	margin-bottom: 0.2em;
+}
+
+.search-result .url {
+	color: #006621;
+}
+
+.search-result .description {
+	margin-top: 0.5em;
+}
+
+.search-result .search-result-flag {
+	float: left;
+	margin-right: 1em;
+	margin-top: 0.3em;
+	width: 1.6em;
+}
+
+.search-result .search-result-label {
+	display: inline-block;
+	padding: 0.2em 0.4em 0.1em 0.4em;
+	background-color: #aaa;
+	color: #fff;
+	font-size: 0.7em;
+	border-radius: 0.5em;
+	margin-top: 0.2em;
+	text-transform: uppercase;
+}
+
+.search-result .label-country {
+	background-color: #04b431;
+}
+
+.search-result .label-indicator {
+	background-color: #04b431;
+}
+
+/* RSS */
+
+.rss-button .rss-text {
+	margin-right: 0.1em;
+}
+
+.rss-button i {
+	color: #FF6600;
+}
+
+/* LOGIN */
+
+.landbook-register-wrapper .description {
+	color: #333;
+	font-size: 1.1em;
+}
+
+.landbook-register-wrapper input {
+	width: 100%;
+}
+
+.landbook-register-wrapper #edit-actions {
+	margin-top: 2.5em;
+}
+
+
+/* USER PICTURES IN DEBATE*/
+
+.facilitator img {
+	width: 2em;
+	margin-right: 0.5em;
+	float: left;
+}
+
+.facilitator a{
+	margin-top: 0.5em;
+	display: inline-block;
+}
+
+/* SEARCH */
+
+.site-search {
+	border: 0.1em solid #888;
+}
+
+.search-result {
+	margin-bottom: 0.7em;
+	margin-top: 0.5em;
+}
+
+.search-result h3 {
+	font-size: 1.7em;
+	margin-bottom: 0.2em;
+}
+
+.search-result .url {
+	color: #006621;
+}
+
+.search-result .description {
+	margin-top: 0.5em;
+}
+
+.search-result .search-result-flag {
+	float: left;
+	margin-right: 1em;
+	margin-top: 0.3em;
+	width: 1.6em;
+}
+
+.search-result .search-result-label {
+	display: inline-block;
+	padding: 0.2em 0.4em 0.1em 0.4em;
+	background-color: #aaa;
+	color: #fff;
+	font-size: 0.7em;
+	border-radius: 0.5em;
+	margin-top: 0.2em;
+	text-transform: uppercase;
+}
+
+.search-result .label-country {
+	background-color: #04b431;
+}
+
+.search-result .label-indicator {
+	background-color: #04b431;
+}
+
+/* RSS */
+
+.rss-button .rss-text {
+	margin-right: 0.1em;
+}
+
+.rss-button i {
+	color: #FF6600;
+}
+
+/* LOGIN */
+
+.landbook-register-wrapper .description {
+	color: #333;
+	font-size: 1.1em;
+}
+
+.landbook-register-wrapper input {
+	width: 100%;
+}
+
+.landbook-register-wrapper #edit-actions {
+	margin-top: 2.5em;
+}
+
+
+/* USER PICTURES IN DEBATE*/
+
+.facilitator img {
+	width: 2em;
+	margin-right: 0.5em;
+	float: left;
+}
+
+.facilitator a{
+	margin-top: 0.5em;
+	display: inline-block;
+}
+
+.user-image {
+	width: 100%;
+	margin-bottom: 1em;
+}
+
+
+/* EVENTS CALENDAR */
+div .date-heading h3 a {
+	position: absolute;
+	left: 1em;
+}
+
+/* USER-CREATED-CONTENT IN USER PROFILE */
+
+div.user-created-content {
+	margin-top: 3em;
+}
+
+div.user-created-content h3 {
+	font-size: 130%;
+}
+
+/* FORMS HELP */
+div.drupal-form-help {
+	font-size: 80%;
+	color: #BBB;
+	margin-bottom: 2em;
+}

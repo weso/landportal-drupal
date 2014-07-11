@@ -1,0 +1,218 @@
+{{>header}}
+<input type="hidden" id="entity-id" value="{{entity-id}}" />
+<input type="hidden" id="path" value="{{path}}" />
+<input type="hidden" id="continent-id" value="{{#info}}{{#region}}{{un_code}}{{/region}}{{/info}}" />
+<input type="hidden" id="continent-name" value="{{#info}}{{#region}}{{name}}{{/region}}{{/info}}" />
+<input type="hidden" id="country-name" value="{{#info}}{{name}}{{/info}}" />
+<input type="hidden" id="un-code" value="{{#info}}{{un_code}}{{/info}}" />
+<input type="hidden" id="starred-indicators" value="{{#starred}}{{#indicators}}{{id}},{{/indicators}}{{/starred}}" />
+<div class="content main-content container">
+	<ol class="breadcrumb">
+	  <li><a href="/">{{#labels}}{{index}}{{/labels}}</a></li>
+		<li><a href="/book">{{#labels}}{{land_book}}{{/labels}}</a></li>
+	  <li><a href="/book/countries">{{#labels}}{{countries}}{{/labels}}</a></li>
+	  <li>
+	  	<a id="continent-link" href="/book/regions?region={{#info}}{{#region}}{{un_code}}{{/region}}{{/info}}">
+	  		{{#info}}{{#region}}{{name}}{{/region}}{{/info}}
+	  	</a>
+	  </li>
+	  <li class="active"><span class="country-name">{{#info}}{{name}}{{/info}}</span></li>
+	</ol>
+	<div class="row">
+		<div class="col-sm-12">
+			<h1 class="country-name">
+				<span class="country-name no-margin flag">
+					<img id="flag" class="flag" src="{{path}}/static/images/flags/{{#info}}{{iso3}}{{/info}}.png" />
+					{{#info}}{{name}}{{/info}}
+				</span>
+			</h1>
+		</div>
+	</div>
+	<div class="row">
+	  <div class="col-sm-3">
+	  	  <div id="world-map" class="world-map"></div>
+	  	  <h2 class="section"><span>{{#labels}}{{country_map}}{{/labels}}</span></h2>
+	  	  <div id="country-map" class="country-map"></div>
+		  <h2 class="section"><span>{{#labels}}{{main_index_rankings}}{{/labels}}</span></h2>
+		  <div id="main-index-rankings" class="graph">
+            {{#charts}}
+            	<div class="source-graph chart-content">
+	                {{#spider}}
+	                    {{>table}}
+											{{^observations}}
+												<div class="text-center text-muted">{{#labels}}{{no_data_available}}{{/labels}}</div>
+											{{/observations}}
+	                {{/spider}}
+            	</div>
+							<ul class="spider-legend">
+								{{#spider}}
+									{{#observations}}
+										<li>
+											{{#indicator}}
+												<span class="spider-legen-id">{{id}}</span>: {{name}}
+											{{/indicator}}
+										</li>
+									{{/observations}}
+								{{/spider}}
+							</ul>
+            {{/charts}}
+          </div>
+		  <h2 class="section"><span>{{#labels}}{{gender_issues}}{{/labels}}</span></h2>
+		  <table>
+		  	{{#charts}}
+		  		{{#trafficLights}}
+		  				<tr
+							 class="{{^light}}text-muted{{/light}}"
+							>
+								<td class="issue">
+									{{#indicator}}{{name}}{{/indicator}}
+								</td>
+								<td>
+									<div class="circle"><div class="{{light}}"></div></div>
+								</td>
+		  				</tr>
+					{{/trafficLights}}
+		  	{{/charts}}
+		  </table>
+
+		  <h2 class="section"><span>{{#labels}}{{rural_development}}{{/labels}}</span></h2>
+		  <div class="row">
+			{{#charts}}
+				{{#gaugeIndicators}}
+					<div class="col-xs-4">
+					  <div id="rural-development-{{index}}" class="graph-small text-center no-signature">
+			        <div class="source-graph chart-content">
+				        {{>table}}
+			        </div>
+						</div>
+			      <p class="percentage">{{value}}%</p>
+						<p class="indicator-name">{{indicator}}</p>
+					</div>
+				{{/gaugeIndicators}}
+			{{/charts}}
+	  	</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<p class="chart-source text-right">
+						{{#labels}}{{source}}{{/labels}}: <a href="/book/sources/fao">FAO</a>
+					</p>
+				</div>
+			</div>
+
+		</div>
+	  <div class="col-sm-6 graph-section">
+		  <h2 class="section"><span>{{#labels}}{{socio_economic_values}}{{/labels}}</span></h2>
+          <div class="socioeconomic-values chart-content">
+            {{#charts}}
+                {{#tableIndicators}}
+                    {{>table}}
+                {{/tableIndicators}}
+            {{/charts}}
+						<p class="chart-source text-right">
+							{{#labels}}{{source}}{{/labels}}: <a href="/book/sources/worldbank">{{#labels}}{{world_bank}}{{/labels}}</a>
+						</p>
+        </div>
+		  <h2 class="section section-name"><span class="indicator-name"></span><span> </span><span>{{#labels}}{{for_countries}}{{/labels}}</span></h2>
+		  <div id="mapDiv" class="map-medium indicator-map"></div>
+		  <div id="chart-region-bar-comparison" class="graph-medium"></div>
+		  <h2 class="section section-name"><span class="indicator-name"></span><span> </span><span>{{#labels}}{{across_time}}{{/labels}}</span><span> </span><span class="country-name">{{#info}}{{name}}{{/info}}</span></h2>
+		  <div class="row">
+			<div class="col-xs-4">
+				{{#labels}}{{compare_with}}{{/labels}}:
+			</div>
+			<div class="col-xs-8 compare-bar">
+			  <select id="country-comparing-select" class="form-control">
+			  	{{#selectors}}
+				  	{{#countries}}
+						<option value="{{iso3}}">{{name}}</option>
+					{{/countries}}
+				{{/selectors}}
+			  </select>
+			</div>
+		  </div>
+			<div class="row compare-legend">
+				<div class="col-xs-6">
+					<div id="compare-legend-circle-1" class="circle"></div>
+					<span id="compare-legend-text-1"></span>
+				</div>
+				<div class="col-xs-6">
+					<div id="compare-legend-circle-2" class="circle"></div>
+					<span id="compare-legend-text-2"></span>
+				</div>
+			</div>
+		  <div id="chart-timeline-comparison" class="graph">
+            {{#charts}}
+            	<div class="source-graph chart-content">
+	                {{#employment-timeline}}
+	                    {{>table}}
+	                {{/employment-timeline}}
+            	</div>
+            {{/charts}}
+          </div>
+
+	  	{{#starred}}
+				{{#topics}}
+					<h2 class="section"><span>{{name}}</span></h2>
+					<div class="row evolutions">
+						{{#indicators}}
+				  		<div class="col-xs-6 col-md-3 no-signature">
+				  			<div id="starred_{{id}}" class="graph-small"></div>
+								<p class="indicator-name">{{name}}</p>
+				  		</div>
+						{{/indicators}}
+					</div>
+				{{/topics}}
+	  	{{/starred}}
+
+	  </div>
+	  <div class="col-sm-3">
+		  <h2 class="section"><span>{{#labels}}{{sources}}{{/labels}}</span></h2>
+		  <select id="source-select" multiple="multiple" class="data-sources">
+		  	{{#selectors}}
+			  	{{#data-sources}}
+					<option {{^with_data}}disabled="disabled"{{/with_data}}>{{name}}</option>
+				{{/data-sources}}
+			{{/selectors}}
+		  </select>
+		  <h2 class="section"><span>{{#labels}}{{indicators}}{{/labels}}</span></h2>
+		  <select id="indicator-select" class="form-control">
+			  	{{#selectors}}
+				  	{{#data-sources}}
+				  		<optgroup label="{{name}}">
+				  			{{#indicators}}
+								<option
+									value="{{id}}" {{^with_data}}disabled="disabled"{{/with_data}}>{{name}}</option>
+							{{/indicators}}
+				  		</optgroup>
+					{{/data-sources}}
+				{{/selectors}}
+		  </select>
+			<a href="/book/countries/{{entity-id}}/details">
+			  <button id="full-data-button" class="btn data-button">
+					{{#labels}}{{full_data}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span>
+				</button>
+			</a>
+		  <a href="/book/indicators" class="more-info">{{#labels}}{{more_about_the_indicators}}{{/labels}}</a>
+		  <h2 class="section"><span>{{#labels}}{{specific_country}}{{/labels}}</span></h2>
+		  <select id="country-select" class="form-control">
+				<option disabled="disabled" selected="true">{{#labels}}{{select_a_country}}{{/labels}}</option>
+		  	{{#selectors}}
+			  	{{#countries}}
+					<option value="{{iso3}}">{{name}}</option>
+				{{/countries}}
+			{{/selectors}}
+		  </select>
+		  <a href="/book/countries" class="more-info">{{#labels}}{{more_about_areas_and_countries}}{{/labels}}</a>
+		  <button class="btn data-button">
+			{{#labels}}{{consult_library}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span>
+			<p class="at-button">{{#labels}}{{at}}{{/labels}} landportal.info</p>
+		  </button>
+		  <a href="/taxonomy/term/{{#info}}{{taxonomy_id}}{{/info}}">
+				<button class="btn data-button-dark">{{#labels}}{{land_debates}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span></button>
+			</a>
+			<h2 class="section"><span>{{#labels}}{{share}}{{/labels}}</span></h2>
+			{{>share}}
+	  </div>
+	</div>
+</div>
+{{>footer}}

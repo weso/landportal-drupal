@@ -1,0 +1,38 @@
+[
+	{
+		"image": "ethiopia.png",
+		"text": {
+			"en": "Ethiopia: Land, Water Grabs Devastate Communities",
+			"es": "Ethiopia: Land, Water Grabs Devastate Communities",
+			"fr": "Ethiopia: Land, Water Grabs Devastate Communities"
+		},
+		"url": "/debate"
+	},
+	{
+		"image": "people.jpg",
+		"text": {
+			"en": "Innovative tools and approaches for securing women's land rights",
+			"es": "Innovative tools and approaches for securing women's land rights",
+			"fr": "Innovative tools and approaches for securing women's land rights"
+		},
+		"url": "/debate"
+	},
+	{
+		"image": "forest.jpg",
+		"text": {
+			"en": "Forest Tenure Shifts to Communities as Governments Stay Dominant",
+			"es": "Forest Tenure Shifts to Communities as Governments Stay Dominant",
+			"fr": "Forest Tenure Shifts to Communities as Governments Stay Dominant"
+		},
+		"url": "/debate"
+	},
+	{
+		"image": "poor.jpg",
+		"text": {
+			"en": "World’s poorest need land rights to cope with climate change",
+			"es": "World’s poorest need land rights to cope with climate change",
+			"fr": "World’s poorest need land rights to cope with climate change"
+		},
+		"url": "/debate"
+	}
+]

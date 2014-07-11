@@ -1,0 +1,106 @@
+<?php
+
+require_once(drupal_get_path('theme', 'book').'/language.php');
+
+/**
+ * Implements hook_menu().
+ *
+ * The paths are parsed from 'routes.json' file.
+ * Note that the menu hooks are cached in the Drupal database.
+ */
+function landportal_uris_menu() {
+	// Read the file and decode it into an associative array.
+	$routes = file_get_contents(drupal_get_path('module', 'landportal_uris').'/routes.json');
+	$routes = json_decode($routes, true);
+
+	$items = array();
+	foreach ($routes['routes'] as $route):
+		$item = array();
+		$item['title'] = $route['title'];
+    $params = array();
+    // If the route has a "redirect" attribute it will have priority
+    // over the rest of the parameters.  And thus the redirection will
+    // be made
+    if (isset($route["redirect"])):
+      $item["page callback"] = "_route_redirect";
+      array_push($params, $route["redirect"]);
+    else:
+      // The page callback depends on the number of parameters that are passed
+      // to the path. For example: a path with 1 parameter will call route_callback_1.
+      $num_params = count($route['params']);
+	    $item['page callback'] = '_route_callback_' . $num_params;
+      // The first parameter will always be the name of the path.
+      // This parameter
+      // is not counted to assign the callback.
+      array_push($params, $route["name"]);
+      array_push($params, $route["navigation"]);
+      foreach ($route['params'] as $param):
+        array_push($params, $param);
+      endforeach;
+    endif;
+		$item['page arguments'] = $params;
+		// Allows the path to be accessed for all users.
+		$item['access callback'] = TRUE;
+		$items[$route['path']] = $item;
+	endforeach;
+	return $items;
+}
+
+/*
+ * The function callback for each route will be automatically resolved depending
+ * on the number of parameters declared in the 'routes.json' file.
+ * For example with 1 parameter the function callback will be _route_callback_1.
+ */
+function _route_callback_0($name, $navigation) {
+	$m_template = $name;
+	$model = _get_model($name);
+    $options = _create_options();
+	$m_data = $model->get($options);
+	return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data, 'mustache_navigation' => $navigation));
+}
+
+function _route_callback_1($name, $navigation, $param1) {
+	$m_template = $name;
+	$model = _get_model($name);
+    $options = _create_options();
+	$m_data = $model->get($options, $param1);
+    if ($m_data === false) {
+      return theme('book', array('mustache_template' => 'e404', 'mustache_data' => NULL, 'mustache_navigation' => NULL));
+    } else {
+      return theme('book', array('mustache_template' => $m_template, 'mustache_data' => $m_data, 'mustache_navigation' => $navigation));
+    }
+}
+
+
+/**
+ * This function callback makes a redirection to the desired path.
+ *
+ * @param $redirect The path to which the page will be redirected
+ */
+function _route_redirect($redirect) {
+  drupal_goto($redirect);
+}
+
+/**
+ * Creates the options object for the views
+ */
+function _create_options() {
+  $options = new stdClass();
+  $lang = new Language();
+  $options->language = $lang->get_selected_language();
+  $options->host = 'http://'. $_SERVER['HTTP_HOST'];
+  $options->querystring = $_GET;
+  $options->sparql = 'http://'. $_SERVER['HTTP_HOST'] .'/sparql';
+  return $options;
+}
+
+/*
+ * This function returns the corresponding model from a custom path_name.
+ * The module must be named the same as the path_name but with the first letter
+ * capitalized. For example, for the name 'countries' the model will be 'Countries'
+ */
+function _get_model($name) {
+	include drupal_get_path('module', 'landportal_uris') . '/model/' . $name . '.php';
+	$r = new ReflectionClass(ucfirst($name)); // First letter uppercase
+	return $r->newInstanceArgs();
+}

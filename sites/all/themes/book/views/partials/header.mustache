@@ -1,0 +1,108 @@
+<header class="book-header">
+	{{>topbar}}
+	<div class="container header-content">
+		<div class="row">
+			<div class="col-sm-8 col-md-9 motto">
+				{{#labels}}{{book_motto}}{{/labels}}
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-3">
+				{{>search}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 description">
+				{{#labels}}{{book_description}}{{/labels}}
+			</div>
+		</div>
+	</div>
+	<!-- Navigation -->
+	<div class="navigation">
+		<nav class="tabs">
+			{{#application}}
+				{{#navigation}}
+					<!-- Home -->
+					<a href="/home" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{index}}{{/labels}}">
+						<span>{{#labels}}{{index}}{{/labels}}</span>
+					</a>
+					{{#regions}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{regions}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{regions}}{{/labels}}</span>
+						</a>
+					{{/regions}}
+					<!-- Regions -->
+					{{^regions}}
+						<a href="/book/regions/global" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{regions}}{{/labels}}">
+							<span>{{#labels}}{{regions}}{{/labels}}</span>
+						</a>
+					{{/regions}}
+					<!-- Countries -->
+					{{#countries}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{countries}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{countries}}{{/labels}}</span>
+						</a>
+					{{/countries}}
+					{{^countries}}
+						<a href="/book/countries" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{countries}}{{/labels}}">
+							<span>{{#labels}}{{countries}}{{/labels}}</span>
+						</a>
+					{{/countries}}
+					<!-- Indicators -->
+					{{#indicators}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{indicators}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{indicators}}{{/labels}}</span>
+						</a>
+					{{/indicators}}
+					{{^indicators}}
+						<a href="/book/indicators" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{indicators}}{{/labels}}">
+							<span>{{#labels}}{{indicators}}{{/labels}}</span>
+						</a>
+					{{/indicators}}
+					<!-- Catalog -->
+					{{#catalog}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{catalog}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{catalog}}{{/labels}}</span>
+						</a>
+					{{/catalog}}
+					{{^catalog}}
+						<a href="/book/catalog" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{catalog}}{{/labels}}">
+							<span>{{#labels}}{{catalog}}{{/labels}}</span>
+						</a>
+					{{/catalog}}
+					<!-- Sources -->
+					{{#sources}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{sources}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{sources}}{{/labels}}</span>
+						</a>
+					{{/sources}}
+					{{^sources}}
+						<a href="/book/sources" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{sources}}{{/labels}}">
+							<span>{{#labels}}{{sources}}{{/labels}}</span>
+						</a>
+					{{/sources}}
+					<!-- Widgets -->
+					{{#widgets}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{widgets}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{widgets}}{{/labels}}</span>
+						</a>
+					{{/widgets}}
+					{{^widgets}}
+						<a href="/book/widgets" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{widgets}}{{/labels}}">
+							<span>{{#labels}}{{widgets}}{{/labels}}</span>
+						</a>
+					{{/widgets}}
+					<!-- Data -->
+					{{#reuse}}
+						<a alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{data}}{{/labels}}" class="selected">
+							<span>{{#labels}}{{data}}{{/labels}}</span>
+						</a>
+					{{/reuse}}
+					{{^reuse}}
+						<a href="/book/reuse" alt="{{#labels}}{{go_to}}{{/labels}} {{#labels}}{{data}}{{/labels}}">
+							<span>{{#labels}}{{data}}{{/labels}}</span>
+						</a>
+					{{/reuse}}
+				{{/navigation}}
+			{{/application}}
+		</nav>
+	</div>
+</header>

@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * Implements hook_services_resources()
+ */
+function druser_resource_services_resources() {
+	return array(
+      	'druser' => array(
+        	'retrieve' => array(
+				'help' => 'Returns the user data of a user_id',
+				'file' => array('type' => 'inc', 'module' => 'druser_resource'),
+				'callback' => '_druser_resource_retrieve',
+				'access callback' => '_druser_access_callback',
+				'args' => array(
+					array(
+						'name' => 'uid',
+						'optional' => FALSE,
+						'source' => array('path' => 0),
+						'type' => 'int',
+						'description' => 'The user_id of the user to retrieve.',
+					),
+				),
+        	),
+        ),
+	);
+}

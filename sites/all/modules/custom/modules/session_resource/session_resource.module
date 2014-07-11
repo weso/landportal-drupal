@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * Implements hook_services_resources()
+ */
+function session_resource_services_resources() {
+	return array(
+		'session' => array(
+			'retrieve' => array(
+				'help' => 'Returns the user_id of a session_id',
+   				'file' => array('file' => 'inc', 'module' => 'session_resource'),
+				'callback' => '_session_retrieve',
+				'access callback' => '_session_access_callback',
+				'args' => array(
+					array(
+						'name' => 'sid',
+						'optional' => FALSE,
+						'source' => array('data' => 'sid'),
+						'type' => 'string',
+						'description' => 'Session ID',
+					),
+				),
+			),
+		),
+	);
+}

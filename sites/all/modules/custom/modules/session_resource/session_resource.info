@@ -1,0 +1,6 @@
+name = Session Resource
+description = Session Resource for CKAN integration
+package = Landportal CKAN Integration
+core = 7.x
+dependencies[] = ckan_integration_endpoint
+files[] = session_resource.test

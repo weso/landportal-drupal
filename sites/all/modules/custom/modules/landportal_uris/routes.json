@@ -1,0 +1,114 @@
+{
+    "routes": [
+        {
+            "path": "book/countries",
+            "name": "countries",
+            "title": "Country list",
+            "navigation": "countries",
+            "params": []
+        },
+        {
+            "path": "book/countries/%",
+            "name": "country",
+            "title": "Country",
+            "navigation": "countries",
+            "params": [2]
+        },
+        {
+            "path": "e404",
+            "name": "e404",
+            "title": "Error",
+            "navigation": "",
+            "params": []
+        },
+        {
+            "path": "book/indicators",
+            "name": "indicators",
+            "title": "Indicator list",
+            "navigation": "indicators",
+            "params": []
+        },
+        {
+            "path": "book/indicators/detail",
+            "name": "indicator",
+            "title": "Indicator",
+            "navigation": "indicators",
+            "params": []
+        },
+        {
+            "path": "book/regions",
+            "name": "regions",
+            "title": "Region list",
+            "navigation": "regions",
+            "params": []
+        },
+        {
+            "path": "book",
+            "name": "book",
+            "title": "Land Book",
+            "redirect": "book/regions"
+        },
+        {
+            "path": "book/regions/%",
+            "name": "regions",
+            "title": "Region",
+            "navigation": "regions",
+            "params": [2]
+        },
+        {
+            "path": "book/widgets",
+            "name": "widgets",
+            "title": "Widgets",
+            "navigation": "widgets",
+            "params": []
+        },
+        {
+            "path": "book/catalog",
+            "name": "catalog",
+            "title": "Catalog",
+            "navigation": "catalog",
+            "params": []
+        },
+        {
+            "path": "book/sources",
+            "name": "datasources",
+            "title": "Data Sources",
+            "navigation": "sources",
+            "params": []
+        },
+        {
+            "path": "book/sources/%",
+            "name": "datasource",
+            "title": "Data Source",
+            "navigation": "sources",
+            "params": [2]
+        },
+        {
+            "path": "book/countries/%/details",
+            "name": "details",
+            "title": "Country detail",
+            "navigation": "countries",
+            "params": [2]
+        },
+        {
+            "path": "book/reuse",
+            "name": "reuse",
+            "title": "Data Reuse",
+            "navigation": "reuse",
+            "params": []
+        },
+        {
+            "path": "home",
+            "name": "home",
+            "title": "LandPortal home",
+            "navigation": "home",
+            "params": []
+        },
+        {
+            "path": "debate",
+            "name": "debate",
+            "title": "Land Debate",
+            "redirect": "debate/debates"
+        }
+    ]
+}

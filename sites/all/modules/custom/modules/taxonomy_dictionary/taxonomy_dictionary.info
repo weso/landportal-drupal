@@ -1,0 +1,4 @@
+name = Taxonomy dictionary
+description = Creates a dictionary for all the taxonomy terms inserted
+package = Landportal
+core = 7.x

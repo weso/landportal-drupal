@@ -1,0 +1,21 @@
+name = Book Theme for Landportal
+description = Landportal Book theme made using Mustache
+core = 7.x
+engine = phptemplate
+
+stylesheets[all][] = static/css/font-awesome.min.css
+stylesheets[all][] = static/css/bootstrap.min.css
+stylesheets[all][] = static/css/bootstrap-theme.min.css
+stylesheets[all][] = static/css/style.css
+stylesheets[all][] = static/css/wesCountry.min.css
+
+scripts[] = js/libraries/jquery-2.1.0.min.js
+scripts[] = js/libraries/bootstrap.min.js
+scripts[] = js/util.js
+scripts[] = js/libraries/wesCountry.min.js
+scripts[] = js/libraries/seedrandom.min.js
+scripts[] = js/libraries/StackBlur.js
+scripts[] = js/libraries/canvg.js
+scripts[] = js/libraries/rgbcolor.js
+scripts[] = js/country_chart_options.js
+scripts[] = js/language.js

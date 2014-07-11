@@ -1,0 +1,49 @@
+{{>header}}
+<div class="content main-content container">
+	<ol class="breadcrumb">
+	  <li><a href="/">{{#labels}}{{index}}{{/labels}}</a></li>
+		<li><a href="/book">{{#labels}}{{land_book}}{{/labels}}</a></li>
+	  <li><a href="/book/sources">{{#labels}}{{sources}}{{/labels}}</a></li>
+		<li class="active">{{#info}}{{name}}{{/info}}</li>
+	</ol>
+	<h1 class="country-name datasource-name"><span>{{#info}}{{name}}{{/info}}</span></h1>
+	<div class="row data-source">
+		<div class="col-sm-9">
+			<img class="source-logo" alt="" src="{{path}}/static/images/sources/{{#info}}{{id}}{{/info}}.png" />
+			{{#info}}{{description}}{{/info}}
+
+			<div class="row source-indicators">
+				{{#selectors}}
+					{{#indicators}}
+							<div class="col-sm-6">
+								<h3><a href="/indicators/{{id}}">{{name}}</a></h3>
+								<p class="description">{{description}}</p>
+								<p><span class="text-primary">{{#labels}}{{format}}{{/labels}}:</span> {{format}}</p>
+								<p><span class="text-primary">{{#labels}}{{last_updated}}{{/labels}}:</span> {{last_update}}</p>
+							</div>
+					{{/indicators}}
+				{{/selectors}}
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<h2 class="section"><span>{{#labels}}{{on_this_source}}{{/labels}}</span></h2>
+			<ul class="indicator-list">
+				{{#selectors}}
+					{{#indicators}}
+						<li><a href="/indicators/{{id}}">{{name}}</a></li>
+					{{/indicators}}
+				{{/selectors}}
+			</ul>
+			<h2 class="section"><span>{{#labels}}{{other_sources}}{{/labels}}</span></h2>
+				<select id="source-selector" class="form-control">
+					<option disabled="disabled" selected="true">{{#labels}}{{select_one}}{{/labels}}</option>
+					{{#selectors}}
+						{{#data-sources}}
+						<option value="{{id}}">{{name}}</option>
+					{{/data-sources}}
+				{{/selectors}}
+				</select>
+		</div>
+	</div>
+</div>
+{{>footer}}

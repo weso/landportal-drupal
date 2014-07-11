@@ -1,0 +1,5 @@
+name = LandPortal API Authentication
+description = Generates an authentication token for each registered user to use the LandBook API
+package = LandBook
+core = 7.x
+dependencies[] = user_account_fields

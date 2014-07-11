@@ -1,0 +1,49 @@
+<input type="hidden" id="path" value="{{path}}" />
+<input type="hidden" id="api-url" value="{{#application}}{{api}}{{/application}}" />
+<input type="hidden" id="selected-language" value="{{#application}}{{language}}{{/application}}" />
+{{>topbar-mobile}}
+<div class="bar hidden-xs">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-7 col-md-3 logo">
+				<img src="{{path}}/static/images/header/logo.png" class="logo" alt="landportal.info" />
+			</div>
+			<div class="col-sm-5 col-md-4 header-selectors">
+				<a href="/user/login" title="{{#labels}}{{signin}}{{/labels}}" class="login">
+					<i class="fa fa-user fa-lg" title="{{#labels}}{{signin}}{{/labels}}"></i>
+					{{#application}}
+						{{#user}}
+							{{name}}
+						{{/user}}
+						{{^user}}
+							{{#labels}}{{signin}}{{/labels}}
+						{{/user}}
+					{{/application}}
+				</a>
+				<div class="selected-language">
+					{{#application}}
+						{{#languages}}
+							{{#selected}}
+								<span class="language">{{code}}</span>
+							{{/selected}}
+							{{^selected}}
+								<a href="?language={{code}}" title="{{language}}" class="language">{{code}}</a>
+							{{/selected}}
+						{{/languages}}
+					{{/application}}
+					<form id="language-selection" method="POST">
+						<input type="hidden" name="language" id="selected-language" />
+					</form>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-5 top-navigation">
+				<ol class="breadcrumb breadcrumb-sites">
+				  <li><a href="/book">land<strong class="landbook">book</strong></a></li>
+					<li><a href="/debate">land<strong class="landdebate">debate</strong></a></li>
+				  <li><a href="" class="text-muted">land<strong class="landlibrary">library</strong></a></li>
+				  <li><a href="">{{#labels}}{{sitemap}}{{/labels}}</a></li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>

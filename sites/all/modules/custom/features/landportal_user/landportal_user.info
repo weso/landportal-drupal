@@ -1,0 +1,16 @@
+name = LandPortal User
+description = LandPortal users and fields
+core = 7.x
+package = LandDebate
+dependencies[] = features
+dependencies[] = i18n_taxonomy
+dependencies[] = landdebate_content_types
+dependencies[] = role_export
+dependencies[] = taxonomy
+features[features_api][] = api:2
+features[field_base][] = field_geographical_focus
+features[field_base][] = field_interests
+features[field_instance][] = user-user-field_geographical_focus
+features[field_instance][] = user-user-field_interests
+features[taxonomy][] = interests
+features[user_role][] = access API

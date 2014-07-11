@@ -1,0 +1,61 @@
+<header class="main-header">{{>topbar-home}}</header>
+
+<div class="home-img-wrapper">
+  <img src="{{path}}/static/images/carousel/first.jpg" class="home-img" alt="">
+</div>
+
+<div class="container">
+  <div class="row home-caption">
+    <div class="col-sm-12">
+      <p>{{#labels}}{{motto_description_1}}{{/labels}}</p>
+      <p>
+        {{#labels}}{{motto_description_2}}{{/labels}}
+        <a href="/about">{{#labels}}{{read_more_about_us}}{{/labels}}</a>
+      </p>
+    </div>
+  </div>
+</div>
+{{#carousel}}
+    <a href="{{url}}">
+      <div class="col-sm-3 home-piece-of-new" style="background-image: url({{path}}/static/images/carousel/{{image}});">
+          <div class="piece-of-new-text">{{text}}</div>
+      </div>
+    </a>
+{{/carousel}}
+	<div class="content main-content container home-modules">
+		<div class="row text-center">
+			<div class="col-sm-4">
+				<a class="module-link" href="/book">
+          <h2 class="land-module">land<span class="landbook">book</span></h2>
+				  <h3 class="module-motto">{{#labels}}{{book_motto}}{{/labels}}</h3>
+				  <p class="module-description">{{#labels}}{{book_description}}{{/labels}}</p>
+        </a>
+        <a href="/book">
+  				<button class="btn btn-default">
+  					{{#labels}}{{visit_the}}{{/labels}} land<strong>book</strong>
+  				</button>
+        </a>
+			</div>
+			<div class="col-sm-4 middle-module">
+        <a class="module-link" href="/debate">
+				  <h2 class="land-module">land<span class="landdebate">debate</span></h2>
+				  <h3 class="module-motto">{{#labels}}{{debate_motto}}{{/labels}}</h3>
+				  <p class="module-description">{{#labels}}{{debate_description}}{{/labels}}</p>
+        </a>
+        <a href="/debate">
+  				<button class="btn btn-default">
+  					{{#labels}}{{join_the}}{{/labels}} land<strong>debate</strong>
+  				</button>
+        </a>
+			</div>
+			<div class="col-sm-4">
+				<h2 class="land-module">land<span class="landlibrary">library</span></h2>
+				<h3 class="module-motto">{{#labels}}{{library_motto}}{{/labels}}</h3>
+				<p class="module-description">{{#labels}}{{library_description}}{{/labels}}</p>
+				<button class="btn btn-default" disabled="disabled">
+					{{#labels}}{{coming_soon}}{{/labels}}
+				</button>
+			</div>
+		</div>
+	</div>
+{{>footer}}
