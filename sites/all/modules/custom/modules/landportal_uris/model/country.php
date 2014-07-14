@@ -79,7 +79,7 @@ class Country {
 			if (!array_key_exists($topic_id, $topics)) {
 				$topics[$topic_id] = array(
 					"id" => $topic_id,
-					//"name" => $data[$i]["topic_name"],
+					//"name" => utf8_encode($data[$i]["topic_name"]),
 					"indicators" => array()
 				);
 			}
@@ -87,7 +87,7 @@ class Country {
 				"preferable_tendency" => $data[$i]["preferable_tendency"],
 				"last_update" => $data[$i]["last_update"],
 				"topic_id" => $topic_id,
-				//"topic_name" => $data[$i]["topic_name"],
+				//"topic_name" => utf8_encode($data[$i]["topic_name"]),
 				"starred" => $data[$i]["starred"],
 				"description" => utf8_encode($data[$i]["description"]),
 				"name" => utf8_encode($data[$i]["name"]),
