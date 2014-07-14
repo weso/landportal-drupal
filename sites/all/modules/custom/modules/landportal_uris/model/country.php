@@ -287,23 +287,12 @@ class Country {
 			return 'none';
 		}
 		if ($value > 0.5) {
-			return "good";
+			return "bad";
 		} else if ($value == 0.5) {
 			return "same";
 		} else {
-			return "bad";
+			return "good";
 		}
-		/*
-		if ($value == $average) {
-			return 'same';
-		}
-		if ($tendency == 'increase') {
-			return $value > $average ? 'good' : 'bad';
-		}
-		if ($tendency == 'decrease') {
-			return $value < $average ? 'good' : 'bad';
-		}
-		*/
 	}
 
 }
