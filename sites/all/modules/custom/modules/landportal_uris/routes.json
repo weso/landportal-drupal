@@ -116,6 +116,13 @@
             "title": "Site map",
             "navigation": "",
             "params": []
+        },
+        {
+            "path": "about",
+            "name": "about",
+            "title": "About",
+            "navigation": "",
+            "params": []
         }
     ]
 }
