@@ -25,5 +25,6 @@
   "pref_tendency_indicator": "SELECT preferable_tendency FROM indicators WHERE indicators.id = '{0}'",
   "indicator_name": "SELECT name, description, indicators.preferable_tendency FROM indicatorTranslations INNER JOIN indicators ON indicator_id = indicators.id WHERE indicator_id = '{1}' and lang_code = '{0}'",
   "indicators": "SELECT indicators.id AS indicator_id, indicators.preferable_tendency, indicators.last_update, indicators.starred, indicatorTranslations.name AS indicator_name, indicatorTranslations.description AS indicator_description FROM indicators INNER JOIN indicatorTranslations ON indicators.id = indicatorTranslations.indicator_id AND indicatorTranslations.lang_code = '{0}' ORDER BY indicator_name",
-  "indicators_by_ids": "SELECT indicatorTranslations.name as name, indicators.id as id FROM indicators INNER JOIN indicatorTranslations on indicatorTranslations.indicator_id = indicators.id WHERE indicatorTranslations.lang_code = '{0}' AND indicators.id in ({1})"
+  "indicators_by_ids": "SELECT indicatorTranslations.name as name, indicators.id as id FROM indicators INNER JOIN indicatorTranslations on indicatorTranslations.indicator_id = indicators.id WHERE indicatorTranslations.lang_code = '{0}' AND indicators.id in ({1})",
+  "indicator_description": "SELECT trans.description as description FROM indicators INNER JOIN indicatorTranslations trans ON trans.indicator_id = indicators.id WHERE id = '{1}' AND trans.lang_code = '{0}'"
 }
