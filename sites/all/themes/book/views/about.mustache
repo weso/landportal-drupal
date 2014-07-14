@@ -1,0 +1,50 @@
+<header class="main-header">{{>topbar-home}}</header>
+
+<div class="home-img-wrapper">
+</div>
+
+<div class="container about-landportal">
+	<h1>{{#labels}}{{about}}{{/labels}}</h1>
+	<span>{{#labels}}{{about_description}}{{/labels}}</span>
+
+	<!-- SUBTITLE -->
+	<h2><span>{{#labels}}{{about_subtitle}}{{/labels}}</span></h2>
+
+	<!-- VISION -->
+	<h3><span>{{#labels}}{{about_vision}}{{/labels}}</span></h3>
+	<span>{{#labels}}{{about_vision_description}}{{/labels}}</span>
+	<!-- GOAL -->
+	<h4><span>{{#labels}}{{about_goal}}{{/labels}}</span></h4>
+	<span>{{#labels}}{{about_goal_description}}{{/labels}}</span>
+	<!-- VALUES -->
+	<h4><span>{{#labels}}{{about_values}}{{/labels}}</span></h4>
+	<ul>
+		<span>{{#labels}}{{{about_values_description}}}{{/labels}}</span>
+	</ul>
+	<!-- TARGET -->
+	<h4><span>{{#labels}}{{about_target}}{{/labels}}</span></h4>
+	<span>{{#labels}}{{{about_target_description}}}{{/labels}}</span>
+	<!-- OBJECTIVE -->
+	<h4><span>{{#labels}}{{about_objective}}{{/labels}}</span></h4>
+	<span>{{#labels}}{{{about_objective_description}}}{{/labels}}</span>
+
+	<!-- SERVICES -->
+	<h3><span>{{#labels}}{{about_services}}{{/labels}}</span></h3>
+	<span>{{#labels}}{{{about_services_description}}}{{/labels}}</span>
+
+	<!-- THEORY OF CHANGE -->
+	<h3><span>{{#labels}}{{about_change}}{{/labels}}</span></h3>
+	<span>{{#labels}}{{{about_change_description}}}{{/labels}}</span>
+	<img src="{{path}}/static/images/about.png" alt="">
+
+	<!-- THEORY OF CHANGE -->
+	<h3><span>{{#labels}}{{about_opendev}}{{/labels}}</span></h3>
+	<span>{{#labels}}{{{about_opendev_description_1}}}{{/labels}}</span>
+	<cite>{{#labels}}{{{about_opendev_cite}}}{{/labels}}</cite>
+	<span>{{#labels}}{{{about_opendev_description_2}}}{{/labels}}</span>
+	<ul>{{#labels}}{{{about_opendev_description_3}}}{{/labels}}</ul>
+	<p>{{#labels}}{{{about_opendev_description_4}}}{{/labels}}</p>
+	<p>{{#labels}}{{{about_opendev_description_5}}}{{/labels}}</p>
+</div>
+
+{{>footer}}
