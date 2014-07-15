@@ -58,7 +58,7 @@
             {{/charts}}
           </div>
 		  <h2 class="section"><span>{{#labels}}{{gender_issues}}{{/labels}}</span></h2>
-		  <table>
+		  <table class="traffic">
 		  	{{#charts}}
 		  		{{#trafficLights}}
 		  				<tr
@@ -74,7 +74,24 @@
 					{{/trafficLights}}
 		  	{{/charts}}
 		  </table>
-
+			<div class="row traffic-legend">
+				<div class="col-xs-6">
+					<div class="circle"><div class="none"></div></div>
+					<span>{{#labels}}{{no_data_inequality}}{{/labels}}</span>
+				</div>
+				<div class="col-xs-6">
+					<div class="circle"><div class="bad"></div></div>
+					<span>{{#labels}}{{high_inequality}}{{/labels}}</span>
+				</div>
+				<div class="col-xs-6">
+					<div class="circle"><div class="same"></div></div>
+					<span>{{#labels}}{{mid_inequality}}{{/labels}}</span>
+				</div>
+				<div class="col-xs-6">
+					<div class="circle"><div class="good"></div></div>
+					<span>{{#labels}}{{low_inequality}}{{/labels}}</span>
+				</div>
+			</div>
 		  <h2 class="section"><span>{{#labels}}{{rural_development}}{{/labels}}</span></h2>
 		  <div class="row">
 			{{#charts}}
@@ -149,7 +166,7 @@
             	</div>
             {{/charts}}
           </div>
-
+			<h2 class="section section-wide"><span><strong>{{#labels}}{{tendencies}}{{/labels}}</strong></span></h2>
 	  	{{#starred}}
 				{{#topics}}
 					<h2 class="section"><span>{{name}}</span></h2>
@@ -170,7 +187,7 @@
 		  <select id="source-select" multiple="multiple" class="data-sources">
 		  	{{#selectors}}
 			  	{{#data-sources}}
-					<option {{^with_data}}disabled="disabled"{{/with_data}}>{{name}}</option>
+					<option {{^with_data}}disabled="disabled"{{/with_data}} title="{{name}}">{{name}}</option>
 				{{/data-sources}}
 			{{/selectors}}
 		  </select>
@@ -203,12 +220,12 @@
 			{{/selectors}}
 		  </select>
 		  <a href="/book/countries" class="more-info">{{#labels}}{{more_about_areas_and_countries}}{{/labels}}</a>
-		  <button class="btn data-button">
+		  <button class="btn data-button" disabled="disabled">
 			{{#labels}}{{consult_library}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span>
-			<p class="at-button">{{#labels}}{{at}}{{/labels}} landportal.info</p>
+			<br />({{#labels}}{{coming_soon}}{{/labels}})
 		  </button>
-		  <a href="/taxonomy/term/{{#info}}{{taxonomy_id}}{{/info}}">
-				<button class="btn data-button-dark">{{#labels}}{{land_debates}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span></button>
+		  <a href="/search/site/{{#info}}{{name}}{{/info}}">
+				<button class="btn data-button-dark">{{#labels}}{{debate_with_others}}{{/labels}}</button>
 			</a>
 			<h2 class="section"><span>{{#labels}}{{share}}{{/labels}}</span></h2>
 			{{>share}}

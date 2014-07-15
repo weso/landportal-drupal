@@ -158,6 +158,13 @@ function getStarredChartData(options, data) {
 
 wesCountry.stateful.start({
 	init: function(parameters, selectors) {
+		// Set current country selected in select
+		var countrySelect = document.getElementById('country-select');
+		var selected = countrySelect.querySelector('option[value=' + countryCode + ']');
+
+		if (selected)
+			countrySelect.selectedIndex = selected.index;
+
 		// Country comparison cannot be this country
 		var thisCountryOption =
 			selectors['#country-comparing-select'].querySelector(String.format('option[value={0}]', countryCode));

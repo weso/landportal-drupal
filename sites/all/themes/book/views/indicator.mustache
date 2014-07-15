@@ -16,6 +16,7 @@
 	<div class="row">
 	  <div class="col-sm-9 graph-section">
 		  <h1 class="country-name"><span class="indicator-name"></span></h1>
+			<p class="indicator-description" id="indicator-description"></p>
       <div id="map" class="map"></div>
 			<!--
 			<h2 class="section"><span>{{#labels}}{{world_ranking}}{{/labels}}</span><span> </span><span class="indicator-name"></span></h2>
@@ -118,7 +119,7 @@
 		  <select id="topic-select" multiple="multiple" class="form-control data-sources">
 		  	{{#selectors}}
 			  	{{#topics}}
-			  		<option value="{{id}}">{{translation_name}}</option>
+			  		<option value="{{id}}" title="{{translation_name}}">{{translation_name}}</option>
 					{{/topics}}
 				{{/selectors}}
 		  </select>
@@ -129,7 +130,7 @@
 			  	{{#topics}}
 			  		<select class="form-control topic-indicator-select data-sources hidden" multiple="multiple">
 			  			{{#indicators}}
-								<option value="{{id}}">{{name}}</option>
+								<option value="{{id}}" title="{{name}}">{{name}}</option>
 							{{/indicators}}
 			  		</select>
 					{{/topics}}
@@ -155,7 +156,9 @@
 		  <button class="btn data-button-coming">
 			{{#labels}}{{{consult_the_socieconomic}}}{{/labels}}
 		  </button>
-		  <button class="btn data-button-dark">{{#labels}}{{debate_with_others}}{{/labels}}</button>
+			<a id="debate-link">
+		  	<button class="btn data-button-dark">{{#labels}}{{debate_with_others}}{{/labels}}</button>
+			</a>
 			<h2 class="section"><span>{{#labels}}{{share}}{{/labels}}</span></h2>
 			{{>share}}
 	  </div>

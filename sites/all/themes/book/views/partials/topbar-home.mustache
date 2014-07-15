@@ -8,7 +8,7 @@
 			<div class="col-sm-7 col-md-3 logo">
 				<img src="{{path}}/static/images/header/logo.png" class="logo" alt="landportal.info" />
 			</div>
-			<div class="col-sm-5 col-md-4 header-selectors">
+			<div class="col-sm-5 col-md-3 header-selectors">
 				<a href="/user/login" title="{{#labels}}{{signin}}{{/labels}}" class="login">
 					<i class="fa fa-user fa-lg" title="{{#labels}}{{signin}}{{/labels}}"></i>
 					{{#application}}
@@ -36,12 +36,13 @@
 					</form>
 				</div>
 			</div>
-			<div class="col-sm-12 col-md-5 top-navigation">
+			<div class="col-sm-12 col-md-6 top-navigation">
 				<ol class="breadcrumb breadcrumb-sites">
+					<li class="text-muted index-link">{{#labels}}{{index}}{{/labels}}</li>
 				  <li><a href="/book">land<strong class="landbook">book</strong></a></li>
 					<li><a href="/debate">land<strong class="landdebate">debate</strong></a></li>
-				  <li><a href="" class="text-muted">land<strong class="landlibrary">library</strong></a></li>
-				  <li><a href="">{{#labels}}{{sitemap}}{{/labels}}</a></li>
+				  <li><a href="" class="library-link">land<strong class="landlibrary">library</strong></a></li>
+				  <li><a href="/sitemap">{{#labels}}{{sitemap}}{{/labels}}</a></li>
 				</ol>
 			</div>
 		</div>
