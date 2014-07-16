@@ -2852,3 +2852,8 @@ div.drupal-form-help {
 	margin: 0.5em 0;
 	font-size: 1.4em;
 }
+
+/* DEBATE FACILITATOR */
+div .facilitator {
+	margin-top: 1em;
+}
