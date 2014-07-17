@@ -78,7 +78,8 @@ var pageStatus = wesCountry.stateful.start({
 	},
 	urlChanged: function(parameters, selectors) {
 		var indicatorSelector = document.getElementById('indicator-select');
-		indicator = indicatorSelector.options[indicatorSelector.selectedIndex].innerHTML;
+		indicator = indicatorSelector.options[indicatorSelector.selectedIndex] ?
+				indicatorSelector.options[indicatorSelector.selectedIndex].innerHTML : "";
 
 		var regionSelector = document.getElementById('region-select');
 		region = regionSelector.options[regionSelector.selectedIndex].innerHTML;
@@ -112,11 +113,17 @@ var pageStatus = wesCountry.stateful.start({
       selector: "#source-select",
 			ignore: true,
 			selectedIndex: function(parameters, selectors) {
+				// Load indicator select
+				loadIndicatorSelect(parameters, selectors);
+
 				// If no indicator in query then first element is selected
 				// Else the source for that indicator is selected
 				return getSourceFromSelectedIndicator(parameters, selectors);
 			},
       onChange: function(index, value, parameters, selectors) {
+				// Load indicator select
+				loadIndicatorsFromSource(parameters, selectors);
+
 				// When a source is selected then its first indicator is selected
 				var indicatorSelect = document.getElementById('indicator-select');
 
@@ -145,7 +152,7 @@ var pageStatus = wesCountry.stateful.start({
 			name: "indicator",
 			selector: "#indicator-select",
 			onChange: function(index, value, parameters, selectors) {
-				// When an indicator is selected we select the corresponding datasource
+			/*	// When an indicator is selected we select the corresponding datasource
 				var source = this.options[this.selectedIndex].parentNode.label;
 
 				var sourceSelect = document.getElementById('source-select');
@@ -156,9 +163,10 @@ var pageStatus = wesCountry.stateful.start({
 
 						break;
 					}
-				}
+				}*/
 
-				indicatorChanged(parameters, selectors);
+				if (selectors["#indicator-select"].selectedIndex != -1)
+					indicatorChanged(parameters, selectors);
 			}
 		},
 		{
@@ -272,6 +280,96 @@ function updateCompareChart(countries) {
 //                                AUXILIARY
 ////////////////////////////////////////////////////////////////////////////////
 
+function loadIndicatorSelect(parameters, selectors) {
+	var indicator = parameters["indicator"];
+	var selector = selectors['#indicator-select'];
+
+	var options = [];
+	var datasource = null;
+
+	if (indicator != "") {
+		var option = document.querySelector('.topic-indicator-select option[value=' + indicator + ']');
+		var datasourceSelect = option ? option.parentNode : null;
+
+		options = datasourceSelect.options;
+		datasource = datasourceSelect.getAttribute('data-source');
+	}
+	else {
+		var datasourceSelect = document.querySelector('.topic-indicator-select');
+
+		options = datasourceSelect ? datasourceSelect.options : [];
+		datasource = datasourceSelect.getAttribute('data-source');
+	}
+
+	var length = options.length;
+
+	var selectedIndex = null;
+
+	selector.innerHTML = '';
+
+	for (var i = 0; i < length; i++) {
+		var option = options[i];
+		var value = option.value;
+		var html = option.innerHTML;
+		var title = option.title;
+
+		// If indicator in query then set as selected
+		if (value == indicator)
+			selectedIndex = i;
+
+		option = document.createElement('option');
+		option.value = value;
+		option.innerHTML = html;
+		option.title = title;
+		selector.appendChild(option);
+	}
+
+	if (selectedIndex)
+		selector.selectedIndex = selectedIndex;
+
+	selector.setAttribute('data-source', datasource);
+
+	selector.refresh();
+}
+
+function loadIndicatorsFromSource(parameters, selectors) {
+	var indicator = parameters["indicator"];
+	var source = parameters["datasource"];
+	var selector = selectors['#indicator-select'];
+
+	var select = document.querySelector('select[data-source=' + source + ']');
+	var options = select ? select.options : [];
+
+	var length = options.length;
+
+	selector.innerHTML = '';
+
+	var selectedIndex = 0;
+
+	for (var i = 0; i < length; i++) {
+		var option = options[i];
+		var value = option.value;
+		var html = option.innerHTML;
+		var title = option.title;
+
+		if (indicator == value)
+			selectedIndex = i;
+
+		option = document.createElement('option');
+		option.value = value;
+		option.innerHTML = html;
+		option.title = title;
+		selector.appendChild(option);
+	}
+
+	if (length > 0)
+		selector.selectedIndex = selectedIndex;
+
+	selector.setAttribute('data-source', source);
+
+	selector.refresh();
+}
+
 function indicatorChanged(parameters, selectors) {
 	// Load map
 	loadMap(parameters);
@@ -295,13 +393,23 @@ function getSourceFromSelectedIndicator(parameters, selectors) {
 	var source = -1;
 
 	if (selector.value == indicator) {
-		var sourceOpt = selector.options[selector.selectedIndex].parentNode;
+		/*var sourceOpt = selector.options[selector.selectedIndex].parentNode;
 
 		if (sourceOpt) {
 			var sources = selector.querySelectorAll('optgroup');
 
 			if (sources && sources.indexOf)
 				source = sources.indexOf(sourceOpt);
+		}*/
+
+		var datasource = selector.getAttribute('data-source');
+
+		if (datasource) {
+			var sourceSelect = selectors['#source-select'];
+			var sourceOpt = sourceSelect.querySelector('option[value=' + datasource + ']');
+
+			if (sourceOpt)
+				source = sourceOpt.index;
 		}
 	}
 

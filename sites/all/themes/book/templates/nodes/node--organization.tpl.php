@@ -94,7 +94,7 @@
 
 <!-- See node-debate.tpl.php for an explanation -->
 <?php if ($view_mode !== 'user-profile'): ?>
-<div class=' container'>
+<div class='container'>
 <?php endif; ?>
     <div class="row search-result">
         <div class="col-sm-12">

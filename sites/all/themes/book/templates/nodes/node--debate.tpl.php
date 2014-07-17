@@ -164,7 +164,7 @@
                 <p><a class="search-result-label label-debate" href="/debate/debates"><?php echo $labels['debate']; ?></a></p>
             </div>
         </div>
-    <?php if ($view_mode === 'full'): ?>
+    <?php if ($view_mode !== 'user-profile'): ?>
       </div>
     <?php endif; ?>
 <?php endif; ?>

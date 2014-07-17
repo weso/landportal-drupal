@@ -11,7 +11,7 @@ echo json_encode($a->get(array(), 'AGO'));
 class Country {
 	private $spiderIndicators = array('INDOECD1', 'INDIPFRI0', 'INDUNDP0');
 	private $trafficLights = array('INDOECD1', 'INDOECD8', 'INDOECD10', 'INDOECD9', 'INDOECD11');
-	private $tableIndicators = array('INDWB10', 'INDWB9', 'INDWB6', 'INDWB13', 'INDWB12', 'INDWB14', 'INDWB11');
+	private $tableIndicators = array('INDWB3', 'INDWB11', 'INDWB6', 'INDWB7', 'INDWB5', 'INDWB4', 'INDWB18');
 	private $gaugeIndicators = array("INDFAOSTAT5", "INDFAOSTAT6" , "INDFAOSTAT7");
 
 	public function get($options, $iso3) {

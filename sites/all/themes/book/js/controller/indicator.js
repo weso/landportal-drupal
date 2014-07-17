@@ -474,7 +474,7 @@ function setIndicatorName(selector) {
 		texts[i].innerHTML = indicatorName;
 
 	var debateLink = document.getElementById('debate-link');
-	debateLink.href = '/search/site/' + indicatorName;
+	debateLink.href = '/search/site/' + indicatorName + ' AND debate';
 }
 
 function getDatasourceLink(datasource, datasourceName) {

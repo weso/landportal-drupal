@@ -126,7 +126,7 @@
               <p><a class="search-result-label label-blog-post" href="/debate/blog"><?php echo $labels['blog_post']; ?></a></p>
           </div>
       </div>
-    <?php if ($view_mode === 'full'): ?>
+    <?php if ($view_mode !== 'user-profile'): ?>
       </div>
     <?php endif; ?>
 <?php endif; ?>
