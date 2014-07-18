@@ -192,18 +192,22 @@
 			{{/selectors}}
 		  </select>
 		  <h2 class="section"><span>{{#labels}}{{indicators}}{{/labels}}</span></h2>
-		  <select id="indicator-select" class="form-control">
-			  	{{#selectors}}
-				  	{{#data-sources}}
-				  		<optgroup label="{{name}}">
-				  			{{#indicators}}
-								<option
-									value="{{id}}" {{^with_data}}disabled="disabled"{{/with_data}}>{{name}}</option>
+
+			<!-- all indicator selects -->
+			<div>
+				{{#selectors}}
+					{{#data-sources}}
+						<select data-source="{{name}}" class="form-control topic-indicator-select hidden">
+							{{#indicators}}
+								<option value="{{id}}" title="{{name}}">{{name}}</option>
 							{{/indicators}}
-				  		</optgroup>
+						</select>
 					{{/data-sources}}
 				{{/selectors}}
-		  </select>
+			</div>
+			<select id="indicator-select" class="form-control">
+			</select>
+
 			<a href="/book/countries/{{entity-id}}/details">
 			  <button id="full-data-button" class="btn data-button">
 					{{#labels}}{{full_data}}{{/labels}} <span class="country-name">{{#info}}{{name}}{{/info}}</span>

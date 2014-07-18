@@ -202,12 +202,18 @@ wesCountry.stateful.start({
 			name: "source",
 			ignore: true,
 			selectedIndex: function(parameters, selectors) {
+				// Load indicator select
+				return loadIndicatorSelect(parameters, selectors);
+
 				// If no indicator in query then first element is selected
 				// Else the source for that indicator is selected
-				return getSourceFromSelectedIndicator(parameters, selectors);
+				//return getSourceFromSelectedIndicator(parameters, selectors);
 			},
 			selector: "#source-select",
 			onChange: function(index, value, parameters, selectors) {
+				// Load indicator select
+				loadIndicatorsFromSource(parameters, selectors);
+
 				// When a source is selected then its first not null indicator is selected
 				var indicatorSelect = selectors['#indicator-select'];
 
@@ -236,19 +242,24 @@ wesCountry.stateful.start({
 			name: "indicator",
 			selector: "#indicator-select",
 			onChange: function(index, value, parameters, selectors) {
+			/*
 				// Set this indicator source
 				var source = selectors['#indicator-select'].options[index].parentNode.label;
 
 				selectors['#source-select'].value = source;
-
+				*/
 				// Region map
 				loadRegionMap(parameters);
 
 				// Update indicator names in view
 				var texts = document.querySelectorAll('span.indicator-name');
 
-				for (var i = 0; i < texts.length; i++)
-					texts[i].innerHTML = this.options[index].innerHTML;
+				var value = this.options[index] ? this.options[index].innerHTML : null;
+
+				if (value) {
+					for (var i = 0; i < texts.length; i++)
+						texts[i].innerHTML = value;
+				}
 			}
 		},
 		{
@@ -509,10 +520,113 @@ function updateRegionCompareChart(countryData, foot) {
 //                                AUXILIARY
 ////////////////////////////////////////////////////////////////////////////////
 
+function loadIndicatorSelect(parameters, selectors) {
+	var indicator = parameters["indicator"];
+	var selector = selectors['#indicator-select'];
+
+	var options = [];
+	var datasource = null;
+
+	if (indicator != "") {
+		var option = document.querySelector('.topic-indicator-select option[value=' + indicator + ']');
+		var datasourceSelect = option ? option.parentNode : null;
+
+		options = datasourceSelect.options;
+		datasource = datasourceSelect.getAttribute('data-source');
+	}
+	else {
+		var datasourceSelect = document.querySelector('.topic-indicator-select');
+
+		options = datasourceSelect ? datasourceSelect.options : [];
+		datasource = datasourceSelect.getAttribute('data-source');
+	}
+
+	var length = options.length;
+
+	var selectedIndex = 0;
+
+	selector.innerHTML = '';
+
+	for (var i = 0; i < length; i++) {
+		var option = options[i];
+		var value = option.value;
+		var html = option.innerHTML;
+		var title = option.title;
+
+		// If indicator in query then set as selected
+		if (value == indicator)
+			selectedIndex = i;
+
+		option = document.createElement('option');
+		option.value = value;
+		option.innerHTML = html;
+		option.title = title;
+		selector.appendChild(option);
+	}
+
+	if (selectedIndex)
+		selector.selectedIndex = selectedIndex;
+
+	selector.setAttribute('data-source', datasource);
+
+	// Data source index
+
+	var options = selectors['#source-select'].options;
+	var length = options.length;
+
+	for (var i = 0; i < length; i++) {
+		var option = options[i];
+
+		if (option.value == datasource)
+			return i;
+	}
+
+	return 0;
+	//selector.refresh();
+}
+
+function loadIndicatorsFromSource(parameters, selectors) {
+	var indicator = parameters["indicator"];
+	var source = parameters["source"];
+	var selector = selectors['#indicator-select'];
+
+	var select = document.querySelector('select[data-source="' + source + '"]');
+	var options = select ? select.options : [];
+
+	var length = options.length;
+
+	selector.innerHTML = '';
+
+	var selectedIndex = 0;
+
+	for (var i = 0; i < length; i++) {
+		var option = options[i];
+		var value = option.value;
+		var html = option.innerHTML;
+		var title = option.title;
+
+		if (indicator == value)
+			selectedIndex = i;
+
+		option = document.createElement('option');
+		option.value = value;
+		option.innerHTML = html;
+		option.title = title;
+		selector.appendChild(option);
+	}
+
+	if (length > 0)
+		selector.selectedIndex = selectedIndex;
+
+	selector.setAttribute('data-source', source);
+
+	selector.refresh();
+}
+
 function getDatasourceLink(datasource, datasourceName) {
 	return String.format("source: <a href='/book/sources/{0}'>{1}</a>", datasource, datasourceName)
 }
-
+/*
 function getSourceFromSelectedIndicator(parameters, selectors) {
 	var indicator = parameters["indicator"];
 	var selector = selectors['#indicator-select'];
@@ -540,7 +654,7 @@ function getSourceFromSelectedIndicator(parameters, selectors) {
 
 	return source;
 }
-
+*/
 function getCountryRegion() {
 	var id = document.getElementById('continent-id').value;
 	var name = document.getElementById('continent-name').value;
