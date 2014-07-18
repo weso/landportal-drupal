@@ -1,6 +1,7 @@
 <?php
 require_once(dirname(__FILE__) .'/../database/database_helper.php');
 require_once(dirname(__FILE__) .'/../cache/cache_helper.php');
+
 /*
 $a = new Country();
 header('Content-Type: application/json');
@@ -9,14 +10,14 @@ echo json_encode($a->get(array(), 'ESP'));
 */
 
 class Country {
-	private $spiderIndicators = array('INDOECD1', 'INDIPFRI0', 'INDUNDP0');
+	private $spiderIndicators = array('INDOECD1', 'INDIFPRI0', 'INDUNDP0');
 	private $trafficLights = array('INDOECD1', 'INDOECD8', 'INDOECD10', 'INDOECD9', 'INDOECD11');
 	private $tableIndicators = array('INDWB3', 'INDWB11', 'INDWB6', 'INDWB7', 'INDWB5', 'INDWB4', 'INDWB18');
 	private $gaugeIndicators = array("INDFAOSTAT5", "INDFAOSTAT6" , "INDFAOSTAT7");
 
 	public function get($options, $iso3) {
 		$lang = $options->language;
-		//$lang = "es";
+		//$lang = "en";
 		//$iso3 = 'ESP';
 		$api = $options->host;
 		//$api = 'http://'. $_SERVER['HTTP_HOST'];
