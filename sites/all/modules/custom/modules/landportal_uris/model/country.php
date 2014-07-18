@@ -1,11 +1,11 @@
 <?php
 require_once(dirname(__FILE__) .'/../database/database_helper.php');
 require_once(dirname(__FILE__) .'/../cache/cache_helper.php');
-
 /*
 $a = new Country();
 header('Content-Type: application/json');
-echo json_encode($a->get(array(), 'AGO'));
+//$a->get(array());
+echo json_encode($a->get(array(), 'ESP'));
 */
 
 class Country {
@@ -16,7 +16,8 @@ class Country {
 
 	public function get($options, $iso3) {
 		$lang = $options->language;
-		//$lang = "en";
+		//$lang = "es";
+		//$iso3 = 'ESP';
 		$api = $options->host;
 		//$api = 'http://'. $_SERVER['HTTP_HOST'];
 
@@ -38,13 +39,12 @@ class Country {
 			if (!$info && function_exists("drupal_goto")) {
 				drupal_goto("e404");
 			}
-
+			
 			$countries = $database->query("countries_without_region", array($lang));
 			$indicators_imploded = "'". implode("','", $this->spiderIndicators) ."','".  implode("','", $this->tableIndicators) ."','". implode("','", $this->gaugeIndicators) ."'";
 			$chart_indicators = $database->query("indicators_by_ids", array($lang, $indicators_imploded));
 			$charts = $database->query("country_chart_indicators", array($lang, $iso3, $indicators_imploded));
 			$starred = $database->query("starred_indicators", array($lang));
-
 			$traffic_data = $this->_compose_traffic($database, $this->trafficLights, $safe_iso3, $lang);
 
 			$result = $this->compose_data($datasources, $info, $countries, $charts, $starred, $traffic_data, $chart_indicators);
@@ -244,7 +244,7 @@ class Country {
 				),
 				"indicator" => array(
 					"id" => $ind_id,
-					"name" => $indicators[$ind_id],
+					"name" => utf8_encode($indicators[$ind_id]),
 					"description" => "",
 					"last_update" => "",
 					"preferable_tendency" => "",
@@ -271,8 +271,9 @@ class Country {
 			$last_obs = isset($last_obs[0]) ? $last_obs[0]['value'] : null;
 			$average = $database->query('indicator_average', array($ind_id));
 			$average = isset($average[0]) ? $average[0]['avg'] : null;
+			$ind = $database->query('indicator_name', array($lang, $ind_id));
 			array_push($result, array(
-				'indicator' => $ind = $database->query('indicator_name', array($lang, $ind_id)),
+				'indicator' => utf8_encode($ind[0]['name']),
 				'value' => $last_obs,
 				'average' => $average,
 				'light' => $this->_calculate_light($pref_tendency, $last_obs, $average)
