@@ -80,7 +80,7 @@ class Country {
 			if (!array_key_exists($topic_id, $topics)) {
 				$topics[$topic_id] = array(
 					"id" => $topic_id,
-					//"name" => utf8_encode($data[$i]["topic_name"]),
+					"name" => utf8_encode($data[$i]["topic_name"]),
 					"indicators" => array()
 				);
 			}
