@@ -151,7 +151,7 @@
 
 <!-- RESUMED VIEW -->
 <?php else: ?>
-  <?php $body = $node->body['und'][0]['value']; ?>
+  <?php $body = $node->body['und'][0]['safe_value']; ?>
   <?php //The container div is only needed for the taxonomy view.
         //When the node is loaded from the user-profile
         //view this container is nod needed.

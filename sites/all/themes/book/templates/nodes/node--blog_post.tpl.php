@@ -111,7 +111,7 @@
 
 <!-- RESUMED VIEW -->
 <?php else: ?>
-<?php $body = $node->body['und'][0]['value']; ?>
+<?php $body = $node->body['und'][0]['safe_value']; ?>
 
 <!-- See node-debate.tpl.php for an explanation -->
     <?php if ($view_mode !== 'user-profile'): ?>
