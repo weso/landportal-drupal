@@ -280,5 +280,6 @@
   "high_inequality": "Inégalité très forte",
   "low_inequality": "L'absence ou peu d'inégalité",
   "mid_inequality": "Inégalité normale",
-  "no_data_inequality": "Sans données"
+  "no_data_inequality": "Sans données",
+  "no_comments": "Actuellement, il n'y a pas de commentaires"
 }

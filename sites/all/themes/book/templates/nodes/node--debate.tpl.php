@@ -123,7 +123,11 @@
         <!-- Comments -->
         <div class="entry-comments">
           <h2 class="section">
-            <span><?php echo $labels["user_comments"]; ?></span>
+            <?php if ($comment_count > 0): ?>
+              <span><?php echo $labels["user_comments"]; ?></span>
+            <?php else: ?>
+              <span><?php echo $labels["no_comments"]; ?></span>
+            <?php endif; ?>
           </h2>
           <?php
             // Remove the "Add new comment" link on the teaser page or if the comment

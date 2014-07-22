@@ -280,5 +280,6 @@
   "high_inequality": "High inequality",
   "low_inequality": "Low inequality",
   "mid_inequality": "Mid inequality",
-  "no_data_inequality": "No data"
+  "no_data_inequality": "No data",
+  "no_comments": "Currently there are no comments"
 }

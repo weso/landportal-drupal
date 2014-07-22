@@ -28,7 +28,7 @@
       </h1>
     </div>
   </div>
-  <?php if ($logged_in): ?>
+  <?php if ($is_admin): ?>
     <div class="row add-new-node">
       <div class="col-sm-9"></div>
       <div class="col-sm-3">

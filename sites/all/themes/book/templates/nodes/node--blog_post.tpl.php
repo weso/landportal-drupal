@@ -92,7 +92,7 @@
           <?php if ($comment_count > 0): ?>
             <span><?php echo $labels["user_comments"]; ?></span>
           <?php else: ?>
-            <span><?php echo "CURRENTLY THERE ARE NO COMMENTS"; ?></span>
+            <span><?php echo "no_comments"; ?></span>
           <?php endif; ?>
         </h2>
         <?php
