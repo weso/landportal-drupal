@@ -75,8 +75,8 @@
 		  	</div>
 		  </form>
 		  <h2 class="section country-form-title"><span>{{#labels}}{{preview}}{{/labels}}</span></h2>
-		  <p id="chart-title" class="chart-title">Title</p>
-		  <p id="chart-description">Description</p>
+		  <p id="chart-title" class="chart-title">{{#labels}}{{title}}{{/labels}}</p>
+		  <p id="chart-description">{{#labels}}{{description}}{{/labels}}</p>
 		  <div id="mapDiv" class="graph graph-huge"></div>
 		  <div class="row">
 		  	<div class="col-sm-6">
@@ -194,13 +194,13 @@
 	  	  <form role="form" class="widget-description">
 			  <div class="form-group">
 			    <label for="title">{{#labels}}{{title}}{{/labels}}</label>
-			    <input type="text" class="form-control" id="title" value="Title" placeholder="{{#labels}}{{title}}{{/labels}}">
+			    <input type="text" class="form-control" id="title" value="{{#labels}}{{title}}{{/labels}}" placeholder="{{#labels}}{{title}}{{/labels}}">
 			    <label for="description">{{#labels}}{{description}}{{/labels}}</label>
-			    <textarea class="form-control" id="description" rows="3">Description</textarea>
+			    <textarea class="form-control" id="description" rows="3">{{#labels}}{{description}}{{/labels}}</textarea>
 			    <label for="label_x">{{#labels}}{{label_x}}{{/labels}}</label>
-			    <input type="text" class="form-control" id="label_x" value="Years" placeholder="{{#labels}}{{label_x}}{{/labels}}">
+			    <input type="text" class="form-control" id="label_x" value="{{#labels}}{{years}}{{/labels}}" placeholder="{{#labels}}{{label_x}}{{/labels}}">
 			    <label for="label_y">{{#labels}}{{label_y}}{{/labels}}</label>
-			    <input type="text" class="form-control" id="label_y" value="Values" placeholder="{{#labels}}{{label_y}}{{/labels}}">
+			    <input type="text" class="form-control" id="label_y" value="{{#labels}}{{values}}{{/labels}}" placeholder="{{#labels}}{{label_y}}{{/labels}}">
 			  </div>
 	  	  </form>
 	  </div>

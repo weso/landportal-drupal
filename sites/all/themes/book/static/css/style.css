@@ -1062,6 +1062,10 @@ button.data-button-coming:hover {
 	color: #888;
 }
 
+button.button-margin {
+	margin-top: 1em;
+}
+
 button.data-button-dark:hover {
 	background-color: #17414e;
 	color: #fff;

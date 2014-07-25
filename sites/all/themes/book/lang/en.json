@@ -281,5 +281,12 @@
   "low_inequality": "Low inequality",
   "mid_inequality": "Mid inequality",
   "no_data_inequality": "No data",
-  "no_comments": "Currently there are no comments"
+  "no_comments": "Currently there are no comments",
+  "country-code": "Country code",
+  "country-name": "Country name",
+  "indicator-code": "Indicator code",
+  "indicator-name": "Indicator name",
+  "year": "Year",
+  "values": "Values",
+  "years": "Years"
 }

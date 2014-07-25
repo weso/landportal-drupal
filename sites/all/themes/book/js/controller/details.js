@@ -1,4 +1,3 @@
 document.getElementById('country-select').onchange = function() {
-	var country = this.options[this.selectedIndex].value;
-	window.location.href = '/country/' + country;
+	window.location.href = '/book/countries/' + this.options[this.selectedIndex].value;
 }
