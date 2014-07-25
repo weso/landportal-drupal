@@ -60,22 +60,39 @@
 		  <select id="source-select" multiple="multiple" class="form-control data-sources">
 		  	{{#selectors}}
 			  	{{#data-sources}}
-					<option value="{{organization_id}}">{{name}}</option>
+					<option value="{{organization_id}}" title="{{name}}">{{name}}</option>
 				{{/data-sources}}
 			{{/selectors}}
 		  </select>
 		   <h2 class="section"><span>{{#labels}}{{indicators}}{{/labels}}</span></h2>
-		   <select id="indicator-select" class="form-control">
+		  <!--
+			<select id="indicator-select" class="form-control">
 			  	{{#selectors}}
 				  	{{#data-sources}}
 				  		<optgroup label="{{name}}" value={{organization_id}}>
 				  			{{#indicators}}
-								<option value="{{id}}">{{name}}</option>
-							{{/indicators}}
+									<option value="{{id}}">{{name}}</option>
+								{{/indicators}}
 				  		</optgroup>
+						{{/data-sources}}
+					{{/selectors}}
+		   </select>
+		  -->
+			<!-- all indicator selects -->
+			<div>
+				{{#selectors}}
+					{{#data-sources}}
+						<select data-source="{{organization_id}}" class="form-control topic-indicator-select data-sources hidden" multiple="multiple">
+							{{#indicators}}
+								<option value="{{id}}" title="{{name}}">{{name}}</option>
+							{{/indicators}}
+						</select>
 					{{/data-sources}}
 				{{/selectors}}
-		   </select>
+			</div>
+			<select id="indicator-select" multiple="multiple" class="form-control data-sources">
+			</select>
+
 		  <a href="/book/indicators" class="more-info">{{#labels}}{{more_about_the_indicators}}{{/labels}}</a>
 		  <h2 class="section"><span>{{#labels}}{{specific_country}}{{/labels}}</span></h2>
 		  <select id="country-select" class="form-control">

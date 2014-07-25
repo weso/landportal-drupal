@@ -123,7 +123,11 @@
         <!-- Comments -->
         <div class="entry-comments">
           <h2 class="section">
-            <span><?php echo $labels["user_comments"]; ?></span>
+            <?php if ($comment_count > 0): ?>
+              <span><?php echo $labels["user_comments"]; ?></span>
+            <?php else: ?>
+              <span><?php echo $labels["no_comments"]; ?></span>
+            <?php endif; ?>
           </h2>
           <?php
             // Remove the "Add new comment" link on the teaser page or if the comment
@@ -147,7 +151,7 @@
 
 <!-- RESUMED VIEW -->
 <?php else: ?>
-  <?php $body = $node->body['und'][0]['value']; ?>
+  <?php $body = $node->body['und'][0]['safe_value']; ?>
   <?php //The container div is only needed for the taxonomy view.
         //When the node is loaded from the user-profile
         //view this container is nod needed.
@@ -164,7 +168,7 @@
                 <p><a class="search-result-label label-debate" href="/debate/debates"><?php echo $labels['debate']; ?></a></p>
             </div>
         </div>
-    <?php if ($view_mode === 'full'): ?>
+    <?php if ($view_mode !== 'user-profile'): ?>
       </div>
     <?php endif; ?>
 <?php endif; ?>

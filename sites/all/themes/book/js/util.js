@@ -42,7 +42,7 @@ var util = new (function() {
 
 		var text = String.format("{0}{1}", tooltipHeader, value != null ? tooltipBody : "");
 
-		wesCountry.charts.showTooltip(text);
+		wesCountry.charts.showTooltip(text, info.event);
 	}
 
 	this.tooltipWidgets = function(info) {
@@ -71,7 +71,7 @@ var util = new (function() {
 
 		var text = String.format("{0}{1}", tooltipHeader, value != null ? tooltipBody : "");
 
-		wesCountry.charts.showTooltip(text);
+		wesCountry.charts.showTooltip(text, info.event);
 	}
 
 	this.tooltipRanking = function(info) {
@@ -94,7 +94,7 @@ var util = new (function() {
 
 		var text = String.format("{0}{1}", tooltipHeader, value != null ? tooltipBody : "");
 
-		wesCountry.charts.showTooltip(text);
+		wesCountry.charts.showTooltip(text, info.event);
 	}
 
 	// Share

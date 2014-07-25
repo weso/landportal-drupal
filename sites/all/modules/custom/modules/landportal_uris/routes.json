@@ -109,6 +109,20 @@
             "name": "debate",
             "title": "Land Debate",
             "redirect": "debate/debates"
+        },
+        {
+            "path": "sitemap",
+            "name": "sitemap",
+            "title": "Site map",
+            "navigation": "",
+            "params": []
+        },
+        {
+            "path": "about",
+            "name": "about",
+            "title": "About",
+            "navigation": "",
+            "params": []
         }
     ]
 }

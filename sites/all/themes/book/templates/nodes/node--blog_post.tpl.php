@@ -92,7 +92,7 @@
           <?php if ($comment_count > 0): ?>
             <span><?php echo $labels["user_comments"]; ?></span>
           <?php else: ?>
-            <span><?php echo "CURRENTLY THERE ARE NO COMMENTS"; ?></span>
+            <span><?php echo "no_comments"; ?></span>
           <?php endif; ?>
         </h2>
         <?php
@@ -111,7 +111,7 @@
 
 <!-- RESUMED VIEW -->
 <?php else: ?>
-<?php $body = $node->body['und'][0]['value']; ?>
+<?php $body = $node->body['und'][0]['safe_value']; ?>
 
 <!-- See node-debate.tpl.php for an explanation -->
     <?php if ($view_mode !== 'user-profile'): ?>
@@ -126,7 +126,7 @@
               <p><a class="search-result-label label-blog-post" href="/debate/blog"><?php echo $labels['blog_post']; ?></a></p>
           </div>
       </div>
-    <?php if ($view_mode === 'full'): ?>
+    <?php if ($view_mode !== 'user-profile'): ?>
       </div>
     <?php endif; ?>
 <?php endif; ?>

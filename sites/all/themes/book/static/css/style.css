@@ -57,7 +57,7 @@ header.book-header {
 	background-size: cover;
 }
 
-header.book-header .bar {
+header.book-header .bar, header.main-header .bar {
 	background-color: #fff;
 	padding-top: 0.3em;
 	padding-bottom: 0.1em;
@@ -314,17 +314,14 @@ header.debate-header div.navigation nav.tabs a:nth-child(8) {
 /* Breadcrumb */
 
 .breadcrumb {
-	margin-bottom: 1em;
 	background-color: #fff;
 	padding-top: 0.5em !important;
 	padding-bottom: 0.5em !important;
 	padding-left: 0;
-	font-size: 0.8em;
 }
 
 @media (min-width: 768px) {
 	.breadcrumb {
-		font-size: 1em;
 		margin-bottom: 0.2em;
 	}
 }
@@ -410,10 +407,15 @@ footer {
 footer.inverted {
 	border-top: 0.1em solid #aaa;
 	padding-top: 1em;
+	padding-bottom: 3em;
 }
 
 footer.inverted .breadcrumb {
 	padding-top: 1.2em;
+}
+
+footer .breadcrumb li {
+	margin-bottom: 1em;
 }
 
 footer.inverted .breadcrumb a {
@@ -426,7 +428,7 @@ footer.inverted .breadcrumb a {
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
 	footer .breadcrumb li {
 		width: 100%;
 	}
@@ -463,7 +465,7 @@ footer li {
 }
 
 footer.inverted li {
-	color: #fff;
+
 }
 
 footer > ul > li {
@@ -518,7 +520,6 @@ footer.signature {
 div.social {
 	text-align: right;
 	font-size: 0.6em;
-	padding-top: 1em;
 	padding-bottom: 1em;
 }
 
@@ -578,6 +579,14 @@ div.news div.section {
 
 /* Home */
 
+li.index-link {
+	text-transform: lowercase;
+}
+
+a.library-link {
+	text-decoration: line-through;
+}
+
 div.home-piece-of-new {
 	height: 15em;
 	position: relative;
@@ -610,7 +619,9 @@ ol.breadcrumb-sites > li + li::before {
 }
 
 .home-img-wrapper {
-	overflow: hidden;
+	height: 0.4em;
+	background-color: #8fcd1f;
+	margin-bottom: 1em;
 }
 
 img.home-img {
@@ -847,6 +858,10 @@ h2.section:before {
 		z-index: -1;
 }
 
+h2.section-wide:before {
+	border-top: 0.15em solid #888;
+}
+
 h2.section span {
 	background-color: #fff;
 	padding: 0;
@@ -908,13 +923,33 @@ table {
 	margin-bottom: 2em;
 }
 
-td div.circle {
+table.traffic {
+	border-bottom: 0.1em dashed #aaa;
+	margin-bottom: 0;
+}
+
+td div.circle, .traffic-legend div.circle {
 	border: 0.1em solid #bbb;
 	width: 1.7em;
 	height: 1.7em;
 	border-radius: 50%;
 	padding: 0.25em;
 	float: right;
+}
+
+.traffic-legend {
+	text-align: center;
+	margin-bottom: 1.5em;
+	padding-top: 0.5em;
+}
+
+.traffic-legend div.circle {
+	margin: 0.5em auto 0.5em auto;
+	float: none;
+}
+
+.traffic-legend span {
+	font-size: 0.8em;
 }
 
 div.good {
@@ -953,6 +988,11 @@ td.issue {
 	font-size: 0.8em;
 	padding-top: 1em;
 	padding-bottom: 1em;
+}
+
+table.traffic td {
+	padding-bottom: 2em;
+	padding-top: 0.5em;
 }
 
 table.graphs {
@@ -1020,6 +1060,10 @@ button.data-button-coming {
 
 button.data-button-coming:hover {
 	color: #888;
+}
+
+button.button-margin {
+	margin-top: 1em;
 }
 
 button.data-button-dark:hover {
@@ -1771,6 +1815,13 @@ div.share-widget {
 
 /* Indicators */
 
+p.indicator-description {
+	margin-bottom: 1.5em;
+	font-size: 1.2em;
+	color: #777;
+	padding-left: 1em;
+}
+
 div.marker {
 	float: left;
 	width: 1em;
@@ -2293,7 +2344,6 @@ div.debate-status {
 }
 
 div.debate-status span {
-	/*background-color: #428bca;*/
 	display: inline-block;
 	width: 100%;
 	text-align: center;
@@ -2696,4 +2746,119 @@ div.drupal-form-help {
 	font-size: 80%;
 	color: #BBB;
 	margin-bottom: 2em;
+}
+
+/* ABOUT */
+
+.about-landportal h2 {
+	position: relative;
+	margin-top: 0;
+	margin-bottom: 0.5em;
+	font-size: 0.7em;
+}
+
+@media (min-width: 768px) {
+	.about-landportal h2 {
+		font-size: 1.5em;
+	}
+
+	.about-landportal h2:before {
+	    border-top: 0.05em solid #555;
+	    content: "";
+	    margin: 0 auto;
+	    position: absolute;
+	    top: 60%;
+	    width: 100%;
+	    z-index: -1;
+	}
+
+	.about-landportal h2 span {
+		background-color: #fff;
+		padding: 0 0.5em;
+		margin-left: 0.5em;
+	}
+
+	.about-landportal h2 span.no-margin {
+		margin: 0 !important;
+	}
+
+	.about-landportal h2 span.flag {
+		padding: 0 0.5em 0 0 !important;
+	}
+}
+
+.about-landportal h2 {
+	font-weight: bold;
+	margin-top: 1em;
+}
+
+.about-landportal h3.section {
+	position: relative;
+	color: #666;
+	text-transform: uppercase;
+	font-size: 0.9em;
+	margin-bottom: 2em;
+}
+
+.about-landportal h3.section {
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+
+.about-landportal h3.section:before {
+		border-top: 0.1em solid #ccc;
+		content: "";
+		margin: 0 auto;
+		position: absolute;
+		top: 70%;
+		left: 0;
+		width: 100%;
+		z-index: -1;
+}
+
+.about-landportal h3.section span {
+	background-color: #fff;
+	padding: 0 0.5em;
+}
+
+.about-landportal h4 {
+	font-weight: bold;
+}
+
+.about-landportal img {
+	margin: 1em 0;
+}
+
+.about-landportal p {
+	text-align: justify;
+}
+
+.about-landportal {
+	margin-bottom: 2em;
+}
+
+/* SITEMAP */
+
+.sitemap h1 {
+	text-transform: capitalize;
+}
+
+.sitemap {
+	margin-bottom: 2em;
+}
+
+.sitemap > ul > ul > li {
+	margin: 1em 0;
+	font-size: 1.1em;
+}
+
+.sitemap > ul > li {
+	margin: 0.5em 0;
+	font-size: 1.4em;
+}
+
+/* DEBATE FACILITATOR */
+
+div.facilitator {
+	margin-top: 1em;
 }

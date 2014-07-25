@@ -6,8 +6,8 @@ var arrowDownClass = 'fa fa-angle-down';
 document.getElementById('country-select').onchange = function() {
 	if (this.selectedIndex == 0)
 		return;
-		
-	window.location.href = 'indicators/' + this.options[this.selectedIndex].value;
+
+	window.location.href = 'indicators/detail?indicator=' + this.options[this.selectedIndex].value;
 }
 
 // Continent toggle
@@ -18,7 +18,7 @@ for (var i = 0; i < continents.length; i++)
 	continents[i].onclick = function() {
 		var countries = this.parentNode.querySelector('.continent-countries');
 		var arrow = this.querySelector('i');
-		
+
 		if (countries) {
 			if (countries.style.display == 'block'){
 				countries.style.display = 'none';
@@ -27,7 +27,7 @@ for (var i = 0; i < continents.length; i++)
 				countries.style.display = 'block';
 			}
 		}
-		
+
 		if (arrow) {
 			if (arrow.className == arrowDownClass)
 				arrow.className = arrowUpClass;
@@ -35,7 +35,7 @@ for (var i = 0; i < continents.length; i++)
 				arrow.className = arrowDownClass;
 		}
 	}
-	
+
 // Expand continents
 
 document.getElementById('expand').onchange = function() {
@@ -44,12 +44,12 @@ document.getElementById('expand').onchange = function() {
 
 function expandContinents(expand) {
 	var countries = document.querySelectorAll('.continent-countries');
-	
+
 	for (var i = 0; i < countries.length; i++)
 		countries[i].style.display = expand ? 'block' : 'none';
-		
+
 	var arrows = document.querySelectorAll('h1 i');
-	
+
 	for (var i = 0; i < arrows.length; i++)
 		arrows[i].className = expand ? arrowUpClass : arrowDownClass;
 }

@@ -20,9 +20,10 @@
     <header>
       <!-- Author and date -->
       <div class="user date">
+            <?php $creator = intval($fields['uid']->raw); ?>
             <?php echo $labels["written_by"]; ?>
-            <a href="/user/<?php echo $uid; ?>" class="user">
-                <?php $user_fields = user_load(intval($fields['uid']->raw)); ?>
+            <a href="/user/<?php echo $creator; ?>" class="user">
+                <?php $user_fields = user_load($creator); ?>
                 <?php if (isset ($user_fields->field_firstname)): ?>
                     <?php echo $user_fields->field_firstname['und'][0]['safe_value']; ?>
                     <?php echo ' '; ?>

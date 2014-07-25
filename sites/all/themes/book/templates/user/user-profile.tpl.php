@@ -67,7 +67,7 @@
                     <p><?php $labels['no_email']; ?></p>
                 <?php endif; ?>
             </div>
-            <?php if ($can_access_api): ?>
+            <?php if ($can_access_api && $is_own_profile): ?>
             <div class="user-api-token">
                 <h2><?php echo $labels['api_access_token']; ?></h2>
                 <?php if ($api_token !== ""): ?>

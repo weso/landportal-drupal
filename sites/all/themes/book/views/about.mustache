@@ -1,0 +1,52 @@
+<header class="main-header">{{>topbar-home}}</header>
+
+<div class="home-img-wrapper">
+</div>
+
+<div class="container about-landportal">
+	<h1 class="country-name"><span>{{#labels}}{{about}}{{/labels}}</span></h1>
+	<p>{{#labels}}{{about_description}}{{/labels}}</p>
+
+	<!-- SUBTITLE -->
+	<h2 ><span>{{#labels}}{{about_subtitle}}{{/labels}}</span></h2>
+
+	<!-- VISION -->
+	<h3 class="section"><span>{{#labels}}{{about_vision}}{{/labels}}</span></h3>
+	<p>{{#labels}}{{about_vision_description}}{{/labels}}</p>
+	<!-- GOAL -->
+	<h4><span>{{#labels}}{{about_goal}}{{/labels}}</span></h4>
+	<p>{{#labels}}{{about_goal_description}}{{/labels}}</p>
+	<!-- VALUES -->
+	<h4><span>{{#labels}}{{about_values}}{{/labels}}</span></h4>
+	<ul>
+		<span>{{#labels}}{{{about_values_description}}}{{/labels}}</span>
+	</ul>
+	<!-- TARGET -->
+	<h4><span>{{#labels}}{{about_target}}{{/labels}}</span></h4>
+	<p>{{#labels}}{{{about_target_description}}}{{/labels}}</p>
+	<!-- OBJECTIVE -->
+	<h4><span>{{#labels}}{{about_objective}}{{/labels}}</span></h4>
+	<p>{{#labels}}{{{about_objective_description}}}{{/labels}}</p>
+
+	<!-- SERVICES -->
+	<h3 class="section"><span>{{#labels}}{{about_services}}{{/labels}}</span></h3>
+	<p>{{#labels}}{{{about_services_description}}}{{/labels}}</p>
+
+	<!-- THEORY OF CHANGE -->
+	<h3 class="section"><span>{{#labels}}{{about_change}}{{/labels}}</span></h3>
+	<p>{{#labels}}{{{about_change_description}}}{{/labels}}</p>
+	<div class="text-center">
+		<img src="{{path}}/static/images/about.png" alt="">
+	</div>
+
+	<!-- THEORY OF CHANGE -->
+	<h3 class="section"><span>{{#labels}}{{about_opendev}}{{/labels}}</span></h3>
+	<p>{{#labels}}{{{about_opendev_description_1}}}{{/labels}}</p>
+	<cite>{{#labels}}{{{about_opendev_cite}}}{{/labels}}</cite>
+	<p>{{#labels}}{{{about_opendev_description_2}}}{{/labels}}</p>
+	<ul>{{#labels}}{{{about_opendev_description_3}}}{{/labels}}</ul>
+	<p>{{#labels}}{{{about_opendev_description_4}}}{{/labels}}</p>
+	<p>{{#labels}}{{{about_opendev_description_5}}}{{/labels}}</p>
+</div>
+
+{{>footer}}

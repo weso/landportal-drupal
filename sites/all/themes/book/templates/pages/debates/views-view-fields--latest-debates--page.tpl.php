@@ -17,6 +17,7 @@
   $status = str_replace(' ', '_', $status);
   ?>
 
+
 <div class="row debate-entry">
     <div class="col-sm-3">
         <!-- Image -->
@@ -42,7 +43,7 @@
           <?php $facilitator_id = $fields["uid"]->raw; ?>
           <div>
             <?php print theme('user_picture', array('account' =>user_load($facilitator_id))); ?>
-            <a href="/user/<?php echo $uid; ?>" class="user">
+            <a href="/user/<?php echo $facilitator_id; ?>" class="user">
                 <?php $user_fields = user_load(intval($facilitator_id)); ?>
                 <?php if (isset ($user_fields->field_firstname)): ?>
                     <?php echo $user_fields->field_firstname['und'][0]['safe_value']; ?>

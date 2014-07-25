@@ -1,0 +1,86 @@
+<header class="main-header">{{>topbar-home}}</header>
+
+<div class="home-img-wrapper">
+</div>
+
+
+<div class="container sitemap">
+<h1 class="country-name"><span>{{#labels}}{{{sitemap}}}{{/labels}}</span></h1>
+<ul>
+	<li><a href="/">{{#labels}}{{index}}{{/labels}}</a></li>
+	<!-- LANDBOOK -->
+		<li><a href="/book">{{#labels}}{{land_book}}{{/labels}}</a></li>
+		<ul>
+			<!-- COUNTRIES -->
+			<li>
+				<a href="/book/countries"><span>{{#labels}}{{countries}}{{/labels}}</span></a>
+				<ul>
+				    {{#countries}}
+				    {{#continents}}
+				    <li><span>{{name}}</span></li>
+				    {{#countries}}
+				    <ul>
+						{{#data}}
+	                    <li>
+	                    	<a href="countries/{{iso3}}"><span class="name">{{name}}</span></a>
+	                    </li>
+	                    {{/data}}
+	                    {{^data}}
+	                    <li>
+	                    	<span class="name">{{name}}</span>
+	                    </li>
+	                    {{/data}}
+				    </ul>
+				    {{/countries}}
+				    {{/continents}}
+				    {{/countries}}
+				</ul>
+			</li>
+			<!-- INDICATORS -->
+			<li>
+				<a href="/book/indicators"><span>{{#labels}}{{indicators}}{{/labels}}</span></a>
+				<ul>
+					{{#indicators}}
+					{{#topics}}
+					<li><span>{{translation_name}}</span></li>
+					{{#indicators}}
+				    <ul>
+	                    <li>
+	                    	<a href="indicators/detail?indicator={{id}}">
+		                       	<span class="name">{{name}}</span>
+		                    </a>
+	                    </li>
+				    </ul>
+				    {{/indicators}}
+					{{/topics}}
+					{{/indicators}}
+				</ul>
+			</li>
+			<!-- CATALOG -->
+			<li><a href="data/catalog">{{#labels}}{{catalog}}{{/labels}}</a></li>
+			<!-- SOURCES -->
+			<li><a href="data/sources">{{#labels}}{{sources}}{{/labels}}</a></li>
+			<!-- WIDGETS -->
+			<li><a href="data/widgets">{{#labels}}{{widgets}}{{/labels}}</a></li>
+			<!-- reuse -->
+			<li><a href="data/reuse">{{#labels}}{{data}}{{/labels}}</a></li>
+		</ul>
+		<!-- LANDDEBATE -->
+		<li><a href="/debate">{{#labels}}{{land_debate}}{{/labels}}</a></li>
+		<ul>
+			<li><a href="/debate/debates">{{#labels}}{{debates}}{{/labels}}</a></li>
+			<li><a href="/debate/news">{{#labels}}{{news}}{{/labels}}</a></li>
+			<li><a href="/debate/events">{{#labels}}{{events}}{{/labels}}</a></li>
+			<li><a href="/debate/blog">{{#labels}}{{blog}}{{/labels}}</a></li>
+			<li><a href="/debate/community">{{#labels}}{{community}}{{/labels}}</a></li>
+		</ul>
+		<!-- SEARCH -->
+		<li><a href="/search/site">{{#labels}}{{search}}{{/labels}}</a></li>
+		<!-- ABOUT -->
+		<li><a href="/about">{{#labels}}{{about}}{{/labels}}</a></li>
+		<!-- LOGIN AND REGISTER-->
+		<li><a href="/user/login">{{#labels}}{{login}}{{/labels}}</a></li>
+		<li><a href="/user/register">{{#labels}}{{new_registration}}{{/labels}}</a></li>
+</ul>
+</div>
+{{>footer}}

@@ -2,12 +2,12 @@
 	<table class="graphs table table-striped">
 	    <thead>
 	        <tr>
-	            <th class="regionCode">Country code</th>
-	            <th class="regionName">Country name</th>
-	            <th class="indicatorCode">Indicator code</th>
-	            <th class="indicatorName">Indicator name</th>
-	            <th class="value">Value</th>
-	            <th class="time">Year</th>
+	            <th class="regionCode">{{#labels}}{{country-code}}{{/labels}}</th>
+	            <th class="regionName">{{#labels}}{{country-name}}{{/labels}}</th>
+	            <th class="indicatorCode">{{#labels}}{{indicator-code}}{{/labels}}</th>
+	            <th class="indicatorName">{{#labels}}{{indicator-name}}{{/labels}}</th>
+	            <th class="value">{{#labels}}{{value}}{{/labels}}</th>
+	            <th class="time">{{#labels}}{{year}}{{/labels}}</th>
 	        </tr>
 	    </thead>
 	    <tbody>
