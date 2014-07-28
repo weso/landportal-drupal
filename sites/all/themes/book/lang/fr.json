@@ -209,11 +209,11 @@
   "searching_datasets": "Recherche de données...",
   "read_more_about_us": "À propos de nous",
   "country": "Pays",
-  "time": "Temps",
+  "time": "Heure",
   "tendency": "Évolution",
   "world_bank": "Banque mondiale",
   "world_ranking": "Classement mondial de",
-  "create_your_widgets": "Créez vous propres widgets",
+  "create_your_widgets": "Créez votre propres widgets",
   "first_name": "Prénom",
   "last_name": "Nom",
   "api_access_token": "Jeton d'accès API",
@@ -281,5 +281,12 @@
   "low_inequality": "L'absence ou peu d'inégalité",
   "mid_inequality": "Inégalité normale",
   "no_data_inequality": "Sans données",
-  "no_comments": "Actuellement, il n'y a pas de commentaires"
+  "no_comments": "Actuellement, il n'y a pas de commentaires",
+  "country-code": "Code du pays",
+  "country-name": "Nom du pays",
+  "indicator-code": "Code d'indicateur",
+  "indicator-name": "Nom d'indicateur",
+  "year": "Année",
+  "values": "Valeurs",
+  "years": "Années"
 }

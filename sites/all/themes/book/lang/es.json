@@ -27,7 +27,7 @@
     "gender": "Género",
     "hunger": "Hambre",
     "specific_country": "País específico",
-    "full_data": "Información de",
+    "full_data": "Toda la información de",
     "more_about_the_indicators": "Más acerca de los indicadores",
     "more_about_areas_and_countries": "Más acerca de los áreas y países",
     "more_resources": "Más recursos sobre",
@@ -209,7 +209,7 @@
     "searching_datasets": "Buscando los conjuntos de datos...",
     "read_more_about_us": "Más sobre nosotros",
     "country": "País",
-    "time": "Momento",
+    "time": "Hora",
     "tendency": "Tendencia",
     "world_bank": "Banco Mundial",
     "world_ranking": "Clasificación mundial para",
@@ -281,5 +281,12 @@
   "low_inequality": "Baja desigualdad",
   "mid_inequality": "Desigualdad media",
   "no_data_inequality": "Sin datos",
-  "no_comments": "Actualmente no hay comentarios"
+  "no_comments": "Actualmente no hay comentarios",
+  "country-code": "Código de país",
+  "country-name": "Nombre de país",
+  "indicator-code": "Código de indicador",
+  "indicator-name": "Nombre de indicador",
+  "year": "Año",
+  "values": "Valores",
+  "years": "Años"
 }
