@@ -2862,3 +2862,11 @@ div.drupal-form-help {
 div.facilitator {
 	margin-top: 1em;
 }
+
+/* IE DISCLAIMER */
+
+.ie-disclaimer {
+	background-color: #F2F5A9;
+	color: #2A1B0A;
+	border-bottom: 0.1em solid #FACC2E;
+}

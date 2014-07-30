@@ -288,5 +288,6 @@
   "indicator-name": "Nom d'indicateur",
   "year": "Année",
   "values": "Valeurs",
-  "years": "Années"
+  "years": "Années",
+  "ie-disclaimer": "The browser that you are using doesn't follow web standards. In order to have a pleasant experience upgrade your browser or download a modern one as Google Chrome or Mozilla Firefox."
 }
