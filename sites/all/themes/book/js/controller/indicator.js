@@ -233,8 +233,8 @@ var pageStatus = wesCountry.stateful.start({
 		indicator = indicatorSelector.options[indicatorSelector.selectedIndex].innerHTML;
 
 		var description = String.format("{0} @landportal", indicator);
-		var url = document.URL;
 
+		var url = wesCountry.stateful.getFullURL();
 		util.generateShareLinks(url, description);
 	},
 	elements: [

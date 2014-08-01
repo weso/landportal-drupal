@@ -100,6 +100,9 @@ var util = new (function() {
 	// Share
 
 	this.generateShareLinks = function (url, description) {
+		url = encodeURIComponent(url);
+		description = encodeURIComponent(description);
+		
 		generateTwitterLink(url, description);
 		generateMailLink(url, description);
 		generateFacebookLink(url, description);

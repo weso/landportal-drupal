@@ -282,7 +282,7 @@ function callback(data) {
 		chart = wesCountry.charts.chart(data);
 
 	// Generate download links
-	generateDownloadLinks(chart);
+	//generateDownloadLinks(chart);
 }
 
 function renderChart(type, label_x, label_y) {
@@ -314,12 +314,14 @@ function renderChart(type, label_x, label_y) {
 	showPermalink(url)
 
 	// Share links
+	url = encodeURIComponent(url);
+
 	generateTwitterLink(url);
 	generateMailLink(url);
 	generateFacebookLink(url);
 	generateLinkedinLink(url);
 }
-
+/*
 function generateDownloadLinks(chart) {
 	var canvas = document.getElementById('canvas');
 	canvas.width = mapDiv.offsetWidth;
@@ -331,7 +333,7 @@ function generateDownloadLinks(chart) {
 	document.getElementById('jpg-link').href = 'data:image/jpg;' + canvas.toDataURL("image/jpg");
 	document.getElementById('gif-link').href = 'data:image/gif;' + canvas.toDataURL("image/gif");
 	document.getElementById('svg-link').href = 'data:image/svg+xml;utf8,' + chart.toString();
-}
+}*/
 
 // Permalink
 
@@ -347,7 +349,7 @@ function generateTwitterLink(url) {
 	var link = document.getElementById('twitter-link');
 
 	if (link) {
-		link.href = 'https://twitter.com/intent/tweet?original_referer=&text=' + title + ' ' + description +
+		link.href = 'https://twitter.com/intent/tweet?original_referer=&text=' + encodeURIComponent(title) + ' ' + encodeURIComponent(description) +
 
 		'&tw_p=tweetbutton&url=' + url + '&via=landportal';
 	}
@@ -359,7 +361,7 @@ function generateMailLink(url) {
 	var link = document.getElementById('mail-link');
 
 	if (link) {
-		link.href = 'mailto:?subject=' + title + '&body=' + title + ' ' + description + ' ' + url;
+		link.href = 'mailto:?subject=' + encodeURIComponent(title) + '&body=' + encodeURIComponent(title) + ' ' + encodeURIComponent(description) + ' ' + encodeURIComponent(url);
 	}
 }
 
@@ -369,7 +371,7 @@ function generateFacebookLink(url) {
 	var link = document.getElementById('facebook-link');
 
 	if (link) {
-		link.href = 'https://www.facebook.com/dialog/feed?app_id=145634995501895&display=popup&caption=' + title + ' ' + description +
+		link.href = 'https://www.facebook.com/dialog/feed?app_id=145634995501895&display=popup&caption=' + encodeURIComponent(title) + ' ' + encodeURIComponent(description) +
 					'&link=' + url +
 					'&redirect_uri=https://developers.facebook.com/tools/explorer';
 	}
@@ -382,7 +384,7 @@ function generateLinkedinLink(url) {
 
 	if (link) {
 		link.href = 'http://www.linkedin.com/shareArticle?mini=true&url=' + url +
-					'&title=' + title + '&summary=' + description + '&source=landportal.info';
+					'&title=' + encodeURIComponent(title) + '&summary=' + encodeURIComponent(description) + '&source=landportal.info';
 	}
 }
 

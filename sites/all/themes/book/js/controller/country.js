@@ -193,8 +193,8 @@ wesCountry.stateful.start({
 		var countryName = countrySelector.querySelector(String.format("option[value={0}]", country)).innerHTML;
 
 		var description = String.format("{0} @landportal", countryName);
-		var url = document.URL;
 
+		var url = wesCountry.stateful.getFullURL();
 		util.generateShareLinks(url, description);
 	},
 	elements: [
@@ -726,7 +726,7 @@ function showCountryInfo(info) {
 }
 
 function selectCountry(e, info) {
-	if (!info.value)
+	if (!info || !info.value)
 		return;
 
 	var selected = document.querySelectorAll('.selected-country');
