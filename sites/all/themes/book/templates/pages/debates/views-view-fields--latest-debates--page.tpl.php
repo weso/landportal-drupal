@@ -7,6 +7,7 @@
 ?>
 
 <?php require_once(drupal_get_path("theme", "book") ."/template-loader.php"); ?>
+<?php require_once(drupal_get_path("theme", "book") ."/utils/utils.php"); ?>
 <?php $labels = get_labels($application_data['languages']); ?>
 <?php $field_date_begining = strtotime($row->field_data_field_date_field_date_value); ?>
 <?php $field_date_end = strtotime($row->field_data_field_date_field_date_value2); ?>
@@ -63,7 +64,7 @@
         <div class="topics"><?php print $fields["field_related_topics"]->content; ?></div>
         <!-- Content teaser -->
         <div class="debate-description">
-            <p><?php print $fields["body"]->content; ?></p>
+            <p><?php print closetags($fields["body"]->content); ?></p>
         </div>
         <!-- Read more -->
         <p class="read-more">

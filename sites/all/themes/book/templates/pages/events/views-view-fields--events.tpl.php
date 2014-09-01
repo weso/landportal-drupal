@@ -7,6 +7,7 @@
  */
 ?>
 <?php require_once(drupal_get_path("theme", "book") ."/template-loader.php"); ?>
+<?php require_once(drupal_get_path("theme", "book") ."/utils/utils.php"); ?>
 <?php $labels = get_labels($application_data['languages']); ?>
 
 <div class="row events-entry">
@@ -41,7 +42,7 @@
     </header>
     <!-- Content teaser -->
     <div class="event-description">
-        <p><?php print $fields["body"]->content; ?></p>
+        <p><?php print closetags($fields["body"]->content); ?></p>
     </div>
     <!-- Read more -->
     <p class="read-more">
