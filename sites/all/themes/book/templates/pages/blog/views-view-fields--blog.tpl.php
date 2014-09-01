@@ -6,6 +6,7 @@
  */
 ?>
 <?php require_once(drupal_get_path("theme", "book") ."/template-loader.php"); ?>
+<?php require_once(drupal_get_path("theme", "book") ."/utils/utils.php"); ?>
 <?php $labels = get_labels($application_data['languages']); ?>
 
 <div class="row blog-entry">
@@ -38,7 +39,7 @@
     </div>
     <!-- Content teaser -->
     <div class="blog-post-description">
-        <p><?php print $fields["body"]->content; ?></p>
+        <p><?php print closetags($fields["body"]->content); ?></p>
     </div>
     <!-- Read more -->
     <p class="read-more">
