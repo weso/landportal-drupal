@@ -12,6 +12,7 @@ stylesheets[all][] = static/css/wesCountry.min.css
 scripts[] = js/libraries/jquery-2.1.0.min.js
 scripts[] = js/libraries/bootstrap.min.js
 scripts[] = js/util.js
+scripts[] = js/search.js
 scripts[] = js/libraries/wesCountry.min.js
 scripts[] = js/libraries/seedrandom.min.js
 scripts[] = js/libraries/StackBlur.js
