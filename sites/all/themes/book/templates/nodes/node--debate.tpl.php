@@ -136,7 +136,17 @@
               unset($content['links']['comment']['#links']['comment-add']);
             }
           ?>
-          <?php print render($content['comments']); ?>
+          <?php if ($comment_count > 0 || $logged_in): ?>
+            <?php print render($content['comments']); ?>
+          <?php else: ?>
+            <p>
+              <a href="/user/login"><?php print($labels['login']); ?></a>
+              <?php echo " ", $labels['or'], " "; ?>
+              <a href="/user/register"><?php print($labels["signup"]); ?></a>
+              <?php echo " ", $labels['to_post_comments'], "."; ?>
+            </p>
+          <?php endif; ?>
+          
         </div>
       </div>
     </div>
