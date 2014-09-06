@@ -19,16 +19,13 @@
 <div class='row'>
     <div class='col-sm-12'>
         <div class='search-forms'>
-            <form class="search-form" action="/search/site/" method="post" id="search-form" accept-charset="UTF-8">
+            <form class="search-form" action="/search/site/" method="post" id="search-form" accept-charset="UTF-8" onSubmit="return landportalSearchListener();">
                 <div class="input-group search site-search">
-                    <input id="edit-keys" name="keys" value="<?php echo htmlspecialchars($search_terms); ?>" type="text" class="form-control" placeholder="<?php echo $labels['search']; ?>">
+                <input type="text" name="keys" value="<?php echo htmlspecialchars($search_terms); ?>" class="form-control" placeholder="<?php echo $labels['search']; ?>" name="srch-term" id="srch-term">
                     <div class="input-group-btn">
                         <button class="btn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                     </div>
                 </div>
-                <input type="hidden" name="form_token" value="IabUpQ1BgsCKvkRK1u5di2yBw0J8GAOLsetmTzFCQyI">
-                <input type="hidden" name="form_build_id" value="form-QuQXQvEeNVWHMYgpC0NDa-VnGRqqoeS683QFCjxt3og">
-                <input type="hidden" name="form_id" value="apachesolr_search_custom_page_search_form">
             </form>
         </div>
     </div>
