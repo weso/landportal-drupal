@@ -58,7 +58,7 @@
         <?php print render($content["body"]); ?>
       </div>
       <div class="website">
-        <a href="<?php echo $node->field_web_site['und']['0']['url']; ?>"><?php echo $labels["visit_website"]; ?></a>
+        <a href="<?php echo $node->field_link['und']['0']['url']; ?>"><?php echo $labels["visit_website"]; ?></a>
       </div>
     </div>
     <!-- Right column -->
