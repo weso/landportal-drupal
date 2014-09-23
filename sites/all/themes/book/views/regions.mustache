@@ -60,7 +60,7 @@
 		  <select id="source-select" multiple="multiple" class="form-control data-sources">
 		  	{{#selectors}}
 			  	{{#data-sources}}
-					<option value="{{organization_id}}" title="{{name}}">{{name}}</option>
+					<option value="{{id}}" title="{{name}}">{{name}}</option>
 				{{/data-sources}}
 			{{/selectors}}
 		  </select>
@@ -82,7 +82,7 @@
 			<div>
 				{{#selectors}}
 					{{#data-sources}}
-						<select data-source="{{organization_id}}" class="form-control topic-indicator-select data-sources hidden" multiple="multiple">
+						<select data-source="{{id}}" class="form-control topic-indicator-select data-sources hidden" multiple="multiple">
 							{{#indicators}}
 								<option value="{{id}}" title="{{name}}">{{name}}</option>
 							{{/indicators}}

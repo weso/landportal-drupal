@@ -46,3 +46,6 @@ sites/all/modules/*
 *~
 
 !sites/all/modules/custom/modules/landportal_uris/cache
+
+# Ignore DS_Store
+.DS_Store
