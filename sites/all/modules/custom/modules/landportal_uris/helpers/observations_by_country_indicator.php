@@ -39,7 +39,7 @@ function _mergeCountries($country1, $countryData1, $country2, $countryData2) {
     $series = array($country1 => array("name" => $countryData1["name"], "values" => array()));
     $data = $countryData1["result"];
 
-    for ($i = 0; $i < count($times); $i++) {
+     for ($i = count($times); $i >= 0; $i--) {
         $time = $times[$i];
         $value = isset($data[$time]) ? $data[$time]["value"] : NULL;
         array_push($series[$country1]["values"], $value);
@@ -48,7 +48,7 @@ function _mergeCountries($country1, $countryData1, $country2, $countryData2) {
     $series[$country2] = array("name" => $countryData2["name"], "values" => array());
     $data = $countryData2["result"];
 
-    for ($i = 0; $i < count($times); $i++) {
+     for ($i = count($times); $i >= 0; $i--) {
         $time = $times[$i];
         $value = isset($data[$time]) ? $data[$time]["value"] : NULL;
         array_push($series[$country2]["values"], $value);
