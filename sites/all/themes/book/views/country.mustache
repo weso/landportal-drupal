@@ -199,7 +199,7 @@
 					{{#data-sources}}
 						<select data-source="{{name}}" class="form-control topic-indicator-select hidden">
 							{{#indicators}}
-								<option value="{{id}}" title="{{name}}">{{name}}</option>
+								<option {{^with_data}}disabled="disabled"{{/with_data}} value="{{id}}" title="{{name}}">{{name}}</option>
 							{{/indicators}}
 						</select>
 					{{/data-sources}}

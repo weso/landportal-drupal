@@ -85,7 +85,8 @@ timelineOptions.getChartData = function(options, data) {
 		series.push(data.series[serie1]);
 		series.push(data.series[serie2]);
 
-		series[1].name = serie2Name;
+		if (series[1])
+			series[1].name = serie2Name;
 
 		options.series = series
 		options.xAxis.values = data.times;
@@ -95,8 +96,8 @@ timelineOptions.getChartData = function(options, data) {
 		document.getElementById('compare-legend-circle-1').style.backgroundColor = options.serieColours[0];
 		document.getElementById('compare-legend-circle-2').style.backgroundColor = options.serieColours[1];
 
-		document.getElementById('compare-legend-text-1').innerHTML = series && series.length > 0 ? series[0].name : "";
-		document.getElementById('compare-legend-text-2').innerHTML = series && series.length > 1 ? series[1].name : "";
+		document.getElementById('compare-legend-text-1').innerHTML = series && series[0] ? series[0].name : "";
+		document.getElementById('compare-legend-text-2').innerHTML = series && series[1] ? series[1].name : "";
 
 		// Foot
 		options.foot = getDatasourceLink(data.organization_id, data.organization_name);
@@ -175,7 +176,7 @@ wesCountry.stateful.start({
 			var index = selectors['#country-comparing-select'].selectedIndex;
 
 			if (index == thisCountryOption.index)
-				selectors['#country-comparing-select'].selectedIndex = index++;
+				selectors['#country-comparing-select'].selectedIndex = ++index;
 		}
 
 		selectors['#country-comparing-select'].refresh();
@@ -193,8 +194,8 @@ wesCountry.stateful.start({
 		var countryName = countrySelector.querySelector(String.format("option[value={0}]", country)).innerHTML;
 
 		var description = String.format("{0} @landportal", countryName);
-		var url = document.URL;
 
+		var url = wesCountry.stateful.getFullURL();
 		util.generateShareLinks(url, description);
 	},
 	elements: [
@@ -527,15 +528,22 @@ function loadIndicatorSelect(parameters, selectors) {
 	var options = [];
 	var datasource = null;
 
+	var found = false;
+
 	if (indicator != "") {
 		var option = document.querySelector('.topic-indicator-select option[value=' + indicator + ']');
+
+		found = option.disabled ? false : true;
+
 		var datasourceSelect = option ? option.parentNode : null;
 
 		options = datasourceSelect.options;
 		datasource = datasourceSelect.getAttribute('data-source');
 	}
-	else {
-		var datasourceSelect = document.querySelector('.topic-indicator-select');
+
+	if (indicator == "" || !found) {
+		var option = document.querySelector('.topic-indicator-select option:not([disabled])');
+		var datasourceSelect = option ? option.parentNode : null;
 
 		options = datasourceSelect ? datasourceSelect.options : [];
 		datasource = datasourceSelect.getAttribute('data-source');
@@ -552,6 +560,7 @@ function loadIndicatorSelect(parameters, selectors) {
 		var value = option.value;
 		var html = option.innerHTML;
 		var title = option.title;
+		var disabled = option.disabled;
 
 		// If indicator in query then set as selected
 		if (value == indicator)
@@ -561,6 +570,10 @@ function loadIndicatorSelect(parameters, selectors) {
 		option.value = value;
 		option.innerHTML = html;
 		option.title = title;
+
+		if (disabled)
+			option.disabled = true;
+
 		selector.appendChild(option);
 	}
 
@@ -597,26 +610,35 @@ function loadIndicatorsFromSource(parameters, selectors) {
 
 	selector.innerHTML = '';
 
-	var selectedIndex = 0;
+	var selectedIndex = -1;
+	var firstNotDisabled = -1;
 
 	for (var i = 0; i < length; i++) {
 		var option = options[i];
 		var value = option.value;
 		var html = option.innerHTML;
 		var title = option.title;
+		var disabled = option.disabled;
 
-		if (indicator == value)
+		if (!disabled && indicator == value)
 			selectedIndex = i;
+
+		if (!disabled && firstNotDisabled == -1)
+			firstNotDisabled = i;
 
 		option = document.createElement('option');
 		option.value = value;
 		option.innerHTML = html;
 		option.title = title;
+
+		if (disabled)
+			option.disabled = true;
+
 		selector.appendChild(option);
 	}
 
-	if (length > 0)
-		selector.selectedIndex = selectedIndex;
+	if (length > 0 && (selectedIndex != -1 && firstNotDisabled != -1))
+		selector.selectedIndex = selectedIndex != - 1 ? selectedIndex : firstNotDisabled;
 
 	selector.setAttribute('data-source', source);
 
@@ -726,7 +748,7 @@ function showCountryInfo(info) {
 }
 
 function selectCountry(e, info) {
-	if (!info.value)
+	if (!info || !info.value)
 		return;
 
 	var selected = document.querySelectorAll('.selected-country');
