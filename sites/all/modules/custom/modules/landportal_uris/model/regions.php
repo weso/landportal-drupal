@@ -24,7 +24,7 @@ class Regions {
 			$countries = $database->query("countries_without_region", array($lang));
 			$database->close();
 			$result = $this->compose_data($regions, $datasources, $countries);
-			$cache->store($rseult);
+			$cache->store($result);
 			return $result;
 		}
 	}
