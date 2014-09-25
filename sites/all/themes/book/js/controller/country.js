@@ -82,11 +82,15 @@ timelineOptions.getChartData = function(options, data) {
 
 		var serie2Name = comparingSelector.options[comparingSelector.selectedIndex].innerHTML;
 
-		series.push(data.series[serie1]);
-		series.push(data.series[serie2]);
+		if (data.series[serie1])
+			series.push(data.series[serie1]);
 
-		if (series[1])
-			series[1].name = serie2Name;
+		if (data.series[serie2]) {
+			serie = data.series[serie2];
+			serie.name = serie2Name;
+
+			series.push(serie);
+		}
 
 		options.series = series
 		options.xAxis.values = data.times;
@@ -142,10 +146,15 @@ function getStarredChartData(options, data) {
 
 	var serie2Name = comparingSelector.options[comparingSelector.selectedIndex].innerHTML;
 
-	series.push(data.series[serie1]);
-	series.push(data.series[serie2]);
+	if (data.series[serie1])
+		series.push(data.series[serie1]);
 
-	series[1].name = serie2Name;
+	if (data.series[serie2]) {
+		serie = data.series[serie2];
+		serie.name = serie2Name;
+
+		series.push(serie);
+	}
 
 	options.series = series
 	options.xAxis.values = data.times;
@@ -261,6 +270,9 @@ wesCountry.stateful.start({
 					for (var i = 0; i < texts.length; i++)
 						texts[i].innerHTML = value;
 				}
+
+				// Comparing country graph
+				loadComparingTimeline(parameters);
 			}
 		},
 		{
@@ -307,7 +319,6 @@ function loadComparingTimeline(parameters) {
 		parameters: String.format("country1={0}&country2={1}&indicator={2}&language={3}",
 															country1, country2, indicator, languageCode),
 	});
-
 
 	for (var indicator in starredLoaderList) {
 		starredLoaderList[indicator].load({
