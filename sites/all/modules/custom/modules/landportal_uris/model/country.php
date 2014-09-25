@@ -40,7 +40,7 @@ class Country {
 			if (!$info && function_exists("drupal_goto")) {
 				drupal_goto("e404");
 			}
-			
+
 			$countries = $database->query("countries_without_region", array($lang));
 			$indicators_imploded = "'". implode("','", $this->spiderIndicators) ."','".  implode("','", $this->tableIndicators) ."','". implode("','", $this->gaugeIndicators) ."'";
 			$chart_indicators = $database->query("indicators_by_ids", array($lang, $indicators_imploded));
@@ -159,6 +159,8 @@ class Country {
 				"faoURI" => utf8_encode($data[$i]["faoURI"]),
 				"iso2" => $data[$i]["iso2"],
 				"iso3" => $data[$i]["iso3"],
+				"data" => $data[$i]["data"] > 0,
+				"region" => $data[$i]["is_part_of_id"]
 			);
 			array_push($result, $country);
 		}

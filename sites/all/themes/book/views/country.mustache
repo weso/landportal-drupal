@@ -141,7 +141,7 @@
 			  <select id="country-comparing-select" class="form-control">
 			  	{{#selectors}}
 				  	{{#countries}}
-						<option value="{{iso3}}">{{name}}</option>
+						<option value="{{iso3}}" data-region="{{region}}" {{^data}}disabled="disabled"{{/data}}>{{name}}</option>
 					{{/countries}}
 				{{/selectors}}
 			  </select>
