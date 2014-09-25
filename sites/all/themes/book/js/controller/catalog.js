@@ -1,4 +1,4 @@
-var ckanURL = 'http://5.9.221.11/data/';
+var ckanURL = '/data/';
 
 $( document ).ajaxStart(function() {
 	showLoading();
