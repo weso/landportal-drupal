@@ -16,6 +16,9 @@
       ->entityCondition('entity_type', 'node')
       ->propertyCondition('status', 1)
       ->propertyCondition('uid', $user_id)
+      //->extend('PagerDefault')
+      ->orderBy('created', 'DESC')
+      ->range(0, 20)
       ->execute();
 ?>
 
@@ -89,7 +92,7 @@
             <h2><?php echo $labels['user_created_content']; ?></h2>
                 <?php
                     foreach ($created_node_nids["node"] as $node) {
-                        echo drupal_render(node_view(node_load($node->nid), 'user-profile'));
+                      echo drupal_render(node_view(node_load($node->nid), 'user-profile'));
                     }
                 ?>
             </div>
