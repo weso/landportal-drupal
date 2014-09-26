@@ -9,10 +9,10 @@
 <?php $labels = get_labels($application_data['languages']); ?>
 
 <div class="row debate-entry">
-  <div class="col-sm-12">
+  <div class="col-sm-12" style="min-height: 250px; text-align: center;">
     <!-- Image -->
     <?php print $fields["field_image"]->content; ?>
     <!-- Title -->
-    <h3><?php print $fields["title"]->content; ?></h3>
+    <br/><?php print $fields["title"]->content; ?>
   </div>
 </div>
