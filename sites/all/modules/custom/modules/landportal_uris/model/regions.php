@@ -6,7 +6,7 @@ require_once(dirname(__FILE__) .'/../cache/cache_helper.php');
 
 class Regions {
 
-	public function get($options, $region) {
+	public function get($options) {
 		$lang = $options->language;
 		$api = $options->host;
 
@@ -89,7 +89,7 @@ class Regions {
 		$countries = array();
 		for ($i = 0; $i < count($data); $i++) {
 			$country = array(
-				"id" => $data[$i]["country_id"],
+				"id" => $data[$i]["id"],
 				"faoURI" => utf8_encode($data[$i]["faoURI"]),
 				"iso3" => $data[$i]["iso3"],
 				"iso2" => $data[$i]["iso2"],
