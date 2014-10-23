@@ -295,6 +295,8 @@ wesCountry.stateful.start({
 				// Avoid selecting an unselectable option for country-comparing-select
 				// We select the first selectable country of the same region of this country
 				var selector = selectors['#country-comparing-select'];
+				
+				var thisCountryOption = selectors['#country-comparing-select'].querySelector(String.format('option[value={0}]', countryCode));
 
 				var option = selector.querySelector("option:not([disabled])");
 				var region = thisCountryOption && thisCountryOption.hasAttribute("data-region") ? thisCountryOption.getAttribute("data-region") : "";
