@@ -185,7 +185,7 @@ wesCountry.stateful.start({
 
 		// Avoid selecting an unselectable option for country-comparing-select
 		// We select the first selectable country of the same region of this country
-
+/*
 		var selector = selectors['#country-comparing-select'];
 
 		var option = selector.querySelector("option:not([disabled])");
@@ -198,6 +198,8 @@ wesCountry.stateful.start({
 		selector.selectedIndex = optionSameRegion && optionSameRegion.index ? optionSameRegion.index: option;
 
 		selectors['#country-comparing-select'].refresh();
+		
+		*/
 
 		// Show fixed charts
 		showFixedCharts();
