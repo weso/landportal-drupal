@@ -291,6 +291,20 @@ wesCountry.stateful.start({
 		{
 			name: "comparing-country",
 			selector: "#country-comparing-select",
+			selectedIndex: function(parameters, selectors) {
+				// Avoid selecting an unselectable option for country-comparing-select
+				// We select the first selectable country of the same region of this country
+				var selector = selectors['#country-comparing-select'];
+
+				var option = selector.querySelector("option:not([disabled])");
+				var region = thisCountryOption && thisCountryOption.hasAttribute("data-region") ? thisCountryOption.getAttribute("data-region") : "";
+
+				var optionSameRegion = selector.querySelector("option[data-region='" + region + "']:not([disabled])");
+
+				option = option && option.index ? option.index: -1;
+
+				return optionSameRegion && optionSameRegion.index ? optionSameRegion.index: option;
+			},
 			onChange: function(index, value, parameters, selectors) {
 				console.log("comparing-country: onChange: " + value);
 				loadComparingTimeline(parameters);
