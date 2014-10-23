@@ -230,6 +230,7 @@ wesCountry.stateful.start({
 			},
 			selector: "#source-select",
 			onChange: function(index, value, parameters, selectors) {
+				console.log("source-select: onChange");
 				// Load indicator select
 				loadIndicatorsFromSource(parameters, selectors);
 
@@ -261,6 +262,7 @@ wesCountry.stateful.start({
 			name: "indicator",
 			selector: "#indicator-select",
 			onChange: function(index, value, parameters, selectors) {
+				console.log("indicator-select: onChange");
 			/*
 				// Set this indicator source
 				var source = selectors['#indicator-select'].options[index].parentNode.label;
@@ -288,6 +290,7 @@ wesCountry.stateful.start({
 			name: "comparing-country",
 			selector: "#country-comparing-select",
 			onChange: function(index, value, parameters, selectors) {
+				console.log("comparing-country: onChange");
 				loadComparingTimeline(parameters);
 			}
 		}
