@@ -328,6 +328,8 @@ function loadComparingTimeline(parameters) {
 	
 	if (!country1 || country1 == "" || !country2 || country2 == "" || !indicator || indicator == "")
 		return;
+		
+	alert("load Data");
 	
 	timelineLoader.load({
 		url: ajaxURL + '/observations_by_country.php',
