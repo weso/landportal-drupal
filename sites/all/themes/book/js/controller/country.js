@@ -232,7 +232,7 @@ wesCountry.stateful.start({
 			},
 			selector: "#source-select",
 			onChange: function(index, value, parameters, selectors) {
-				console.log("source-select: onChange: " + value);
+				alert("source-select: onChange: " + value);
 				// Load indicator select
 				loadIndicatorsFromSource(parameters, selectors);
 
@@ -264,7 +264,7 @@ wesCountry.stateful.start({
 			name: "indicator",
 			selector: "#indicator-select",
 			onChange: function(index, value, parameters, selectors) {
-				console.log("indicator-select: onChange: " + value);
+				alert("indicator-select: onChange: " + value);
 			/*
 				// Set this indicator source
 				var source = selectors['#indicator-select'].options[index].parentNode.label;
@@ -308,7 +308,7 @@ wesCountry.stateful.start({
 				return optionSameRegion && optionSameRegion.index ? optionSameRegion.index: option;
 			},
 			onChange: function(index, value, parameters, selectors) {
-				console.log("comparing-country: onChange: " + value);
+				alert("comparing-country: onChange: " + value);
 				loadComparingTimeline(parameters);
 			}
 		}
@@ -347,7 +347,7 @@ function loadComparingTimeline(parameters) {
 	if (!country1 || country1 == "" || !country2 || country2 == "" || !indicator || indicator == "")
 		return;
 		
-	console.log(String.format("load Data country:{0}, comparing:{1}, indicator:{2}", country1, country2, indicator));
+	alert(String.format("load Data country:{0}, comparing:{1}, indicator:{2}", country1, country2, indicator));
 	
 	timelineLoader.load({
 		url: ajaxURL + '/observations_by_country.php',
