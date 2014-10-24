@@ -4,6 +4,9 @@ var ajaxURL = document.getElementById('api-url').value;
 var languageCode = document.getElementById('selected-language').value;
 var countryCode = document.getElementById('entity-id').value;
 
+// Stack to store ajax call indicators
+var callStack = [];
+
 ////////////////////////////////////////////////////////////////////////////////
 //                                 LOADERS
 ////////////////////////////////////////////////////////////////////////////////
@@ -135,6 +138,9 @@ for (var i = 0; i < starredIndicatorList.length; i++) {
 }
 
 function getStarredChartData(options, data) {
+	// Check and load if there are more indicators in the stack
+	loadSmallChartFromStack();
+
 	data = JSON.parse(data);
 
 	var series = [];
@@ -354,25 +360,27 @@ function loadComparingTimeline(parameters) {
 		parameters: String.format("country1={0}&country2={1}&indicator={2}&language={3}",
 															country1, country2, indicator, languageCode),
 	});
-
-	var count = 0;
 	
-	for (var indicator in starredLoaderList) {
-		if (count == 3)
-			break;
-			
-		(function(indicator, elapse) {
-			
-			setTimeout(function() {
-				starredLoaderList[indicator].load({
-					url: ajaxURL + '/observations_by_country.php',
-					parameters: String.format("country1={0}&country2={1}&indicator={2}&language={3}",
-																		country1, country2, indicator, languageCode),
-				});
-			}, elapse);
-		})(indicator, count * 1000);
+	// Fill call stack
+	callStack = [];
+	
+	for (var indicator in starredLoaderList)
+		callStack.push(indicator);
 		
-		count++;
+	loadSmallChartFromStack();
+}
+
+// Comparing timeline small charts (Stack)
+
+function loadSmallChartFromStack() {
+	if (callStack.length > 0) {
+		var indicator = callStack.shift();
+		
+		starredLoaderList[indicator].load({
+			url: ajaxURL + '/observations_by_country.php',
+			parameters: String.format("country1={0}&country2={1}&indicator={2}&language={3}",
+																	country1, country2, indicator, languageCode),
+		});
 	}
 }
 
