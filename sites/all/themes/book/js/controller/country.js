@@ -336,7 +336,7 @@ wesCountry.stateful.start({
 						break;
 					}
 				}
-				
+			console.log(optionSameRegion)	
 				option = option && option.index ? option.index: -1;
 
 				return optionSameRegion && optionSameRegion.index ? optionSameRegion.index: option;
