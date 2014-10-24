@@ -365,7 +365,14 @@ function loadComparingTimeline(parameters) {
 	callStack = [];
 	
 	for (var indicator in starredLoaderList)
-		callStack.push(indicator);
+		callStack.push({
+			indicator: indicator,
+			ajaxOptions: {
+				url: ajaxURL + '/observations_by_country.php',
+				parameters: String.format("country1={0}&country2={1}&indicator={2}&language={3}",
+																		country1, country2, indicator, languageCode),
+			}
+		});
 		
 	loadSmallChartFromStack();
 }
@@ -374,13 +381,9 @@ function loadComparingTimeline(parameters) {
 
 function loadSmallChartFromStack() {
 	if (callStack.length > 0) {
-		var indicator = callStack.shift();
+		var options = callStack.shift();
 		
-		starredLoaderList[indicator].load({
-			url: ajaxURL + '/observations_by_country.php',
-			parameters: String.format("country1={0}&country2={1}&indicator={2}&language={3}",
-																	country1, country2, indicator, languageCode),
-		});
+		starredLoaderList[options.indicator].load(options.ajaxOptions);
 	}
 }
 
