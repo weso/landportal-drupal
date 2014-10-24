@@ -298,20 +298,42 @@ wesCountry.stateful.start({
 			name: "comparing-country",
 			selector: "#country-comparing-select",
 			selectedIndex: function(parameters, selectors) {
+				var selector = selectors['#country-comparing-select'];
+				var comparing = parameters["comparing-country"];
+				
+				if (comparing && comparing != "")  {
+					var option = selector.querySelector(String.format('option[value={0}]', comparing));
+					
+					if (option && option.index)
+						return option.index;
+				}
+				
 				// Avoid selecting an unselectable option for country-comparing-select
 				// We select the first selectable country of the same region of this country
-				var selector = selectors['#country-comparing-select'];
 				
-				var thisCountryOption = selectors['#country-comparing-select'].querySelector(String.format('option[value={0}]', countryCode));
+				var thisCountryOption = selector.querySelector(String.format('option[value={0}]', countryCode));
 
 				var option = selector.querySelector("option:not([disabled])");
 				var region = thisCountryOption && thisCountryOption.hasAttribute("data-region") ? thisCountryOption.getAttribute("data-region") : "";
 				
-				console.log(region)
-				var optionSameRegion = selector.querySelector("option[data-region='" + region + "']:not([disabled])");
-				console.log(optionSameRegion)
+				var selectorOptions = selector.options;
+				var optionSameRegion = null;
+				
+				for (var i = 0; i < selectorOptions.length; i++) {
+					var option = selectorOptions[i];
+					
+					if (option.disabled)
+						continue;
+						
+					if (!optionSameRegion)
+						optionSameRegion = option;
+						
+					if (option.getAttribute("data-region") == region)
+						break;
+				}
+				
 				option = option && option.index ? option.index: -1;
-alert("done")
+
 				return optionSameRegion && optionSameRegion.index ? optionSameRegion.index: option;
 			},
 			onChange: function(index, value, parameters, selectors) {
