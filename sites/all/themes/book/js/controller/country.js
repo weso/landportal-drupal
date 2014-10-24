@@ -358,14 +358,17 @@ function loadComparingTimeline(parameters) {
 	var count = 0;
 	
 	for (var indicator in starredLoaderList) {
-		setTimeout(function() {
-			starredLoaderList[indicator].load({
-				url: ajaxURL + '/observations_by_country.php',
-				parameters: String.format("country1={0}&country2={1}&indicator={2}&language={3}",
-																	country1, country2, indicator, languageCode),
-			});
-		}, count * 100);
-		
+		(function() {
+			var indicator = indicator;
+			
+			setTimeout(function() {
+				starredLoaderList[indicator].load({
+					url: ajaxURL + '/observations_by_country.php',
+					parameters: String.format("country1={0}&country2={1}&indicator={2}&language={3}",
+																		country1, country2, indicator, languageCode),
+				});
+			}, count * 100);
+		})()
 		count++;
 	}
 }
