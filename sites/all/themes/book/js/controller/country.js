@@ -313,7 +313,6 @@ wesCountry.stateful.start({
 				
 				var thisCountryOption = selector.querySelector(String.format('option[value={0}]', countryCode));
 
-				var option = selector.querySelector("option:not([disabled])");
 				var region = thisCountryOption && thisCountryOption.hasAttribute("data-region") ? thisCountryOption.getAttribute("data-region") : "";
 				
 				var selectorOptions = selector.options;
@@ -336,10 +335,8 @@ wesCountry.stateful.start({
 						break;
 					}
 				}
-		
-				option = option && option.index >= 0 ? option.index: -1;
 
-				return optionSameRegion && optionSameRegion.index >= 0 ? optionSameRegion.index: option;
+				return optionSameRegion && optionSameRegion.index >= 0 ? optionSameRegion.index: -1;
 			},
 			onChange: function(index, value, parameters, selectors) {
 				console.log("comparing-country: onChange: " + value);
