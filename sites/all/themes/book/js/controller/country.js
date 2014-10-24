@@ -366,7 +366,7 @@ function loadComparingTimeline(parameters) {
 																		country1, country2, indicator, languageCode),
 				});
 			}, elapse);
-		})(indicator, count * 100);
+		})(indicator, count * 1000);
 		
 		count++;
 	}
