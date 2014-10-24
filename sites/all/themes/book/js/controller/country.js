@@ -363,7 +363,7 @@ function loadComparingTimeline(parameters) {
 	
 	// Fill call stack
 	callStack = [];
-
+return;
 	for (var indicator in starredLoaderList)
 		callStack.push({
 			indicator: indicator,
