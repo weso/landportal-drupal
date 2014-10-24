@@ -331,8 +331,10 @@ wesCountry.stateful.start({
 					if (!optionSameRegion)
 						optionSameRegion = option;
 						
-					if (option.getAttribute("data-region") == region)
+					if (option.getAttribute("data-region") == region) {
+						optionSameRegion = option;
 						break;
+					}
 				}
 				
 				option = option && option.index ? option.index: -1;
