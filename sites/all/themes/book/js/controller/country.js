@@ -306,9 +306,10 @@ wesCountry.stateful.start({
 
 				var option = selector.querySelector("option:not([disabled])");
 				var region = thisCountryOption && thisCountryOption.hasAttribute("data-region") ? thisCountryOption.getAttribute("data-region") : "";
-
+				
+				alert(region)
 				var optionSameRegion = selector.querySelector("option[data-region='" + region + "']:not([disabled])");
-
+				alert(optionSameRegion)
 				option = option && option.index ? option.index: -1;
 
 				return optionSameRegion && optionSameRegion.index ? optionSameRegion.index: option;
