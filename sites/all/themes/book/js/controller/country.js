@@ -336,11 +336,10 @@ wesCountry.stateful.start({
 						break;
 					}
 				}
-			console.log(optionSameRegion)	
-			console.log(optionSameRegion && optionSameRegion.index ? optionSameRegion.index: option)
-				option = option && option.index ? option.index: -1;
+		
+				option = option && option.index >= 0 ? option.index: -1;
 
-				return optionSameRegion && optionSameRegion.index ? optionSameRegion.index: option;
+				return optionSameRegion && optionSameRegion.index >= 0 ? optionSameRegion.index: option;
 			},
 			onChange: function(index, value, parameters, selectors) {
 				console.log("comparing-country: onChange: " + value);
