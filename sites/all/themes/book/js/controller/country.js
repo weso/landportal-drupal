@@ -354,12 +354,12 @@ function loadComparingTimeline(parameters) {
 		parameters: String.format("country1={0}&country2={1}&indicator={2}&language={3}",
 															country1, country2, indicator, languageCode),
 	});
-	
+return;	
 	var count = 0;
 	
 	for (var indicator in starredLoaderList) {
 		(function(indicator, elapse) {
-			console.log(elapse)
+			
 			setTimeout(function() {
 				starredLoaderList[indicator].load({
 					url: ajaxURL + '/observations_by_country.php',
