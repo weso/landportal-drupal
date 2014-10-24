@@ -301,7 +301,7 @@ wesCountry.stateful.start({
 				var selector = selectors['#country-comparing-select'];
 				var comparing = parameters["comparing-country"];
 				
-				if (comparing && comparing != "")  {
+				if (comparing && comparing != "" && comparing != countryCode)  {
 					var option = selector.querySelector(String.format('option[value={0}]', comparing));
 					
 					if (option && option.index)
