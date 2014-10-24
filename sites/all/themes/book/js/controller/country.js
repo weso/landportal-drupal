@@ -359,6 +359,7 @@ function loadComparingTimeline(parameters) {
 	
 	for (var indicator in starredLoaderList) {
 		(function(indicator, elapse) {
+			console.log(elapse)
 			setTimeout(function() {
 				starredLoaderList[indicator].load({
 					url: ajaxURL + '/observations_by_country.php',
