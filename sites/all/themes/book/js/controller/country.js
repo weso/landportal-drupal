@@ -365,7 +365,7 @@ function loadComparingTimeline(parameters) {
 					parameters: String.format("country1={0}&country2={1}&indicator={2}&language={3}",
 																		country1, country2, indicator, languageCode),
 				});
-			}, count * 100);
+			}, count * 300);
 		})(indicator);
 		
 		count++;
