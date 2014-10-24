@@ -324,7 +324,10 @@ wesCountry.stateful.start({
 					
 					if (option.disabled)
 						continue;
-						
+					
+					if (option.value == countryCode)
+						continue;
+					
 					if (!optionSameRegion)
 						optionSameRegion = option;
 						
