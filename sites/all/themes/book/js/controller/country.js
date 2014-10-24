@@ -358,9 +358,7 @@ function loadComparingTimeline(parameters) {
 	var count = 0;
 	
 	for (var indicator in starredLoaderList) {
-		(function() {
-			var indicator = indicator;
-			
+		(function(indicator) {
 			setTimeout(function() {
 				starredLoaderList[indicator].load({
 					url: ajaxURL + '/observations_by_country.php',
@@ -368,7 +366,8 @@ function loadComparingTimeline(parameters) {
 																		country1, country2, indicator, languageCode),
 				});
 			}, count * 100);
-		})()
+		})(indicator);
+		
 		count++;
 	}
 }
