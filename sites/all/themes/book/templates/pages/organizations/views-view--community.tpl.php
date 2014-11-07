@@ -28,14 +28,6 @@
       </h1>
     </div>
   </div>
-  <?php if ($is_admin): ?>
-    <div class="row add-new-node">
-      <div class="col-sm-9"></div>
-      <div class="col-sm-3">
-        <a href="/node/add/organization"><button class="btn data-button"><?php echo $labels['create_new_organization']; ?></button></a>
-      </div>
-    </div>
-  <?php endif; ?>
   <div class="row">
     <div class="col-sm-9">
       <?php print render($title_prefix); ?>
@@ -68,14 +60,12 @@
       <?php endif; ?>
     </div> <!-- End column -->
     <div class="col-sm-3">
-      <?php if ($exposed): ?>
-        <div class="view-filters">
-          <?php print $exposed; ?>
-        </div>
-      <?php endif; ?>
       <div class="facebook-widget">
-        <!-- This is a temporal placeholder and not the real Facebook widget" This is a temporal placeholder and not the real Facebook widget-->
-        <img src="<?php echo "{$theme_path}/static/images/landportal-facebook-image.png"; ?>" alt="This is a temporal placeholder and not the real Facebook widget"></script>
+<iframe
+src="//www.facebook.com/plugins/likebox.php?href=https://www.facebook.com/landportal&width=292&colorscheme=light&show_faces=true&bordercolor&stream=true&header=true&height=880&show_border=false&force_wall=true"
+scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 340px; height: 880px;"
+allowTransparency="true" title="Like us on Facebook">
+</iframe>        <!-- This is a temporal placeholder and not the real Facebook widget -->
       </div>
     </div> <!-- End column -->
   </div> <!-- End row -->
