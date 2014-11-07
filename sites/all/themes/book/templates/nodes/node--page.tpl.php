@@ -37,27 +37,6 @@
     </div>
   </div>
   <div class="row node-view">
-    <div class="col-sm-3">
-      <div class="image">
-        <?php print render($content["field_image"]); ?>
-      </div>
-      <!-- Share buttons -->
-      <div class="social-buttons">
-        <h2 class="section">
-          <span><?php echo $labels["share"]; ?></span>
-        </h2>
-        <script src="<?php echo "{$theme_path}/js/share.js"; ?>"></script>
-      </div>
-      <!-- Edition buttons -->
-      <div class="row edition-buttons">
-        <?php if ($can_edit): ?>
-          <a href="<?php echo "/node/$node_id/edit"; ?>"><button class="btn data-button"><?php echo $labels['edit']; ?></button></a>
-        <?php endif; ?>
-        <?php if ($can_delete): ?>
-          <a href="<?php echo "/node/$node_id/delete"; ?>"><button class="btn data-button"><?php echo $labels['delete']; ?></button></a>
-        <?php endif; ?>
-      </div>
-    </div>
     <div class="col-sm-9">
       <header class="entry-header">
         <!-- Related topics -->
