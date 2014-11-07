@@ -224,12 +224,14 @@
 			{{/selectors}}
 		  </select>
 		  <a href="/book/countries" class="more-info">{{#labels}}{{more_about_areas_and_countries}}{{/labels}}</a>
-		  <button class="btn data-button" disabled="disabled">
-			{{#labels}}{{consult_library}}{{/labels}}
-			<br />
-			<span class="country-name">{{#info}}{{name}}{{/info}}</span>
-			<br />({{#labels}}{{coming_soon}}{{/labels}})
-		  </button>
+			<a href="http://legacy.landportal.info/area/{{#info}}{{name}}{{/info}}" target="_blank">
+		  <button class="btn data-button-dark">
+                        {{#labels}}{{consult_library}}{{/labels}}
+			<!--br />
+			<span class="country-name">{{#info}}{{name}}{{/info}}</span-->
+			  <br/><i>({{#labels}}{{new_coming_soon}}{{/labels}})</i>
+
+		  </button></a>
 		  <a href="/search/site/{{#info}}{{name}}{{/info}}">
 				<button class="btn data-button-dark">{{#labels}}{{debate_with_others}}{{/labels}}</button>
 			</a>
