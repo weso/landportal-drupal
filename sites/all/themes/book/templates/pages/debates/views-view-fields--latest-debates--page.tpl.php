@@ -46,7 +46,7 @@
             <?php print theme('user_picture', array('account' =>user_load($facilitator_id))); ?>
             <a href="/user/<?php echo $facilitator_id; ?>" class="user">
                 <?php $user_fields = user_load(intval($facilitator_id)); ?>
-                <?php if (isset ($user_fields->field_firstname)): ?>
+                <?php if (isset ($user_fields->field_firstname) && isset ($user_fields->field_firstname['und'])): ?>
                     <?php echo $user_fields->field_firstname['und'][0]['safe_value']; ?>
                     <?php echo ' '; ?>
                     <?php echo $user_fields->field_lastname['und'][0]['safe_value']; ?>
