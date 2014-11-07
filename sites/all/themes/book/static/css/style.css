@@ -2455,6 +2455,13 @@ div.debate-status.closed {
 	margin-bottom: 0.5em;
 }
 
+/* Jules 05/11/2014 */
+.entry-comments .row h4 {
+    border-top: 1px dotted #ccd0d5;
+    padding-top: 20px;
+}
+.entry-comments .row:first-of-type h4 { border-top: 0; padding-top: 0; }
+
 .comment-author, .comment-links {
 	font-size: 0.9em;
 	margin-bottom: 0.5em;
