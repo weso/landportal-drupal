@@ -16,7 +16,16 @@
       <?php echo $labels["on"], " ", date($labels["date_format"], $comment->created); ?>
     </div>
     <!-- Comment body -->
-    <p><?php echo $comment->comment_body["und"]["0"]["value"]; ?></p>
+    <div class="content"<?php print $content_attributes; ?>>
+      <?php
+        // We hide the comments and links now so that we can render them later.
+        hide($content['links']);
+        print render($content);
+
+        //echo $comment->comment_body["und"]["0"]["value"];
+      ?>
+    </div> <!-- /.content -->
+
     <!-- Comment links -->
       <div class="row comment-links">
         <div class="col-sm-12">
