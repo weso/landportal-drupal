@@ -74,10 +74,14 @@
             <?php print theme('user_picture', array('account' =>user_load($uid))); ?>
             <a href="/user/<?php echo $uid; ?>" class="user">
                 <?php $user_fields = user_load(intval($uid)); ?>
-                <?php if (isset ($user_fields->field_firstname)): ?>
-                    <?php echo $user_fields->field_firstname['und'][0]['safe_value']; ?>
+                <?php if (isset ($user_fields->field_firstname) || isset ($user_fields->field_lastname)): ?>
+                        <?php if (isset ($user_fields->field_firstname['und'])): ?>
+                            <?php echo $user_fields->field_firstname['und'][0]['safe_value']; ?>
+                        <?php endif; ?>
                     <?php echo ' '; ?>
-                    <?php echo $user_fields->field_lastname['und'][0]['safe_value']; ?>
+                        <?php if (isset ($user_fields->field_lastname['und'])): ?>
+                            <?php echo $user_fields->field_lastname['und'][0]['safe_value']; ?>
+                        <?php endif; ?>
                 <?php else: ?>
                     <?php echo $user_fields->name; ?>
                 <?php endif; ?>
@@ -150,11 +154,12 @@
         </div>
       </div>
     </div>
+    <!-- Twitter timeline -->
     <div class="col-sm-3">
-      <!-- Twitter timeline -->
-      <a class="twitter-timeline" href="https://twitter.com/search?q=%23landportal" data-widget-id="470981258374180864"><?php echo $labels["tweets_related"], " ", "#landportal"; ?></a>
+      <a class="twitter-timeline" href="https://twitter.com/search?q=%23landportal" data-widget-id="515155865456766978" data-chrome="nofooter transparent noscrollbar" data-tweet-limit="5">Landportal on Twitter</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     </div>
+
   </div>
 </div>
 <?php get_template("footer", "debate", $application_data, $theme_path); ?>
