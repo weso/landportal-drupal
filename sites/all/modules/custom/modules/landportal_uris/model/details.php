@@ -61,7 +61,7 @@ class Details {
         "id" => $data[$i]["ind_id"],
         "last_update" => $data[$i]["ind_last_update"],
         "name" => utf8_encode($data[$i]["ind_name"]),
-        "description" => utf8_encode($data[$i]["indicator_description"]),
+        "description" => (isset($data[$i]["indicator_description"]) ? utf8_encode($data[$i]["indicator_description"]) : ''),
         "value" => number_format((float)$data[$i]["value"], 2, '.', ''),
         "ref_time_value" => $data[$i]["ref_time_value"],
         "source" => $data[$i]["organization_name"],
