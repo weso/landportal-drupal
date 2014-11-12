@@ -44,7 +44,7 @@ class CkanClient
 	 * @var		string
 	 * @since	Version 0.1.0
 	 */
-	private $base_url = 'http://5.9.221.11/data/api/%d/';
+        private $base_url = '/data/api/%d/';
 
 	/**
 	 * Internal cURL object.
@@ -198,6 +198,9 @@ class CkanClient
 	 */
 	private function set_base_url()
 	{
+          if ( substr($this->base_url, 0, 4) !== "http" ) {
+            $this->base_url = 'http'.(isset($_SERVER['HTTPS']) ? 's' : '').'://'.$_SERVER['SERVER_NAME'].$this->base_url;
+          }
 		// Append the CKAN API version to the base URI.
 		$this->base_url = sprintf($this->base_url, $this->api_version);
 	}
