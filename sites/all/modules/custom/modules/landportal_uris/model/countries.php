@@ -36,7 +36,7 @@ class Countries {
 				$regions[$region_id] = array(
 					"id" => $data[$i]["region_id"],
 					"name" => utf8_encode($data[$i]["region_name"]),
-					"un_code" => $dta[$i]["un_code"],
+					"un_code" => $data[$i]["un_code"],
 					"countries" => array()
 				);
 			}
